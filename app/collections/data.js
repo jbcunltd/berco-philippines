@@ -26,6 +26,7 @@ export const CATS = {
       { src: 'warm-walnut-kitchen-cabinetry-philippines.jpg', alt: 'Warm walnut and taupe kitchen cabinetry with open shelving — Berco design reference', cap: 'Walnut & taupe' },
       { src: 'green-wood-kitchen-cabinets-philippines.jpg', alt: 'Green and wood-grain kitchen cabinets with a dark island — Berco design reference', cap: 'Colour & wood' },
       { src: 'bright-modern-kitchen-philippines.jpg', alt: 'Bright modern kitchen with island seating and dining — Berco design reference', cap: 'Bright & modern' },
+      { src: 'kitchen-workstation-sink-marble-island-philippines.jpg', alt: 'Multifunction workstation sink with walnut board and colander set into a marble island — Berco design reference', cap: 'The workstation sink' },
       { src: 'custom-kitchen-cabinets-philippines.jpg', alt: 'Custom kitchen cabinets with a walnut island in a Philippine home — Berco design reference', cap: 'Everyday kitchen' },
     ],
   },
