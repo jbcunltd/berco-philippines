@@ -137,3 +137,30 @@
   section.feature{padding:0}
   .cap.capTop{position:absolute;top:16px;bottom:auto;right:18px}
   h2.mt12{margin-top:12px}
+
+  /* ---- real photography (SEO <img> tags) + legible overlays ---- */
+  .cover-img,.feature-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0}
+  .coverimg .scrim,.feature .scrim{position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(to top, rgba(30,22,14,.62) 0%, rgba(30,22,14,.18) 40%, rgba(30,22,14,0) 66%)}
+  .coverimg .type,.coverimg .cap,.feature .type,.feature .cap{z-index:2}
+  /* hero text over photo */
+  .cover .type .eyebrow{color:#EAD3A0}
+  .cover h1{color:#FDFBF7}
+  .cover .lead{font-size:clamp(13px,1.6vw,16px); line-height:1.5; color:rgba(253,251,247,.92); max-width:42ch; margin:14px 0 0}
+  .cover .cap{color:rgba(253,251,247,.82)}
+  .cover .acts{margin-top:22px}
+  .cover .acts .btn{background:#FDFBF7; color:#2B2620}
+  .cover .acts .link{color:#FDFBF7; border-bottom-color:#EAD3A0}
+  /* feature text over photo */
+  .feature h2{color:#FDFBF7}
+  .feature p{color:rgba(253,251,247,.9)}
+  .feature .cap{color:rgba(253,251,247,.82)}
+  /* collection tiles with photos */
+  .tile img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0}
+  .tile::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(to top, rgba(30,22,14,.58) 0%, rgba(30,22,14,.08) 46%, rgba(30,22,14,0) 72%)}
+  .tile .lbl{z-index:2}
+  .tile .lbl .cn{color:#FDFBF7}
+  .tile .lbl .go{color:#EAD3A0}
+  /* collections intro text */
+  .lead-txt{max-width:62ch; color:var(--ink-soft); font-size:15px; margin:0 0 26px}
