@@ -82,6 +82,11 @@ export default function Page() {
       <div className="mat"><h3>Kesseböhmer &amp; Peka storage</h3><p>European pull-out and fitted-storage systems — larders, corners and drawer inserts — fitted where the layout calls for them.</p></div>
       <div className="mat"><h3>German machinery</h3><p>Manufactured on German board presses and edge-banding lines, built for consistency across every run — then finished and fitted by people.</p></div>
     </div>
+    <div className="matimgs stag">
+      <figure className="mimg"><img src="/img/materials-finishes-flatlay-philippines.jpg" alt="Berco material and finish samples — oak, lacquer, quartz and hardware, design reference" loading="lazy" /></figure>
+      <figure className="mimg"><img src="/img/materials-neutral-palette-philippines.jpg" alt="Warm neutral material palette — boards, stone and textiles, Berco design reference" loading="lazy" /></figure>
+      <figure className="mimg"><img src="/img/materials-moodboard-interior-philippines.jpg" alt="Material moodboard with interior finishes — Berco design reference" loading="lazy" /></figure>
+    </div>
     <p className="note reveal">Manufactured using shared European production technology — stated as provenance, not as our own factory.</p>
   </div></section>
 
