@@ -293,3 +293,13 @@
   .otile .go{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--champ-ink);
     transition:transform .4s var(--ease) }
   .otile:hover .go{ transform:translateX(4px) }
+
+  /* short viewports (landscape phones / short windows): scale hero type to fit, never clip */
+  @media (max-height:620px){
+    .coverimg, .cathead .coverimg{ height:clamp(360px, 96vh, 620px) }
+    .coverimg .type .eyebrow{ display:none }
+    .cover h1{ font-size:clamp(28px,6.2vh,48px); line-height:1.03 }
+    .cover .lead{ font-size:12.5px; line-height:1.45; max-width:40ch; margin-top:10px }
+    .cover .acts{ margin-top:16px }
+    .coverimg .type{ bottom:20px }
+  }
