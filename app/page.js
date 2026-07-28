@@ -63,11 +63,12 @@ export default function Page() {
 
   <section id="process" className="band"><div className="shell">
     <div className="sh reveal"><h2>How we design &amp; build your cabinetry.</h2><span className="eyebrow">How we work</span></div>
+    <p className="lead-txt reveal">Trust usually comes from a portfolio. Ours comes from process — you see exactly how it&rsquo;s made, and hear the truth about your space, before anything is built. The method is the proof.</p>
     <div className="steps stag">
-      <div className="step"><div className="n">01</div><h3>Discover</h3><p>Site visit. We listen first.</p></div>
-      <div className="step"><div className="n">02</div><h3>Design</h3><p>Drawings, then materials on the table.</p></div>
-      <div className="step"><div className="n">03</div><h3>Build</h3><p>European machinery. One team.</p></div>
-      <div className="step"><div className="n">04</div><h3>Install</h3><p>Aligned, checked, cleaned, handed over.</p></div>
+      <div className="step"><div className="n">01</div><h3>Discover</h3><p>We visit, measure the room, and listen to how you actually live in it — before a single drawing.</p></div>
+      <div className="step"><div className="n">02</div><h3>Design</h3><p>You see the layout, the real materials and hardware, and what each choice means — before you commit to anything.</p></div>
+      <div className="step"><div className="n">03</div><h3>Build</h3><p>Cut and finished on shared European production lines, then fitted by one team on site.</p></div>
+      <div className="step"><div className="n">04</div><h3>Install</h3><p>Levelled, aligned, hardware calibrated, site cleaned — and checked against our turnover standard.</p></div>
     </div>
   </div></section>
 
