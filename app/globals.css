@@ -261,6 +261,9 @@
      Collection (category) inner pages
      ============================================================ */
   .cathead .coverimg{ height:clamp(520px,72vh,600px) }
+  /* category headlines are sentences, not the short brand line — smaller, wider wrap so they never overflow */
+  .cathead .coverimg h1{ font-size:clamp(30px,4.2vw,54px); line-height:1.07 }
+  .cathead .coverimg .type{ max-width:22ch }
   .crumb{ text-decoration:none; border-bottom:1px solid var(--hair) }
   .crumb:hover{ color:var(--ink) }
   .catbody{ padding:4px 0 }
