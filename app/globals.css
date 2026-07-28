@@ -190,7 +190,8 @@
   /* — restraint: a touch more air in the key moments — */
   .mani{ padding:clamp(64px,11vh,124px) 0 }
   .final{ padding:clamp(72px,12vh,140px) 0 }
-  .coverimg .type{ max-width:17ch }
+  /* px max-width (not ch — ch is computed at the 16px container font, which was collapsing the column) */
+  .coverimg .type{ max-width:min(88%, 640px) }
 
   /* — nav: settle + shrink on scroll — */
   nav{ transition:background .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease) }
@@ -263,7 +264,7 @@
   .cathead .coverimg{ height:clamp(520px,72vh,600px) }
   /* category headlines are sentences, not the short brand line — smaller, wider wrap so they never overflow */
   .cathead .coverimg h1{ font-size:clamp(30px,4.2vw,54px); line-height:1.07 }
-  .cathead .coverimg .type{ max-width:22ch }
+  .cathead .coverimg .type{ max-width:min(90%, 560px) }
   .crumb{ text-decoration:none; border-bottom:1px solid var(--hair) }
   .crumb:hover{ color:var(--ink) }
   .catbody{ padding:4px 0 }
