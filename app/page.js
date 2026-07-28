@@ -6,7 +6,7 @@ export default function Page() {
     <a className="logo" href="#top">Berco</a>
     <div className="navlinks">
       <a href="#collections">Collections</a>
-      <a href="#process">Process</a>
+      <a href="/how-we-work">Process</a>
       <a href="#precision">Materials</a>
       <a href="#about">About</a>
       <a className="navlink-cta" href="#book">Book a consultation</a>
@@ -70,6 +70,7 @@ export default function Page() {
       <div className="step"><div className="n">03</div><h3>Build</h3><p>Cut and finished on shared European production lines, then fitted by one team on site.</p></div>
       <div className="step"><div className="n">04</div><h3>Install</h3><p>Levelled, aligned, hardware calibrated, site cleaned — and checked against our turnover standard.</p></div>
     </div>
+    <div className="acts reveal"><a className="link" href="/how-we-work">See the full process →</a></div>
   </div></section>
 
   <section id="precision" className="prec band"><div className="shell">
@@ -147,7 +148,7 @@ export default function Page() {
       </div>
       <div className="footcol">
         <h4>Studio</h4>
-        <a href="#process">How we work</a><a href="#precision">Materials</a>
+        <a href="/how-we-work">How we work</a><a href="#precision">Materials</a>
         <a href="#about">About</a><a href="#book">Book a consultation</a>
       </div>
     </div>

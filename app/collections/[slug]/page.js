@@ -49,7 +49,7 @@ export default function Collection({ params }) {
         <a className="logo" href="/">Berco</a>
         <div className="navlinks">
           <a href="/#collections">Collections</a>
-          <a href="/#process">Process</a>
+          <a href="/how-we-work">Process</a>
           <a href="/#precision">Materials</a>
           <a href="/#about">About</a>
           <a className="navlink-cta" href="#book">Book a consultation</a>
@@ -137,7 +137,7 @@ export default function Collection({ params }) {
           </div>
           <div className="footcol">
             <h4>Studio</h4>
-            <a href="/#process">How we work</a><a href="/#precision">Materials</a>
+            <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
             <a href="/#about">About</a><a href="/#book">Book a consultation</a>
           </div>
         </div>
