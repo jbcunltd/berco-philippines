@@ -113,6 +113,8 @@ export const CATS = {
     images: [
       { src: 'bathroom-vanity-marble-storage-philippines.jpg', alt: 'Bathroom vanity with marble surfaces and fitted storage in a wet room — Berco design reference', cap: 'Vanity · design reference' },
       { src: 'bathroom-vanity-cabinetry-philippines.jpg', alt: 'Bathroom vanity with marble surfaces and moisture-considered fitted storage — Berco design reference', cap: 'Considered for moisture', wide: true },
+      { src: 'bathroom-cream-vanity-shower-philippines.jpg', alt: 'Cream bathroom vanity with mirror cabinet and a glass corner shower — Berco design reference', cap: 'Vanity & shower' },
+      { src: 'bathroom-marble-vanity-pendant-philippines.jpg', alt: 'Floating bathroom vanity with a marble basin and feature wall — Berco design reference', cap: 'Marble & bronze' },
     ],
   },
   dining: {
