@@ -46,7 +46,7 @@ export default function HowWeWork() {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
-      <section className="band pgintro"><div className="shell reveal">
+      <section className="band pgintro"><div className="shell">
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · How we work</span><span>Philippines</span></div>
         <span className="eyebrow">How we work</span>
         <h1>The process is the proof.</h1>
