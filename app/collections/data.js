@@ -23,6 +23,9 @@ export const CATS = {
     images: [
       { src: 'kitchen-island-marble-walnut-philippines.jpg', alt: 'Custom kitchen with a marble-topped island and warm walnut cabinetry — Berco design reference', cap: 'Island kitchen · design reference' },
       { src: 'warm-oak-quartz-kitchen-garden-philippines.jpg', alt: 'Warm oak and cream shaker kitchen with a quartz island and an arched opening to the garden — Berco design reference', cap: 'Oak, quartz & garden', wide: true },
+      { src: 'white-wood-two-tone-kitchen-philippines.jpg', alt: 'Two-tone kitchen in white and warm wood with a wood-grain backsplash shelf and glass-front upper cabinets — Berco design reference', cap: 'White & wood, two-tone' },
+      { src: 'warm-neutral-island-kitchen-philippines.jpg', alt: 'Warm neutral kitchen with a quartz island, breakfast stools and wood-lined display niches — Berco design reference', cap: 'Warm & considered', wide: true },
+      { src: 'fluted-wood-island-kitchen-philippines.jpg', alt: 'Kitchen with a fluted wood island, sage tall units and a glass-front display cabinet — Berco design reference', cap: 'Fluted wood island' },
       { src: 'open-plan-kitchen-dining-philippines.jpg', alt: 'Open-plan kitchen and dining with warm cabinetry and a central island — Berco design reference', cap: 'Open-plan kitchen', wide: true },
       { src: 'warm-walnut-kitchen-cabinetry-philippines.jpg', alt: 'Warm walnut and taupe kitchen cabinetry with open shelving — Berco design reference', cap: 'Walnut & taupe' },
       { src: 'green-wood-kitchen-cabinets-philippines.jpg', alt: 'Green and wood-grain kitchen cabinets with a dark island — Berco design reference', cap: 'Colour & wood' },
