@@ -48,7 +48,7 @@
   .cover{padding-top:14px}
   .masthead{display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--hair)}
   .masthead span{font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint)}
-  .coverimg{position:relative; height:min(80vh,680px); border-radius:5px; overflow:hidden; margin-top:14px}
+  .coverimg{position:relative; height:clamp(560px,80vh,680px); border-radius:5px; overflow:hidden; margin-top:14px}
   .coverimg .type{position:absolute; left:clamp(20px,4vw,52px); bottom:clamp(24px,5vw,54px); max-width:16ch}
   .coverimg .eyebrow{margin-bottom:16px}
   .coverimg h1{font-size:clamp(46px,9vw,112px); line-height:.92}
@@ -260,7 +260,7 @@
   /* ============================================================
      Collection (category) inner pages
      ============================================================ */
-  .cathead .coverimg{ height:min(72vh,600px) }
+  .cathead .coverimg{ height:clamp(520px,72vh,600px) }
   .crumb{ text-decoration:none; border-bottom:1px solid var(--hair) }
   .crumb:hover{ color:var(--ink) }
   .catbody{ padding:4px 0 }
