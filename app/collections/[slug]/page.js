@@ -52,8 +52,10 @@ export default function Collection({ params }) {
           <a href="/#process">Process</a>
           <a href="/#precision">Materials</a>
           <a href="/#about">About</a>
+          <a className="navlink-cta" href="#book">Book a consultation</a>
         </div>
-        <a className="navcta" href="/#book">Book a consultation</a>
+        <a className="navcta" href="#book">Book a consultation</a>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
       <header className="cover cathead"><div className="shell">
