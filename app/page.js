@@ -39,7 +39,7 @@ export default function Page() {
   <section id="collections" className="band"><div className="shell">
     <div className="sh reveal"><h2>Custom cabinetry, by space.</h2><span className="eyebrow">What we make</span></div>
     <p className="lead-txt reveal">Berco designs custom kitchens, wardrobes, bathroom vanities, living-room and dining cabinetry, and built-in storage for homes across the Philippines.</p>
-    <div className="mag reveal">
+    <div className="mag stag">
       <a className="tile t-k" href="#book"><img src="/img/custom-kitchen-cabinets-philippines.jpg" alt="Custom kitchen cabinets with a walnut island in a Philippine home — Berco design reference" loading="lazy" /><div className="lbl"><span className="cn">Kitchens</span><span className="cd">Islands, sculleries &amp; everyday kitchens</span><span className="go">Explore →</span></div></a>
       <a className="tile t-w" href="#book"><img src="/img/walk-in-wardrobe-philippines.jpg" alt="Walk-in wardrobe with fitted storage and a dressing island — Berco Philippines design reference" loading="lazy" /><div className="lbl"><span className="cn">Wardrobes</span><span className="cd">Walk-in &amp; fitted, tailored to how you dress</span><span className="go">Explore →</span></div></a>
       <a className="tile t-l" href="#book"><img src="/img/living-room-media-cabinetry-philippines.jpg" alt="Living-room media wall cabinetry with fireplace — Berco Philippines design reference" loading="lazy" /><div className="lbl"><span className="cn">Living &amp; Media</span><span className="cd">Media walls, display &amp; storage</span><span className="go">Explore →</span></div></a>
@@ -61,7 +61,7 @@ export default function Page() {
 
   <section id="process" className="band"><div className="shell">
     <div className="sh reveal"><h2>How we design &amp; build your cabinetry.</h2><span className="eyebrow">How we work</span></div>
-    <div className="steps reveal">
+    <div className="steps stag">
       <div className="step"><div className="n">01</div><h3>Discover</h3><p>Site visit. We listen first.</p></div>
       <div className="step"><div className="n">02</div><h3>Design</h3><p>Drawings, then materials on the table.</p></div>
       <div className="step"><div className="n">03</div><h3>Build</h3><p>European machinery. One team.</p></div>
@@ -72,7 +72,7 @@ export default function Page() {
   <section id="precision" className="prec band"><div className="shell">
     <div className="sh reveal"><h2>How your cabinetry is built.</h2><span className="eyebrow">Materials &amp; craft</span></div>
     <p className="lead-txt reveal">Every Berco cabinet is specified to materials and hardware we can name — not vague promises. Here is what goes into it.</p>
-    <div className="matgrid reveal">
+    <div className="matgrid stag">
       <div className="mat"><h3>E1 low-emission board</h3><p>Cold-pressed carcase panels held to the E1 formaldehyde grade (1.5&nbsp;mg/L) — a low-emission European standard, with a 7-layer plywood option for higher loading.</p></div>
       <div className="mat"><h3>Quartz worktops</h3><p>Non-porous quartz surfaces — scratch-, stain- and heat-resistant, and simple to keep. Wine, oil and vinegar wipe clean.</p></div>
       <div className="mat"><h3>Lacquer &amp; melamine finishes</h3><p>Eco-friendly lacquer in matte or high-gloss, and fine-texture melamine — edges sealed with PUR and laser edge-banding for daily wear.</p></div>
@@ -85,7 +85,7 @@ export default function Page() {
 
   <section id="planning" className="band"><div className="shell">
     <div className="sh reveal"><h2>Planning a cabinetry project?</h2><span className="eyebrow">Good to know</span></div>
-    <div className="know reveal">
+    <div className="know stag">
       <div className="k"><h3>It starts before production</h3><p>A kitchen or wardrobe depends on layout, storage zones, appliance placement, counter flow, lighting and hardware — decided together before anything is built.</p></div>
       <div className="k"><h3>Measurement matters</h3><p>Renders aren't enough. A proper site measurement is what makes a custom fit actually fit — around bulkheads, uneven walls and real ceiling heights.</p></div>
       <div className="k"><h3>Custom takes time</h3><p>Design development, approvals, production and installation each take real time. We'll tell you what's realistic up front, not after you've committed.</p></div>
@@ -95,7 +95,7 @@ export default function Page() {
 
   <section id="standard" className="band"><div className="shell">
     <div className="sh reveal"><h2>Checked before turnover.</h2><span className="eyebrow">The Berco standard</span></div>
-    <div className="chips reveal">
+    <div className="chips stag">
       <span className="chip">Leveling</span><span className="chip">Alignment</span><span className="chip">Reveal consistency</span>
       <span className="chip">Hardware calibration</span><span className="chip">Cleanliness</span><span className="chip">Final check</span>
     </div>

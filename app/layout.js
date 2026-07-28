@@ -21,7 +21,14 @@ export const metadata = {
   },
   twitter: { card: 'summary_large_image', title: 'Custom Cabinetry & Interiors in the Philippines | Berco', description: 'Custom kitchens, wardrobes & interiors for Philippine homes. We guide before we sell.', images: [HERO] },
   robots: { index: true, follow: true },
-  icons: { icon: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23FDFBF7%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-family=%27Georgia,serif%27 font-size=%2722%27 text-anchor=%27middle%27 fill=%27%232B2620%27%3EB%3C/text%3E%3C/svg%3E' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-48.png', type: 'image/png', sizes: '48x48' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
 }
 
 const schema = {
@@ -45,7 +52,7 @@ const schema = {
   ],
 }
 
-const reveal = "(function(){var r=window.matchMedia('(prefers-reduced-motion:reduce)').matches;if(r){document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});})();"
+const reveal = "(function(){var R=window.matchMedia('(prefers-reduced-motion:reduce)').matches;var nav=document.querySelector('nav');function ns(){if(nav){if(window.scrollY>12){nav.classList.add('shrunk')}else{nav.classList.remove('shrunk')}}}ns();window.addEventListener('scroll',ns,{passive:true});var els=document.querySelectorAll('.reveal,.stag');if(R){els.forEach(function(e){e.classList.add('in')});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14,rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)});var pars=[].slice.call(document.querySelectorAll('.cover-img,.feature-img'));var vh=window.innerHeight,tick=false;function par(){tick=false;pars.forEach(function(el){var host=el.parentElement,r=host.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;var prog=(r.top+r.height)/(vh+r.height);var shift=(prog-0.5)*2*(0.05*r.height);el.style.transform='translate3d(0,'+shift.toFixed(1)+'px,0)';});}function onScroll(){if(!tick){tick=true;requestAnimationFrame(par);}}window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',function(){vh=window.innerHeight;par();},{passive:true});par();})();"
 
 export default function RootLayout({ children }) {
   return (

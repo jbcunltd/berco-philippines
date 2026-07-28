@@ -178,3 +178,81 @@
   .k{background:var(--ground); padding:26px 24px}
   .k h3{font-size:17px; margin:0 0 8px}
   .k p{font-size:14px; color:var(--ink-soft); margin:0; line-height:1.55}
+
+  /* ============================================================
+     EURO GLOBAL luxury pass — motion, restraint, micro-details
+     Benchmark: Boffi · Poliform · Molteni · SieMatic.
+     Subtle only; everything degrades under prefers-reduced-motion.
+     ============================================================ */
+  :root{ --ease:cubic-bezier(.2,.7,.2,1) }
+  html{ scroll-behavior:smooth; scroll-padding-top:84px }
+
+  /* — restraint: a touch more air in the key moments — */
+  .mani{ padding:clamp(64px,11vh,124px) 0 }
+  .final{ padding:clamp(72px,12vh,140px) 0 }
+  .coverimg .type{ max-width:17ch }
+
+  /* — nav: settle + shrink on scroll — */
+  nav{ transition:background .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease) }
+  .navin{ transition:height .45s var(--ease) }
+  nav.shrunk{ background:color-mix(in srgb,var(--ground) 96%,transparent);
+    box-shadow:0 1px 0 var(--hair), 0 12px 34px -26px rgba(43,38,32,.55); border-bottom-color:transparent }
+  nav.shrunk .navin{ height:54px }
+  .logo{ transition:opacity .3s var(--ease) }
+  .logo:hover{ opacity:.72 }
+
+  /* — nav links: sliding champagne underline — */
+  .navlinks a{ position:relative; transition:color .3s var(--ease) }
+  .navlinks a::after{ content:""; position:absolute; left:0; right:0; bottom:-5px; height:1px;
+    background:var(--champ); transform:scaleX(0); transform-origin:left; transition:transform .4s var(--ease) }
+  .navlinks a:hover::after{ transform:scaleX(1) }
+  .navcta{ transition:background .3s var(--ease), color .3s var(--ease), transform .3s var(--ease) }
+  .navcta:hover{ transform:translateY(-1px) }
+
+  /* — buttons + text links — */
+  .btn{ transition:opacity .3s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease) }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 14px 30px -16px rgba(43,38,32,.55) }
+  .link{ transition:border-color .3s var(--ease), letter-spacing .3s var(--ease) }
+  .link:hover{ letter-spacing:.12em; border-bottom-color:var(--ink) }
+
+  /* — collection tiles: cinematic image drift + arrow nudge — */
+  .tile{ transition:transform .5s var(--ease), box-shadow .5s var(--ease) }
+  .tile img{ transition:transform .9s var(--ease) }
+  .tile:hover img{ transform:scale(1.055) }
+  .tile:hover{ box-shadow:0 30px 60px -34px rgba(43,38,32,.5) }
+  .tile .lbl .go{ display:inline-block; transition:transform .4s var(--ease) }
+  .tile:hover .lbl .go{ transform:translateX(5px) }
+
+  /* — quiet hover on info cells + chips + steps — */
+  .mat,.k{ transition:background .35s var(--ease) }
+  .mat:hover{ background:color-mix(in srgb,var(--panel) 80%,#fff) }
+  .k:hover{ background:var(--panel) }
+  .chip{ transition:background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease) }
+  .chip:hover{ background:#fff; border-color:var(--champ); transform:translateY(-1px) }
+  .step{ transition:background .35s var(--ease) }
+  .step:hover{ background:color-mix(in srgb,var(--panel) 55%,transparent) }
+  .foot-contact a,.footcol a{ transition:color .3s var(--ease), border-color .3s var(--ease) }
+
+  /* — parallax layers: hero + feature drift under the scroll — */
+  .coverimg .cover-img, .feature .feature-img{ height:112%; top:-6%; bottom:auto; will-change:transform }
+
+  /* — staggered reveals for grids — */
+  .stag{ opacity:1; transform:none }
+  .stag > *{ opacity:0; transform:translateY(16px);
+    transition:opacity .7s var(--ease), transform .7s var(--ease) }
+  .stag.in > *{ opacity:1; transform:none }
+  .stag.in > *:nth-child(1){ transition-delay:.04s }
+  .stag.in > *:nth-child(2){ transition-delay:.10s }
+  .stag.in > *:nth-child(3){ transition-delay:.16s }
+  .stag.in > *:nth-child(4){ transition-delay:.22s }
+  .stag.in > *:nth-child(5){ transition-delay:.28s }
+  .stag.in > *:nth-child(6){ transition-delay:.34s }
+  .stag.in > *:nth-child(7){ transition-delay:.40s }
+  .stag.in > *:nth-child(n+8){ transition-delay:.46s }
+
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto }
+    .coverimg .cover-img, .feature .feature-img{ height:100%; top:0; transform:none !important }
+    .stag > *{ opacity:1 !important; transform:none !important; transition:none }
+    .tile:hover img{ transform:none }
+  }
