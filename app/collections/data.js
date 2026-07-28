@@ -3,7 +3,7 @@
 // Confirmed catalogue facts only (quartz, E1 board, sealed edges, soft-close). Kill-list clean.
 // Image arrays are populated from the anti-slop-gated catalogue-render library.
 
-export const ORDER = ['kitchens', 'wardrobes', 'living', 'bedrooms', 'bathrooms', 'dining']
+export const ORDER = ['kitchens', 'wardrobes', 'living', 'bedrooms', 'bathrooms', 'dining', 'interior-systems']
 
 export const CATS = {
   kitchens: {
@@ -149,6 +149,27 @@ export const CATS = {
       { src: 'dining-bar-drinks-cabinet-philippines.jpg', alt: 'Dining area with a walnut bar and drinks cabinet beside a marble display — Berco design reference', cap: 'Bar & drinks' },
       { src: 'dining-wine-display-wall-philippines.jpg', alt: 'Dining room with an illuminated built-in wine-display wall — Berco design reference', cap: 'Display & wine' },
       { src: 'dining-room-cabinetry-philippines.jpg', alt: 'Dining room with display and wine-storage cabinetry — Berco design reference', cap: 'For hosting' },
+    ],
+  },
+  'interior-systems': {
+    name: 'Interior Systems',
+    hero: 'What makes a kitchen actually work.',
+    lead: 'The fittings inside the cabinetry — pull-outs, organisers and the workstation sink — that make everyday storage effortless.',
+    body: 'Good cabinetry is decided by what goes inside it. We plan pull-outs, dish and cutlery inserts, spice tiers and corner access around how you actually cook and store — with soft-close and push-to-open mechanisms and hardware we can name, from Kesseböhmer and Peka. The flagship is a multifunction workstation sink that doubles as a second prep zone. Fitted to the cabinet, not added on.',
+    types: [
+      { name: 'Pull-outs & organisers', line: 'Dish, cutlery, spice and corner storage, fitted to the drawer.' },
+      { name: 'The workstation sink', line: 'A multifunction sink that works as a second prep zone.' },
+      { name: 'Hardware & mechanisms', line: 'Soft-close and push-to-open, in hardware we can name.' },
+    ],
+    features: ['Soft-close & push-to-open', 'Named premium hardware', 'Corner & tall-unit access', 'Fitted, not added on'],
+    seoTitle: 'Kitchen Interior Systems & Storage Fittings, Philippines | Berco',
+    seoDesc: 'Pull-out organisers, dish and cutlery storage, corner access and the workstation sink — the fittings that make Berco cabinetry work. Design references, Philippines.',
+    keywords: ['kitchen storage systems Philippines', 'pull-out organiser Philippines', 'workstation sink Philippines', 'cabinet accessories Manila', 'Berco interior systems'],
+    images: [
+      { src: 'kitchen-workstation-sink-marble-island-philippines.jpg', alt: 'Multifunction workstation sink with a walnut board and colander set into a marble island — Berco design reference', cap: 'The workstation sink · design reference', wide: true },
+      { src: 'interior-systems-dish-cutlery-pullout-philippines.jpg', alt: 'Pull-out drawers with a fitted dish rack, cutlery-tray inserts and cup and jar organisers — Berco design reference', cap: 'Dish & cutlery pull-outs' },
+      { src: 'interior-systems-jar-organiser-pullout-philippines.jpg', alt: 'Pull-out storage with a tiered spice and jar organiser and a plate rack — Berco design reference', cap: 'Spice & jar organiser' },
+      { src: 'interior-systems-terracotta-pullout-storage-philippines.jpg', alt: 'Warm terracotta pull-out drawers with a fitted dish rack and cup holders — Berco design reference', cap: 'Fitted, front to back' },
     ],
   },
 }
