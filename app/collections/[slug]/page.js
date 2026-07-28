@@ -83,6 +83,17 @@ export default function Collection({ params }) {
         <p className="refnote">Every image here is a design reference — a starting point for your space, not a completed Berco project.</p>
       </div></section>
 
+      {c.types && (
+        <section className="band"><div className="shell">
+          <div className="sh reveal"><h2>The range.</h2><span className="eyebrow">{c.name}</span></div>
+          <div className="typegrid stag">
+            {c.types.map((t, i) => (
+              <div className="typecard" key={i}><h3>{t.name}</h3><p>{t.line}</p></div>
+            ))}
+          </div>
+        </div></section>
+      )}
+
       {rest.length > 0 && (
         <section className="band"><div className="shell">
           <div className="sh reveal"><h2>{c.name}, in reference.</h2><span className="eyebrow">Design references</span></div>
@@ -93,6 +104,15 @@ export default function Collection({ params }) {
                 <figcaption className="cap">{im.cap}</figcaption>
               </figure>
             ))}
+          </div>
+        </div></section>
+      )}
+
+      {c.features && (
+        <section className="band"><div className="shell">
+          <div className="sh reveal"><h2>Built in as standard.</h2><span className="eyebrow">Features</span></div>
+          <div className="chips reveal">
+            {c.features.map((f, i) => <span className="chip" key={i}>{f}</span>)}
           </div>
         </div></section>
       )}
