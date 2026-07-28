@@ -50,6 +50,7 @@ export const CATS = {
     keywords: ['walk-in wardrobe Philippines', 'fitted wardrobe Philippines', 'custom closet Manila', 'bedroom wardrobe Philippines', 'Berco wardrobes'],
     images: [
       { src: 'walk-in-wardrobe-fitted-storage-philippines.jpg', alt: 'Walk-in wardrobe with fitted hanging, drawers and shelving — Berco design reference', cap: 'Walk-in wardrobe · design reference' },
+      { src: 'walk-in-wardrobe-island-dresser-philippines.jpg', alt: 'Walk-in wardrobe with a central dresser island, glass-front cabinets and a display feature panel — Berco design reference', cap: 'Walk-in with dresser island', wide: true },
       { src: 'walk-in-wardrobe-island-philippines.jpg', alt: 'Walk-in wardrobe with a dressing island and glass-front storage — Berco design reference', cap: 'Dressing island', wide: true },
       { src: 'dressing-room-wardrobe-philippines.jpg', alt: 'Warm dressing room with fitted wardrobe and a full-height mirror — Berco design reference', cap: 'Dressing room' },
       { src: 'greige-walk-in-wardrobe-philippines.jpg', alt: 'Greige walk-in wardrobe with open shelving and drawers — Berco design reference', cap: 'Fitted, front to back' },
@@ -98,6 +99,8 @@ export const CATS = {
     keywords: ['fitted bedroom storage Philippines', 'bedroom cabinetry Manila', 'headboard wall Philippines', 'built-in wardrobe bedroom Philippines', 'Berco bedrooms'],
     images: [
       { src: 'fitted-bedroom-storage-philippines.jpg', alt: 'Bedroom with full-height fitted storage integrated into the wall — Berco design reference', cap: 'Fitted bedroom · design reference' },
+      { src: 'bedroom-fitted-wardrobe-wood-philippines.jpg', alt: 'Bedroom with a white and warm-wood fitted wardrobe wall, dressing station and marble feature — Berco design reference', cap: 'Wood & white bedroom', wide: true },
+      { src: 'warm-bedroom-built-in-wardrobe-philippines.jpg', alt: 'Warm neutral bedroom with a built-in wardrobe wall and integrated bedside storage — Berco design reference', cap: 'Warm & built-in' },
       { src: 'bedroom-cabinetry-wardrobe-philippines.jpg', alt: 'Warm bedroom with open display shelving and fitted storage — Berco design reference', cap: 'Storage as architecture', wide: true },
       { src: 'warm-bedroom-storage-philippines.jpg', alt: 'Warm bedroom with fitted shelving and bedside storage — Berco design reference', cap: 'Bedside & display' },
       { src: 'bedroom-fitted-wardrobe-philippines.jpg', alt: 'Bedroom with a fitted wardrobe wall and window seat — Berco design reference', cap: 'Full-height wardrobe' },
