@@ -282,6 +282,10 @@
     .stag > *{ opacity:1 !important; transform:none !important; transition:none }
     .tile:hover img{ transform:none }
   }
+  /* no-JS fallback: reveal content is JS-gated — keep it visible when scripting is off */
+  @media (scripting:none){
+    .reveal, .stag > *{ opacity:1 !important; transform:none !important }
+  }
 
   /* ============================================================
      Collection (category) inner pages
