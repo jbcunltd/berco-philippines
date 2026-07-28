@@ -22,6 +22,7 @@ export const CATS = {
     keywords: ['custom kitchen cabinets Philippines', 'kitchen island Philippines', 'kitchen cabinetry Manila', 'scullery Philippines', 'Berco kitchens'],
     images: [
       { src: 'kitchen-island-marble-walnut-philippines.jpg', alt: 'Custom kitchen with a marble-topped island and warm walnut cabinetry — Berco design reference', cap: 'Island kitchen · design reference' },
+      { src: 'warm-oak-quartz-kitchen-garden-philippines.jpg', alt: 'Warm oak and cream shaker kitchen with a quartz island and an arched opening to the garden — Berco design reference', cap: 'Oak, quartz & garden', wide: true },
       { src: 'open-plan-kitchen-dining-philippines.jpg', alt: 'Open-plan kitchen and dining with warm cabinetry and a central island — Berco design reference', cap: 'Open-plan kitchen', wide: true },
       { src: 'warm-walnut-kitchen-cabinetry-philippines.jpg', alt: 'Warm walnut and taupe kitchen cabinetry with open shelving — Berco design reference', cap: 'Walnut & taupe' },
       { src: 'green-wood-kitchen-cabinets-philippines.jpg', alt: 'Green and wood-grain kitchen cabinets with a dark island — Berco design reference', cap: 'Colour & wood' },
@@ -134,6 +135,7 @@ export const CATS = {
     keywords: ['dining room cabinetry Philippines', 'sideboard Philippines', 'bar cabinet Manila', 'display cabinet dining Philippines', 'Berco dining'],
     images: [
       { src: 'dining-room-cabinetry-tea-room-philippines.jpg', alt: 'Dining and tea room with warm fitted cabinetry and a garden view — Berco design reference', cap: 'Dining room · design reference' },
+      { src: 'open-plan-dining-kitchen-warm-philippines.jpg', alt: 'Warm open-plan dining and kitchen with wood-lined display niches, a quartz breakfast bar and a garden view — Berco design reference', cap: 'Open to the kitchen', wide: true },
       { src: 'dining-sideboard-display-philippines.jpg', alt: 'Dining area with a sideboard and display cabinetry in green and wood — Berco design reference', cap: 'Sideboard & display', wide: true },
       { src: 'dining-bar-drinks-cabinet-philippines.jpg', alt: 'Dining area with a walnut bar and drinks cabinet beside a marble display — Berco design reference', cap: 'Bar & drinks' },
       { src: 'dining-wine-display-wall-philippines.jpg', alt: 'Dining room with an illuminated built-in wine-display wall — Berco design reference', cap: 'Display & wine' },
