@@ -135,6 +135,8 @@ export const CATS = {
     images: [
       { src: 'dining-room-cabinetry-tea-room-philippines.jpg', alt: 'Dining and tea room with warm fitted cabinetry and a garden view — Berco design reference', cap: 'Dining room · design reference' },
       { src: 'dining-sideboard-display-philippines.jpg', alt: 'Dining area with a sideboard and display cabinetry in green and wood — Berco design reference', cap: 'Sideboard & display', wide: true },
+      { src: 'dining-bar-drinks-cabinet-philippines.jpg', alt: 'Dining area with a walnut bar and drinks cabinet beside a marble display — Berco design reference', cap: 'Bar & drinks' },
+      { src: 'dining-wine-display-wall-philippines.jpg', alt: 'Dining room with an illuminated built-in wine-display wall — Berco design reference', cap: 'Display & wine' },
       { src: 'dining-room-cabinetry-philippines.jpg', alt: 'Dining room with display and wine-storage cabinetry — Berco design reference', cap: 'For hosting' },
     ],
   },
