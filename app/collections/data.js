@@ -70,6 +70,9 @@ export const CATS = {
     keywords: ['media wall cabinetry Philippines', 'living room storage Philippines', 'TV wall cabinet Manila', 'display cabinet Philippines', 'Berco living'],
     images: [
       { src: 'living-room-media-storage-philippines.jpg', alt: 'Living room with a media wall and integrated display storage — Berco design reference', cap: 'Media wall · design reference' },
+      { src: 'walnut-living-room-display-philippines.jpg', alt: 'Warm walnut living room with a reeded-glass display cabinet, bouclé seating and timber lounge chairs — Berco design reference', cap: 'Walnut & warm wood', wide: true },
+      { src: 'living-media-wall-display-cabinetry-philippines.jpg', alt: 'Living-room media wall with lit display niches and a glass-front drinks cabinet in warm brown and brass — Berco design reference', cap: 'Media wall & display' },
+      { src: 'living-media-wall-marble-feature-philippines.jpg', alt: 'Living-room media wall in soft white with wood-lined niches and a marble TV feature — Berco design reference', cap: 'Marble & wood feature' },
       { src: 'open-living-dining-cabinetry-philippines.jpg', alt: 'Open living and dining space with a full media wall and display cabinetry — Berco design reference', cap: 'Open living & dining', wide: true },
       { src: 'living-room-fireplace-cabinetry-philippines.jpg', alt: 'Living room with a fireplace flanked by built-in shelving and cabinetry — Berco design reference', cap: 'Fireplace & shelving' },
       { src: 'green-living-room-cabinetry-philippines.jpg', alt: 'Living room with green display cabinetry and open shelving — Berco design reference', cap: 'Display in colour' },
