@@ -75,6 +75,7 @@ export const CATS = {
     images: [
       { src: 'living-room-media-storage-philippines.jpg', alt: 'Living room with a media wall and integrated display storage — Berco design reference', cap: 'Media wall · design reference' },
       { src: 'walnut-living-room-display-philippines.jpg', alt: 'Warm walnut living room with a reeded-glass display cabinet, bouclé seating and timber lounge chairs — Berco design reference', cap: 'Walnut & warm wood', wide: true },
+      { src: 'living-media-wall-warm-niche-philippines.jpg', alt: 'Warm living room with a full media wall, lit display niche and low storage beneath — Berco design reference', cap: 'Media wall & display niche' },
       { src: 'living-media-wall-display-cabinetry-philippines.jpg', alt: 'Living-room media wall with lit display niches and a glass-front drinks cabinet in warm brown and brass — Berco design reference', cap: 'Media wall & display' },
       { src: 'living-media-wall-marble-feature-philippines.jpg', alt: 'Living-room media wall in soft white with wood-lined niches and a marble TV feature — Berco design reference', cap: 'Marble & wood feature' },
       { src: 'open-living-dining-cabinetry-philippines.jpg', alt: 'Open living and dining space with a full media wall and display cabinetry — Berco design reference', cap: 'Open living & dining', wide: true },
@@ -147,6 +148,8 @@ export const CATS = {
     keywords: ['dining room cabinetry Philippines', 'sideboard Philippines', 'bar cabinet Manila', 'display cabinet dining Philippines', 'Berco dining'],
     images: [
       { src: 'dining-room-cabinetry-tea-room-philippines.jpg', alt: 'Dining and tea room with warm fitted cabinetry and a garden view — Berco design reference', cap: 'Dining room · design reference' },
+      { src: 'dining-display-cabinetry-table-philippines.jpg', alt: 'Dining area with a marble-topped table, upholstered chairs and floor-to-ceiling display and tall cabinetry — Berco design reference', cap: 'Dining & display wall' },
+      { src: 'open-plan-living-dining-warm-philippines.jpg', alt: 'Warm open-plan living and dining with a media wall, an island with bar seating and a kitchen beyond — Berco design reference', cap: 'Open-plan living & dining', wide: true },
       { src: 'open-plan-dining-kitchen-warm-philippines.jpg', alt: 'Warm open-plan dining and kitchen with wood-lined display niches, a quartz breakfast bar and a garden view — Berco design reference', cap: 'Open to the kitchen', wide: true },
       { src: 'dining-sideboard-display-philippines.jpg', alt: 'Dining area with a sideboard and display cabinetry in green and wood — Berco design reference', cap: 'Sideboard & display', wide: true },
       { src: 'dining-bar-drinks-cabinet-philippines.jpg', alt: 'Dining area with a walnut bar and drinks cabinet beside a marble display — Berco design reference', cap: 'Bar & drinks' },
