@@ -408,3 +408,30 @@
     .cover .acts{ margin-top:16px }
     .coverimg .type{ bottom:20px }
   }
+
+  /* ---- Planning carousel (swipeable, image-led) ---- */
+  .pcar{ position:relative; margin-top:4px }
+  .pcar-track{ display:flex; gap:clamp(12px,1.6vw,18px); overflow-x:auto; scroll-snap-type:x mandatory;
+    scroll-behavior:smooth; -webkit-overflow-scrolling:touch; padding:2px 2px 6px; scrollbar-width:none }
+  .pcar-track::-webkit-scrollbar{ display:none }
+  .pslide{ position:relative; flex:0 0 86%; scroll-snap-align:center; border-radius:6px; overflow:hidden;
+    border:1px solid var(--hair); aspect-ratio:4/5; background:var(--beige) }
+  .pslide img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top left; transition:transform .9s var(--ease) }
+  .pslide:hover img{ transform:scale(1.04) }
+  .pslide::after{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(to top, rgba(24,17,10,.84) 3%, rgba(24,17,10,.34) 42%, rgba(24,17,10,0) 70%) }
+  .pslide-txt{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:clamp(20px,3vw,30px) }
+  .pslide-txt .pnum{ font-family:var(--serif); font-size:22px; color:#EAD3A0; display:block; margin-bottom:8px; letter-spacing:.02em }
+  .pslide-txt h3{ color:#FDFBF7; font-family:var(--serif); font-weight:500; font-size:clamp(21px,2.5vw,27px); line-height:1.08; margin:0 0 9px }
+  .pslide-txt p{ color:rgba(253,251,247,.9); font-size:14px; line-height:1.52; margin:0; max-width:42ch }
+  .pcar-nav{ position:absolute; top:44%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%;
+    border:1px solid var(--hair); background:color-mix(in srgb,var(--ground) 86%,transparent); backdrop-filter:blur(6px);
+    cursor:pointer; font-size:24px; line-height:1; color:var(--ink); display:none; align-items:center; justify-content:center;
+    z-index:3; transition:background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease) }
+  .pcar-nav:hover{ background:#fff; box-shadow:0 14px 30px -18px rgba(43,38,32,.5); transform:translateY(-50%) scale(1.06) }
+  .pcar-nav.prev{ left:-6px } .pcar-nav.next{ right:-6px }
+  .pcar-dots{ display:flex; justify-content:center; gap:8px; margin-top:18px }
+  .pcar-dots span{ width:7px; height:7px; border-radius:50%; background:var(--hair); transition:background .35s var(--ease), width .35s var(--ease) }
+  .pcar-dots span.on{ background:var(--champ-ink); width:22px; border-radius:4px }
+  @media(min-width:720px){ .pslide{ flex:0 0 47% } .pcar-nav{ display:flex } }
+  @media(min-width:1080px){ .pslide{ flex:0 0 31.6% } }

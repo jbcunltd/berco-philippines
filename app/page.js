@@ -95,11 +95,28 @@ export default function Page() {
 
   <section id="planning" className="band"><div className="shell">
     <div className="sh reveal"><h2>Planning a cabinetry project?</h2><span className="eyebrow">Good to know</span></div>
-    <div className="know stag">
-      <div className="k"><h3>It starts before production</h3><p>A kitchen or wardrobe depends on layout, storage zones, appliance placement, counter flow, lighting and hardware — decided together before anything is built.</p></div>
-      <div className="k"><h3>Measurement matters</h3><p>Renders aren't enough. A proper site measurement is what makes a custom fit actually fit — around bulkheads, uneven walls and real ceiling heights.</p></div>
-      <div className="k"><h3>Custom takes time</h3><p>Design development, approvals, production and installation each take real time. We'll tell you what's realistic up front, not after you've committed.</p></div>
-      <div className="k"><h3>Clear from the start</h3><p>Design fees, project stages and what affects the timeline are explained early — so expectations are aligned before money, materials and time are committed.</p></div>
+    <div className="pcar reveal" data-carousel>
+      <div className="pcar-track">
+        <article className="pslide">
+          <img src="/img/collections/kitchens/kitchen-island-marble-walnut-philippines.jpg" alt="Open-plan kitchen with a marble island and walnut cabinetry — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">01</span><h3>It starts before production</h3><p>Layout, storage zones, appliance placement, counter flow, lighting and hardware — decided together before anything is built.</p></div>
+        </article>
+        <article className="pslide">
+          <img src="/img/collections/interior-systems/interior-systems-drawer-system-detail-philippines.jpg" alt="Fully fitted kitchen drawer system with organisers — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">02</span><h3>Measurement matters</h3><p>Renders aren't enough. A proper site measurement is what makes a custom fit actually fit — around bulkheads, uneven walls and real ceiling heights.</p></div>
+        </article>
+        <article className="pslide">
+          <img src="/img/collections/living/walnut-living-room-display-philippines.jpg" alt="Warm walnut living room with display cabinetry — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">03</span><h3>Custom takes time</h3><p>Design, approvals, production and installation each take real time. We'll tell you what's realistic up front, not after you've committed.</p></div>
+        </article>
+        <article className="pslide">
+          <img src="/img/collections/kitchens/cream-walnut-island-kitchen-philippines.jpg" alt="Bright cream-and-walnut island kitchen — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">04</span><h3>Clear from the start</h3><p>Design fees, project stages and what affects the timeline are explained early — so expectations are aligned before money and materials are committed.</p></div>
+        </article>
+      </div>
+      <button className="pcar-nav prev" type="button" aria-label="Previous">&#8249;</button>
+      <button className="pcar-nav next" type="button" aria-label="Next">&#8250;</button>
+      <div className="pcar-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     </div>
   </div></section>
 
