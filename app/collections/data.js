@@ -178,6 +178,10 @@ export const CATS = {
       { src: 'interior-systems-terracotta-pullout-storage-philippines.jpg', alt: 'Warm terracotta pull-out drawers with a fitted dish rack and cup holders — Berco design reference', cap: 'Fitted, front to back' },
       { src: 'interior-systems-worktop-integration-philippines.jpg', alt: 'Worktop with an integrated workstation sink and pull-out drawers organised with dishes and utensils beside an induction hob — Berco design reference', cap: 'Worktop & beyond', wide: true },
       { src: 'interior-systems-corner-pullout-philippines.jpg', alt: 'Corner cabinet pull-out shelving that brings pots and cookware out of the dead corner — Berco design reference', cap: 'Corner solutions' },
+      { src: 'interior-systems-drawer-organisation-philippines.jpg', alt: 'Base-cabinet pull-out drawers with fitted plate, cutlery and jar organisers — Berco design reference', cap: 'Drawer organisation' },
+      { src: 'interior-systems-larder-tall-storage-philippines.jpg', alt: 'Tall larder pull-out with full-extension tiers of pantry storage beside a built-in oven — Berco design reference', cap: 'Larders & tall storage' },
+      { src: 'interior-systems-wall-lift-system-philippines.jpg', alt: 'Wall-cabinet pull-down lift system that brings upper-shelf storage down to reach — Berco design reference', cap: 'Wall & lift systems' },
+      { src: 'interior-systems-workstation-sink-range-philippines.jpg', alt: 'Single-bowl workstation sink with a pull-out faucet set into a quartz worktop against a marble backsplash — Berco design reference', cap: 'The sink range', wide: true },
     ],
     catalogue: {
       title: 'The full Interior Systems range',
