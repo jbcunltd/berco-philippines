@@ -176,6 +176,8 @@ export const CATS = {
       { src: 'interior-systems-dish-cutlery-pullout-philippines.jpg', alt: 'Pull-out drawers with a fitted dish rack, cutlery-tray inserts and cup and jar organisers — Berco design reference', cap: 'Dish & cutlery pull-outs' },
       { src: 'interior-systems-jar-organiser-pullout-philippines.jpg', alt: 'Pull-out storage with a tiered spice and jar organiser and a plate rack — Berco design reference', cap: 'Spice & jar organiser' },
       { src: 'interior-systems-terracotta-pullout-storage-philippines.jpg', alt: 'Warm terracotta pull-out drawers with a fitted dish rack and cup holders — Berco design reference', cap: 'Fitted, front to back' },
+      { src: 'interior-systems-worktop-integration-philippines.jpg', alt: 'Worktop with an integrated workstation sink and pull-out drawers organised with dishes and utensils beside an induction hob — Berco design reference', cap: 'Worktop & beyond', wide: true },
+      { src: 'interior-systems-corner-pullout-philippines.jpg', alt: 'Corner cabinet pull-out shelving that brings pots and cookware out of the dead corner — Berco design reference', cap: 'Corner solutions' },
     ],
     catalogue: {
       title: 'The full Interior Systems range',
