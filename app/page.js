@@ -68,19 +68,19 @@ export default function Page() {
     <div className="pcar reveal" data-carousel>
       <div className="pcar-track">
         <article className="pslide">
-          <img src="/img/carousel/proc-01.jpg" alt="Dark-wood island kitchen in a bright home — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/proc-01.jpg?v=2" alt="Dark-wood island kitchen in a bright home — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">01</span><h3>Discover</h3><p>We visit, measure the room, and listen to how you actually live in it — before a single drawing.</p></div>
         </article>
         <article className="pslide">
-          <img src="/img/carousel/proc-02.jpg" alt="Berco material and finish samples — oak, lacquer, quartz and hardware" loading="lazy" />
+          <img src="/img/carousel/proc-02.jpg?v=2" alt="Berco material and finish samples — oak, lacquer, quartz and hardware" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">02</span><h3>Design</h3><p>You see the layout, the real materials and hardware, and what each choice means — before you commit to anything.</p></div>
         </article>
         <article className="pslide">
-          <img src="/img/carousel/proc-03.jpg" alt="Warm dark-wood kitchen with glass display cabinets — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/proc-03.jpg?v=2" alt="Warm dark-wood kitchen with glass display cabinets — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">03</span><h3>Build</h3><p>Cut and finished on shared European production lines, then fitted by one team on site.</p></div>
         </article>
         <article className="pslide">
-          <img src="/img/carousel/proc-04.jpg" alt="Fitted walk-in wardrobe with a dresser island — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/proc-04.jpg?v=2" alt="Fitted walk-in wardrobe with a dresser island — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">04</span><h3>Install</h3><p>Levelled, aligned, hardware calibrated, site cleaned — and checked against our turnover standard.</p></div>
         </article>
       </div>
@@ -103,7 +103,7 @@ export default function Page() {
       <div className="mat"><h3>German machinery</h3><p>Manufactured on German board presses and edge-banding lines, built for consistency across every run — then finished and fitted by people.</p></div>
     </div>
     <div className="matimgs stag">
-      <figure className="mimg"><img src="/img/carousel/proc-02.jpg" alt="Berco material and finish samples — oak, lacquer, quartz and hardware, design reference" loading="lazy" /></figure>
+      <figure className="mimg"><img src="/img/carousel/proc-02.jpg?v=2" alt="Berco material and finish samples — oak, lacquer, quartz and hardware, design reference" loading="lazy" /></figure>
       <figure className="mimg"><img src="/img/materials-neutral-palette-philippines.jpg" alt="Warm neutral material palette — boards, stone and textiles, Berco design reference" loading="lazy" /></figure>
       <figure className="mimg"><img src="/img/materials-moodboard-interior-philippines.jpg" alt="Material moodboard with interior finishes — Berco design reference" loading="lazy" /></figure>
     </div>
@@ -115,19 +115,19 @@ export default function Page() {
     <div className="pcar reveal" data-carousel>
       <div className="pcar-track">
         <article className="pslide">
-          <img src="/img/carousel/plan-01.jpg" alt="Open-plan kitchen with a marble island and walnut cabinetry — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/plan-01.jpg?v=2" alt="Open-plan kitchen with a marble island and walnut cabinetry — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">01</span><h3>It starts before production</h3><p>Layout, storage zones, appliance placement, counter flow, lighting and hardware — decided together before anything is built.</p></div>
         </article>
         <article className="pslide">
-          <img src="/img/carousel/plan-02.jpg" alt="Fully fitted kitchen drawer system with organisers — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/plan-02.jpg?v=2" alt="Fully fitted kitchen drawer system with organisers — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">02</span><h3>Measurement matters</h3><p>Renders aren't enough. A proper site measurement is what makes a custom fit actually fit — around bulkheads, uneven walls and real ceiling heights.</p></div>
         </article>
         <article className="pslide">
-          <img src="/img/carousel/plan-03.jpg" alt="Warm walnut living room with display cabinetry — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/plan-03.jpg?v=2" alt="Warm walnut living room with display cabinetry — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">03</span><h3>Custom takes time</h3><p>Design, approvals, production and installation each take real time. We'll tell you what's realistic up front, not after you've committed.</p></div>
         </article>
         <article className="pslide">
-          <img src="/img/carousel/plan-04.jpg" alt="Bright cream-and-walnut island kitchen — Berco design reference" loading="lazy" />
+          <img src="/img/carousel/plan-04.jpg?v=2" alt="Bright cream-and-walnut island kitchen — Berco design reference" loading="lazy" />
           <div className="pslide-txt"><span className="pnum">04</span><h3>Clear from the start</h3><p>Design fees, project stages and what affects the timeline are explained early — so expectations are aligned before money and materials are committed.</p></div>
         </article>
       </div>
