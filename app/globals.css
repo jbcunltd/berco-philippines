@@ -261,7 +261,8 @@
   .foot-contact a,.footcol a{ transition:color .3s var(--ease), border-color .3s var(--ease) }
 
   /* — parallax layers: hero + feature drift under the scroll — */
-  .coverimg .cover-img, .feature .feature-img{ height:112%; top:-6%; bottom:auto; will-change:transform }
+  /* gentle parallax, tuned so the baked top-left lockup is never clipped by the offset */
+  .coverimg .cover-img, .feature .feature-img{ height:104%; top:-1.4%; bottom:auto; will-change:transform }
 
   /* — staggered reveals for grids — */
   .stag{ opacity:1; transform:none }
