@@ -135,6 +135,7 @@ export const CATS = {
       { src: 'bathroom-marble-shower-brass-philippines.jpg', alt: 'Bathroom with a white shaker vanity, black stone top and brass tap, lit niche and a black-framed glass shower against marble — Berco design reference', cap: 'Shaker, stone & brass' },
       { src: 'bathroom-marble-vanity-tub-philippines.jpg', alt: 'Bathroom with a white vanity and mirror cabinet beside a freestanding tub against book-matched marble — Berco design reference', cap: 'Vanity & freestanding tub' },
       { src: 'bathroom-dark-marble-vanity-philippines.jpg', alt: 'Dramatic bathroom with a wood and dark-marble vanity, round backlit mirror and a freestanding tub — Berco design reference', cap: 'Wood & dark marble', wide: true },
+      { src: 'bathroom-terracotta-vanity-tub-philippines.jpg', alt: 'Warm bathroom with a terracotta floating vanity, oval mirror, wood shelving and a freestanding tub — Berco design reference', cap: 'Warm terracotta vanity' },
       { src: 'bathroom-marble-vanity-tub-mirror-philippines.jpg', alt: 'Bright marble bathroom with a floating vanity, oval mirror and a freestanding tub by the window — Berco design reference', cap: 'Marble, vanity & tub' },
       { src: 'bathroom-vanity-cabinetry-philippines.jpg', alt: 'Bathroom vanity with marble surfaces and moisture-considered fitted storage — Berco design reference', cap: 'Considered for moisture', wide: true },
       { src: 'bathroom-cream-vanity-shower-philippines.jpg', alt: 'Cream bathroom vanity with mirror cabinet and a glass corner shower — Berco design reference', cap: 'Vanity & shower' },
@@ -158,6 +159,8 @@ export const CATS = {
     images: [
       { src: 'dining-room-cabinetry-tea-room-philippines.jpg', alt: 'Dining and tea room with warm fitted cabinetry and a garden view — Berco design reference', cap: 'Dining room · design reference' },
       { src: 'dining-display-cabinetry-table-philippines.jpg', alt: 'Dining area with a marble-topped table, upholstered chairs and floor-to-ceiling display and tall cabinetry — Berco design reference', cap: 'Dining & display wall' },
+      { src: 'dining-open-plan-wine-display-philippines.jpg', alt: 'Open-plan dining with a table, tall cabinetry and a lit wine-display wall beside the kitchen — Berco design reference', cap: 'Dining & wine display', wide: true },
+      { src: 'open-plan-living-dining-lounge-philippines.jpg', alt: 'Open-plan living and dining with a lounge, a dining table and a kitchen with display cabinetry beyond — Berco design reference', cap: 'Living, dining & kitchen' },
       { src: 'open-plan-living-dining-warm-philippines.jpg', alt: 'Warm open-plan living and dining with a media wall, an island with bar seating and a kitchen beyond — Berco design reference', cap: 'Open-plan living & dining', wide: true },
       { src: 'open-plan-dining-kitchen-warm-philippines.jpg', alt: 'Warm open-plan dining and kitchen with wood-lined display niches, a quartz breakfast bar and a garden view — Berco design reference', cap: 'Open to the kitchen', wide: true },
       { src: 'dining-sideboard-display-philippines.jpg', alt: 'Dining area with a sideboard and display cabinetry in green and wood — Berco design reference', cap: 'Sideboard & display', wide: true },
