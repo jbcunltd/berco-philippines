@@ -1,6 +1,6 @@
 // Berco collections — copy is truth-safe: design references (not completed projects),
 // no price, no invented specs/tolerances/warranties, no supplier or Chinese-partner names.
-// Confirmed catalogue facts only (quartz, E1 board, sealed edges, soft-close). Kill-list clean.
+// Confirmed catalogue facts only (quartz, plywood carcases + aluminium kickboards, sealed edges, soft-close). Kill-list clean.
 // Image arrays are populated from the anti-slop-gated catalogue-render library.
 
 export const ORDER = ['kitchens', 'wardrobes', 'living', 'bedrooms', 'bathrooms', 'dining', 'interior-systems']
@@ -10,7 +10,7 @@ export const CATS = {
     name: 'Kitchens',
     hero: 'Kitchens, built around you.',
     lead: 'Islands, sculleries and everyday kitchens — planned around how you cook, store and gather.',
-    body: 'A kitchen is decided before it is built: layout, storage zones, appliance placement and counter flow, worked out together first. We specify surfaces and hardware we can name — quartz worktops, E1 low-emission carcases, calibrated soft-close drawers — then measure the room properly, so the fit is real and not only rendered.',
+    body: 'A kitchen is decided before it is built: layout, storage zones, appliance placement and counter flow, worked out together first. We specify surfaces and hardware we can name — quartz worktops, multi-layer plywood carcases with aluminium kickboards, calibrated soft-close drawers — then measure the room properly, so the fit is real and not only rendered.',
     types: [
       { name: 'Island kitchens', line: 'A working core — prep, storage and a place to gather.' },
       { name: 'Sculleries & prep', line: 'A second, quieter kitchen behind the show kitchen.' },
@@ -18,7 +18,7 @@ export const CATS = {
     ],
     features: ['Quartz worktops', 'Deep pan & pull-out storage', 'Soft-close throughout', 'Planned around your appliances'],
     seoTitle: 'Custom Kitchen Cabinetry in the Philippines | Berco',
-    seoDesc: 'Custom kitchen cabinets, islands and sculleries for Philippine homes — planned around how you cook, specified to quartz and E1 board, and measured to fit. Design references from Berco.',
+    seoDesc: 'Custom kitchen cabinets, islands and sculleries for Philippine homes — planned around how you cook, specified to quartz and plywood carcases, and measured to fit. Design references from Berco.',
     keywords: ['custom kitchen cabinets Philippines', 'kitchen island Philippines', 'kitchen cabinetry Manila', 'scullery Philippines', 'Berco kitchens'],
     images: [
       { src: 'kitchen-island-marble-walnut-philippines.jpg', alt: 'Custom kitchen with a marble-topped island and warm walnut cabinetry — Berco design reference', cap: 'Island kitchen · design reference' },

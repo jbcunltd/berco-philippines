@@ -78,7 +78,7 @@ export default function Page() {
     <div className="sh reveal"><h2>How your cabinetry is built.</h2><span className="eyebrow">Materials &amp; craft</span></div>
     <p className="lead-txt reveal">Every Berco cabinet is specified to materials and hardware we can name — not vague promises. Here is what goes into it.</p>
     <div className="matgrid stag">
-      <div className="mat"><h3>E1 low-emission board</h3><p>Cold-pressed carcase panels held to the E1 formaldehyde grade (1.5&nbsp;mg/L) — a low-emission European standard, with a 7-layer plywood option for higher loading.</p></div>
+      <div className="mat"><h3>Plywood carcases, as standard</h3><p>Our standard carcase is multi-layer solid-wood-veneer plywood — pressed with German MDI adhesive, F4-Star rated (no added formaldehyde), moisture-resistant and strong under load. Finished with aluminium kickboards as standard.</p></div>
       <div className="mat"><h3>Quartz worktops</h3><p>Non-porous quartz surfaces — scratch-, stain- and heat-resistant, and simple to keep. Wine, oil and vinegar wipe clean.</p></div>
       <div className="mat"><h3>Lacquer &amp; melamine finishes</h3><p>Eco-friendly lacquer in matte or high-gloss, and fine-texture melamine — edges sealed with PUR and laser edge-banding for daily wear.</p></div>
       <div className="mat"><h3>Blum &amp; Hettich soft-close</h3><p>Austrian and German hinge and drawer systems, calibrated by hand at installation so doors and drawers move the same way for years.</p></div>

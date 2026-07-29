@@ -30,7 +30,7 @@ const DOWNLOADS = [
 ]
 
 const GET = [
-  { t: 'Named specification', p: 'Real materials and hardware you can put on a schedule — E1 low-emission board, quartz, PUR and laser-sealed edges, Kesseböhmer and Peka fittings — with sizes and cabinet fits, not vague promises.' },
+  { t: 'Named specification', p: 'Real materials and hardware you can put on a schedule — multi-layer plywood carcases with aluminium kickboards, quartz, PUR and laser-sealed edges, Kesseböhmer and Peka fittings — with sizes and cabinet fits, not vague promises.' },
   { t: 'One team, drawing to install', p: 'The people who draw it coordinate the make and the install. Fewer hand-offs, one point of accountability from concept to turnover.' },
   { t: 'The truth, up front', p: 'Honest lead times and what drives them, and where a layout won’t work — told to you before anything is ordered, so your drawings hold.' },
 ]

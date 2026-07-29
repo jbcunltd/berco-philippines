@@ -138,7 +138,7 @@ export default function Collection({ params }) {
 
       <section className="prec band"><div className="shell reveal">
         <div className="sh"><h2>How your cabinetry is built.</h2><span className="eyebrow">Materials &amp; craft</span></div>
-        <p className="catlead">Quartz worktops, E1 low-emission carcases, sealed PUR &amp; laser edges, and calibrated Austrian and German soft-close hardware — specified to materials we can name, then measured and fitted by one team.</p>
+        <p className="catlead">Quartz worktops, multi-layer plywood carcases with aluminium kickboards, sealed PUR &amp; laser edges, and calibrated Austrian and German soft-close hardware — specified to materials we can name, then measured and fitted by one team.</p>
         <div className="acts"><a className="link" href="/#precision">See materials &amp; craft →</a></div>
       </div></section>
 
