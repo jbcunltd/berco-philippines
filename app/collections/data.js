@@ -123,6 +123,9 @@ export const CATS = {
     keywords: ['bathroom vanity Philippines', 'custom vanity cabinet Manila', 'bathroom storage Philippines', 'moisture resistant vanity Philippines', 'Berco bathrooms'],
     images: [
       { src: 'bathroom-vanity-marble-storage-philippines.jpg', alt: 'Bathroom vanity with marble surfaces and fitted storage in a wet room — Berco design reference', cap: 'Vanity · design reference' },
+      { src: 'bathroom-marble-floating-vanity-philippines.jpg', alt: 'Floating bathroom vanity with a vessel basin, oval LED mirror and a lit display niche against book-matched marble — Berco design reference', cap: 'Floating vanity in marble', wide: true },
+      { src: 'bathroom-marble-shower-brass-philippines.jpg', alt: 'Bathroom with a white shaker vanity, black stone top and brass tap, lit niche and a black-framed glass shower against marble — Berco design reference', cap: 'Shaker, stone & brass' },
+      { src: 'bathroom-marble-vanity-tub-philippines.jpg', alt: 'Bathroom with a white vanity and mirror cabinet beside a freestanding tub against book-matched marble — Berco design reference', cap: 'Vanity & freestanding tub' },
       { src: 'bathroom-vanity-cabinetry-philippines.jpg', alt: 'Bathroom vanity with marble surfaces and moisture-considered fitted storage — Berco design reference', cap: 'Considered for moisture', wide: true },
       { src: 'bathroom-cream-vanity-shower-philippines.jpg', alt: 'Cream bathroom vanity with mirror cabinet and a glass corner shower — Berco design reference', cap: 'Vanity & shower' },
       { src: 'bathroom-marble-vanity-pendant-philippines.jpg', alt: 'Floating bathroom vanity with a marble basin and feature wall — Berco design reference', cap: 'Marble & bronze' },
