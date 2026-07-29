@@ -177,5 +177,13 @@ export const CATS = {
       { src: 'interior-systems-jar-organiser-pullout-philippines.jpg', alt: 'Pull-out storage with a tiered spice and jar organiser and a plate rack — Berco design reference', cap: 'Spice & jar organiser' },
       { src: 'interior-systems-terracotta-pullout-storage-philippines.jpg', alt: 'Warm terracotta pull-out drawers with a fitted dish rack and cup holders — Berco design reference', cap: 'Fitted, front to back' },
     ],
+    catalogue: {
+      title: 'The full Interior Systems range',
+      intro: 'Every fitting, organised by function — drawer organisation, larders and tall storage, wall and lift systems, corner solutions, waste and rice, worktop integration, and sinks and taps. Codes, sizes and cabinet fits included.',
+      pdf: '/berco-interior-systems-catalogue.pdf',
+      pdfLabel: 'Download the Interior Systems catalogue (PDF)',
+      pageDir: '/img/catalogue/interior-systems',
+      pages: 32,
+    },
   },
 }

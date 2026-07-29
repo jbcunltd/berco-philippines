@@ -108,6 +108,25 @@ export default function Collection({ params }) {
         </div></section>
       )}
 
+      {c.catalogue && (
+        <section className="band catrange"><div className="shell">
+          <div className="sh reveal"><h2>{c.catalogue.title}</h2><span className="eyebrow">The catalogue</span></div>
+          <p className="catlead reveal">{c.catalogue.intro}</p>
+          <div className="acts reveal"><a className="btn" href={c.catalogue.pdf} download>{c.catalogue.pdfLabel}</a></div>
+          <div className="catpages stag">
+            {Array.from({ length: c.catalogue.pages }, (_, i) => {
+              const n = String(i + 1).padStart(2, '0')
+              return (
+                <a className="catpage" href={c.catalogue.pdf} target="_blank" rel="noopener" key={i}>
+                  <img src={`${c.catalogue.pageDir}/is-${n}.jpg`} alt={`${c.name} catalogue — page ${i + 1}`} loading="lazy" />
+                </a>
+              )
+            })}
+          </div>
+          <div className="acts reveal"><a className="btn" href={c.catalogue.pdf} download>{c.catalogue.pdfLabel}</a></div>
+        </div></section>
+      )}
+
       {c.features && (
         <section className="band"><div className="shell">
           <div className="sh reveal"><h2>Built in as standard.</h2><span className="eyebrow">Features</span></div>

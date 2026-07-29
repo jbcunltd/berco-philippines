@@ -7,6 +7,7 @@ export default function sitemap() {
   return [
     { url: SITE, lastModified: now, changeFrequency: 'monthly', priority: 1 },
     { url: `${SITE}/how-we-work`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE}/for-designers`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     ...ORDER.map((s) => ({
       url: `${SITE}/collections/${s}`,
       lastModified: now,
