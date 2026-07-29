@@ -103,7 +103,7 @@ export default function Page() {
       <div className="mat"><h3>German machinery</h3><p>Manufactured on German board presses and edge-banding lines, built for consistency across every run — then finished and fitted by people.</p></div>
     </div>
     <div className="matimgs stag">
-      <figure className="mimg"><img src="/img/carousel/proc-02.jpg?v=2" alt="Berco material and finish samples — oak, lacquer, quartz and hardware, design reference" loading="lazy" /></figure>
+      <figure className="mimg"><img src="/img/materials-finishes-flatlay-philippines.jpg" alt="Berco material and finish samples — oak, lacquer, quartz and hardware, design reference" loading="lazy" /></figure>
       <figure className="mimg"><img src="/img/materials-neutral-palette-philippines.jpg" alt="Warm neutral material palette — boards, stone and textiles, Berco design reference" loading="lazy" /></figure>
       <figure className="mimg"><img src="/img/materials-moodboard-interior-philippines.jpg" alt="Material moodboard with interior finishes — Berco design reference" loading="lazy" /></figure>
     </div>
