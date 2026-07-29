@@ -65,11 +65,28 @@ export default function Page() {
   <section id="process" className="band"><div className="shell">
     <div className="sh reveal"><h2>How we design &amp; build your cabinetry.</h2><span className="eyebrow">How we work</span></div>
     <p className="lead-txt reveal">Trust usually comes from a portfolio. Ours comes from process — you see exactly how it&rsquo;s made, and hear the truth about your space, before anything is built. The method is the proof.</p>
-    <div className="steps stag">
-      <div className="step"><div className="n">01</div><h3>Discover</h3><p>We visit, measure the room, and listen to how you actually live in it — before a single drawing.</p></div>
-      <div className="step"><div className="n">02</div><h3>Design</h3><p>You see the layout, the real materials and hardware, and what each choice means — before you commit to anything.</p></div>
-      <div className="step"><div className="n">03</div><h3>Build</h3><p>Cut and finished on shared European production lines, then fitted by one team on site.</p></div>
-      <div className="step"><div className="n">04</div><h3>Install</h3><p>Levelled, aligned, hardware calibrated, site cleaned — and checked against our turnover standard.</p></div>
+    <div className="pcar reveal" data-carousel>
+      <div className="pcar-track">
+        <article className="pslide">
+          <img src="/img/collections/kitchens/dark-wood-island-kitchen-philippines.jpg" alt="Dark-wood island kitchen in a bright home — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">01</span><h3>Discover</h3><p>We visit, measure the room, and listen to how you actually live in it — before a single drawing.</p></div>
+        </article>
+        <article className="pslide">
+          <img src="/img/materials-finishes-flatlay-philippines.jpg" alt="Berco material and finish samples — oak, lacquer, quartz and hardware" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">02</span><h3>Design</h3><p>You see the layout, the real materials and hardware, and what each choice means — before you commit to anything.</p></div>
+        </article>
+        <article className="pslide">
+          <img src="/img/collections/kitchens/dark-wood-glass-cabinet-kitchen-philippines.jpg" alt="Warm dark-wood kitchen with glass display cabinets — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">03</span><h3>Build</h3><p>Cut and finished on shared European production lines, then fitted by one team on site.</p></div>
+        </article>
+        <article className="pslide">
+          <img src="/img/collections/wardrobes/walk-in-wardrobe-island-dresser-philippines.jpg" alt="Fitted walk-in wardrobe with a dresser island — Berco design reference" loading="lazy" />
+          <div className="pslide-txt"><span className="pnum">04</span><h3>Install</h3><p>Levelled, aligned, hardware calibrated, site cleaned — and checked against our turnover standard.</p></div>
+        </article>
+      </div>
+      <button className="pcar-nav prev" type="button" aria-label="Previous">&#8249;</button>
+      <button className="pcar-nav next" type="button" aria-label="Next">&#8250;</button>
+      <div className="pcar-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     </div>
     <div className="acts reveal"><a className="link" href="/how-we-work">See the full process →</a></div>
   </div></section>
