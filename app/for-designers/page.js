@@ -2,13 +2,13 @@ const SITE = 'https://berco-philippines.vercel.app'
 
 export const metadata = {
   title: 'For Designers & Architects — Catalogues & Specification | Berco',
-  description: 'Trade resources for architects and interior designers: download the Berco catalogue, the Interior Systems (fitted storage & sink) catalogue and the technical specification — with named materials, hardware, sizes and cabinet fits.',
+  description: 'Trade resources for architects and interior designers: download the Berco catalogue, the Interior Systems (fitted storage & sink) catalogue, the Materials & Finishes library of 202 finishes and the technical specification — with named materials, hardware, sizes and cabinet fits.',
   keywords: ['Berco for designers', 'cabinetry catalogue Philippines', 'interior systems catalogue', 'kitchen specification Philippines', 'trade cabinetry Philippines', 'architect resources cabinetry'],
   alternates: { canonical: '/for-designers' },
   openGraph: {
     type: 'website', url: `${SITE}/for-designers`, siteName: 'Berco',
     title: 'For Designers & Architects — Catalogues & Specification | Berco',
-    description: 'Download the Berco catalogue, the Interior Systems catalogue and the technical specification. Specification support for architects and designers.',
+    description: 'Download the Berco catalogue, the Interior Systems catalogue, the Materials & Finishes library and the technical specification. Specification support for architects and designers.',
     images: [{ url: `${SITE}/img/custom-interiors-philippine-home.jpg`, alt: 'Berco custom interiors — design reference' }],
   },
   robots: { index: true, follow: true },
@@ -27,6 +27,8 @@ const DOWNLOADS = [
   { t: 'Berco Catalogue 2026', d: 'The full brand catalogue — collections, materials, the making process and the Berco turnover standard.', href: '/berco-catalogue-2026.pdf', meta: 'PDF' },
   { t: 'Interior Systems Catalogue', d: 'The complete fitted-storage, organisation and sink range — drawer organisation, larders, corner solutions, worktop integration, sinks & taps — with codes, sizes and cabinet fits.', href: '/berco-interior-systems-catalogue.pdf', meta: 'PDF' },
   { t: 'Technical Specification', d: 'Board grades, edge and finish specifications, hardware and the details you need at specification stage.', href: '/berco-technical-specification.pdf', meta: 'PDF' },
+  { t: 'Materials & Finishes — Full Library', d: 'Every finish we hold, 202 of them, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. A–Z index at the back.', href: '/berco-materials-finishes-2026.pdf', meta: 'PDF · 28pp' },
+  { t: 'Materials & Finishes — Selected', d: 'A shorter, curated palette of 54 finishes for presenting to a client — the same specification, edited down to a working range.', href: '/berco-materials-finishes-2026-selected.pdf', meta: 'PDF · 16pp' },
 ]
 
 const GET = [
