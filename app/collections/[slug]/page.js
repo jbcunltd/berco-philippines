@@ -30,7 +30,6 @@ export default function Collection({ params }) {
   const img = (s) => `/img/collections/${params.slug}/${s}`
   const imgs = c.images
   const hero = imgs[0]
-  const rest = imgs.slice(1)
   const others = ORDER.filter((s) => s !== params.slug)
 
   const schema = {
@@ -94,15 +93,16 @@ export default function Collection({ params }) {
         </div></section>
       )}
 
-      {rest.length > 0 && (
+      {imgs.length > 0 && (
         <section className="band"><div className="shell">
           <div className="sh reveal"><h2>{c.name}, in reference.</h2><span className="eyebrow">Design references</span></div>
-          <div className="gal stag">
-            {rest.map((im, i) => (
-              <figure className={`gcard ${im.wide ? 'wide' : ''}`} key={i}>
-                <img src={img(im.src)} alt={im.alt} loading="lazy" />
-                <figcaption className="cap">{im.cap}</figcaption>
-              </figure>
+          <p className="galnote reveal">Tap any design to open it larger, with the details.</p>
+          <div className="rgrid stag">
+            {imgs.map((im) => (
+              <a className="rcard" href={`/collections/${params.slug}/${im.slug}`} key={im.slug}>
+                <span className="rcard-img"><img src={img(im.src)} alt={im.alt} loading="lazy" width="1600" height="900" /></span>
+                <span className="rcard-t">{im.title || im.cap}</span>
+              </a>
             ))}
           </div>
         </div></section>
