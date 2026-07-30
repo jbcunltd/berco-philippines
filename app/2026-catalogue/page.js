@@ -52,7 +52,7 @@ export default function Catalogue2026() {
         </div>
       </div></section>
 
-      <section className="band catrange"><div className="shell">
+      <section className="band catrange catread"><div className="shell">
         <div className="catpages stag">
           {Array.from({ length: PAGES }, (_, i) => {
             const n = String(i + 1).padStart(2, '0')
