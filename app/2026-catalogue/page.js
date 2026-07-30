@@ -1,5 +1,7 @@
 const SITE = 'https://berco-philippines.vercel.app'
 const PDF = '/berco-catalogue-2026.pdf'
+const PAGE_DIR = '/img/catalogue/2026'
+const PAGES = 48
 
 export const metadata = {
   title: '2026 Catalogue | Berco',
@@ -50,11 +52,21 @@ export default function Catalogue2026() {
         </div>
       </div></section>
 
-      <section className="band"><div className="shell">
-        <div className="pdfwrap reveal">
-          <iframe className="pdfframe" src={`${PDF}#view=FitH`} title="Berco 2026 Catalogue" loading="lazy"></iframe>
+      <section className="band catrange"><div className="shell">
+        <div className="catpages stag">
+          {Array.from({ length: PAGES }, (_, i) => {
+            const n = String(i + 1).padStart(2, '0')
+            return (
+              <a className="catpage" href={PDF} target="_blank" rel="noopener" key={i}>
+                <img src={`${PAGE_DIR}/bc-${n}.jpg`} alt={`Berco 2026 Catalogue — page ${i + 1}`} loading="lazy" />
+              </a>
+            )
+          })}
         </div>
-        <p className="note reveal">Can&rsquo;t see the catalogue on your phone? <a href={PDF} download>Download the PDF</a> and it will open in your reader.</p>
+        <div className="acts reveal" style={{ marginTop: 'clamp(28px,4vh,44px)' }}>
+          <a className="btn" href={PDF} download>Download the full catalogue (PDF) →</a>
+        </div>
+        <p className="note reveal">Tap any page to open the full catalogue.</p>
       </div></section>
 
       <section className="jbc band"><div className="shell in">
