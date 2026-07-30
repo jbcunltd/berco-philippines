@@ -177,9 +177,10 @@ export default function Page() {
       </div>
       <div className="footcol">
         <h4>Collections</h4>
-        <a href="#collections">Kitchens</a><a href="#collections">Wardrobes</a>
-        <a href="#collections">Living &amp; Media</a><a href="#collections">Bedrooms</a>
-        <a href="#collections">Bathrooms</a><a href="#collections">Dining</a>
+        <a href="/collections/kitchens">Kitchens</a><a href="/collections/wardrobes">Wardrobes</a>
+        <a href="/collections/living">Living &amp; Media</a><a href="/collections/bedrooms">Bedrooms</a>
+        <a href="/collections/bathrooms">Bathrooms</a><a href="/collections/dining">Dining</a>
+        <a href="/collections/interior-systems">Interior Systems</a>
       </div>
       <div className="footcol">
         <h4>Studio</h4>

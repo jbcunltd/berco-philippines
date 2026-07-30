@@ -39,7 +39,7 @@ export default function HowWeWork() {
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/#precision">Materials</a>
-          <a href="/#about">About</a>
+          <a href="/for-designers">For designers</a>
           <a className="navlink-cta" href="#book">Book a consultation</a>
         </div>
         <a className="navcta" href="#book">Book a consultation</a>
@@ -124,11 +124,12 @@ export default function HowWeWork() {
             <a href="/collections/kitchens">Kitchens</a><a href="/collections/wardrobes">Wardrobes</a>
             <a href="/collections/living">Living &amp; Media</a><a href="/collections/bedrooms">Bedrooms</a>
             <a href="/collections/bathrooms">Bathrooms</a><a href="/collections/dining">Dining</a>
+            <a href="/collections/interior-systems">Interior Systems</a>
           </div>
           <div className="footcol">
             <h4>Studio</h4>
             <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
-            <a href="/#about">About</a><a href="#book">Book a consultation</a>
+            <a href="/for-designers">For designers</a><a href="/#about">About</a><a href="#book">Book a consultation</a>
           </div>
         </div>
         <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span>www.BERCOHOME.com</span></div>
