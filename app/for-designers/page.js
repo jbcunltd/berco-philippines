@@ -27,8 +27,7 @@ const DOWNLOADS = [
   { t: 'Berco Catalogue 2026', d: 'The full brand catalogue — collections, materials, the making process and the Berco turnover standard.', href: '/berco-catalogue-2026.pdf', meta: 'PDF' },
   { t: 'Interior Systems Catalogue', d: 'The complete fitted-storage, organisation and sink range — drawer organisation, larders, corner solutions, worktop integration, sinks & taps — with codes, sizes and cabinet fits.', href: '/berco-interior-systems-catalogue.pdf', meta: 'PDF' },
   { t: 'Technical Specification', d: 'Board grades, edge and finish specifications, hardware and the details you need at specification stage.', href: '/berco-technical-specification.pdf', meta: 'PDF' },
-  { t: 'Materials & Finishes — Full Library', d: 'Every finish we hold, 202 of them, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. A–Z index at the back.', href: '/berco-materials-finishes-2026.pdf', meta: 'PDF · 28pp' },
-  { t: 'Materials & Finishes — Selected', d: 'A shorter, curated palette of 54 finishes for presenting to a client — the same specification, edited down to a working range.', href: '/berco-materials-finishes-2026-selected.pdf', meta: 'PDF · 16pp' },
+  { t: 'Materials & Finishes 2026', d: 'Part One is the selection — 54 finishes edited down to a working palette to put in front of a client. Part Two is the complete range, all 202, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. Room approvals, care notes and an A–Z index at the back.', href: '/berco-materials-finishes-2026.pdf', meta: 'PDF · 32pp' },
 ]
 
 const GET = [
