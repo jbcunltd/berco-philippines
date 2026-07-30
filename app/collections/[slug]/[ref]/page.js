@@ -45,6 +45,8 @@ export default function Reference({ params }) {
   const prev = imgs[(i - 1 + imgs.length) % imgs.length]
   const next = imgs[(i + 1) % imgs.length]
   const src = `/img/collections/${params.slug}/${im.src}`
+  // main image first, then any extra angles of the same design
+  const views = [im.src, ...(im.angles || [])]
   const more = imgs.filter((x) => x.slug !== im.slug).slice(0, 6)
 
   const schema = {
@@ -81,8 +83,23 @@ export default function Reference({ params }) {
         </div>
 
         <figure className="reffig reveal">
-          <img src={src} alt={im.alt} width="1600" height="900" />
+          <img id="refmain" src={src} alt={im.alt} width="1600" height="900" />
         </figure>
+
+        {views.length > 1 && (
+          <div className="views reveal" data-views>
+            <p className="viewslabel">{views.length} views of this design</p>
+            <div className="viewstrip">
+              {views.map((v, k) => (
+                <button className="viewthumb" type="button" data-view={`/img/collections/${params.slug}/${v}`}
+                  aria-current={k === 0 ? 'true' : 'false'}
+                  aria-label={`View ${k + 1} of ${im.title}`} key={v}>
+                  <img src={`/img/collections/${params.slug}/${v}`} alt={`${im.title} — view ${k + 1}`} loading="lazy" />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="refhead reveal">
           <div className="refmeta">

@@ -335,6 +335,21 @@
   .refblurb{ font-size:clamp(16px,1.9vw,20px); line-height:1.62; color:var(--ink); margin:0 }
   .refbody .acts{ margin-top:clamp(22px,3vh,32px) }
 
+  /* base row for a button + link pair — without this they collide when they wrap on mobile */
+  .acts{ display:flex; align-items:center; gap:clamp(14px,2.4vw,24px); flex-wrap:wrap }
+
+  /* design-reference: more views (product-page style) */
+  .views{ margin-top:clamp(14px,2vh,20px) }
+  .viewstrip{ display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(8px,1.2vw,14px) }
+  @media(max-width:720px){ .viewstrip{ grid-template-columns:repeat(3,1fr) } }
+  .viewthumb{ position:relative; display:block; padding:0; border:1px solid var(--hair); border-radius:4px;
+    overflow:hidden; aspect-ratio:16/9; background:var(--beige); cursor:pointer; transition:all .25s var(--ease) }
+  .viewthumb img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center }
+  .viewthumb:hover{ border-color:var(--champ) }
+  .viewthumb[aria-current="true"]{ border-color:var(--champ-ink); box-shadow:0 0 0 2px rgba(154,122,56,.25) }
+  .viewslabel{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint);
+    font-weight:600; margin:0 0 10px }
+
   /* browsable catalogue page grid */
   .catrange .acts{ margin:clamp(16px,2.2vh,24px) 0 0 }
   .catpages{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.8vw,24px); margin-top:clamp(20px,3vh,34px) }
