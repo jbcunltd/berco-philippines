@@ -1,202 +1,208 @@
-import { CATS, ORDER } from '../collections/data'
-import InquiryForm from '../components/InquiryForm'
-
-const SITE = 'https://berco-philippines.vercel.app'
-
-export const metadata = {
-  title: 'Contact Berco | Custom Cabinetry Inquiries, Philippines',
-  description:
-    'Send a cabinetry inquiry to Berco. Tell us the room, the timeline and what is not working now — we reply within one working day.',
-  keywords: ['contact Berco', 'cabinetry inquiry Philippines', 'custom kitchen quote Cebu', 'book a design consultation'],
-  alternates: { canonical: '/contact' },
-  openGraph: {
-    type: 'website',
-    url: `${SITE}/contact`,
-    siteName: 'Berco',
-    title: 'Contact Berco | Custom Cabinetry Inquiries',
-    description: 'Tell us about your space. We reply within one working day.',
-    images: [{ url: `${SITE}/img/custom-kitchen-cabinetry-philippines.jpg`, alt: 'Berco custom cabinetry' }],
-  },
-  twitter: { card: 'summary_large_image', title: 'Contact Berco', description: 'Tell us about your space. We reply within one working day.' },
-  robots: { index: true, follow: true },
-}
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact Berco',
-  url: `${SITE}/contact`,
-  mainEntity: {
-    '@type': 'HomeAndConstructionBusiness',
-    name: 'Berco',
-    url: SITE,
-    email: 'sales@bercohome.com',
-    telephone: '+639178000730',
-    areaServed: { '@type': 'Country', name: 'Philippines' },
-    parentOrganization: { '@type': 'Organization', name: 'JBC UNLTD CORP', foundingDate: '2017' },
-    sameAs: ['https://www.facebook.com/bercophilippines'],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'sales',
-      email: 'sales@bercohome.com',
-      telephone: '+639178000730',
-      availableLanguage: ['en', 'fil'],
-    },
-  },
-}
-
-export default function Contact() {
+import Pic from './components/Pic'
+export default function Page() {
   return (
     <>
-      <nav><div className="shell navin">
-        <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
-          <a href="/#collections">Collections</a>
-          <a href="/how-we-work">Process</a>
-          <a href="/#precision">Materials</a>
-          <a href="/for-designers">For designers</a>
-          <a href="/contact">Contact</a>
-          <a className="navlink-cta" href="/contact">Book a consultation</a>
-        </div>
-        <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div></nav>
+
+  <nav><div className="shell navin">
+    <a className="logo" href="#top">Berco</a>
+    <div className="navlinks">
+      <a href="#collections">Collections</a>
+      <a href="/how-we-work">Process</a>
+      <a href="#precision">Materials</a>
+      <a href="/for-designers">For designers</a>
+      <a href="/contact">Contact</a>
+      <a className="navlink-cta" href="/contact">Book a consultation</a>
+    </div>
+    <a className="navcta" href="/contact">Book a consultation</a>
+    <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>
       <main id="main">
 
-      <section className="band contact-top"><div className="shell">
-        <div className="masthead"><span>Contact</span><span>Philippines</span></div>
-        <div className="contact-head">
-          <span className="eyebrow">Start here</span>
-          <h1>Tell us about your space.</h1>
-          <p className="lead">A few details are enough to begin. We will come back within one working
-            day with the next step — no obligation, and no pressure to decide anything yet.</p>
+  <header id="top" className="cover"><div className="shell">
+    <div className="masthead"><span>Berco — Custom Cabinetry &amp; Interiors</span><span>Philippines</span></div>
+    <div className="coverimg">
+      <Pic className="cover-img" src="/img/custom-kitchen-cabinetry-philippines.jpg" alt="Custom kitchen cabinetry with island and warm wood finishes in a Philippine home — Berco design reference" width="1760" height="1087" />
+      <div className="scrim"></div>
+      <span className="cap">Kitchen · design reference</span>
+      <div className="type">
+        <div className="eyebrow">Custom Cabinetry &amp; Interiors · Philippines</div>
+        <h1>The heart of your home.</h1>
+        <p className="lead">Custom kitchens, wardrobes, vanities &amp; built-in storage for Philippine homes — designed, measured, and installed properly.</p>
+        <div className="acts">
+          <a className="btn" href="/contact">Book a design consultation →</a>
+          <a className="link" href="#collections">View collections</a>
         </div>
-      </div></section>
+      </div>
+    </div>
+  </div></header>
 
-      <section className="band"><div className="shell contact-grid">
-        <div className="contact-form">
-          <noscript>
-            <div className="formfail">
-              <p><strong>This form needs JavaScript.</strong> Email us instead and we will pick it up the same way.</p>
-              <a className="btn" href="mailto:sales@bercohome.com?subject=Cabinetry%20inquiry">Email sales@bercohome.com →</a>
-            </div>
-          </noscript>
-          <InquiryForm />
-        </div>
+  <section className="mani"><div className="shell reveal">
+    <h2>We guide before we sell.</h2>
+    <p>The truth about your space — before anything is built.</p>
+  </div></section>
 
-        <aside className="contact-side">
-          <div className="cside">
-            <h2>Reach us directly</h2>
-            {/* Messenger is where Berco's conversations actually happen — the inbox carries
-                hundreds of them against zero from the website. It goes first, and it keeps
-                the Facebook mark so the channel is recognisable without a saturated blue
-                slab landing in a cream page. */}
-            <a className="fbbtn" href="https://m.me/bercophilippines" target="_blank" rel="noopener noreferrer">
-              <svg className="fbmark" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" focusable="false">
-                <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>
-              </svg>
-              <span>Message us on Facebook</span>
-            </a>
-            <p className="cside-item">
-              <span className="cside-k">Email</span>
-              <a href="mailto:sales@bercohome.com">sales@bercohome.com</a>
-            </p>
-            <p className="cside-item">
-              <span className="cside-k">Mobile</span>
-              <a href="tel:+639178000730">0917 800 0730</a>
-            </p>
-            <p className="cside-item">
-              <span className="cside-k">Hours</span>
-              <span>Monday to Saturday, 9am – 6pm PHT</span>
-            </p>
-            <p className="cside-item">
-              <span className="cside-k">Company</span>
-              <span>Berco, a brand under JBC UNLTD CORP — Philippines, established 2017</span>
-            </p>
-          </div>
+  <section id="collections" className="band"><div className="shell">
+    <div className="sh reveal"><h2>Custom cabinetry, by space.</h2><span className="eyebrow">What we make</span></div>
+    <p className="lead-txt reveal">Berco designs custom kitchens, wardrobes, bathroom vanities, living-room and dining cabinetry, and built-in storage for homes across the Philippines.</p>
+    <div className="cgrid stag">
+      <a className="ccard" href="/collections/kitchens"><span className="ccard-img"><Pic src="/img/collections/kitchens/warm-walnut-kitchen-cabinetry-philippines.jpg" alt="Warm walnut and taupe kitchen cabinetry with open shelving — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Kitchens</span><span className="cd">Islands, sculleries &amp; everyday kitchens</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/wardrobes"><span className="ccard-img"><Pic src="/img/collections/wardrobes/walk-in-wardrobe-island-philippines.jpg" alt="Walk-in wardrobe with a dressing island and glass-front storage — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Wardrobes</span><span className="cd">Walk-in &amp; fitted, tailored to how you dress</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/living"><span className="ccard-img"><Pic src="/img/collections/living/living-room-media-storage-philippines.jpg" alt="Living room with a media wall and integrated display storage — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Living &amp; Media</span><span className="cd">Media walls, display &amp; storage</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/bedrooms"><span className="ccard-img"><Pic src="/img/collections/bedrooms/bedroom-tufted-tailored-philippines.jpg" alt="Tailored bedroom with a panelled feature wall, upholstered bed and fitted bedside storage — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Bedrooms</span><span className="cd">Storage at the scale of the room</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/bathrooms"><span className="ccard-img"><Pic src="/img/collections/bathrooms/bathroom-dark-marble-vanity-philippines.jpg" alt="Dramatic bathroom with a wood and dark-marble vanity, round backlit mirror and a freestanding tub — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Bathrooms</span><span className="cd">Moisture-considered vanities &amp; storage</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/dining"><span className="ccard-img"><Pic src="/img/collections/dining/dining-sideboard-display-philippines.jpg" alt="Dining area with a sideboard and display cabinetry in green and wood — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Dining</span><span className="cd">Sideboards, bar &amp; display</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/interior-systems"><span className="ccard-img"><Pic src="/img/collections/interior-systems/kitchen-workstation-sink-marble-island-philippines.jpg" alt="Multifunction workstation sink with a walnut board and colander set into a marble island — Berco design reference" loading="lazy" width="1600" height="900" /></span><span className="cn">Interior Systems</span><span className="cd">Pull-outs, organisers &amp; the workstation sink</span><span className="go">Explore →</span></a>
+      <a className="ccard" href="/collections/whole-home"><span className="ccard-img"><Pic src="/img/collections/whole-home/alice-modern-minimalist-utopian-style-whole-ho-philippines.jpg" alt="A boutique-style dressing room with soft greige cabinetry, stone-veined panels and slim brass shelving — Berco design reference." loading="lazy" width="1600" height="900" /></span><span className="cn">Whole Home</span><span className="cd">One scheme, every room</span><span className="go">Explore →</span></a>
+    </div>
+  </div></section>
 
-          <div className="cside">
-            {/* "Where are you located?" was the third most-asked question in the Berco inbox
-                and the site had no answer anywhere. These are offices with a product
-                showcase — never described as showrooms. */}
-            <h2>Where we are</h2>
-            <p className="cside-item">
-              <span className="cside-k">Metro Manila</span>
-              <span>Mandaluyong — office and product showcase</span>
-            </p>
-            <p className="cside-item">
-              <span className="cside-k">Visayas</span>
-              <span>Cebu — office and product showcase</span>
-            </p>
-            <p className="cside-note">You are welcome to come and see the materials, hardware and
-              finishes in person. Visits are by appointment so a designer is free to walk you
-              through it — tell us above which is easier for you and we will send the address
-              with a time.</p>
-          </div>
+  <section className="feature reveal">
+    <Pic className="feature-img" src="/img/custom-interiors-philippine-home.jpg" alt="Open-plan custom interiors and cabinetry in a Philippine home — Berco design reference" loading="lazy" width="1760" height="1192" />
+    <div className="scrim"></div>
+    <span className="cap capTop">Living · design reference</span>
+    <div className="type">
+      <h2>Made to be<br/>lived in.</h2>
+      <p>Everyday cabinetry, composed with restraint.</p>
+    </div>
+  </section>
 
-        </aside>
-      </div></section>
+  <section id="process" className="band"><div className="shell">
+    <div className="sh reveal"><h2>How we design &amp; build your cabinetry.</h2><span className="eyebrow">How we work</span></div>
+    <p className="lead-txt reveal">Trust usually comes from a portfolio. Ours comes from process — you see exactly how it&rsquo;s made, and hear the truth about your space, before anything is built. The method is the proof.</p>
+    <div className="pcar reveal" data-carousel>
+      <div className="pcar-track">
+        <article className="pslide">
+          <Pic src="/img/carousel/proc-01.jpg?v=2" alt="Dark-wood island kitchen in a bright home — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">01</span><h3>Discover</h3><p>We visit, measure the room, and listen to how you actually live in it — before a single drawing.</p></div>
+        </article>
+        <article className="pslide">
+          <Pic src="/img/carousel/proc-02.jpg?v=2" alt="Berco material and finish samples — oak, lacquer, quartz and hardware" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">02</span><h3>Design</h3><p>You see the layout, the real materials and hardware, and what each choice means — before you commit to anything.</p></div>
+        </article>
+        <article className="pslide">
+          <Pic src="/img/carousel/proc-03.jpg?v=2" alt="Warm dark-wood kitchen with glass display cabinets — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">03</span><h3>Build</h3><p>Cut and finished on shared European production lines, then fitted by one team on site.</p></div>
+        </article>
+        <article className="pslide">
+          <Pic src="/img/carousel/proc-04.jpg?v=2" alt="Fitted walk-in wardrobe with a dresser island — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">04</span><h3>Install</h3><p>Levelled, aligned, hardware calibrated, site cleaned — and checked against our turnover standard.</p></div>
+        </article>
+      </div>
+      <button className="pcar-nav prev" type="button" aria-label="Previous">&#8249;</button>
+      <button className="pcar-nav next" type="button" aria-label="Next">&#8250;</button>
+      <div className="pcar-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div className="acts reveal"><a className="link" href="/how-we-work">See the full process →</a></div>
+  </div></section>
 
-      {/* These two used to sit in the sidebar, which made it ~700px taller than the form and
-          left the left column dead-ending into empty space on desktop. As a full-width band
-          the four steps get the room to read as the sequence they actually are. */}
-      <section className="band"><div className="shell">
-        <div className="sh reveal"><h2>What happens next.</h2><span className="eyebrow">After you send</span></div>
-        <ol className="nextgrid stag">
-          <li><span className="nextnum">01</span><h3>We reply</h3>
-            <p>Within one working day, usually sooner, from a designer rather than an auto-responder.</p></li>
-          <li><span className="nextnum">02</span><h3>We talk through the space</h3>
-            <p>The room, the layout, how you actually use it, and what your budget needs to cover.</p></li>
-          <li><span className="nextnum">03</span><h3>We visit and measure</h3>
-            <p>Nothing is quoted off a guess. We come to the space and take it down properly.</p></li>
-          <li><span className="nextnum">04</span><h3>You get a design and a quotation</h3>
-            <p>In writing, within 7 working days of an agreed scope.</p></li>
-        </ol>
-        <p className="nextnote reveal">A design engagement fee secures the design phase, and it is deductible
-          from the project. We will tell you what it is before you commit to anything.</p>
-      </div></section>
+  <section id="precision" className="prec band"><div className="shell">
+    <div className="sh reveal"><h2>How your cabinetry is built.</h2><span className="eyebrow">Materials &amp; craft</span></div>
+    <p className="lead-txt reveal">Every Berco cabinet is specified to materials and hardware we can name — not vague promises. Here is what goes into it.</p>
+    <div className="matgrid stag">
+      <div className="mat"><h3>Plywood carcases, as standard</h3><p>Our standard carcase is multi-layer solid-wood-veneer plywood — pressed with German MDI adhesive, F4-Star rated (no added formaldehyde), moisture-resistant and strong under load. Finished with aluminium kickboards as standard.</p></div>
+      <div className="mat"><h3>Quartz worktops</h3><p>Non-porous quartz surfaces — scratch-, stain- and heat-resistant, and simple to keep. Wine, oil and vinegar wipe clean.</p></div>
+      <div className="mat"><h3>Lacquer &amp; melamine finishes</h3><p>Eco-friendly lacquer in matte or high-gloss, and fine-texture melamine — edges sealed with PUR and laser edge-banding for daily wear.</p></div>
+      <div className="mat"><h3>Blum &amp; Hettich soft-close</h3><p>Austrian and German hinge and drawer systems, calibrated by hand at installation so doors and drawers move the same way for years.</p></div>
+      <div className="mat"><h3>Kesseböhmer &amp; Peka storage</h3><p>European pull-out and fitted-storage systems — larders, corners and drawer inserts — fitted where the layout calls for them.</p></div>
+      <div className="mat"><h3>German machinery</h3><p>Manufactured on German board presses and edge-banding lines, built for consistency across every run — then finished and fitted by people.</p></div>
+    </div>
+    <div className="matimgs stag">
+      <figure className="mimg"><Pic src="/img/materials-finishes-flatlay-philippines.jpg" alt="Berco material and finish samples — oak, lacquer, quartz and hardware, design reference" loading="lazy" width="1040" height="1040" /></figure>
+      <figure className="mimg"><Pic src="/img/materials-neutral-palette-philippines.jpg" alt="Warm neutral material palette — boards, stone and textiles, Berco design reference" loading="lazy" width="1040" height="901" /></figure>
+      <figure className="mimg"><Pic src="/img/materials-moodboard-interior-philippines.jpg" alt="Material moodboard with interior finishes — Berco design reference" loading="lazy" width="1181" height="1181" /></figure>
+    </div>
+    <p className="note reveal">Manufactured using shared European production technology — stated as provenance, not as our own factory.</p>
+  </div></section>
 
-      <section className="band"><div className="shell tradeband reveal">
-        <div className="tradeband-txt">
-          <span className="eyebrow">Trade</span>
-          <h2>Working with a designer or architect?</h2>
-          <p>There is a separate route for trade specification — drawings, material schedules and lead times.</p>
-        </div>
-        <a className="btn" href="/for-designers">For designers →</a>
-      </div></section>
+  <section id="planning" className="band"><div className="shell">
+    <div className="sh reveal"><h2>Planning a cabinetry project?</h2><span className="eyebrow">Good to know</span></div>
+    <div className="pcar reveal" data-carousel>
+      <div className="pcar-track">
+        <article className="pslide">
+          <Pic src="/img/carousel/plan-01.jpg?v=2" alt="Open-plan kitchen with a marble island and walnut cabinetry — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">01</span><h3>It starts before production</h3><p>Layout, storage zones, appliance placement, counter flow, lighting and hardware — decided together before anything is built.</p></div>
+        </article>
+        <article className="pslide">
+          <Pic src="/img/carousel/plan-02.jpg?v=2" alt="Fully fitted kitchen drawer system with organisers — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">02</span><h3>Measurement matters</h3><p>Renders aren't enough. A proper site measurement is what makes a custom fit actually fit — around bulkheads, uneven walls and real ceiling heights.</p></div>
+        </article>
+        <article className="pslide">
+          <Pic src="/img/carousel/plan-03.jpg?v=2" alt="Warm walnut living room with display cabinetry — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">03</span><h3>Custom takes time</h3><p>Design, approvals, production and installation each take real time. We'll tell you what's realistic up front, not after you've committed.</p></div>
+        </article>
+        <article className="pslide">
+          <Pic src="/img/carousel/plan-04.jpg?v=2" alt="Bright cream-and-walnut island kitchen — Berco design reference" loading="lazy" width="1080" height="1350" />
+          <div className="pslide-txt"><span className="pnum">04</span><h3>Clear from the start</h3><p>Design fees, project stages and what affects the timeline are explained early — so expectations are aligned before money and materials are committed.</p></div>
+        </article>
+      </div>
+      <button className="pcar-nav prev" type="button" aria-label="Previous">&#8249;</button>
+      <button className="pcar-nav next" type="button" aria-label="Next">&#8250;</button>
+      <div className="pcar-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div></section>
 
-      </main>
+  <section id="standard" className="band"><div className="shell">
+    <div className="sh reveal"><h2>Checked before turnover.</h2><span className="eyebrow">The Berco standard</span></div>
+    <div className="chips stag">
+      <span className="chip">Leveling</span><span className="chip">Alignment</span><span className="chip">Reveal consistency</span>
+      <span className="chip">Hardware calibration</span><span className="chip">Cleanliness</span><span className="chip">Final check</span>
+    </div>
+  </div></section>
+
+  <section id="about" className="jbc band"><div className="shell in">
+    <h2 className="reveal">A brand under JBC UNLTD CORP.</h2>
+    <p className="reveal">Operating in the Philippines since 2017 — with experience in project coordination, import, and installation of premium home products. Support while Berco builds its own portfolio.</p>
+  </div></section>
+
+  <section className="band"><div className="shell projects">
+    <div className="box reveal">
+      <span className="eyebrow">Projects</span>
+      <h2 className="mt12">Real projects, coming soon.</h2>
+      <p>We won't show what we haven't built. The images across this site are design references — starting points for conversation.</p>
+    </div>
+    <div className="ph pd reveal"><div className="grain"></div><span className="cap">Reserved for photographed installations</span></div>
+  </div></section>
+
+  <section id="book" className="final band"><div className="shell reveal">
+    <h2>Would you like us to review your space and guide you through the design process?</h2>
+    <a className="btn" href="/contact">Book a design consultation →</a>
+    <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
+  </div></section>
+
+  </main>
 
       <footer><div className="shell">
-        <div className="footgrid">
-          <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
-            <div className="foot-contact">
-              <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
-              <a href="tel:+639178000730">0917 800 0730</a><br/>
-              Philippines · under JBC UNLTD CORP
-            </div>
-          </div>
-          <div className="footcol">
-            <h4>Collections</h4>
-            {ORDER.map((s) => <a href={`/collections/${s}`} key={s}>{CATS[s].name}</a>)}
-          </div>
-          <div className="footcol">
-            <h4>Studio</h4>
-            <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
-            <a href="/for-designers">For designers</a><a href="/#about">About</a><a href="/contact">Contact</a>
-          </div>
-          <div className="footcol">
-            <h4>Policies</h4>
-            <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a>
-          </div>
+    <div className="footgrid">
+      <div>
+        <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+        <div className="foot-contact">
+          <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
+          <a href="tel:+639178000730">0917 800 0730</a><br/>
+          Philippines · under JBC UNLTD CORP
         </div>
-        <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
-      </div></footer>
+      </div>
+      <div className="footcol">
+        <h4>Collections</h4>
+        <a href="/collections/kitchens">Kitchens</a><a href="/collections/wardrobes">Wardrobes</a>
+        <a href="/collections/living">Living &amp; Media</a><a href="/collections/bedrooms">Bedrooms</a>
+        <a href="/collections/bathrooms">Bathrooms</a><a href="/collections/dining">Dining</a>
+        <a href="/collections/interior-systems">Interior Systems</a>
+      </div>
+      <div className="footcol">
+        <h4>Studio</h4>
+        <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
+        <a href="#precision">Materials</a><a href="/contact">Contact</a>
+      </div>
+      <div className="footcol">
+        <h4>Policies</h4>
+        <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a>
+      </div>
+    </div>
+    <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
+  </div></footer>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </>
   )
 }
