@@ -1,0 +1,68 @@
+// Web-viewable catalogues. Each PDF is also readable page-by-page so a visitor never has to
+// download a 3-6MB file just to look. Page images are rendered from the PDF itself, so they
+// cannot drift from the document. The PDFs themselves are owned by the catalogue workstream.
+
+export const CAT_ORDER = ['2026-catalogue', 'interior-systems', 'materials-finishes', 'technical-specification']
+
+export const CATALOGUES = {
+  '2026-catalogue': {
+    name: 'Berco Catalogue 2026',
+    eyebrow: 'The catalogue',
+    hero: 'The 2026 Catalogue.',
+    lead: 'Collections, materials, how a Berco kitchen is actually made, and the standard we hand a project over on.',
+    pdf: '/berco-catalogue-2026.pdf',
+    pages: 48,
+    pageDir: '/img/catalogue/2026',
+    prefix: 'bc',
+    cover: '/img/covers/catalogue-2026-cover.jpg',
+    meta: 'PDF · 48pp',
+    seoTitle: '2026 Catalogue | Berco',
+    seoDesc: 'Read the Berco 2026 Catalogue — collections, materials, the making process and the Berco turnover standard. View it here or download the PDF.',
+    keywords: ['Berco catalogue', 'Berco 2026 catalogue', 'cabinetry catalogue Philippines', 'custom kitchen catalogue Philippines'],
+  },
+  'interior-systems': {
+    name: 'Interior Systems Catalogue',
+    eyebrow: 'Specification catalogue',
+    hero: 'Interior Systems.',
+    lead: 'The complete fitted-storage, organisation and sink range — drawer organisation, larders, corner solutions, worktop integration, sinks and taps — with codes, sizes and cabinet fits.',
+    pdf: '/berco-interior-systems-catalogue.pdf',
+    pages: 32,
+    pageDir: '/img/catalogue/interior-systems',
+    prefix: 'is',
+    cover: '/img/covers/interior-systems-cover.jpg',
+    meta: 'PDF · 32pp',
+    seoTitle: 'Interior Systems Catalogue — Fitted Storage & Sinks | Berco',
+    seoDesc: 'The full Berco Interior Systems range — drawer organisation, larders, corner solutions, worktop integration, sinks and taps, with codes, sizes and cabinet fits.',
+    keywords: ['interior systems catalogue', 'fitted storage Philippines', 'kitchen organisers Philippines', 'workstation sink Philippines'],
+  },
+  'materials-finishes': {
+    name: 'Materials & Finishes 2026',
+    eyebrow: 'The finishes library',
+    hero: 'Materials & Finishes.',
+    lead: 'Part One is the selection — a working palette to put in front of a client. Part Two is the complete range, grouped by the material each finish is made from, every swatch carrying its material code so it can be scheduled directly.',
+    pdf: '/berco-materials-finishes-2026.pdf',
+    pages: 28,
+    pageDir: '/img/catalogue/materials-finishes',
+    prefix: 'mf',
+    cover: '/img/covers/materials-finishes-cover.jpg',
+    meta: 'PDF · 28pp',
+    seoTitle: 'Materials & Finishes 2026 — The Full Library | Berco',
+    seoDesc: 'The Berco materials and finishes library — melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, each with its material code.',
+    keywords: ['cabinetry finishes Philippines', 'melamine finishes', 'quartz worktop Philippines', 'material codes cabinetry', 'Berco finishes'],
+  },
+  'technical-specification': {
+    name: 'Technical Specification',
+    eyebrow: 'For architects & designers',
+    hero: 'Materials & Construction.',
+    lead: 'Board grades, edge and finish specifications, hardware and the production detail you need at specification stage — on one sheet.',
+    pdf: '/berco-technical-specification.pdf',
+    pages: 1,
+    pageDir: '/img/catalogue/technical-specification',
+    prefix: 'ts',
+    cover: '/img/covers/technical-spec-cover.jpg',
+    meta: 'PDF · 1 sheet',
+    seoTitle: 'Technical Specification — Materials & Construction | Berco',
+    seoDesc: 'Berco technical specification: carcase and board, door fronts, edging, countertops, hardware, production and service detail for architects and designers.',
+    keywords: ['cabinetry technical specification', 'carcase board spec', 'edge banding specification', 'Berco specification'],
+  },
+}
