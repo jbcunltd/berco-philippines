@@ -102,4 +102,7 @@ if __name__ == '__main__':
         if want and slug not in want: continue
         actual[slug] = render(slug, c)
     fix_counts(actual)
+    # newly rendered pages need their WebP variants too, or the site serves stale ones
+    print("\nRebuilding WebP variants...")
+    os.system(f'python3 {os.path.join(os.path.dirname(os.path.abspath(__file__)), "build-webp.py")}')
     print("\nDone. Commit public/img/catalogue/** , public/img/covers/** and app/catalogues/data.js")
