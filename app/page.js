@@ -156,14 +156,12 @@ export default function Page() {
     <p className="reveal">Operating in the Philippines since 2017 — with experience in project coordination, import, and installation of premium home products. Support while Berco builds its own portfolio.</p>
   </div></section>
 
-  <section className="band"><div className="shell projects">
-    <div className="box reveal">
-      <span className="eyebrow">Projects</span>
-      <h2 className="mt12">Real projects, coming soon.</h2>
-      <p>We won't show what we haven't built. The images across this site are design references — starting points for conversation.</p>
-    </div>
-    <div className="ph pd reveal"><div className="grain"></div><span className="cap">Reserved for photographed installations</span></div>
-  </div></section>
+  {/* The Projects section is removed until there are real photographed installations.
+      An empty "reserved for later" placeholder announces a gap rather than filling one —
+      it reads as unfinished on a live site. Restore this block, with real photography,
+      when Berco has installs to show. The honesty line it carried ("we won't show what
+      we haven't built") is not lost: every collection page still labels its imagery a
+      design reference, and each detail page repeats it. */}
 
   <section id="book" className="final band"><div className="shell reveal">
     <h2>Would you like us to review your space and guide you through the design process?</h2>
