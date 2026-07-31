@@ -12,7 +12,7 @@ hands over the NEW file, and a changed page count silently truncates the viewer.
 
 Requires: PyMuPDF (fitz), Pillow.
 """
-import io, os, re, sys, glob, hashlib
+import io, os, re, sys, glob, hashlib, subprocess
 
 try:
     import fitz
@@ -102,7 +102,17 @@ if __name__ == '__main__':
         if want and slug not in want: continue
         actual[slug] = render(slug, c)
     fix_counts(actual)
-    # newly rendered pages need their WebP variants too, or the site serves stale ones
+    # Newly rendered pages need their WebP variants too, or the site serves stale ones.
+    #
+    # This used to be os.system() with the path interpolated into a shell string. The repo
+    # lives under a directory containing spaces and brackets, so the shell split the path
+    # and the WebP step failed silently on every run — the visible output still said it was
+    # rebuilding. subprocess with an argument list never reaches a shell, and the exit code
+    # is checked so a failure is loud instead of leaving stale WebP behind the new pages.
     print("\nRebuilding WebP variants...")
-    os.system(f'python3 {os.path.join(os.path.dirname(os.path.abspath(__file__)), "build-webp.py")}')
+    webp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build-webp.py')
+    rc = subprocess.run([sys.executable, webp]).returncode
+    if rc != 0:
+        sys.exit(f"\nbuild-webp.py failed (exit {rc}). The page JPEGs are new but the WebP "
+                 f"variants are stale — the site would serve the OLD pages. Fix and re-run.")
     print("\nDone. Commit public/img/catalogue/** , public/img/covers/** and app/catalogues/data.js")

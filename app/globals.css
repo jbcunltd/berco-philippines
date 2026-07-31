@@ -503,10 +503,19 @@
   /* ── CONTACT ─────────────────────────────────────────────────────────────
      The form is the page's job, so it takes the wide column and the sidebar
      carries the reassurance (direct lines, what happens next, trade route). */
-  .contact-top{ padding-bottom:0 }
-  .contact-head{ max-width:22ch; margin-top:clamp(20px,3vh,34px) }
-  .contact-head h1{ font-size:clamp(36px,6vw,74px); line-height:1.0; letter-spacing:-.018em; margin:14px 0 0 }
-  .contact-head .lead{ max-width:56ch; font-size:clamp(15px,1.8vw,18px); line-height:1.6; color:var(--ink-soft); margin:20px 0 clamp(30px,5vh,48px) }
+  .contact-top{ padding-bottom:clamp(26px,4vh,44px) }
+  /* Masthead sets the headline against the lead rather than stacking both in one narrow
+     column — at 74px a 22ch measure wrapped to four lines and left the page half empty. */
+  .contact-head{ margin-top:clamp(20px,3vh,34px); display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:0 clamp(28px,5vw,72px); align-items:end }
+  .contact-head .eyebrow{ grid-column:1/-1 }
+  .contact-head h1{ font-size:clamp(36px,6vw,74px); line-height:1.0; letter-spacing:-.018em; margin:14px 0 0; max-width:11ch }
+  .contact-head .lead{ max-width:48ch; font-size:clamp(15px,1.8vw,18px); line-height:1.6; color:var(--ink-soft); margin:0 0 9px }
+  @media(max-width:820px){
+    .contact-head{ grid-template-columns:1fr }
+    .contact-head h1{ max-width:none }
+    .contact-head .lead{ margin:20px 0 0 }
+  }
   .contact-grid{ display:grid; grid-template-columns:1.35fr .85fr; gap:clamp(28px,5vw,72px); align-items:start;
     padding-top:clamp(30px,5vh,52px) }
   @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:clamp(34px,6vh,52px) } }
