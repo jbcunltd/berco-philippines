@@ -73,10 +73,40 @@ export default function Contact() {
           <p className="lead">A few details are enough to begin. We will come back within one working
             day with the next step — no obligation, and no pressure to decide anything yet.</p>
         </div>
+
+        {/* ~90% of this traffic is on a phone, where the natural actions are one tap each.
+            These come before the form: calling or messaging is not a lesser path, it is the
+            faster one. The form is for the person browsing at 11pm who does not want to
+            start a conversation yet. */}
+        <div className="taprow">
+          <a className="tap" href="tel:+639178000730">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/>
+            </svg>
+            <span><strong>Call us</strong>0917 800 0730</span>
+          </a>
+          <a className="tap" href="https://m.me/bercophilippines?ref=contact-top" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+              <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>
+            </svg>
+            <span><strong>Messenger</strong>Chat with us</span>
+          </a>
+          <a className="tap" href="mailto:sales@bercohome.com?subject=Cabinetry%20inquiry">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M3 5h18c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1Zm9 7.2L4.7 7h14.6L12 12.2ZM4 8.4V17h16V8.4l-7.4 5.3c-.4.3-.8.3-1.2 0L4 8.4Z"/>
+            </svg>
+            <span><strong>Email us</strong>sales@bercohome.com</span>
+          </a>
+        </div>
       </div></section>
 
       <section className="band"><div className="shell contact-grid">
         <div className="contact-form">
+          <div className="formlead reveal">
+            <span className="eyebrow">Or send the details</span>
+            <h2>Rather not call yet?</h2>
+            <p>Four things and we can come back to you properly — no need to explain everything now.</p>
+          </div>
           <noscript>
             <div className="formfail">
               <p><strong>This form needs JavaScript.</strong> Email us instead and we will pick it up the same way.</p>
@@ -89,20 +119,6 @@ export default function Contact() {
         <aside className="contact-side">
           <div className="cside">
             <h2>Reach us directly</h2>
-            {/* Messenger is where Berco's conversations actually happen — the inbox carries
-                hundreds of them against zero from the website. It goes first, and it keeps
-                the Facebook mark so the channel is recognisable without a saturated blue
-                slab landing in a cream page. */}
-            {/* No target="_blank": iOS and Android hand a Universal/App Link off to the
-                installed Messenger app only on a same-tab navigation. Opening a new tab
-                keeps it in the browser, which is exactly the "it opens a window" problem.
-                On desktop it still opens messenger.com — there is no desktop deep link. */}
-            <a className="fbbtn" href="https://m.me/bercophilippines?ref=contact-page" rel="noopener">
-              <svg className="fbmark" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" focusable="false">
-                <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>
-              </svg>
-              <span>Message us on Facebook</span>
-            </a>
             <p className="cside-item">
               <span className="cside-k">Email</span>
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a>

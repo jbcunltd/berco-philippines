@@ -520,6 +520,35 @@
     padding-top:clamp(30px,5vh,52px) }
   @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:clamp(34px,6vh,52px) } }
 
+  .formlead{ margin:0 0 clamp(20px,3vh,28px) }
+  .formlead h2{ font-size:clamp(21px,2.6vw,28px); line-height:1.14; margin:11px 0 0 }
+  .formlead p{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:10px 0 0; max-width:48ch }
+  /* Tap row — the three one-tap actions, ahead of the form. Sized for a thumb, and on a
+     phone they stack full-width so each is an unmissable target. */
+  .taprow{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.5vw,14px);
+    margin-top:clamp(24px,3.5vh,34px) }
+  .tap{ display:flex; align-items:center; gap:11px; min-height:60px; padding:12px 16px;
+    border:1px solid var(--hair); border-radius:2px; background:var(--panel);
+    color:var(--ink); text-decoration:none; transition:border-color .2s, background .2s, transform .2s }
+  .tap:hover{ background:#fff; border-color:rgba(43,38,32,.24); transform:translateY(-1px) }
+  .tap:focus-visible{ outline:2px solid var(--champ); outline-offset:3px }
+  .tap svg{ flex:0 0 auto; color:var(--champ-ink) }
+  .tap span{ display:flex; flex-direction:column; min-width:0; font-size:13px; color:var(--ink-soft); line-height:1.35 }
+  .tap strong{ font-size:13px; letter-spacing:.03em; color:var(--ink); font-weight:600 }
+  @media(max-width:760px){ .taprow{ grid-template-columns:1fr } }
+
+  /* optional fields sit behind a native disclosure — no JS, and nothing to read past */
+  .fldmore{ border-top:1px solid var(--hair); padding-top:14px }
+  .fldmore summary{ cursor:pointer; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    font-weight:600; color:var(--champ-ink); list-style:none; display:flex; align-items:center;
+    gap:9px; min-height:30px }
+  .fldmore summary::-webkit-details-marker{ display:none }
+  .fldmore summary::before{ content:'+'; font-size:15px; line-height:1; width:15px }
+  .fldmore[open] summary::before{ content:'–' }
+  .fldmore summary:focus-visible{ outline:2px solid var(--champ); outline-offset:3px }
+  .fldmore summary .opt{ letter-spacing:.04em; text-transform:none; font-weight:400; color:var(--ink-faint) }
+  .fldmore-in{ display:flex; flex-direction:column; gap:clamp(16px,2.4vh,22px); padding-top:clamp(16px,2.4vh,22px) }
+
   /* form */
   .iform{ display:flex; flex-direction:column; gap:clamp(16px,2.4vh,22px) }
   .fldrow{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(14px,2vw,22px) }

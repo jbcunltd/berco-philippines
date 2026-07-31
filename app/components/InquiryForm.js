@@ -115,6 +115,9 @@ export default function InquiryForm() {
         </div>
       )}
 
+      {/* Four fields to send, two of them a single tap. This audience is ~90% mobile, so
+          anything that is not needed to call someone back sits behind the disclosure
+          below rather than in front of them. */}
       <div className="fldrow">
         <p className="fld">
           <label htmlFor="name">Your name <span aria-hidden="true">*</span></label>
@@ -122,21 +125,9 @@ export default function InquiryForm() {
           <Err k="name" />
         </p>
         <p className="fld">
-          <label htmlFor="email">Email <span aria-hidden="true">*</span></label>
-          <input type="email" autoComplete="email" required {...field('email')} />
-          <Err k="email" />
-        </p>
-      </div>
-
-      <div className="fldrow">
-        <p className="fld">
           <label htmlFor="phone">Mobile <span aria-hidden="true">*</span></label>
           <input type="tel" inputMode="tel" autoComplete="tel" placeholder="0917 000 0000" required {...field('phone')} />
           <Err k="phone" />
-        </p>
-        <p className="fld">
-          <label htmlFor="location">Where is the project? <span className="opt">Optional</span></label>
-          <input type="text" autoComplete="address-level2" placeholder="Cebu City" {...field('location')} />
         </p>
       </div>
 
@@ -159,10 +150,26 @@ export default function InquiryForm() {
         </p>
       </div>
 
-      <p className="fld">
-        <label htmlFor="message">Tell us about the space <span className="opt">Optional</span></label>
-        <textarea rows={5} placeholder="The room, roughly how big, what is not working about it now — anything that helps us prepare." {...field('message')} />
-      </p>
+      <details className="fldmore">
+        <summary>Add an email or a few details <span className="opt">Optional</span></summary>
+        <div className="fldmore-in">
+          <div className="fldrow">
+            <p className="fld">
+              <label htmlFor="email">Email</label>
+              <input type="email" autoComplete="email" {...field('email')} />
+              <Err k="email" />
+            </p>
+            <p className="fld">
+              <label htmlFor="location">Where is the project?</label>
+              <input type="text" autoComplete="address-level2" placeholder="Cebu City" {...field('location')} />
+            </p>
+          </div>
+          <p className="fld">
+            <label htmlFor="message">Tell us about the space</label>
+            <textarea rows={4} placeholder="The room, roughly how big, what is not working about it now — anything that helps us prepare." {...field('message')} />
+          </p>
+        </div>
+      </details>
 
       {/* Honeypot — hidden from people, irresistible to bots. */}
       <p className="hp" aria-hidden="true">

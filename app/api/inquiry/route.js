@@ -32,8 +32,10 @@ function validate(b) {
   const message = clean(b.message, 4000)
 
   if (name.length < 2) f.name = 'Please tell us your name.'
-  // Deliberately permissive: the point is to catch a typo, not to police valid addresses.
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) f.email = 'Please check your email address.'
+  // Email is optional: on a mobile-first audience it is the field people abandon on, and we
+  // already require a mobile number, which is how Berco actually follows up. Validate only
+  // if they chose to give one — permissive, to catch a typo rather than police addresses.
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) f.email = 'Please check your email address.'
   if (phone.replace(/\D/g, '').length < 7) f.phone = 'Please enter a number we can reach you on.'
   if (!PLANS.includes(plan)) f.plan = 'Please choose what you are planning.'
   if (!WHENS.includes(when)) f.when = 'Please choose a timeline.'
@@ -93,7 +95,7 @@ export async function POST(req) {
       body: JSON.stringify({
         from: FROM,
         to: [TO],
-        reply_to: fields.email,
+        ...(fields.email ? { reply_to: fields.email } : {}),
         subject: `Inquiry — ${fields.plan}, ${fields.when} — ${fields.name}`,
         html,
         text,
