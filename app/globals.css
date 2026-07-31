@@ -343,7 +343,7 @@
   .catpage img{ display:block; width:100%; height:auto }
 
   /* designer download cards */
-  .dlgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,2vw,24px); margin-top:clamp(20px,3vh,32px) }
+  .dlgrid{ display:grid; grid-template-columns:repeat(2,1fr); align-items:start; gap:clamp(14px,2vw,24px); margin-top:clamp(20px,3vh,32px) }
   @media(max-width:820px){ .dlgrid{ grid-template-columns:1fr } }
   .dlcard{ display:flex; flex-direction:row; align-items:flex-start; gap:clamp(16px,2vw,24px);
     padding:clamp(18px,2.2vw,26px); border:1px solid var(--hair); border-radius:4px; background:var(--panel);
