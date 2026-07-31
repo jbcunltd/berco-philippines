@@ -131,7 +131,7 @@ export default function ForDesigners() {
           <div className="footcol">
             <h4>Studio</h4>
             <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
-            <a href="/#precision">Materials</a><a href="#inquire">Trade inquiry</a>
+            <a href="/#precision">Materials</a><a href="#inquire">Trade inquiry</a><a href="/contact">Contact</a>
           </div>
           <div className="footcol">
             <h4>Policies</h4>
