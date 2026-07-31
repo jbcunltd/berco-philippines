@@ -53,6 +53,9 @@ export default function ForDesigners() {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <section className="band pgintro"><div className="shell">
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · For designers</span><span>Philippines</span></div>
         <span className="eyebrow">For architects &amp; designers</span>
@@ -104,6 +107,8 @@ export default function ForDesigners() {
         <a className="btn" href="mailto:sales@bercohome.com?subject=Trade%20%2F%20specification%20enquiry">Start a trade enquiry →</a>
         <p className="fee">For architects, interior designers and project teams. Tell us the project and stage, and we&rsquo;ll get you what you need.</p>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="footgrid">

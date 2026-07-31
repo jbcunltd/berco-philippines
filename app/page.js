@@ -16,6 +16,9 @@ export default function Page() {
     <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
   <header id="top" className="cover"><div className="shell">
     <div className="masthead"><span>Berco — Custom Cabinetry &amp; Interiors</span><span>Philippines</span></div>
     <div className="coverimg">
@@ -167,7 +170,9 @@ export default function Page() {
     <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
   </div></section>
 
-  <footer><div className="shell">
+  </main>
+
+      <footer><div className="shell">
     <div className="footgrid">
       <div>
         <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>

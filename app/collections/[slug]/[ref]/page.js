@@ -77,6 +77,9 @@ export default function Reference({ params }) {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <section className="band refwrap"><div className="shell">
         <div className="masthead">
           <span><a href="/#collections" className="crumb">Collections</a> · <a href={`/collections/${params.slug}`} className="crumb">{c.name}</a> · {im.title}</span>
@@ -143,6 +146,8 @@ export default function Reference({ params }) {
         <a className="btn" href="mailto:sales@bercohome.com?subject=Design%20consultation%20enquiry">Book a design consultation →</a>
         <p className="fee">A design engagement fee secures the design phase — deductible from the project. Or message us on <a href="tel:+639178000730">0917 800 0730</a>.</p>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="footgrid">

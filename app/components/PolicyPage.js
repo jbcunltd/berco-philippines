@@ -23,6 +23,9 @@ export default function PolicyPage({ slug }) {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <section className="band pgintro"><div className="shell">
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · {p.name}</span><span>Philippines</span></div>
         <span className="eyebrow">{p.eyebrow}</span>
@@ -51,6 +54,8 @@ export default function PolicyPage({ slug }) {
         <a className="btn" href="mailto:sales@bercohome.com?subject=Question%20about%20your%20terms">Ask us directly →</a>
         <p className="fee">We would rather answer it now than have you find out later. Or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="footgrid">

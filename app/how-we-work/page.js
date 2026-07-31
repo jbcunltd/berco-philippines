@@ -46,6 +46,9 @@ export default function HowWeWork() {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <section className="band pgintro"><div className="shell">
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · How we work</span><span>Philippines</span></div>
         <span className="eyebrow">How we work</span>
@@ -108,6 +111,8 @@ export default function HowWeWork() {
         <a className="btn" href="mailto:sales@bercohome.com">Book a design consultation →</a>
         <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="footgrid">

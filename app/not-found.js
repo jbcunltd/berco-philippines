@@ -21,6 +21,9 @@ export default function NotFound() {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <section className="band pgintro nf"><div className="shell">
         <span className="eyebrow">404</span>
         <h1>This page has moved on.</h1>
@@ -38,6 +41,8 @@ export default function NotFound() {
           ))}
         </div>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>

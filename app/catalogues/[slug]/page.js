@@ -59,6 +59,9 @@ export default function Catalogue({ params }) {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <section className="band pgintro"><div className="shell">
         <div className="masthead">
           <span><a href="/" className="crumb">Berco</a> · <a href="/for-designers" className="crumb">Catalogues</a> · {c.name}</span>
@@ -121,6 +124,8 @@ export default function Catalogue({ params }) {
         <a className="btn" href="mailto:sales@bercohome.com?subject=Specification%20enquiry">Talk to a Berco designer →</a>
         <p className="fee">Named materials and hardware, real sizes and cabinet fits, and honest lead times before anything is ordered. Or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="footgrid">

@@ -58,6 +58,9 @@ export default function Collection({ params }) {
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
+      <a className="skip" href="#main">Skip to content</a>
+      <main id="main">
+
       <header className="cover cathead"><div className="shell">
         <div className="masthead"><span><a href="/#collections" className="crumb">Collections</a> · {c.name}</span><span>Philippines</span></div>
         <div className="coverimg">
@@ -160,6 +163,8 @@ export default function Collection({ params }) {
         <a className="btn" href="mailto:sales@bercohome.com">Book a design consultation →</a>
         <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
       </div></section>
+
+      </main>
 
       <footer><div className="shell">
         <div className="footgrid">
