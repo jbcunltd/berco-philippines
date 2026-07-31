@@ -7,8 +7,9 @@ const nextConfig = {
   async redirects() {
     return [
       // ── The catalogue: the link seeded in Facebook comments + the ManyChat PLAN reply ──
-      { source: '/catalog', destination: '/2026-catalogue', permanent: true },
-      { source: '/catalog/:path*', destination: '/2026-catalogue', permanent: true },
+      { source: '/2026-catalogue', destination: '/catalogues/2026-catalogue', permanent: true },
+      { source: '/catalog', destination: '/catalogues/2026-catalogue', permanent: true },
+      { source: '/catalog/:path*', destination: '/catalogues/2026-catalogue', permanent: true },
 
       // ── Product pages → nearest collection ──
       { source: '/shop/kitchen-cabinets/:path*', destination: '/collections/kitchens', permanent: true },
