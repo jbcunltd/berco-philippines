@@ -3,8 +3,8 @@
     --serif:var(--font-serif),'Bodoni 72',Didot,Georgia,serif;
     --sans:var(--font-sans),'Futura','Avenir Next',system-ui,sans-serif;
     --ground:#FDFBF7; --panel:#F8F3EA; --beige:#F0E7D8;
-    --ink:#2B2620; --ink-soft:rgba(43,38,32,.60); --ink-faint:rgba(43,38,32,.42);
-    --hair:rgba(43,38,32,.11); --champ:#C9A863; --champ-ink:#9A7A38;
+    --ink:#2B2620; --ink-soft:rgba(43,38,32,.72); --ink-faint:rgba(43,38,32,.66);
+    --hair:rgba(43,38,32,.11); --champ:#C9A863; --champ-ink:#876A30;
     --maxw:1240px;
   }
   /* Light-only by design — a welcoming cream-and-white world. */
@@ -329,7 +329,7 @@
     overflow:hidden; aspect-ratio:16/9; background:var(--beige); cursor:pointer; transition:all .25s var(--ease) }
   .viewthumb img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center }
   .viewthumb:hover{ border-color:var(--champ) }
-  .viewthumb[aria-current="true"]{ border-color:var(--champ-ink); box-shadow:0 0 0 2px rgba(154,122,56,.25) }
+  .viewthumb[aria-current="true"]{ border-color:var(--champ-ink); box-shadow:0 0 0 2px rgba(135,106,48,.28) }
   .viewslabel{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint);
     font-weight:600; margin:0 0 10px }
 
