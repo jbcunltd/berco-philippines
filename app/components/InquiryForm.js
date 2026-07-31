@@ -110,7 +110,8 @@ export default function InquiryForm() {
           <p><strong>{failMsg}</strong> Nothing you typed is lost — send it as an email instead
             and it will arrive the same way.</p>
           <a className="btn" href={composeFallback(v)}>Send this as an email →</a>
-          <p className="formfail-alt">Or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
+          <p className="formfail-alt">Or message us on <a href="https://m.me/bercophilippines" target="_blank" rel="noopener noreferrer">Facebook</a>,
+            or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
         </div>
       )}
 

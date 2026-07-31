@@ -570,6 +570,16 @@
   @media(max-width:900px){ .contact-side{ position:static } }
   .cside{ border-top:1px solid var(--hair); padding-top:clamp(16px,2.4vh,22px) }
   .cside h2{ font-size:clamp(17px,2vw,21px); line-height:1.2; margin:0 0 14px }
+  /* Messenger button — the Facebook mark carries the recognition so the button itself
+     can stay in the site's warm world instead of dropping in a saturated blue slab. */
+  .fbbtn{ display:inline-flex; align-items:center; gap:10px; width:100%;
+    padding:13px 16px; margin:0 0 18px; border:1px solid var(--hair); border-radius:2px;
+    background:var(--panel); color:var(--ink); text-decoration:none;
+    font-size:13px; letter-spacing:.04em; font-weight:600; min-height:48px;
+    transition:border-color .2s, background .2s, transform .2s }
+  .fbbtn:hover{ border-color:rgba(24,119,242,.45); background:#fff; transform:translateY(-1px) }
+  .fbbtn:focus-visible{ outline:2px solid #1877F2; outline-offset:3px }
+  .fbmark{ flex:0 0 auto; display:block }
   .cside-item{ display:flex; flex-direction:column; gap:3px; margin:0 0 13px; font-size:14.5px; line-height:1.5; color:var(--ink-soft) }
   .cside-k{ font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); font-weight:600 }
   .cside-item a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--champ); align-self:flex-start }
