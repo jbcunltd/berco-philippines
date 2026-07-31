@@ -47,7 +47,7 @@ export const CATALOGUES = {
     cover: '/img/covers/materials-finishes-cover.jpg',
     meta: 'PDF · 44pp',
     seoTitle: 'Materials & Finishes 2026 — The Full Library | Berco',
-    seoDesc: 'The Berco materials and finishes library — melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, each with its material code.',
+    seoDesc: 'The Berco finishes library — melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone, each with its code.',
     keywords: ['cabinetry finishes Philippines', 'melamine finishes', 'quartz worktop Philippines', 'material codes cabinetry', 'Berco finishes'],
   },
   'technical-specification': {

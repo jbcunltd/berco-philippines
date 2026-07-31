@@ -2,8 +2,8 @@ import Pic from '../components/Pic'
 const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
-  title: 'For Designers & Architects — Catalogues & Specification | Berco',
-  description: 'Trade resources for architects and interior designers: download the Berco catalogue, the Interior Systems (fitted storage & sink) catalogue, the Materials & Finishes library of 202 finishes and the technical specification — with named materials, hardware, sizes and cabinet fits.',
+  title: 'For Designers & Architects — Specification | Berco',
+  description: 'Trade resources for architects and interior designers: the Berco catalogues, the Materials & Finishes library and the technical specification.',
   keywords: ['Berco for designers', 'cabinetry catalogue Philippines', 'interior systems catalogue', 'kitchen specification Philippines', 'trade cabinetry Philippines', 'architect resources cabinetry'],
   alternates: { canonical: '/for-designers' },
   openGraph: {

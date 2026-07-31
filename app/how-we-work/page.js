@@ -2,7 +2,7 @@ const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
   title: 'How We Work — Our Cabinetry Process | Berco',
-  description: 'How Berco designs, makes and installs custom cabinetry in the Philippines — a transparent, honest process. We show you exactly how it is built and tell you the truth before anything is made.',
+  description: 'How Berco designs, makes and installs custom cabinetry in the Philippines — and tells you the truth about cost, time and materials before anything is made.',
   keywords: ['cabinetry process Philippines', 'how custom cabinets are made', 'kitchen design process Philippines', 'Berco process', 'custom cabinetry consultation Philippines'],
   alternates: { canonical: '/how-we-work' },
   openGraph: {

@@ -18,7 +18,7 @@ export const CATS = {
     ],
     features: ['Quartz worktops', 'Deep pan & pull-out storage', 'Soft-close throughout', 'Planned around your appliances'],
     seoTitle: 'Custom Kitchen Cabinetry in the Philippines | Berco',
-    seoDesc: 'Custom kitchen cabinets, islands and sculleries for Philippine homes — planned around how you cook, specified to quartz and plywood carcases, and measured to fit. Design references from Berco.',
+    seoDesc: 'Custom kitchen cabinets, islands and sculleries for Philippine homes — planned around how you cook, in quartz and plywood, measured to fit. Design references.',
     keywords: ['custom kitchen cabinets Philippines', 'kitchen island Philippines', 'kitchen cabinetry Manila', 'scullery Philippines', 'Berco kitchens'],
     images: [
       { src: 'kitchen-island-marble-walnut-philippines.jpg', alt: 'Custom kitchen with a marble-topped island and warm walnut cabinetry — Berco design reference', cap: 'Island kitchen · design reference', slug: 'marble-front-walnut-island-kitchen', title: 'Marble-Front Kitchen with Walnut Tall Units', blurb: 'A design that pairs white marble fronts and backsplash with warm walnut tall units built to hold double ovens. Glass-front display shelving runs along one wall with lighting under each shelf, and a marble-topped island steps down to a small wood bar for two. The layout keeps cooking, storage and a nearby dining table in one open run.' },
@@ -54,7 +54,7 @@ export const CATS = {
     ],
     features: ['Interiors arranged to your clothes', 'Integrated lighting', 'Sealed, quiet-closing hardware', 'Full-height, measured to fit'],
     seoTitle: 'Walk-in & Fitted Wardrobes in the Philippines | Berco',
-    seoDesc: 'Walk-in and fitted wardrobes for Philippine homes — internal storage, fronts and lighting arranged around your clothes, measured to the room. Design references from Berco.',
+    seoDesc: 'Walk-in and fitted wardrobes for Philippine homes — storage, fronts and lighting arranged around your clothes, measured to the room. Design references.',
     keywords: ['walk-in wardrobe Philippines', 'fitted wardrobe Philippines', 'custom closet Manila', 'bedroom wardrobe Philippines', 'Berco wardrobes'],
     images: [
       { src: 'walk-in-wardrobe-fitted-storage-philippines.jpg', alt: 'Walk-in wardrobe with fitted hanging, drawers and shelving — Berco design reference', cap: 'Walk-in wardrobe · design reference', slug: 'greige-walk-in-fitted-hanging', title: 'Greige Walk-In with Open Corner Hanging', blurb: 'A calm greige walk-in that mixes floor-to-ceiling doors with an open corner run of hanging and curved shelving. Slim vertical handles keep the fronts clean, and warm strip lighting sits above each bay so garments stay easy to read. A low upholstered bench gives you room to dress without crowding the space.' },
@@ -91,7 +91,7 @@ export const CATS = {
     ],
     features: ['Cable & device planning', 'Open and closed, mixed', 'Finishes that sit quiet', 'Floating or full-height'],
     seoTitle: 'Living Room & Media Wall Cabinetry, Philippines | Berco',
-    seoDesc: 'Media walls, display and concealed living-room storage for Philippine homes — planned around your screen, cabling and how the room is used. Design references from Berco.',
+    seoDesc: 'Media walls, display and concealed living-room storage — planned around your screen, cabling and how the room is used. Design references, Philippines.',
     keywords: ['media wall cabinetry Philippines', 'living room storage Philippines', 'TV wall cabinet Manila', 'display cabinet Philippines', 'Berco living'],
     images: [
       { src: 'living-room-media-storage-philippines.jpg', alt: 'Living room with a media wall and integrated display storage — Berco design reference', cap: 'Media wall · design reference', slug: 'taupe-media-wall-glass-display', title: 'Taupe Media Wall with Glass Display Cabinet', blurb: 'A recessed television sits at the center of a taupe media wall, framed by a glass-fronted display cabinet and a long low console for concealed storage. Backlit open shelving runs along the adjoining wall, holding a few chosen pieces without crowding them. Warm strip lighting and a muted palette keep the room quiet and easy to live in.' },
@@ -126,7 +126,7 @@ export const CATS = {
     ],
     features: ['Storage as architecture', 'Soft-close throughout', 'Measured to the wall', 'Integrated lighting'],
     seoTitle: 'Fitted Bedroom Cabinetry & Storage, Philippines | Berco',
-    seoDesc: 'Fitted bedroom storage for Philippine homes — headboard walls, bedside and full-height wardrobes measured to the room and finished to the light. Design references from Berco.',
+    seoDesc: 'Fitted bedroom storage for Philippine homes — headboard walls, bedsides and full-height wardrobes, measured to the room. Design references.',
     keywords: ['fitted bedroom storage Philippines', 'bedroom cabinetry Manila', 'headboard wall Philippines', 'built-in wardrobe bedroom Philippines', 'Berco bedrooms'],
     images: [
       { src: 'fitted-bedroom-storage-philippines.jpg', alt: 'Bedroom with full-height fitted storage integrated into the wall — Berco design reference', cap: 'Fitted bedroom · design reference', slug: 'panelled-headboard-wall-fitted-wardrobes', title: 'Panelled Headboard Wall with Fitted Wardrobes', blurb: 'The headboard wall is built as fitted panelling, with slim lit reveals running floor to ceiling. A gloss champagne wardrobe on one side carries a built-in dressing vanity, and a glass-front wardrobe closes the other. Storage sits flush with the architecture, so the room reads calm rather than crowded.' },
@@ -163,7 +163,7 @@ export const CATS = {
     ],
     features: ['Moisture-considered materials', 'Sealed edges', 'Ventilated interiors', 'Hardware that takes humidity'],
     seoTitle: 'Bathroom Vanity Cabinetry in the Philippines | Berco',
-    seoDesc: 'Bathroom vanities and storage for Philippine homes — sealed edges, moisture-considered materials and lasting hardware, planned around the plumbing. Design references from Berco.',
+    seoDesc: 'Bathroom vanities and storage for Philippine homes — sealed edges, moisture-considered materials and hardware that lasts. Design references.',
     keywords: ['bathroom vanity Philippines', 'custom vanity cabinet Manila', 'bathroom storage Philippines', 'moisture resistant vanity Philippines', 'Berco bathrooms'],
     images: [
       { src: 'bathroom-vanity-marble-storage-philippines.jpg', alt: 'Bathroom vanity with marble surfaces and fitted storage in a wet room — Berco design reference', cap: 'Vanity · design reference', slug: 'bronze-floating-vanity-open-shelving', title: 'Bronze Floating Vanity with Open Shelving', blurb: 'A wall-hung vanity in a deep bronze finish pairs four drawers with an open cubby for towels and daily items. The stone top and dark upper cabinets frame a book-matched marble wall, while lit niche shelving keeps essentials within reach. A floating design like this keeps the floor clear and suits finishes chosen to handle a busy, moisture-prone room.' },
@@ -199,7 +199,7 @@ export const CATS = {
       { name: 'Display & wine', line: 'Glass-front display and considered bottle storage.' },
     ],
     features: ['Serving-height tops', 'Display lighting', 'Concealed storage', 'Carries the kitchen finish'],
-    seoTitle: 'Dining Room Sideboard & Display Cabinetry, Philippines | Berco',
+    seoTitle: 'Dining Sideboards & Display Cabinetry, Philippines | Berco',
     seoDesc: 'Dining-room sideboards, bar and display cabinetry for Philippine homes — serving, storage and display planned for hosting. Design references from Berco.',
     keywords: ['dining room cabinetry Philippines', 'sideboard Philippines', 'bar cabinet Manila', 'display cabinet dining Philippines', 'Berco dining'],
     images: [
@@ -235,8 +235,8 @@ export const CATS = {
       { name: 'Sinks & Taps', line: 'The multifunction workstation sink, faucets and fittings.' },
     ],
     features: ['Drawer organisation & pull-outs', 'Corner & tall-unit access', 'Soft-close & push-to-open', 'Kesseböhmer · Germany · Peka · Switzerland'],
-    seoTitle: 'Kitchen Interior Systems & Storage Fittings, Philippines | Berco',
-    seoDesc: 'Pull-out organisers, dish and cutlery storage, corner access and the workstation sink — the fittings that make Berco cabinetry work. Design references, Philippines.',
+    seoTitle: 'Interior Systems & Kitchen Storage, Philippines | Berco',
+    seoDesc: 'Pull-out organisers, cutlery and dish storage, corner access and the workstation sink — the fittings that make Berco cabinetry work. Philippines.',
     keywords: ['kitchen storage systems Philippines', 'pull-out organiser Philippines', 'workstation sink Philippines', 'cabinet accessories Manila', 'Berco interior systems'],
     images: [
       { src: 'kitchen-workstation-sink-marble-island-philippines.jpg', alt: 'Multifunction workstation sink with a walnut board and colander set into a marble island — Berco design reference', cap: 'The workstation sink · design reference', slug: 'workstation-sink-marble-island', title: 'Workstation Sink Set Into a Marble Island', blurb: 'A deep workstation sink built into a marble-look island, worked into the worktop as one clean run rather than dropped in as an afterthought. A walnut cutting board, colander and roller drainer sit on the ledge and slide across the bowl, so prep, rinsing and draining happen over the same space. The dark faucet keeps to the same tone.' },
@@ -281,7 +281,7 @@ export const CATS = {
     ],
     features: ['One material palette throughout', 'Coordinated hardware & edges', 'Room-by-room storage planning', 'Drawn and measured as one project'],
     seoTitle: 'Whole-Home Interiors & Cabinetry, Philippines | Berco',
-    seoDesc: 'Whole-home interior schemes for Philippine houses and apartments — kitchen, living, dining, bedrooms and bathrooms planned around one material palette. Design references from Berco.',
+    seoDesc: 'Whole-home schemes for Philippine homes — kitchen, living, dining, bedrooms and bathrooms planned around one material palette. Design references.',
     keywords: ['whole home interior design Philippines', 'full house cabinetry Philippines', 'apartment interior package Philippines', 'villa joinery Philippines', 'Berco whole home'],
     images: [
       { src: 'alice-modern-minimalist-utopian-style-whole-ho-philippines.jpg', alt: 'A boutique-style dressing room with soft greige cabinetry, stone-veined panels and slim brass shelving — Berco design reference.', cap: 'Greige and brass', slug: 'soft-greige-brass-line-whole-home', title: 'Soft Greige and Brass-Line Whole-Home Scheme', blurb: 'A soft greige palette runs through the whole home, edged with slim brass lines and panels of veined stone. The hero shows a dressing room built like a boutique: full-height wardrobe fronts, an open display bay with lit shelves, and a low island for folded pieces. The same cabinet language carries into the bedroom, the living area and the kitchen, so nothing reads as an add-on.', angles: ['alice-modern-minimalist-utopian-style-whole-ho-v2-philippines.jpg', 'alice-modern-minimalist-utopian-style-whole-ho-v3-philippines.jpg', 'alice-modern-minimalist-utopian-style-whole-ho-v4-philippines.jpg', 'alice-modern-minimalist-utopian-style-whole-ho-v5-philippines.jpg'] },
