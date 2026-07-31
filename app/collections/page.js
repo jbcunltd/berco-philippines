@@ -1,4 +1,5 @@
 import { CATS, ORDER } from './data'
+import Pic from '../components/Pic'
 
 const SITE = 'https://berco-philippines.vercel.app'
 
@@ -45,7 +46,7 @@ export default function Collections() {
         <div className="colgrid stag">
           {ORDER.map((s) => (
             <a className="colcard" href={`/collections/${s}`} key={s}>
-              <img src={first(s)} alt={`${CATS[s].name} — Berco custom cabinetry design reference`} loading="lazy" />
+              <Pic src={first(s)} alt={`${CATS[s].name} — Berco custom cabinetry design reference`} loading="lazy" width="1600" height="900" />
               <span className="lbl"><span className="cn">{CATS[s].name}</span><span className="go">Explore →</span></span>
             </a>
           ))}

@@ -1,5 +1,6 @@
 import { CATS, ORDER } from '../../data'
 import { notFound } from 'next/navigation'
+import Pic from '../../../components/Pic'
 
 const SITE = 'https://berco-philippines.vercel.app'
 
@@ -83,7 +84,7 @@ export default function Reference({ params }) {
         </div>
 
         <figure className="reffig reveal">
-          <img id="refmain" src={src} alt={im.alt} width="1600" height="900" />
+          <Pic id="refmain" src={src} alt={im.alt} width="1600" height="900" />
         </figure>
 
         {views.length > 1 && (
@@ -94,7 +95,7 @@ export default function Reference({ params }) {
                 <button className="viewthumb" type="button" data-view={`/img/collections/${params.slug}/${v}`}
                   aria-current={k === 0 ? 'true' : 'false'}
                   aria-label={`View ${k + 1} of ${im.title}`} key={v}>
-                  <img src={`/img/collections/${params.slug}/${v}`} alt={`${im.title} — view ${k + 1}`} loading="lazy" />
+                  <Pic src={`/img/collections/${params.slug}/${v}`} alt={`${im.title} — view ${k + 1}`} loading="lazy" width="1600" height="900" />
                 </button>
               ))}
             </div>
@@ -127,7 +128,7 @@ export default function Reference({ params }) {
         <div className="rgrid stag">
           {more.map((x) => (
             <a className="rcard" href={`/collections/${params.slug}/${x.slug}`} key={x.slug}>
-              <span className="rcard-img"><img src={`/img/collections/${params.slug}/${x.src}`} alt={x.alt} loading="lazy" width="1600" height="900" /></span>
+              <span className="rcard-img"><Pic src={`/img/collections/${params.slug}/${x.src}`} alt={x.alt} loading="lazy" width="1600" height="900" /></span>
               <span className="rcard-t">{x.title}</span>
             </a>
           ))}

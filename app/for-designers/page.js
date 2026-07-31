@@ -1,3 +1,4 @@
+import Pic from '../components/Pic'
 const SITE = 'https://berco-philippines.vercel.app'
 
 export const metadata = {
@@ -64,7 +65,7 @@ export default function ForDesigners() {
         <div className="dlgrid stag">
           {DOWNLOADS.map((f) => (
             <a className="dlcard" href={f.href} key={f.t}>
-              <span className="dlcover"><img src={f.cover} alt={f.coverAlt} loading="lazy" width="1000" height="1415" /></span>
+              <span className="dlcover"><Pic src={f.cover} alt={f.coverAlt} loading="lazy" width="1000" height="1415" /></span>
               <span className="dlbody">
                 <span className="dlmeta">{f.meta}</span>
                 <h3>{f.t}</h3>

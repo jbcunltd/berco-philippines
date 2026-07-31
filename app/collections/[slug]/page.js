@@ -1,5 +1,6 @@
 import { CATS, ORDER } from '../data'
 import { notFound } from 'next/navigation'
+import Pic from '../../components/Pic'
 
 const SITE = 'https://berco-philippines.vercel.app'
 const base = (slug) => `${SITE}/img/collections/${slug}`
@@ -61,7 +62,7 @@ export default function Collection({ params }) {
         <div className="masthead"><span><a href="/#collections" className="crumb">Collections</a> · {c.name}</span><span>Philippines</span></div>
         <div className="coverimg">
           {hero
-            ? <img className="cover-img" src={img(hero.src)} alt={hero.alt} width="1600" height="1000" />
+            ? <Pic className="cover-img" src={img(hero.src)} alt={hero.alt} width="1600" height="1000" />
             : <div className="cover-img ph pa" />}
           <div className="scrim"></div>
           {hero && <span className="cap">{c.name} · design reference</span>}
@@ -100,7 +101,7 @@ export default function Collection({ params }) {
           <div className="rgrid stag">
             {imgs.map((im) => (
               <a className="rcard" href={`/collections/${params.slug}/${im.slug}`} key={im.slug}>
-                <span className="rcard-img"><img src={img(im.src)} alt={im.alt} loading="lazy" width="1600" height="900" /></span>
+                <span className="rcard-img"><Pic src={img(im.src)} alt={im.alt} loading="lazy" width="1600" height="900" /></span>
                 <span className="rcard-t">{im.title || im.cap}</span>
               </a>
             ))}
@@ -118,7 +119,7 @@ export default function Collection({ params }) {
               const n = String(i + 1).padStart(2, '0')
               return (
                 <a className="catpage" href={c.catalogue.pdf} target="_blank" rel="noopener" key={i}>
-                  <img src={`${c.catalogue.pageDir}/is-${n}.jpg`} alt={`${c.name} catalogue — page ${i + 1}`} loading="lazy" />
+                  <Pic src={`${c.catalogue.pageDir}/is-${n}.jpg`} alt={`${c.name} catalogue — page ${i + 1}`} loading="lazy" width="1100" height="1556" />
                 </a>
               )
             })}

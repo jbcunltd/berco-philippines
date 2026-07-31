@@ -1,5 +1,6 @@
 import { CATALOGUES, CAT_ORDER } from '../data'
 import { notFound } from 'next/navigation'
+import Pic from '../../components/Pic'
 
 const SITE = 'https://berco-philippines.vercel.app'
 
@@ -65,7 +66,7 @@ export default function Catalogue({ params }) {
         </div>
 
         <div className="cathead">
-          <span className="cathead-cover"><img src={c.cover} alt={`${c.name} — cover`} width="1000" height="1415" /></span>
+          <span className="cathead-cover"><Pic src={c.cover} alt={`${c.name} — cover`} width="1000" height="1415" /></span>
           <div className="cathead-body">
             <span className="eyebrow">{c.eyebrow}</span>
             <h1>{c.hero}</h1>
@@ -85,7 +86,7 @@ export default function Catalogue({ params }) {
             const n = String(i + 1).padStart(2, '0')
             return (
               <a className="catpage" href={c.pdf} target="_blank" rel="noopener" key={i}>
-                <img src={`${c.pageDir}/${c.prefix}-${n}.jpg`} alt={`${c.name} — page ${i + 1}`} loading="lazy" width="1100" height="1556" />
+                <Pic src={`${c.pageDir}/${c.prefix}-${n}.jpg`} alt={`${c.name} — page ${i + 1}`} loading="lazy" width="1100" height="1556" />
               </a>
             )
           })}
@@ -103,7 +104,7 @@ export default function Catalogue({ params }) {
             const o = CATALOGUES[s]
             return (
               <a className="dlcard" href={`/catalogues/${s}`} key={s}>
-                <span className="dlcover"><img src={o.cover} alt={`${o.name} — cover`} loading="lazy" width="1000" height="1415" /></span>
+                <span className="dlcover"><Pic src={o.cover} alt={`${o.name} — cover`} loading="lazy" width="1000" height="1415" /></span>
                 <span className="dlbody">
                   <span className="dlmeta">{o.meta}</span>
                   <h3>{o.name}</h3>
