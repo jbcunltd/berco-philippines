@@ -465,6 +465,19 @@
   /* Document readers must never depend on JS to become visible */
   .catpages > *{ opacity:1 !important; transform:none !important }
   .catpage img{ width:100%; height:auto }
+
+  /* policy pages - long-form, readable, no decoration */
+  .policy{ max-width:70ch }
+  .polsec{ margin-top:clamp(30px,4.4vh,48px) }
+  .polsec:first-child{ margin-top:clamp(10px,1.6vh,18px) }
+  .polsec h2{ font-size:clamp(19px,2.2vw,25px); line-height:1.2; margin:0 0 12px }
+  .polsec p{ font-size:clamp(15px,1.7vw,17px); line-height:1.68; color:var(--ink-soft); margin:0 }
+  .polsec ul{ margin:14px 0 0; padding:0; list-style:none }
+  .polsec li{ position:relative; padding-left:20px; margin-top:10px;
+    font-size:clamp(15px,1.7vw,17px); line-height:1.62; color:var(--ink-soft) }
+  .polsec li::before{ content:""; position:absolute; left:2px; top:11px; width:6px; height:1px; background:var(--champ-ink) }
+  .polsec p + ul{ margin-top:12px }
+  .policy .note{ margin-top:clamp(34px,5vh,54px); padding-top:20px; border-top:1px solid var(--hair) }
   /* catalogue viewer: cover + download at the top, pages below */
   .cathead{ display:flex; gap:clamp(20px,3vw,40px); align-items:flex-start; margin-top:clamp(22px,3vh,36px); flex-wrap:wrap }
   .cathead-cover{ flex:0 0 clamp(150px,18vw,230px); display:block; border-radius:3px; overflow:hidden;

@@ -1,5 +1,6 @@
 import { ORDER, CATS } from './collections/data'
 import { CAT_ORDER } from './catalogues/data'
+import { POLICY_ORDER } from './policies/data'
 
 const SITE = 'https://berco-philippines.vercel.app'
 
@@ -18,6 +19,12 @@ export default function sitemap() {
     { url: `${SITE}/how-we-work`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE}/for-designers`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE}/collections`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    ...POLICY_ORDER.map((s) => ({
+      url: `${SITE}/${s}`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    })),
     ...CAT_ORDER.map((s) => ({
       url: `${SITE}/catalogues/${s}`,
       lastModified: now,

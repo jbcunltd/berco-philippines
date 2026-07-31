@@ -142,7 +142,7 @@ export default function Catalogue({ params }) {
             <a href="/#precision">Materials</a><a href="/#about">About</a><a href="#book">Book a consultation</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span>www.BERCOHOME.com</span></div>
+        <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

@@ -128,7 +128,7 @@ export default function ForDesigners() {
             <a href="/#precision">Materials</a><a href="#enquire">Trade enquiry</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span>www.BERCOHOME.com</span></div>
+        <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
