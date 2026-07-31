@@ -152,7 +152,7 @@ export default function Page() {
   </div></section>
 
   <section id="about" className="jbc band"><div className="shell in">
-    <h2 className="reveal">A brand under JBC UNLTD CORP.</h2>
+    <h2 className="reveal">JBC UNLTD CORP.</h2>
     <p className="reveal">Operating in the Philippines since 2017 — with experience in project coordination, import, and installation of premium home products. Support while Berco builds its own portfolio.</p>
   </div></section>
 
@@ -181,7 +181,7 @@ export default function Page() {
               {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
                   website-originated chat can be told apart from an ad-originated one. */}
               <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-          Philippines · under JBC UNLTD CORP
+          Philippines · JBC UNLTD CORP
         </div>
       </div>
       <div className="footcol">
@@ -201,7 +201,7 @@ export default function Page() {
         <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a>
       </div>
     </div>
-    <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
+    <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
   </div></footer>
 
     </>

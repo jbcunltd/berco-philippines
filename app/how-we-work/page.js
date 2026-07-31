@@ -104,7 +104,7 @@ export default function HowWeWork() {
 
       <section className="jbc band"><div className="shell in">
         <h2 className="reveal">The backing behind a new brand.</h2>
-        <p className="reveal">Berco is a brand under JBC UNLTD CORP, operating in the Philippines since 2017 — with real experience coordinating, importing and installing premium home products. Offered as provenance, not as Berco&rsquo;s own cabinetry portfolio.</p>
+        <p className="reveal">Berco is a brand of JBC UNLTD CORP, operating in the Philippines since 2017 — with real experience coordinating, importing and installing premium home products. Offered as provenance, not as Berco&rsquo;s own cabinetry portfolio.</p>
       </div></section>
 
       <section id="book" className="final band"><div className="shell reveal">
@@ -125,7 +125,7 @@ export default function HowWeWork() {
               {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
                   website-originated chat can be told apart from an ad-originated one. */}
               <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Philippines · under JBC UNLTD CORP
+              Philippines · JBC UNLTD CORP
             </div>
           </div>
           <div className="footcol">
@@ -145,7 +145,7 @@ export default function HowWeWork() {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — a brand under JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
+        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
