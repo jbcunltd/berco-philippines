@@ -47,9 +47,10 @@ export default function ForDesigners() {
           <a href="/how-we-work">Process</a>
           <a href="/#precision">Materials</a>
           <a href="/for-designers">For designers</a>
-          <a className="navlink-cta" href="#enquire">Enquire</a>
+          <a href="/contact">Contact</a>
+          <a className="navlink-cta" href="#inquire">Inquire</a>
         </div>
-        <a className="navcta" href="#enquire">Trade enquiry</a>
+        <a className="navcta" href="#inquire">Trade inquiry</a>
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
@@ -102,9 +103,9 @@ export default function ForDesigners() {
         </div>
       </div></section>
 
-      <section id="enquire" className="final band"><div className="shell reveal">
-        <h2>Trade &amp; specification enquiries.</h2>
-        <a className="btn" href="mailto:sales@bercohome.com?subject=Trade%20%2F%20specification%20enquiry">Start a trade enquiry →</a>
+      <section id="inquire" className="final band"><div className="shell reveal">
+        <h2>Trade &amp; specification inquiries.</h2>
+        <a className="btn" href="mailto:sales@bercohome.com?subject=Trade%20%2F%20specification%20inquiry">Start a trade inquiry →</a>
         <p className="fee">For architects, interior designers and project teams. Tell us the project and stage, and we&rsquo;ll get you what you need.</p>
       </div></section>
 
@@ -130,7 +131,7 @@ export default function ForDesigners() {
           <div className="footcol">
             <h4>Studio</h4>
             <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
-            <a href="/#precision">Materials</a><a href="#enquire">Trade enquiry</a>
+            <a href="/#precision">Materials</a><a href="#inquire">Trade inquiry</a>
           </div>
           <div className="footcol">
             <h4>Policies</h4>

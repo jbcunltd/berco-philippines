@@ -17,9 +17,10 @@ export default function PolicyPage({ slug }) {
           <a href="/how-we-work">Process</a>
           <a href="/#precision">Materials</a>
           <a href="/for-designers">For designers</a>
-          <a className="navlink-cta" href="#book">Book a consultation</a>
+          <a href="/contact">Contact</a>
+          <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
-        <a className="navcta" href="#book">Book a consultation</a>
+        <a className="navcta" href="/contact">Book a consultation</a>
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div></nav>
 
@@ -51,7 +52,7 @@ export default function PolicyPage({ slug }) {
 
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Questions before you commit?</h2>
-        <a className="btn" href="mailto:sales@bercohome.com?subject=Question%20about%20your%20terms">Ask us directly →</a>
+        <a className="btn" href="/contact">Ask us directly →</a>
         <p className="fee">We would rather answer it now than have you find out later. Or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
       </div></section>
 
@@ -70,7 +71,7 @@ export default function PolicyPage({ slug }) {
           <div className="footcol">
             <h4>Studio</h4>
             <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
-            <a href="/#precision">Materials</a><a href="/#about">About</a><a href="#book">Book a consultation</a>
+            <a href="/#precision">Materials</a><a href="/#about">About</a><a href="/contact">Contact</a>
           </div>
           <div className="footcol">
             <h4>Policies</h4>

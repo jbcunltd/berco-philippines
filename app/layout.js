@@ -58,6 +58,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
+        {/* Without JS the reveal observer never runs, so every .reveal/.stag would
+            stay at opacity 0 and the page would render blank. Undo it up front. */}
+        <noscript><style dangerouslySetInnerHTML={{ __html:
+          '.reveal,.stag,.stag>*{opacity:1!important;transform:none!important;transition:none!important}' }} /></noscript>
         <div className="wrap">{children}</div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />

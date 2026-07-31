@@ -10,9 +10,10 @@ export default function Page() {
       <a href="/how-we-work">Process</a>
       <a href="#precision">Materials</a>
       <a href="/for-designers">For designers</a>
-      <a className="navlink-cta" href="#book">Book a consultation</a>
+      <a href="/contact">Contact</a>
+      <a className="navlink-cta" href="/contact">Book a consultation</a>
     </div>
-    <a className="navcta" href="#book">Book a consultation</a>
+    <a className="navcta" href="/contact">Book a consultation</a>
     <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div></nav>
 
@@ -30,7 +31,7 @@ export default function Page() {
         <h1>The heart of your home.</h1>
         <p className="lead">Custom kitchens, wardrobes, vanities &amp; built-in storage for Philippine homes — designed, measured, and installed properly.</p>
         <div className="acts">
-          <a className="btn" href="#book">Book a design consultation →</a>
+          <a className="btn" href="/contact">Book a design consultation →</a>
           <a className="link" href="#collections">View collections</a>
         </div>
       </div>
@@ -166,7 +167,7 @@ export default function Page() {
 
   <section id="book" className="final band"><div className="shell reveal">
     <h2>Would you like us to review your space and guide you through the design process?</h2>
-    <a className="btn" href="mailto:sales@bercohome.com">Book a design consultation →</a>
+    <a className="btn" href="/contact">Book a design consultation →</a>
     <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
   </div></section>
 
@@ -192,7 +193,7 @@ export default function Page() {
       <div className="footcol">
         <h4>Studio</h4>
         <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
-        <a href="#precision">Materials</a><a href="#book">Book a consultation</a>
+        <a href="#precision">Materials</a><a href="/contact">Contact</a>
       </div>
       <div className="footcol">
         <h4>Policies</h4>
