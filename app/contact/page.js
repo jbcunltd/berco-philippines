@@ -107,6 +107,25 @@ export default function Contact() {
           </div>
 
           <div className="cside">
+            {/* "Where are you located?" was the third most-asked question in the Berco inbox
+                and the site had no answer anywhere. These are offices with a product
+                showcase — never described as showrooms. */}
+            <h2>Where we are</h2>
+            <p className="cside-item">
+              <span className="cside-k">Metro Manila</span>
+              <span>Mandaluyong — office and product showcase</span>
+            </p>
+            <p className="cside-item">
+              <span className="cside-k">Visayas</span>
+              <span>Cebu — office and product showcase</span>
+            </p>
+            <p className="cside-note">You are welcome to come and see the materials, hardware and
+              finishes in person. Visits are by appointment so a designer is free to walk you
+              through it — tell us above which is easier for you and we will send the address
+              with a time.</p>
+          </div>
+
+          <div className="cside">
             <h2>What happens next</h2>
             <ol className="cside-steps">
               <li><strong>We reply.</strong> One working day, usually sooner, from a designer rather than an auto-responder.</li>
