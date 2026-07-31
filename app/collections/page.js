@@ -50,7 +50,7 @@ export default function Collections() {
         <div className="colgrid stag">
           {ORDER.map((s) => (
             <a className="colcard" href={`/collections/${s}`} key={s}>
-              <Pic src={first(s)} alt={`${CATS[s].name} — Berco custom cabinetry design reference`} loading="lazy" width="1600" height="900" />
+              <Pic src={first(s)} alt={`${CATS[s].name} — Berco custom cabinetry design reference`} sizes="(max-width:520px) 92vw, (max-width:820px) 47vw, 31vw" loading="lazy" width="1600" height="900" />
               <span className="lbl"><span className="cn">{CATS[s].name}</span><span className="go">Explore →</span></span>
             </a>
           ))}

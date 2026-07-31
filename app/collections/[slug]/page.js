@@ -66,7 +66,7 @@ export default function Collection({ params }) {
         <div className="masthead"><span><a href="/#collections" className="crumb">Collections</a> · {c.name}</span><span>Philippines</span></div>
         <div className="coverimg">
           {hero
-            ? <Pic className="cover-img" src={img(hero.src)} alt={hero.alt} width="1600" height="1000" />
+            ? <Pic className="cover-img" src={img(hero.src)} alt={hero.alt} loading="eager" fetchPriority="high" width="1600" height="1000" />
             : <div className="cover-img ph pa" />}
           <div className="scrim"></div>
           {hero && <span className="cap">{c.name} · design reference</span>}
@@ -105,7 +105,7 @@ export default function Collection({ params }) {
           <div className="rgrid stag">
             {imgs.map((im) => (
               <a className="rcard" href={`/collections/${params.slug}/${im.slug}`} key={im.slug}>
-                <span className="rcard-img"><Pic src={img(im.src)} alt={im.alt} loading="lazy" width="1600" height="900" /></span>
+                <span className="rcard-img"><Pic src={img(im.src)} alt={im.alt} sizes="(max-width:560px) 92vw, (max-width:900px) 47vw, 31vw" loading="lazy" width="1600" height="900" /></span>
                 <span className="rcard-t">{im.title || im.cap}</span>
               </a>
             ))}
