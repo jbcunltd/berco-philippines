@@ -24,10 +24,10 @@ const schema = {
 }
 
 const DOWNLOADS = [
-  { t: 'Berco Catalogue 2026', d: 'The full brand catalogue — collections, materials, the making process and the Berco turnover standard.', href: '/berco-catalogue-2026.pdf', meta: 'PDF' },
-  { t: 'Interior Systems Catalogue', d: 'The complete fitted-storage, organisation and sink range — drawer organisation, larders, corner solutions, worktop integration, sinks & taps — with codes, sizes and cabinet fits.', href: '/berco-interior-systems-catalogue.pdf', meta: 'PDF' },
-  { t: 'Technical Specification', d: 'Board grades, edge and finish specifications, hardware and the details you need at specification stage.', href: '/berco-technical-specification.pdf', meta: 'PDF' },
-  { t: 'Materials & Finishes 2026', d: 'Part One is the selection — 54 finishes edited down to a working palette to put in front of a client. Part Two is the complete range, all 202, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. Every swatch carries its material code, so a finish can be scheduled and checked against the specification directly. Room approvals, care notes and an A–Z index at the back.', href: '/berco-materials-finishes-2026.pdf', meta: 'PDF · 28pp' },
+  { t: 'Berco Catalogue 2026', d: 'The full brand catalogue — collections, materials, the making process and the Berco turnover standard.', href: '/berco-catalogue-2026.pdf', meta: 'PDF', cover: '/img/covers/catalogue-2026-cover.jpg', coverAlt: 'Cover of the Berco Catalogue 2026' },
+  { t: 'Interior Systems Catalogue', d: 'The complete fitted-storage, organisation and sink range — drawer organisation, larders, corner solutions, worktop integration, sinks & taps — with codes, sizes and cabinet fits.', href: '/berco-interior-systems-catalogue.pdf', meta: 'PDF', cover: '/img/covers/interior-systems-cover.jpg', coverAlt: 'Cover of the Berco Interior Systems specification catalogue' },
+  { t: 'Technical Specification', d: 'Board grades, edge and finish specifications, hardware and the details you need at specification stage.', href: '/berco-technical-specification.pdf', meta: 'PDF', cover: '/img/covers/technical-spec-cover.jpg', coverAlt: 'First page of the Berco technical specification sheet' },
+  { t: 'Materials & Finishes 2026', d: 'Part One is the selection — 54 finishes edited down to a working palette to put in front of a client. Part Two is the complete range, all 202, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. Every swatch carries its material code, so a finish can be scheduled and checked against the specification directly. Room approvals, care notes and an A–Z index at the back.', href: '/berco-materials-finishes-2026.pdf', meta: 'PDF · 28pp', cover: '/img/covers/materials-finishes-cover.jpg', coverAlt: 'Cover of the Berco Materials and Finishes 2026 library' },
 ]
 
 const GET = [
@@ -64,10 +64,13 @@ export default function ForDesigners() {
         <div className="dlgrid stag">
           {DOWNLOADS.map((f) => (
             <a className="dlcard" href={f.href} download key={f.t}>
-              <span className="dlmeta">{f.meta}</span>
-              <h3>{f.t}</h3>
-              <p>{f.d}</p>
-              <span className="dlgo">Download →</span>
+              <span className="dlcover"><img src={f.cover} alt={f.coverAlt} loading="lazy" width="1000" height="1415" /></span>
+              <span className="dlbody">
+                <span className="dlmeta">{f.meta}</span>
+                <h3>{f.t}</h3>
+                <p>{f.d}</p>
+                <span className="dlgo">Download →</span>
+              </span>
             </a>
           ))}
         </div>
