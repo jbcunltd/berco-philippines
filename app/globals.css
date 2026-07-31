@@ -461,6 +461,10 @@
   @media(min-width:1080px){ .pslide{ flex:0 0 31.6% } }
 
 
+
+  /* Document readers must never depend on JS to become visible */
+  .catpages > *{ opacity:1 !important; transform:none !important }
+  .catpage img{ width:100%; height:auto }
   /* catalogue viewer: cover + download at the top, pages below */
   .cathead{ display:flex; gap:clamp(20px,3vw,40px); align-items:flex-start; margin-top:clamp(22px,3vh,36px); flex-wrap:wrap }
   .cathead-cover{ flex:0 0 clamp(150px,18vw,230px); display:block; border-radius:3px; overflow:hidden;

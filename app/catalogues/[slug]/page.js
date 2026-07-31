@@ -80,12 +80,12 @@ export default function Catalogue({ params }) {
 
       <section className="band catrange catread"><div className="shell">
         <p className="viewslabel">Read it here — all {c.pages} {c.pages === 1 ? 'page' : 'pages'}</p>
-        <div className="catpages stag">
+        <div className="catpages">
           {Array.from({ length: c.pages }, (_, i) => {
             const n = String(i + 1).padStart(2, '0')
             return (
               <a className="catpage" href={c.pdf} target="_blank" rel="noopener" key={i}>
-                <img src={`${c.pageDir}/${c.prefix}-${n}.jpg`} alt={`${c.name} — page ${i + 1}`} loading="lazy" />
+                <img src={`${c.pageDir}/${c.prefix}-${n}.jpg`} alt={`${c.name} — page ${i + 1}`} loading="lazy" width="1100" height="1556" />
               </a>
             )
           })}
