@@ -45,14 +45,15 @@ export const POLICIES = {
     name: 'Returns & Warranty',
     eyebrow: 'Policy',
     hero: 'Returns & warranty.',
-    lead: 'Custom cabinetry cannot be returned like a shop-bought item. Here is exactly what can be cancelled, what is covered, and for how long.',
+    lead: 'Custom cabinetry cannot be returned like a shop-bought item. Here is what that means, what is covered, and for how long.',
     seoTitle: 'Returns, Cancellation & Warranty Policy | Berco',
-    seoDesc: 'Berco returns, cancellation and warranty policy: 5-year cabinetry warranty, 1-year installation workmanship, what can be cancelled and how to make a claim.',
+    seoDesc: 'Berco returns and warranty policy: 5-year cabinetry warranty, 1-year installation workmanship, what is covered and how to make a claim.',
     keywords: ['cabinetry warranty Philippines', 'kitchen cabinet warranty', 'Berco returns policy', 'custom cabinetry cancellation'],
     updated: '31 July 2026',
     sections: [
       { h: 'Custom work cannot be returned', p: 'Everything we make is built to your room and your specification, so it cannot be resold or restocked. Once materials have been fabricated or installation has begun, the order cannot be returned. This is normal for custom cabinetry, and we would rather you read it here than discover it later.' },
-      { h: 'Cancelling before production', p: 'You can cancel before your order is committed to production. Your deposit is refundable at that point, less the design and consultation work already carried out and any costs already committed on your behalf. Once drawings are confirmed and the order is placed with the factory, those costs are locked in and cannot be recovered — your designer will tell you clearly when that point is reached, before it happens.' },
+      { h: 'Your signed agreement governs the order', p: 'Every project is confirmed by a signed contract and quotation. That agreement sets out the scope, the schedule, the payment stages and what happens in any situation covered by it. Nothing on this page replaces or adds to your contract — where the two differ, your contract applies.' },
+      { h: 'Orders are a commitment', p: 'Once the contract is signed and the order is placed, it is a firm commitment and cannot be cancelled. Cabinetry is cut and finished to your room, so it cannot be reassigned to another project or returned to the manufacturer. Before you sign, nothing is committed — that is the point to ask every question you have, and we would rather you took the time.' },
       { h: 'What is not refundable', list: [
         'Custom materials once they have been ordered or fabricated.',
         'Completed installations.',
