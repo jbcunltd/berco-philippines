@@ -144,8 +144,8 @@
   .final .fee{font-size:12.5px; color:var(--ink-faint); margin-top:20px}
   /* FOOTER */
   footer{border-top:1px solid var(--hair); padding:clamp(40px,6vh,64px) 0 36px}
-  .footgrid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:34px}
-  @media(max-width:760px){.footgrid{grid-template-columns:1fr 1fr}}
+  .footgrid{display:grid; grid-template-columns:1.5fr 1fr 1fr .9fr; gap:34px}
+  @media(max-width:900px){.footgrid{grid-template-columns:1fr 1fr}}
   @media(max-width:440px){.footgrid{grid-template-columns:1fr}}
   .footlock{background:url('/berco-lockup.png') no-repeat left top; background-size:contain; width:212px; height:71px; text-indent:-9999px; overflow:hidden}
   .foot-contact{font-size:14px; color:var(--ink-soft); line-height:1.85; margin-top:16px}
