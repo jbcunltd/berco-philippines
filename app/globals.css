@@ -583,6 +583,24 @@
   .cside-item{ display:flex; flex-direction:column; gap:3px; margin:0 0 13px; font-size:14.5px; line-height:1.5; color:var(--ink-soft) }
   .cside-k{ font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); font-weight:600 }
   .cside-item a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--champ); align-self:flex-start }
+  /* "What happens next" as a full-width band. The numbering is real information here —
+     it is an actual sequence, not decoration. */
+  .nextgrid{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr);
+    gap:clamp(20px,3vw,40px) }
+  .nextgrid li{ border-top:1px solid var(--hair); padding-top:16px }
+  .nextnum{ display:block; font-family:var(--serif); font-size:12px; letter-spacing:.2em;
+    color:var(--champ-ink); font-weight:600; margin-bottom:12px }
+  .nextgrid h3{ font-size:clamp(16px,1.9vw,19px); line-height:1.22; margin:0 0 9px }
+  .nextgrid p{ font-size:14px; line-height:1.6; color:var(--ink-soft); margin:0 }
+  .nextnote{ font-size:13px; line-height:1.6; color:var(--ink-faint); max-width:62ch;
+    margin:clamp(24px,3.5vh,36px) 0 0 }
+  @media(max-width:860px){ .nextgrid{ grid-template-columns:repeat(2,1fr) } }
+  @media(max-width:520px){ .nextgrid{ grid-template-columns:1fr } }
+  .tradeband{ display:flex; align-items:center; justify-content:space-between;
+    gap:clamp(20px,4vw,48px); flex-wrap:wrap }
+  .tradeband-txt{ flex:1 1 380px; min-width:0 }
+  .tradeband h2{ font-size:clamp(22px,3vw,34px); line-height:1.14; margin:12px 0 0 }
+  .tradeband p{ font-size:15px; line-height:1.6; color:var(--ink-soft); margin:12px 0 0; max-width:52ch }
   .cside-steps{ margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:11px }
   .cside-steps li{ font-size:14px; line-height:1.55; color:var(--ink-soft) }
   .cside-steps strong{ color:var(--ink); font-weight:600 }

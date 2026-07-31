@@ -136,25 +136,35 @@ export default function Contact() {
               with a time.</p>
           </div>
 
-          <div className="cside">
-            <h2>What happens next</h2>
-            <ol className="cside-steps">
-              <li><strong>We reply.</strong> One working day, usually sooner, from a designer rather than an auto-responder.</li>
-              <li><strong>We talk through the space.</strong> Room, layout, how you actually use it, what your budget needs to cover.</li>
-              <li><strong>We visit and measure.</strong> Nothing is quoted off a guess.</li>
-              <li><strong>You get a design and a written quotation</strong> within 7 working days of an agreed scope.</li>
-            </ol>
-            <p className="cside-note">A design engagement fee secures the design phase, and it is deductible
-              from the project. We will tell you what it is before you commit to anything.</p>
-          </div>
-
-          <div className="cside">
-            <h2>Working with a designer or architect?</h2>
-            <p className="cside-body">There is a separate route for trade specification, with drawings,
-              material schedules and lead times.</p>
-            <a className="link" href="/for-designers">For designers →</a>
-          </div>
         </aside>
+      </div></section>
+
+      {/* These two used to sit in the sidebar, which made it ~700px taller than the form and
+          left the left column dead-ending into empty space on desktop. As a full-width band
+          the four steps get the room to read as the sequence they actually are. */}
+      <section className="band"><div className="shell">
+        <div className="sh reveal"><h2>What happens next.</h2><span className="eyebrow">After you send</span></div>
+        <ol className="nextgrid stag">
+          <li><span className="nextnum">01</span><h3>We reply</h3>
+            <p>Within one working day, usually sooner, from a designer rather than an auto-responder.</p></li>
+          <li><span className="nextnum">02</span><h3>We talk through the space</h3>
+            <p>The room, the layout, how you actually use it, and what your budget needs to cover.</p></li>
+          <li><span className="nextnum">03</span><h3>We visit and measure</h3>
+            <p>Nothing is quoted off a guess. We come to the space and take it down properly.</p></li>
+          <li><span className="nextnum">04</span><h3>You get a design and a quotation</h3>
+            <p>In writing, within 7 working days of an agreed scope.</p></li>
+        </ol>
+        <p className="nextnote reveal">A design engagement fee secures the design phase, and it is deductible
+          from the project. We will tell you what it is before you commit to anything.</p>
+      </div></section>
+
+      <section className="band"><div className="shell tradeband reveal">
+        <div className="tradeband-txt">
+          <span className="eyebrow">Trade</span>
+          <h2>Working with a designer or architect?</h2>
+          <p>There is a separate route for trade specification — drawings, material schedules and lead times.</p>
+        </div>
+        <a className="btn" href="/for-designers">For designers →</a>
       </div></section>
 
       </main>
