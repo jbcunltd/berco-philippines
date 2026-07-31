@@ -2,7 +2,7 @@ import { CATALOGUES, CAT_ORDER } from '../data'
 import { notFound } from 'next/navigation'
 import Pic from '../../components/Pic'
 
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 
 export function generateStaticParams() {
   return CAT_ORDER.map((slug) => ({ slug }))

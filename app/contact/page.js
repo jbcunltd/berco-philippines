@@ -1,7 +1,7 @@
 import { CATS, ORDER } from '../collections/data'
 import InquiryForm from '../components/InquiryForm'
 
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
   title: 'Contact Berco | Custom Cabinetry Inquiries, Philippines',

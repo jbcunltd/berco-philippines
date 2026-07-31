@@ -1,5 +1,5 @@
 import Pic from '../components/Pic'
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
   title: 'For Designers & Architects — Catalogues & Specification | Berco',

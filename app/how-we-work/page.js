@@ -1,4 +1,4 @@
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
   title: 'How We Work — Our Cabinetry Process | Berco',

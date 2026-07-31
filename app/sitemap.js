@@ -2,7 +2,7 @@ import { ORDER, CATS } from './collections/data'
 import { CAT_ORDER } from './catalogues/data'
 import { POLICY_ORDER } from './policies/data'
 
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 
 export default function sitemap() {
   const now = new Date()

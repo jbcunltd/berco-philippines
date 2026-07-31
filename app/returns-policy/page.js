@@ -1,7 +1,7 @@
 import PolicyPage from '../components/PolicyPage'
 import { POLICIES } from '../policies/data'
 
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 const p = POLICIES['returns-policy']
 
 export const metadata = {

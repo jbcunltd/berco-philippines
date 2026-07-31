@@ -2,7 +2,7 @@ import { CATS, ORDER } from '../data'
 import { notFound } from 'next/navigation'
 import Pic from '../../components/Pic'
 
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 const base = (slug) => `${SITE}/img/collections/${slug}`
 
 export function generateStaticParams() {

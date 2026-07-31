@@ -4,7 +4,7 @@ import { Libre_Bodoni, Jost } from 'next/font/google'
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
 
-const SITE = 'https://berco-philippines.vercel.app'
+const SITE = 'https://www.bercohome.com'
 const HERO = SITE + '/img/custom-kitchen-cabinetry-philippines.jpg'
 
 export const metadata = {
