@@ -97,7 +97,7 @@ export default function Contact() {
                 installed Messenger app only on a same-tab navigation. Opening a new tab
                 keeps it in the browser, which is exactly the "it opens a window" problem.
                 On desktop it still opens messenger.com — there is no desktop deep link. */}
-            <a className="fbbtn" href="https://m.me/bercophilippines" rel="noopener">
+            <a className="fbbtn" href="https://m.me/bercophilippines?ref=contact-page" rel="noopener">
               <svg className="fbmark" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" focusable="false">
                 <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>
               </svg>
@@ -180,6 +180,9 @@ export default function Contact() {
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
+              {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
+                  website-originated chat can be told apart from an ad-originated one. */}
+              <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
               Philippines · under JBC UNLTD CORP
             </div>
           </div>

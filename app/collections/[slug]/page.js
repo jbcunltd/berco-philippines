@@ -174,6 +174,9 @@ export default function Collection({ params }) {
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
+              {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
+                  website-originated chat can be told apart from an ad-originated one. */}
+              <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
               Philippines · under JBC UNLTD CORP
             </div>
           </div>
