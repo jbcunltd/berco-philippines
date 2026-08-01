@@ -11,7 +11,7 @@
 // Truth rules that shaped the wording: never hide fees, lead times or payment terms;
 // never state a warranty Berco cannot honour; never imply a completed-project record.
 
-export const POLICY_ORDER = ['delivery-policy', 'returns-policy']
+export const POLICY_ORDER = ['delivery-policy', 'returns-policy', 'privacy-policy']
 
 export const POLICIES = {
   'delivery-policy': {
@@ -69,6 +69,40 @@ export const POLICIES = {
       { h: 'Service visits', p: 'In the first year, a warranty visit is free. After the first year the cabinetry is still covered and we will supply the replacement part, but the visit and labour are charged. We quote that before we come, so you can decide. We say this plainly because most warranties bury it.' },
       { h: 'If something is wrong', p: 'Contact us with your name and contact details, the project address, your invoice number, a description of the issue and photographs. Photographs matter — they usually let us bring the right part on the first visit instead of the second. We will confirm the next step and a timeframe.' },
       { h: 'Resolving problems', p: 'We will work with you to put things right. If a matter cannot be resolved directly, it may be escalated to mediation or arbitration under Philippine consumer protection law. Your statutory rights are not affected by this policy.' },
+    ],
+  },
+
+  // Written to match what the site ACTUALLY does, not a generic template. Every
+  // claim here is checkable against the code: the inquiry form fields are the
+  // ones in InquiryForm.js, there is genuinely no database, and the three
+  // measurement tools are the three loaded in layout.js / Consent.js.
+  // If any of those change, this page changes with them.
+  'privacy-policy': {
+    name: 'Privacy',
+    eyebrow: 'Policy',
+    hero: 'Privacy.',
+    lead: 'What this site collects, what sets a cookie and what does not, and how to change your mind.',
+    seoTitle: 'Privacy Policy | Berco',
+    seoDesc: 'How Berco handles inquiry details and website measurement: what is collected, which tools set cookies, who processes it, and your rights under the Philippine Data Privacy Act.',
+    keywords: ['Berco privacy policy', 'data privacy Philippines', 'cookie policy Berco'],
+    updated: '1 August 2026',
+    sections: [
+      { h: 'When you send an inquiry', p: 'The contact form asks for your name and mobile number, what you are planning and roughly when. Email address, location and a message are optional — the form works without them. We ask for a mobile number because that is how we actually follow up.' },
+      { h: 'Where it goes', p: 'Submissions are delivered to our team as an email, through a sending service called Resend. There is no customer database behind this website and no account for you to create — your details arrive in an inbox and stay there, the same as if you had emailed us directly.' },
+      { h: 'Cookies and measurement', p: 'Three tools measure how the site is used. They are not equivalent, so we list them separately rather than asking you to accept one undifferentiated bundle.', list: [
+        'Vercel Web Analytics — counts page views. It sets no cookies and does not identify you, so it runs whether or not you accept.',
+        'Google Analytics — shows how people found the site and which pages lead to an inquiry. It sets cookies. It only loads if you accept.',
+        'Meta Pixel — lets us show ads on Facebook and Instagram to people who have visited this site. It sets cookies. It only loads if you accept.',
+      ] },
+      { h: 'If you decline', p: 'Nothing loads except the cookieless page counter. Declining does not limit anything on the site — every page, catalogue and the contact form work exactly the same either way.' },
+      { h: 'Changing your mind', p: 'Your choice is stored in your own browser, not on our servers. To change it, clear the site data for bercohome.com in your browser settings and the choice will be asked again on your next visit.' },
+      { h: 'Who else handles it', list: [
+        'Resend — delivers the inquiry email.',
+        'Vercel — hosts the site and serves the pages.',
+        'Google and Meta — only if you accepted measurement cookies.',
+      ] },
+      { h: 'Your rights', p: 'Under the Philippine Data Privacy Act of 2012 (RA 10173) you can ask what information we hold about you, ask us to correct it, or ask us to delete it. Email sales@bercohome.com and we will action it. We do not sell your details, and we do not add you to a mailing list because you sent an inquiry.' },
+      { h: 'Questions', p: 'Anything unclear here, ask us at sales@bercohome.com. If this page and what the site does ever disagree, the site is wrong and we want to know.' },
     ],
   },
 }

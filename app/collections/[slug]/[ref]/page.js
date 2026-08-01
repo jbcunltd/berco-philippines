@@ -174,10 +174,10 @@ export default function Reference({ params }) {
           </div>
           <div className="footcol">
             <h3>Policies</h3>
-            <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a>
+            <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
+        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

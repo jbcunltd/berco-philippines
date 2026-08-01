@@ -46,7 +46,7 @@ export default function NotFound() {
       </main>
 
       <footer><div className="shell">
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a></span></div>
+        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
     </>
   )

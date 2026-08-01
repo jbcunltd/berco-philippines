@@ -638,3 +638,29 @@
   .cside-steps strong{ color:var(--ink); font-weight:600 }
   .cside-body{ font-size:14px; line-height:1.6; color:var(--ink-soft); margin:0 0 14px }
   .cside-note{ font-size:12.5px; line-height:1.55; color:var(--ink-faint); margin:14px 0 0 }
+
+  /* ---- Cookie choice ----
+     A slim bottom bar, not a modal: on a 90%-mobile audience a full-screen
+     blocker is the difference between reading the page and leaving it. It never
+     covers the nav or a CTA, and the page stays fully usable behind it.
+     Both buttons are 46px tall - the same target size as the rest of the site,
+     and above the 44px minimum. */
+  .consent{ position:fixed; left:0; right:0; bottom:0; z-index:60;
+    display:flex; align-items:center; justify-content:space-between; gap:clamp(14px,2.4vw,28px);
+    padding:14px clamp(18px,4vw,52px); background:var(--ground);
+    border-top:1px solid var(--hair); box-shadow:0 -14px 34px -30px rgba(43,38,32,.5) }
+  .consent-txt{ margin:0; font-size:13px; line-height:1.55; color:var(--ink-soft); max-width:74ch }
+  .consent-txt a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--champ); padding-bottom:1px }
+  .consent-acts{ display:flex; align-items:center; gap:10px; flex:0 0 auto }
+  .consent-yes,.consent-no{ font-family:var(--sans); font-size:11.5px; letter-spacing:.09em;
+    text-transform:uppercase; font-weight:600; height:46px; padding:0 20px; border-radius:2px;
+    cursor:pointer; transition:opacity .2s, background .2s }
+  .consent-yes{ background:var(--ink); color:var(--ground); border:1px solid var(--ink) }
+  .consent-no{ background:transparent; color:var(--ink-soft); border:1px solid var(--hair) }
+  .consent-yes:hover{ opacity:.85 }
+  .consent-no:hover{ background:var(--panel); color:var(--ink) }
+  @media(max-width:700px){
+    .consent{ flex-direction:column; align-items:stretch; gap:12px; padding:16px 18px }
+    .consent-acts{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
+    .consent-yes,.consent-no{ width:100% }
+  }

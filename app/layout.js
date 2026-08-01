@@ -4,32 +4,7 @@ import { Libre_Bodoni, Jost } from 'next/font/google'
 // that needs no consent banner. Flipping the toggle in the Vercel dashboard is
 // not enough on Next.js: without this component the dashboard stays at zero.
 import { Analytics } from '@vercel/analytics/next'
-import Script from 'next/script'
-
-// GA4. Runs alongside Vercel Analytics rather than replacing it: Vercel answers
-// "how many, which pages" cookielessly; GA4 answers "where did they come from,
-// what did they do" - traffic sources and lead conversions, which the Hobby plan
-// cannot record. The Measurement ID is public by design; it ships in the HTML.
-// NOTE: unlike Vercel's, GA4 DOES set cookies - see backlog C8 (consent banner).
-// Every internal link on this site is a plain <a href>, so each navigation is a
-// full page load and gtag fires page_view on its own. No route-change listener
-// is needed here - adding one would double-count.
-const GA_ID = 'G-RQPHPK53ZP'
-
-// Meta Pixel - powers website retargeting: the Custom Audience "Berco - All
-// Website Visitors (180d)" (120251893973480418) is built on THIS pixel, so the
-// two IDs must stay in sync. If they drift, the audience silently fills with
-// nothing and nobody finds out until a campaign fails to deliver.
-//
-// This is "Berco Website", created 2026-08-01 and assigned to the BERCO PH ad
-// account. An earlier attempt used dataset 1971848976777445 ("JBC x Claude (SMM
-// Support)"), which was owned by the same business but never ASSIGNED to the ad
-// account - so Ads Manager could not see it and the audience Source dropdown
-// came up empty. That is the whole reason a fresh, properly-assigned pixel exists.
-//
-// Fires PageView on every page; the Lead event lives in InquiryForm on a
-// confirmed send. Sets cookies - see backlog C8 (consent).
-const FB_PIXEL_ID = '1096315622827696'
+import Consent from './components/Consent'
 
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
@@ -96,19 +71,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />
         <Analytics />
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="ga4-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
-          `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
-          `gtag('js',new Date());gtag('config','${GA_ID}');` }} />
-        <Script id="fb-pixel" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
-          `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?` +
-          `n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;` +
-          `n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;` +
-          `t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}` +
-          `(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');` +
-          `fbq('init','${FB_PIXEL_ID}');fbq('track','PageView');` }} />
-        <noscript><img height="1" width="1" style={{ display: 'none' }} alt=""
-          src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`} /></noscript>
+        <Consent />
       </body>
     </html>
   )
