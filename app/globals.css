@@ -10,7 +10,14 @@
   /* Light-only by design — a welcoming cream-and-white world. */
   *{box-sizing:border-box}
   body{margin:0}
-  .wrap{background:var(--ground); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  /* overflow-x is CLIP, not HIDDEN, and the difference is load-bearing:
+     `hidden` forces overflow-y to compute as `auto`, which makes .wrap a scroll
+     container. The sticky nav then resolves against .wrap's scrollport - which
+     never scrolls, because the document does - so the nav rode away with the
+     page despite position:sticky. Measured: at scrollTop 2000 the nav sat at
+     top:-2000. `clip` still clips horizontal overflow but creates no scroll
+     container, so sticky works. Do not change this back to hidden. */
+  .wrap{background:var(--ground); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:clip}
   .shell{max-width:var(--maxw); margin:0 auto; padding:0 clamp(18px,4vw,52px)}
   h1,h2,h3{font-family:var(--serif); font-weight:500; margin:0; text-wrap:balance; letter-spacing:-.01em}
   .eyebrow{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--champ-ink); font-weight:600}
