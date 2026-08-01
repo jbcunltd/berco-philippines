@@ -1,10 +1,20 @@
 import './globals.css'
 import { Libre_Bodoni, Jost } from 'next/font/google'
-// Vercel Web Analytics. Chosen over GA4 deliberately: it sets no cookies and
-// collects no personal data, so the site needs no consent banner. Flipping the
-// toggle in the Vercel dashboard is not enough on Next.js - without this
-// component the dashboard stays at zero visitors forever.
+// Vercel Web Analytics. Cookieless - it is the half of the measurement stack
+// that needs no consent banner. Flipping the toggle in the Vercel dashboard is
+// not enough on Next.js: without this component the dashboard stays at zero.
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
+
+// GA4. Runs alongside Vercel Analytics rather than replacing it: Vercel answers
+// "how many, which pages" cookielessly; GA4 answers "where did they come from,
+// what did they do" - traffic sources and lead conversions, which the Hobby plan
+// cannot record. The Measurement ID is public by design; it ships in the HTML.
+// NOTE: unlike Vercel's, GA4 DOES set cookies - see backlog C8 (consent banner).
+// Every internal link on this site is a plain <a href>, so each navigation is a
+// full page load and gtag fires page_view on its own. No route-change listener
+// is needed here - adding one would double-count.
+const GA_ID = 'G-RQPHPK53ZP'
 
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
@@ -71,6 +81,10 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />
         <Analytics />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
+          `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
+          `gtag('js',new Date());gtag('config','${GA_ID}');` }} />
       </body>
     </html>
   )
