@@ -16,16 +16,20 @@ import Script from 'next/script'
 // is needed here - adding one would double-count.
 const GA_ID = 'G-RQPHPK53ZP'
 
-// Meta Pixel - powers website retargeting (a Custom Audience of people who
-// visited but did not inquire). Reuses an existing, never-fired dataset on the
-// BERCO PH account rather than a fresh one; it is owned by the same business and
-// had zero events, so there is no foreign history mixed in. The display name in
-// Events Manager still reads "JBC x Claude (SMM Support)" - rename it there if
-// desired, the ID is what matters. Swapping to a different pixel later is a
-// one-line change here, at the cost of whatever audience has accumulated.
+// Meta Pixel - powers website retargeting: the Custom Audience "Berco - All
+// Website Visitors (180d)" (120251893973480418) is built on THIS pixel, so the
+// two IDs must stay in sync. If they drift, the audience silently fills with
+// nothing and nobody finds out until a campaign fails to deliver.
+//
+// This is "Berco Website", created 2026-08-01 and assigned to the BERCO PH ad
+// account. An earlier attempt used dataset 1971848976777445 ("JBC x Claude (SMM
+// Support)"), which was owned by the same business but never ASSIGNED to the ad
+// account - so Ads Manager could not see it and the audience Source dropdown
+// came up empty. That is the whole reason a fresh, properly-assigned pixel exists.
+//
 // Fires PageView on every page; the Lead event lives in InquiryForm on a
 // confirmed send. Sets cookies - see backlog C8 (consent).
-const FB_PIXEL_ID = '1971848976777445'
+const FB_PIXEL_ID = '1096315622827696'
 
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
