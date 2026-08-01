@@ -156,7 +156,10 @@
   .footlock{background:url('/berco-lockup.png') no-repeat left top; background-size:contain; width:212px; height:71px; text-indent:-9999px; overflow:hidden}
   .foot-contact{font-size:14px; color:var(--ink-soft); line-height:1.85; margin-top:16px}
   .foot-contact a{text-decoration:none; border-bottom:1px solid var(--hair)}
-  .footcol h4{font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 12px; font-weight:600}
+  /* h3, not h4: jumping h2 -> h4 skips a level and fails WCAG heading order.
+     font-family is restated because the h1,h2,h3 rule above would otherwise pull
+     these small uppercase labels into the serif - they are sans by design. */
+  .footcol h3{font-family:var(--sans); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 12px; font-weight:600}
   .footcol a{display:block; font-size:14px; color:var(--ink-soft); text-decoration:none; padding:5px 0}
   .footcol a:hover{color:var(--ink)}
   .legal{margin-top:36px; padding-top:20px; border-top:1px solid var(--hair); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--ink-faint)}

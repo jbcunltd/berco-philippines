@@ -142,16 +142,16 @@ export default function Catalogue({ params }) {
             </div>
           </div>
           <div className="footcol">
-            <h4>Catalogues</h4>
+            <h3>Catalogues</h3>
             {CAT_ORDER.map((s) => <a href={`/catalogues/${s}`} key={s}>{CATALOGUES[s].name}</a>)}
           </div>
           <div className="footcol">
-            <h4>Studio</h4>
+            <h3>Studio</h3>
             <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
             <a href="/#precision">Materials</a><a href="/#about">About</a><a href="/contact">Contact</a>
           </div>
           <div className="footcol">
-            <h4>Policies</h4>
+            <h3>Policies</h3>
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a>
           </div>
         </div>
