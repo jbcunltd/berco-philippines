@@ -1,5 +1,10 @@
 import './globals.css'
 import { Libre_Bodoni, Jost } from 'next/font/google'
+// Vercel Web Analytics. Chosen over GA4 deliberately: it sets no cookies and
+// collects no personal data, so the site needs no consent banner. Flipping the
+// toggle in the Vercel dashboard is not enough on Next.js - without this
+// component the dashboard stays at zero visitors forever.
+import { Analytics } from '@vercel/analytics/next'
 
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
@@ -65,6 +70,7 @@ export default function RootLayout({ children }) {
         <div className="wrap">{children}</div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />
+        <Analytics />
       </body>
     </html>
   )
