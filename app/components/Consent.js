@@ -22,6 +22,27 @@ const KEY = 'berco-consent'
 const GA_ID = 'G-RQPHPK53ZP'
 const FB_PIXEL_ID = '1096315622827696'
 
+// Declining has to remove cookies that are already there, not just stop new ones.
+// Anyone who visited before this gate existed - or who accepts and later clears
+// their choice - is still carrying _ga / _fbp. Without this, "Decline" would be
+// true only for first-time visitors and quietly meaningless for everyone else.
+// Cookies are cleared on both the bare host and the dot-prefixed domain because
+// Google and Meta set them on the latter; expiring only one leaves the other.
+function clearTrackingCookies() {
+  try {
+    const doomed = /^(_ga|_gid|_gat|_fbp|_fbc)/
+    const hosts = [location.hostname, '.' + location.hostname, '.' + location.hostname.replace(/^www\./, '')]
+    for (const raw of document.cookie.split(';')) {
+      const name = raw.split('=')[0].trim()
+      if (!doomed.test(name)) continue
+      for (const d of hosts) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${d}`
+      }
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`
+    }
+  } catch { /* clearing is best-effort; the gate above is what actually matters */ }
+}
+
 export default function Consent() {
   // undefined = not read yet. The server renders nothing and the first client
   // paint renders nothing, so there is no hydration mismatch and no flash of a
@@ -36,6 +57,7 @@ export default function Consent() {
 
   function decide(value) {
     try { localStorage.setItem(KEY, value) } catch { /* choice holds for this page at least */ }
+    if (value === 'declined') clearTrackingCookies()
     setChoice(value)
   }
 
