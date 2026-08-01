@@ -16,6 +16,17 @@ import Script from 'next/script'
 // is needed here - adding one would double-count.
 const GA_ID = 'G-RQPHPK53ZP'
 
+// Meta Pixel - powers website retargeting (a Custom Audience of people who
+// visited but did not inquire). Reuses an existing, never-fired dataset on the
+// BERCO PH account rather than a fresh one; it is owned by the same business and
+// had zero events, so there is no foreign history mixed in. The display name in
+// Events Manager still reads "JBC x Claude (SMM Support)" - rename it there if
+// desired, the ID is what matters. Swapping to a different pixel later is a
+// one-line change here, at the cost of whatever audience has accumulated.
+// Fires PageView on every page; the Lead event lives in InquiryForm on a
+// confirmed send. Sets cookies - see backlog C8 (consent).
+const FB_PIXEL_ID = '1971848976777445'
+
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
 
@@ -85,6 +96,15 @@ export default function RootLayout({ children }) {
         <Script id="ga4-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
           `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
           `gtag('js',new Date());gtag('config','${GA_ID}');` }} />
+        <Script id="fb-pixel" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
+          `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?` +
+          `n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;` +
+          `n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;` +
+          `t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}` +
+          `(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');` +
+          `fbq('init','${FB_PIXEL_ID}');fbq('track','PageView');` }} />
+        <noscript><img height="1" width="1" style={{ display: 'none' }} alt=""
+          src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`} /></noscript>
       </body>
     </html>
   )

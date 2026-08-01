@@ -60,6 +60,11 @@ export default function InquiryForm() {
 
     if (res.ok && data.ok) {
       setState('sent')
+      // Meta Lead event - fired only on a confirmed send, never on submit-click,
+      // so the pixel counts real inquiries rather than attempts. Optional-chained
+      // because an ad blocker (or the pixel simply not loading) must never break
+      // the form: capturing the lead matters more than measuring it.
+      window.fbq?.('track', 'Lead')
       requestAnimationFrame(() => doneRef.current && doneRef.current.focus())
       return
     }
