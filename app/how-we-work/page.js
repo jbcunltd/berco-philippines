@@ -71,15 +71,10 @@ export default function HowWeWork() {
               <li>Design fees and project stages, explained up front.</li>
             </ul>
           </div>
-          <div className="col no">
-            <h3>What we won&rsquo;t do</h3>
-            <ul>
-              <li>Present a render as a finished project.</li>
-              <li>Hide fees or timelines to keep you engaged.</li>
-              <li>Promise a tolerance or result we can&rsquo;t stand behind.</li>
-              <li>Cut a corner you can&rsquo;t see to hit a number.</li>
-            </ul>
-          </div>
+          {/* The "What we won't do" column was removed 2026-08-02 on Jumbo's call:
+              "We only show the good. No need to show that bad." The .pledge grid
+              and its .col.no styles are left in place so it can be restored as a
+              single block if that decision is ever revisited. */}
         </div>
       </div></section>
 

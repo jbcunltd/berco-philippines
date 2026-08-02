@@ -399,7 +399,11 @@
   .pgintro .eyebrow{ display:block; margin-bottom:18px }
   .pgintro h1{ font-size:clamp(40px,7vw,84px); line-height:1; letter-spacing:-.015em }
   .pgintro .lead{ max-width:60ch; font-size:clamp(15px,1.8vw,19px); line-height:1.6; color:var(--ink-soft); margin:24px 0 0 }
-  .pledge{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:4px; overflow:hidden }
+  /* auto-fit, not a fixed 1fr 1fr: the "What we won't do" column was removed
+     2026-08-02 and a hard two-column grid left the second half as an empty
+     panel. This fills with one column and splits with two, so restoring that
+     column needs no CSS change. */
+  .pledge{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:4px; overflow:hidden }
   @media(max-width:640px){ .pledge{ grid-template-columns:1fr } }
   .pledge .col{ background:var(--panel); padding:clamp(24px,3vw,34px) }
   .pledge h3{ font-size:16px; margin:0 0 14px }
