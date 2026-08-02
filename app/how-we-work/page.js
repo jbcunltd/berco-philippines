@@ -77,7 +77,7 @@ export default function HowWeWork() {
               <li>Present a render as a finished project.</li>
               <li>Hide fees or timelines to keep you engaged.</li>
               <li>Promise a tolerance or result we can&rsquo;t stand behind.</li>
-              <li>Borrow another brand&rsquo;s track record as our own.</li>
+              <li>Cut a corner you can&rsquo;t see to hit a number.</li>
             </ul>
           </div>
         </div>
