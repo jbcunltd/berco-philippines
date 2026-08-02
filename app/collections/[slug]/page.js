@@ -64,7 +64,12 @@ export default function Collection({ params }) {
       <a className="skip" href="#main">Skip to content</a>
       <main id="main">
 
-      <header className="cover cathead"><div className="shell">
+      {/* colhead, NOT cathead: the catalogue pages later took .cathead for their
+          own cover-thumbnail header and gave it display:flex. That flex applied
+          here too and collapsed this .shell from full width to its content width,
+          squeezing the hero image and colliding the breadcrumb spans on all 8
+          collection pages. Two components, one class name. */}
+      <header className="cover colhead"><div className="shell">
         <div className="masthead"><span><a href="/#collections" className="crumb">Collections</a> · {c.name}</span><span>Philippines</span></div>
         <div className="coverimg">
           {hero

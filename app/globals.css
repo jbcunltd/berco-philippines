@@ -297,10 +297,10 @@
   /* ============================================================
      Collection (category) inner pages
      ============================================================ */
-  .cathead .coverimg{ height:clamp(520px,72vh,600px) }
+  .colhead .coverimg{ height:clamp(520px,72vh,600px) }
   /* category headlines are sentences, not the short brand line — smaller, wider wrap so they never overflow */
-  .cathead .coverimg h1{ font-size:clamp(30px,4.2vw,54px); line-height:1.07 }
-  .cathead .coverimg .type{ max-width:min(90%, 560px) }
+  .colhead .coverimg h1{ font-size:clamp(30px,4.2vw,54px); line-height:1.07 }
+  .colhead .coverimg .type{ max-width:min(90%, 560px) }
   .crumb{ text-decoration:none; border-bottom:1px solid var(--hair) }
   .crumb:hover{ color:var(--ink) }
   .catbody{ padding:4px 0 }
@@ -451,7 +451,7 @@
 
   /* short viewports (landscape phones / short windows): scale hero type to fit, never clip */
   @media (max-height:620px){
-    .coverimg, .cathead .coverimg{ height:clamp(360px, 96vh, 620px) }
+    .coverimg, .colhead .coverimg{ height:clamp(360px, 96vh, 620px) }
     .coverimg .type .eyebrow{ display:none }
     .cover h1{ font-size:clamp(28px,6.2vh,48px); line-height:1.03 }
     .cover .lead{ font-size:12.5px; line-height:1.45; max-width:40ch; margin-top:10px }
