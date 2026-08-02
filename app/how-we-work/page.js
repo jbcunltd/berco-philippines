@@ -63,12 +63,26 @@ export default function HowWeWork() {
         <div className="sh reveal"><h2>The honest part.</h2><span className="eyebrow">Our promise</span></div>
         <div className="pledge stag">
           <div className="col yes">
-            <h3>What we&rsquo;ll always tell you</h3>
+            {/* "What we'll always tell you" described disclosures. Once the list
+                covered contact cadence, specification and after-handover service,
+                it was describing expectations - so the heading followed the content
+                rather than the content bending to fit an old heading. */}
+            <h3>What to expect from us</h3>
+            {/* Rewritten 2026-08-02 against Google Maps review evidence from 20 PH
+                cabinetry makers. The market's 1-star/5-star axis is service, not
+                product: "poor communication / customer has to chase" was the top
+                complaint (~17 reviews) and responsiveness the second-most-praised
+                (~18) - hence the contact line, which nothing on the site promised
+                before. After-sales abandonment (~8) is why the fees line now runs
+                through handover. Quality is the single most-praised theme (~20),
+                but it is claimed by naming the parts rather than asserting "best" -
+                a superlative the truth rules bar and a competitor can copy free. */}
             <ul>
               <li>Realistic lead times, and what actually drives them.</li>
+              <li>Who your point of contact is, and when you&rsquo;ll hear from us next.</li>
               <li>What a material or finish can and can&rsquo;t do.</li>
-              <li>Where a layout won&rsquo;t work — before you pay for it.</li>
-              <li>Design fees and project stages, explained up front.</li>
+              <li>The carcase and hardware we specify — before you commit.</li>
+              <li>Design fees, project stages, and what happens after handover.</li>
             </ul>
           </div>
           {/* The "What we won't do" column was removed 2026-08-02 on Jumbo's call:
