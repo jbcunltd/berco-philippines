@@ -60,6 +60,16 @@ export default function Reference({ params }) {
     creditText: 'Berco — design reference',
     isPartOf: { '@type': 'CollectionPage', name: c.name, url: `${SITE}/collections/${params.slug}` },
     author: { '@type': 'Organization', name: 'Berco', url: SITE },
+    // Search Console flagged four missing Image Metadata fields (non-critical).
+    // Two are added here because they are simply true, and they assert ownership
+    // of imagery that is otherwise easy to lift.
+    creator: { '@type': 'Organization', name: 'Berco', url: SITE },
+    copyrightNotice: '© 2026 JBC UNLTD CORP',
+    // The other two - "license" and "acquireLicensePage" - are deliberately NOT
+    // added. They drive Google's "Licensable" badge, which tells searchers the
+    // image can be licensed from us. These are design references, not stock we
+    // sell rights to. Silencing a non-critical warning is not worth publishing a
+    // claim that isn't true, so Search Console will keep listing those two.
   }
 
   return (
