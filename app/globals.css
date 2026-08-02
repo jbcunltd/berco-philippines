@@ -303,7 +303,12 @@
   .colhead .coverimg .type{ max-width:min(90%, 560px) }
   .crumb{ text-decoration:none; border-bottom:1px solid var(--hair) }
   .crumb:hover{ color:var(--ink) }
-  .catbody{ padding:4px 0 }
+  /* padding-block, NOT the padding shorthand. This sits on the same element as
+     .shell (`class="shell catbody"`), and both are single-class selectors, so the
+     later rule wins - `padding:4px 0` was resetting left/right to 0 and wiping
+     .shell's horizontal inset. The intro copy on all 8 collection pages ran edge
+     to edge on mobile while everything around it stayed inset. */
+  .catbody{ padding-block:4px }
   .catlead{ font-size:clamp(16px,1.9vw,20px); line-height:1.62; color:var(--ink); max-width:64ch; margin:0 }
   .refnote{ font-size:12.5px; color:var(--ink-faint); font-style:italic; margin:20px 0 0; max-width:60ch }
   .catbody .acts,.prec .acts{ margin-top:22px }
