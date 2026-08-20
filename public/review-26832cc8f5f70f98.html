@@ -1,0 +1,841 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Berco DESIGN.md — for sign-off</title>
+<style>
+:root{--serif:'Libre Bodoni','Bodoni 72',Didot,Georgia,serif;
+--sans:'Jost',Futura,'Avenir Next',system-ui,-apple-system,Segoe UI,sans-serif;
+--ground:#FDFBF7;--panel:#F8F3EA;--beige:#F0E7D8;
+--ink:#2B2620;--ink-soft:rgba(43,38,32,.72);--ink-faint:rgba(43,38,32,.66);
+--hair:rgba(43,38,32,.11);--champ:#C9A863;--champ-ink:#876A30;
+--maxw:820px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.shell{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,40px) 96px}
+.mast{border-bottom:1px solid var(--hair);padding:26px 0 16px;margin-bottom:34px}
+.mast .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+color:var(--champ-ink);font-weight:600}
+.mast .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+color:var(--ink-faint);margin-top:8px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;text-wrap:balance;
+letter-spacing:-.01em;line-height:1.15}
+h1{font-size:clamp(32px,7.2vw,54px);margin:14px 0 0}
+h2{font-size:clamp(23px,4.4vw,32px);margin:56px 0 4px;padding-top:22px;
+border-top:1px solid var(--hair)}
+h3{font-size:clamp(18px,3vw,22px);margin:34px 0 2px}
+h4{font-size:16px;margin:24px 0 2px}
+p{margin:14px 0;color:var(--ink-soft)}
+strong{color:var(--ink);font-weight:600}
+ul,ol{margin:14px 0;padding-left:22px;color:var(--ink-soft)}
+li{margin:7px 0}
+li::marker{color:var(--champ-ink)}
+a{color:var(--champ-ink)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--champ-ink);outline-offset:3px}
+hr{border:0;border-top:1px solid var(--hair);margin:44px 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
+background:var(--panel);border:1px solid var(--hair);border-radius:2px;padding:1.5px 5px;
+color:var(--ink);word-break:break-word}
+pre{background:var(--panel);border:1px solid var(--hair);border-radius:4px;
+padding:15px 16px;overflow-x:auto;margin:18px 0;-webkit-overflow-scrolling:touch}
+pre code{background:none;border:0;padding:0;font-size:12.5px;line-height:1.6;white-space:pre}
+blockquote{margin:20px 0;padding:14px 16px;background:var(--panel);
+border-left:2px solid var(--champ);border-radius:0 3px 3px 0}
+blockquote p{margin:6px 0;font-size:14.5px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;
+border:1px solid var(--hair);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:440px}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--hair);
+vertical-align:top;color:var(--ink-soft)}
+th{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--ink-faint);font-weight:600;background:var(--panel);white-space:nowrap}
+td:first-child{color:var(--ink)}
+tr:last-child td{border-bottom:0}
+.foot{margin-top:64px;padding-top:20px;border-top:1px solid var(--hair);
+font-size:12px;color:var(--ink-faint)}
+@media(max-width:560px){body{font-size:15.5px}.shell{padding-bottom:70px}
+h2{margin-top:44px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<div class="shell">
+<div class="mast">
+<div class="eyebrow">Berco &middot; for sign-off</div>
+<h1>DESIGN.md</h1>
+<div class="meta">Draft 1 &middot; 20 August 2026 &middot; unlisted</div>
+</div>
+<h1>Berco — DESIGN.md</h1>
+<p>The design system for <strong>bercohome.com</strong>, written so a coding agent can generate new
+pages that look like they were always part of the site.</p>
+<p><strong>Status of this document.</strong> Every colour, size, shadow and easing curve below was read
+out of <code>app/globals.css</code> on this repo — it describes what the site <em>is</em>, not what someone
+once hoped it would be. Where a value is a recommendation rather than current fact it says
+so. Where the audit found a defect it says that too, and the defect is listed in
+<strong>Known Gaps</strong> rather than quietly written up as if it were the standard.</p>
+<p>Source of truth for <em>strategy and words</em> stays with the brand docs, not this file:
+<code>berco-brand-guidelines.md</code> (audience, promise, proof) and <code>berco-voice-brain.md</code>
+(tone, kill-list, truth rules). This file governs surface only.</p>
+<hr />
+<h2>Overview</h2>
+<p>Berco sells custom cabinetry and interiors to Philippine homeowners. The site's single
+job is <strong>starting a consultation</strong> — not browsing, not dwell time. Every design decision
+below is downstream of that.</p>
+<p><strong>The look:</strong> a cream-and-white magazine. Warm paper ground, near-black ink, one
+champagne accent, Bodoni headlines against Jost small-caps. Photography carries the
+product; the interface gets out of its way.</p>
+<p><strong>Three rules that outrank taste:</strong></p>
+<ol>
+<li><strong>Light only.</strong> No dark mode, no dark sections, no <code>prefers-color-scheme</code> branch.
+   Standing instruction. The palette is a welcoming cream world and a dark variant would
+   be a different brand.</li>
+<li><strong>Mobile first, literally.</strong> The audience is ~90% phone, much of it mid-range Android.
+   Main-thread work is the enemy. A page that stutters costs consultations.</li>
+<li><strong>Nothing may hide content.</strong> No base state anywhere in the CSS may leave real content
+   invisible pending JavaScript. See <strong>Motion</strong>.</li>
+</ol>
+<p><strong>The house standard.</strong> Berco, Nautilus and Skybass share one motion pattern and one
+document structure, so three sites read as one company with a standard rather than three
+vendors. Palette, type and voice stay brand-specific and must not converge — Nautilus is
+deliberately cool graphite where Berco is warm cream.</p>
+<hr />
+<h2>Colors</h2>
+<p>Six ink-and-paper values, one accent. Defined once on <code>:root</code>, referenced everywhere.
+<strong>Never hard-code a hex in a component</strong> — if a colour isn't in this table it doesn't exist.</p>
+<h3>Brand &amp; accent</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--champ</code></td>
+<td><code>#C9A863</code></td>
+<td>Champagne. Decorative only — hairline underlines, hover borders, the sliding nav rule. <strong>Not for text. Not for focus rings</strong> (see Known Gaps).</td>
+</tr>
+<tr>
+<td><code>--champ-ink</code></td>
+<td><code>#876A30</code></td>
+<td>The text-safe champagne. Eyebrows, step numbers, "read more" meta, form-field markers. 4.91:1 on ground.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Surface</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--ground</code></td>
+<td><code>#FDFBF7</code></td>
+<td>The page. Warm off-white — the whole brand sits on this.</td>
+</tr>
+<tr>
+<td><code>--panel</code></td>
+<td><code>#F8F3EA</code></td>
+<td>One step raised: chips, tap rows, quiet info cells.</td>
+</tr>
+<tr>
+<td><code>--beige</code></td>
+<td><code>#F0E7D8</code></td>
+<td>Warm block behind an image while it loads; flat-colour stand-ins.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Text</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Contrast on ground</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--ink</code></td>
+<td><code>#2B2620</code></td>
+<td><strong>14.50:1</strong></td>
+<td>Headlines, body, buttons. Near-black, never <code>#000</code>.</td>
+</tr>
+<tr>
+<td><code>--ink-soft</code></td>
+<td><code>rgba(43,38,32,.72)</code></td>
+<td><strong>5.86:1</strong></td>
+<td>Secondary copy, nav links, descriptions.</td>
+</tr>
+<tr>
+<td><code>--ink-faint</code></td>
+<td><code>rgba(43,38,32,.66)</code></td>
+<td><strong>4.90:1</strong></td>
+<td>Captions, legal, small labels. Passes AA, but with almost no margin — do not lighten it further, and do not use it below 11px.</td>
+</tr>
+<tr>
+<td><code>--hair</code></td>
+<td><code>rgba(43,38,32,.11)</code></td>
+<td>1.23:1</td>
+<td>Hairline borders and dividers <strong>only</strong>. Never a border that carries meaning on its own.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Semantic</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error / invalid</td>
+<td><code>#A6402F</code></td>
+<td>5.98:1 on ground. Ring <code>0 0 0 3px rgba(166,64,47,.13)</code>.</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>—</td>
+<td><strong>Not defined.</strong> Confirmation is currently typographic. See Known Gaps.</td>
+</tr>
+<tr>
+<td>Text over photography</td>
+<td><code>#FDFBF7</code> headline · <code>rgba(253,251,247,.92)</code> lead · <code>#EAD3A0</code> eyebrow</td>
+<td>Always over the scrim below, never over bare photo.</td>
+</tr>
+<tr>
+<td>Photo scrim</td>
+<td><code>linear-gradient(to top, rgba(30,22,14,.62) 0%, rgba(30,22,14,.18) 40%, rgba(30,22,14,0) 66%)</code></td>
+<td>Mandatory behind any text on an image. The warm-brown tint is deliberate; a neutral black scrim goes cold and reads as another brand.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Focus</h3>
+<p>The focus indicator is a <strong>brand-critical, non-negotiable component</strong>, not decoration.</p>
+<pre><code class="language-css">a:focus-visible, button:focus-visible { outline: 2px solid var(--champ-ink); outline-offset: 3px }
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>The live site currently uses <code>var(--champ)</code> here, which measures 2.19:1 against the
+ground and fails WCAG 2.2 SC 1.4.11 (3:1 minimum for non-text).</strong> <code>--champ-ink</code> is the
+corrected value shown above and reaches 4.91:1. Fix pending — see Known Gaps #1.</p>
+</blockquote>
+<hr />
+<h2>Typography</h2>
+<p>Two families, loaded through <code>next/font/google</code> so they self-host and never flash.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Token</th>
+<th>Family</th>
+<th>Weights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Display</td>
+<td><code>--serif</code></td>
+<td><strong>Libre Bodoni</strong> → <code>'Bodoni 72', Didot, Georgia, serif</code></td>
+<td>400, 500</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td><code>--sans</code></td>
+<td><strong>Jost</strong> → <code>Futura, 'Avenir Next', system-ui, sans-serif</code></td>
+<td>400, 500, 600</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Hierarchy</h3>
+<p>Every display size is fluid. The pattern is always <code>clamp(mobile, viewport, desktop)</code> —
+there are no fixed heading sizes on this site.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Size</th>
+<th>Line-height</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hero <code>h1</code> (over photo)</td>
+<td><code>clamp(38px, 6vw, 78px)</code></td>
+<td><code>1.0</code></td>
+<td>Serif 500, <code>letter-spacing:-.01em</code></td>
+</tr>
+<tr>
+<td>Manifesto <code>h2</code></td>
+<td><code>clamp(34px, 6.4vw, 74px)</code></td>
+<td><code>1</code></td>
+<td>The single-line statement</td>
+</tr>
+<tr>
+<td>Feature <code>h2</code> (over photo)</td>
+<td><code>clamp(30px, 5.4vw, 60px)</code></td>
+<td><code>.98</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Closing <code>h2</code></td>
+<td><code>clamp(26px, 4.4vw, 48px)</code></td>
+<td><code>1.1</code></td>
+<td><code>max-width:20ch</code>, centred</td>
+</tr>
+<tr>
+<td>Section <code>h2</code></td>
+<td><code>clamp(22px, 3.4vw, 34px)</code></td>
+<td>—</td>
+<td>The workhorse</td>
+</tr>
+<tr>
+<td>Card title</td>
+<td><code>clamp(17px, 1.8vw, 21px)</code></td>
+<td><code>1.2</code></td>
+<td>Serif</td>
+</tr>
+<tr>
+<td>Body</td>
+<td><code>14–15px</code></td>
+<td><code>1.5–1.6</code></td>
+<td>Sans 400, <code>--ink-soft</code></td>
+</tr>
+<tr>
+<td>Small body / card copy</td>
+<td><code>13–13.5px</code></td>
+<td><code>1.5</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eyebrow</strong></td>
+<td><code>11px</code></td>
+<td>—</td>
+<td><code>.28em</code> tracking, uppercase, 600, <code>--champ-ink</code></td>
+</tr>
+<tr>
+<td><strong>Caption</strong> (<code>.cap</code>)</td>
+<td><code>9.5px</code></td>
+<td>—</td>
+<td><code>.16em</code>, uppercase, <code>--ink-faint</code></td>
+</tr>
+<tr>
+<td>Button / link / nav</td>
+<td><code>12px</code></td>
+<td>—</td>
+<td><code>.08–.09em</code>, uppercase, 600</td>
+</tr>
+<tr>
+<td>Field label</td>
+<td><code>11px</code></td>
+<td>—</td>
+<td><code>.16em</code>, uppercase, 600, <code>--ink-soft</code></td>
+</tr>
+<tr>
+<td>Form input</td>
+<td><code>15px</code> → <strong><code>16px</code> below 820px</strong></td>
+<td>—</td>
+<td>The 16px is load-bearing, see below</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Principles</h3>
+<ul>
+<li><strong>Serif headlines, sans everything else.</strong> <code>h1,h2,h3</code> are serif by global rule. Small
+  uppercase labels that happen to be an <code>h3</code> (footer column heads) must restate
+  <code>font-family:var(--sans)</code> — this is intentional, not an oversight.</li>
+<li><strong>Headings use <code>text-wrap: balance</code>.</strong> Bodoni at 70px with a one-word last line looks
+  broken. Balance it.</li>
+<li><strong>Tracking scales inversely with size.</strong> Big serif is tight (<code>-.01em</code>); small sans caps
+  are wide (<code>.08em</code> → <code>.28em</code>). Never track a headline out or a label in.</li>
+<li><strong>Measure is capped in <code>ch</code></strong> — <code>38ch</code> manifesto, <code>42ch</code> hero lead, <code>48ch</code> form intro,
+  <code>62ch</code> body. Except where the container font-size makes <code>ch</code> unreliable: the hero type
+  block uses <code>min(88%, 640px)</code> in px on purpose. Don't "tidy" that back to <code>ch</code>.</li>
+<li><strong>Never go below 16px on a form field on a phone.</strong> iOS Safari zooms the viewport on
+  focus for anything smaller. On a ~90% mobile audience that is a jolt on every tap.</li>
+<li><strong>Never below 11px for <code>--ink-faint</code>.</strong> It clears AA by a hair at best.</li>
+</ul>
+<hr />
+<h2>Layout</h2>
+<h3>Spacing</h3>
+<p>The system is <strong>fluid clamps, not a fixed 4/8 scale</strong> — stated plainly so nobody
+"corrects" it into one. Vertical rhythm scales with viewport height, horizontal with width.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section (default)</td>
+<td><code>clamp(46px, 7vh, 86px)</code> top &amp; bottom</td>
+</tr>
+<tr>
+<td>Section (statement — manifesto)</td>
+<td><code>clamp(64px, 11vh, 124px)</code></td>
+</tr>
+<tr>
+<td>Section (closing CTA)</td>
+<td><code>clamp(72px, 12vh, 140px)</code></td>
+</tr>
+<tr>
+<td>Grid gap</td>
+<td><code>clamp(14px, 2vw, 24px)</code></td>
+</tr>
+<tr>
+<td>Form field gap</td>
+<td><code>clamp(16px, 2.4vh, 22px)</code></td>
+</tr>
+<tr>
+<td>Shell inline padding</td>
+<td><code>clamp(18px, 4vw, 52px)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Fixed values inside components cluster on <strong>2 · 4 · 6 · 8 · 11 · 12 · 14 · 16 · 20 · 22 · 26</strong>.
+Pick from that set; don't invent a 15 or a 19.</p>
+<h3>Grid &amp; container</h3>
+<pre><code class="language-css">--maxw: 1240px;
+.shell { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px,4vw,52px) }
+</code></pre>
+<p>Collection grid steps <code>4 → 3 → 2 → 1</code> at <code>1080 / 820 / 520</code>. Process steps <code>4 → 2 → 1</code>
+at <code>720 / 420</code>. Footer is <code>1.5fr 1fr 1fr .9fr</code> — the brand column is deliberately widest.</p>
+<blockquote>
+<p><code>.wrap</code> uses <code>overflow-x: clip</code>, <strong>not <code>hidden</code></strong>. <code>hidden</code> forces <code>overflow-y</code> to
+compute as <code>auto</code>, which makes <code>.wrap</code> a scroll container, which makes the sticky nav
+resolve against a scrollport that never scrolls — the nav then rides away with the page.
+Measured. Do not change this back.</p>
+</blockquote>
+<h3>Whitespace philosophy</h3>
+<p>Air is the luxury signal, and it is spent unevenly on purpose. The manifesto and the
+closing CTA get roughly <strong>1.5×</strong> the padding of an ordinary section, because those are the
+two moments the reader is asked to feel something rather than scan. Everything else is
+tight, hairline-divided, and dense — closer to a magazine contents page than a landing page.</p>
+<hr />
+<h2>Elevation &amp; Depth</h2>
+<p>Shadows are <strong>tinted with the ink colour, never black</strong> — <code>rgba(43,38,32,…)</code>. Black
+shadows go grey-blue on a cream ground and instantly cheapen it.</p>
+<p>The signature is a <strong>long, soft, heavily-inset shadow</strong>: large blur, large <em>negative</em>
+spread, low opacity. It reads as diffuse daylight rather than a drop shadow.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 — flat</td>
+<td>none</td>
+<td>Default. Most of the site has no shadow at all.</td>
+</tr>
+<tr>
+<td>1 — hover lift</td>
+<td><code>0 14px 30px -16px rgba(43,38,32,.55)</code></td>
+<td>Buttons on hover, paired with <code>translateY(-2px)</code></td>
+</tr>
+<tr>
+<td>2 — card raise</td>
+<td><code>0 22px 44px -28px rgba(43,38,32,.45)</code></td>
+<td>Collection / download cards on hover</td>
+</tr>
+<tr>
+<td>3 — panel</td>
+<td><code>0 24px 46px -26px rgba(43,38,32,.5)</code></td>
+<td>Catalogue pages, reference cards</td>
+</tr>
+<tr>
+<td>4 — overlay</td>
+<td><code>0 22px 44px -30px rgba(43,38,32,.5)</code></td>
+<td>Open mobile menu</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td><code>0 1px 0 var(--hair), 0 12px 34px -26px rgba(43,38,32,.55)</code></td>
+<td>Sticky nav once scrolled</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Depth is mostly <em>not</em> shadow.</strong> It is hairlines (<code>--hair</code>), a one-step surface change
+(<code>--ground</code> → <code>--panel</code>), and image scale on hover. Reach for those first.</p>
+<hr />
+<h2>Shapes</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Radius</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>2px</code></strong></td>
+<td>The brand default — buttons, inputs, tap rows, small CTAs. Almost square.</td>
+</tr>
+<tr>
+<td><code>4px</code></td>
+<td>Grid containers with a hairline border</td>
+</tr>
+<tr>
+<td><code>6px</code></td>
+<td>Image cards and tiles</td>
+</tr>
+<tr>
+<td><code>5px</code></td>
+<td>Hero image only</td>
+</tr>
+<tr>
+<td><code>30px</code> (pill)</td>
+<td>Chips</td>
+</tr>
+<tr>
+<td><code>50%</code></td>
+<td>Circular carousel controls (46px)</td>
+</tr>
+</tbody>
+</table></div>
+<p>The near-square <code>2px</code> is the point: it is what keeps the site reading as architecture
+rather than as a SaaS product. <strong>Do not round a button to 8px.</strong></p>
+<blockquote>
+<p>Current CSS also contains stray <code>3px</code>, <code>5px</code> and <code>8px</code> values. Target scale is
+<strong>2 / 4 / 6 / pill / circle</strong> — see Known Gaps #4.</p>
+</blockquote>
+<hr />
+<h2>Components</h2>
+<h3>Buttons</h3>
+<pre><code class="language-css">.btn { display:inline-flex; align-items:center; gap:9px;
+       font-size:12px; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
+       padding:14px 22px; border-radius:2px;
+       background:var(--ink); color:var(--ground);
+       transition:opacity .3s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease) }
+.btn:hover { opacity:.85; transform:translateY(-2px); box-shadow:0 14px 30px -16px rgba(43,38,32,.55) }
+</code></pre>
+<ul>
+<li><strong>Primary</strong> — ink fill, ground text. 14.50:1. One per screen.</li>
+<li><strong>Ghost</strong> (<code>.navcta</code>) — <code>1px solid var(--ink)</code>, transparent, inverts on hover.</li>
+<li><strong>Text link</strong> (<code>.link</code>) — 12px uppercase with a <code>--champ</code> bottom rule; on hover the
+  tracking opens <code>.09em → .12em</code> and the rule darkens to ink. That letter-spacing shift
+  is the site's most characteristic micro-interaction. Keep it.</li>
+<li><strong>Over photography</strong> — the fill flips to <code>#FDFBF7</code> on <code>#2B2620</code> text.</li>
+</ul>
+<h3>Inputs &amp; forms</h3>
+<pre><code class="language-css">.fld input, .fld select, .fld textarea {
+  font:inherit; font-size:15px; color:var(--ink); background:var(--ground);
+  border:1px solid var(--hair); border-bottom-color:rgba(43,38,32,.28);
+  border-radius:2px; padding:13px 14px; width:100% }
+</code></pre>
+<ul>
+<li><strong>The heavier bottom border is deliberate</strong> — it gives a printed-form feel without a
+  full box outline.</li>
+<li><strong>Focus:</strong> <code>border-color</code> + <code>box-shadow: 0 0 0 3px rgba(201,168,99,.26)</code>. Same 1.4.11
+  problem as the global ring — the border must move to <code>--champ-ink</code> (Known Gaps #1).</li>
+<li><strong>Invalid:</strong> <code>#A6402F</code> border + <code>0 0 0 3px rgba(166,64,47,.13)</code>, driven off
+  <code>aria-invalid="true"</code> so the state is announced, not merely coloured.</li>
+<li><strong>Optional fields live behind <code>&lt;details&gt;/&lt;summary&gt;</code></strong> — a native disclosure, no JS,
+  nothing to read past. Keep it native.</li>
+<li><strong>Labels are always visible.</strong> No placeholder-as-label, ever.</li>
+<li><strong>Two-column rows collapse to one at 560px.</strong></li>
+</ul>
+<h3>Cards</h3>
+<p><code>.ccard</code> — image, then label beneath. Never text over the photo in a grid.</p>
+<ul>
+<li><code>aspect-ratio:16/9</code>, <code>border-radius:6px</code>, <code>1px solid var(--hair)</code>, <code>--beige</code> ground.</li>
+<li>Hover: border → <code>--champ</code>, shadow level 2, image <code>scale(1.04)</code> over <code>.9s</code>.</li>
+<li>The "go" arrow nudges <code>translateX(4px)</code>.</li>
+<li><strong>Uniform aspect ratio across the grid is a rule.</strong> Mixed ratios turn a considered
+  collection into a Pinterest board.</li>
+</ul>
+<h3>Inline</h3>
+<ul>
+<li><strong>Eyebrow</strong> — 11px <code>.28em</code> uppercase <code>--champ-ink</code>. Sits above a headline. Never alone.</li>
+<li><strong>Caption</strong> (<code>.cap</code>) — 9.5px <code>.16em</code> <code>--ink-faint</code>, absolutely positioned in an image
+  corner. Metadata only, never information the reader needs.</li>
+<li><strong>Chip</strong> — <code>--panel</code> fill, <code>--hair</code> border, pill, 13px. Hover lifts 1px to white with a
+  champagne border.</li>
+</ul>
+<h3>Navigation</h3>
+<p>Sticky, <code>z-index:30</code>, <code>backdrop-filter: blur(9px)</code> over a 90%-opaque ground.</p>
+<ul>
+<li>66px tall; shrinks to <strong>54px</strong> past 12px of scroll, gains a shadow, loses its border.</li>
+<li>Links get a <strong>champagne underline that wipes in from the left</strong> (<code>scaleX</code> on <code>::after</code>).</li>
+<li><strong>Below 860px</strong> the links become a full-width dropdown panel; hamburger is a real
+  <code>&lt;button&gt;</code> at <strong>44×44</strong> with <code>aria-expanded</code> kept in sync, and the panel closes on
+  link click.</li>
+<li>Tap-to-call and Messenger appear <strong>in the mobile menu only</strong> — on desktop "tap to call"
+  is meaningless and they clutter the bar.</li>
+<li>A <code>.skip</code> link precedes the nav and becomes visible on focus.</li>
+</ul>
+<h3>Footer</h3>
+<p>Four columns (<code>1.5fr 1fr 1fr .9fr</code>), lockup + contact in the widest. Column heads are
+<code>h3</code> — <strong>not <code>h4</code></strong> — because jumping h2→h4 skips a level and fails WCAG heading order.
+They restate <code>font-family:var(--sans)</code>.</p>
+<hr />
+<h2>Motion</h2>
+<p><strong>This is the section that carries the house standard across all three brand sites.</strong>
+Copy it verbatim into Nautilus and Skybass. Everything above this line is Berco-specific;
+this is not.</p>
+<h3>The easing curve</h3>
+<pre><code class="language-css">--ease: cubic-bezier(.2, .7, .2, 1);
+</code></pre>
+<p>One curve, everything. Fast out, long settle — expensive, not bouncy. <strong>Never</strong> use
+<code>ease-in-out</code>, and never a spring or an overshoot on this brand.</p>
+<h3>Duration scale</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Duration</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.2s</code></td>
+<td>Field borders, immediate state</td>
+</tr>
+<tr>
+<td><code>.3s</code></td>
+<td>Hover — colour, opacity, tracking</td>
+</tr>
+<tr>
+<td><code>.35–.45s</code></td>
+<td>Chrome — nav height, background, shadow</td>
+</tr>
+<tr>
+<td><code>.7s</code></td>
+<td>Scroll reveal</td>
+</tr>
+<tr>
+<td><code>.9s</code></td>
+<td>Image drift inside a card</td>
+</tr>
+</tbody>
+</table></div>
+<h3>The four scroll patterns</h3>
+<ol>
+<li><strong>Fade + rise</strong> — opacity 0→1 with a ~15px translate, on headings and paragraphs.</li>
+<li><strong>Image unmask</strong> — <code>clip-path: inset()</code> opening, with a slight scale-down.</li>
+<li><strong>Sticky hero with slow background drift</strong> — the restrained parallax. Never more than
+   a few percent of element height.</li>
+<li><strong>Staggered grid</strong> — each tile animates on <strong>its own scroll position</strong>, never on a
+   JS timer or an <code>nth-child</code> delay chain.</li>
+</ol>
+<h3>Implementation — CSS only, no exceptions</h3>
+<p>Use native <strong><code>animation-timeline: view()</code> / <code>scroll()</code></strong>. These run on the compositor, so
+they physically cannot jank on a mid-range Android.</p>
+<p><strong>Banned, permanently:</strong></p>
+<ul>
+<li><strong>JS animation libraries</strong> — GSAP ScrollTrigger, Framer Motion, AOS. 30–100KB of
+  JavaScript plus main-thread scroll handlers, on the exact audience that can least
+  afford it.</li>
+<li><strong>Smooth-scroll hijacking</strong> — Lenis and equivalents. Overrides native scroll, feels
+  rubbery under a thumb, breaks find-in-page, and is an accessibility problem.</li>
+<li><strong><code>window.addEventListener('scroll', …)</code> driving visual state.</strong> If something must
+  respond to scroll position, it is a <code>scroll()</code> timeline.</li>
+</ul>
+<p><code>html { scroll-behavior: smooth }</code> is fine — that is native anchor behaviour, not hijacking.</p>
+<h3>The three non-negotiables</h3>
+<p><strong>1. The default state is VISIBLE.</strong> The animation goes <em>inside</em> <code>@supports</code>; the resting
+state outside it is the finished, readable page.</p>
+<pre><code class="language-css">/* correct */
+.reveal { opacity: 1 }                                  /* base: readable */
+@supports (animation-timeline: view()) {
+  @media not (prefers-reduced-motion: reduce) {
+    .reveal { animation: rise linear both; animation-timeline: view();
+              animation-range: entry 5% cover 28% }
+  }
+}
+@keyframes rise { from { opacity:0; transform:translateY(15px) } to { opacity:1; transform:none } }
+</code></pre>
+<pre><code class="language-css">/* WRONG — this is how a page ships blank */
+.reveal { opacity: 0 }
+.reveal.in { opacity: 1 }   /* requires JS that may never run */
+</code></pre>
+<p>This is not defensive style. <strong>Firefox stable does not ship <code>animation-timeline</code> at all</strong>,
+and Safari only gained it in <strong>26</strong>. A large minority of visitors will never run the
+animation — they must get a complete, static, correct page, and they do, automatically,
+because the base state is the finished state.</p>
+<p><strong>2. <code>prefers-reduced-motion: reduce</code> kills all of it</strong> — reveals, drift, unmask, stagger.
+And it must kill <em>only motion</em>. A reduced-motion user keeps every carousel, every image
+viewer, every control. Motion preference is not a feature flag.</p>
+<p><strong>3. Nothing animates on text the reader must read first.</strong> The hero headline, the
+manifesto line, the price-free offer copy and any form label are static, always. Motion is
+for the second screen onward.</p>
+<h3>Browser support — verified, not assumed</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Browser</th>
+<th><code>animation-timeline</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome / Edge (+ Android, Samsung Internet)</td>
+<td><strong>115+</strong> ✅</td>
+</tr>
+<tr>
+<td>Safari / iOS Safari</td>
+<td><strong>26+</strong> ✅</td>
+</tr>
+<tr>
+<td>Firefox (desktop &amp; Android)</td>
+<td><strong>preview only — not in stable</strong> ❌</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Source: MDN browser-compat-data, read 2026-08-20.</em></p>
+<p>Everything below those versions gets the static page. That is the designed outcome.</p>
+<hr />
+<h2>Do's and Don'ts</h2>
+<p><strong>Do</strong></p>
+<ul>
+<li>Reference tokens. If a colour, radius or duration isn't in this document, don't use it.</li>
+<li>Let photography carry the product and keep the interface quiet around it.</li>
+<li>Use hairlines and a one-step surface change before reaching for a shadow.</li>
+<li>Keep the focus ring visible and high-contrast on every interactive element.</li>
+<li>Keep every tap target ≥44px on a phone.</li>
+<li>Write <code>alt</code> text that describes the cabinetry, not the file.</li>
+<li>Cap measure in <code>ch</code>, and balance headline wraps.</li>
+</ul>
+<p><strong>Don't</strong></p>
+<ul>
+<li>Don't add a dark mode, a dark section, or a <code>prefers-color-scheme</code> branch.</li>
+<li>Don't use <code>--champ</code> for text or for a focus ring — it is 2.19:1.</li>
+<li>Don't set <code>opacity: 0</code> as a base state on anything containing content.</li>
+<li>Don't add a JavaScript animation or smooth-scroll library.</li>
+<li>Don't round buttons past 2px or mix aspect ratios inside one grid.</li>
+<li>Don't use a placeholder as a label, or convey a state by colour alone.</li>
+<li>Don't put a price, a cost, or a competitor comparison on any public page — standing
+  brand rule; reframe to value, durability and craft.</li>
+<li>Don't borrow another JBC brand's palette, project history, or track record.</li>
+</ul>
+<hr />
+<h2>Responsive Behavior</h2>
+<h3>Breakpoints</h3>
+<p>Max-width, mobile-first content order. In use: <strong>1080 · 900 · 860 · 820 · 760 · 720 ·
+700 · 640 · 600 · 560 · 520 · 440 · 420</strong>.</p>
+<p>That is more than a system needs. The <strong>canonical four</strong> for new work are:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Breakpoint</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1080px</code></td>
+<td>Desktop → narrow desktop</td>
+</tr>
+<tr>
+<td><code>860px</code></td>
+<td><strong>Navigation collapses to hamburger</strong></td>
+</tr>
+<tr>
+<td><code>820px</code></td>
+<td>Tablet → phone. Also where inputs go 16px.</td>
+</tr>
+<tr>
+<td><code>520px</code></td>
+<td>Single column</td>
+</tr>
+</tbody>
+</table></div>
+<p>Use an existing value before adding a new one.</p>
+<h3>Touch targets</h3>
+<p>Minimum <strong>44×44</strong> on phone. Currently met by the hamburger (44), tap rows (60) and
+carousel controls (46). Currently <strong>not</strong> met by footer links (~31px) and the disclosure
+summary (30px) — Known Gaps #3.</p>
+<h3>Collapsing strategy</h3>
+<p>Grids step down one column at a time. Two-column form rows go single at 560px. Nav becomes
+a panel at 860px. The hero switches to a viewport-height clamp so the headline never
+outgrows a short phone screen.</p>
+<h3>Image behavior</h3>
+<ul>
+<li>Every image is <code>object-fit: cover</code> on an explicit <code>aspect-ratio</code> — no layout shift.</li>
+<li>Warm <code>--beige</code> placeholder behind every slot.</li>
+<li>Real <code>&lt;img&gt;</code> tags, not CSS backgrounds, wherever the image is content (SEO + alt text).</li>
+<li><strong>Every photograph carries the Berco lockup: plain white, top-left, 15% of width, 3.5%
+  margin, hard-edged. No shadow, no glow, no stroke, ever</strong> — including when it lands on
+  a blown-out white area and becomes invisible. That is an accepted trade-off; the only
+  permitted remedies are re-cropping or swapping the photo.</li>
+</ul>
+<hr />
+<h2>Iteration Guide</h2>
+<p><strong>Adding a component</strong></p>
+<ol>
+<li>Find the nearest existing component and start from its spec.</li>
+<li>Compose from tokens only.</li>
+<li>Radius from the scale. Shadow only if hairline + surface change genuinely won't do.</li>
+<li>Every interactive element: visible focus ring, ≥44px on phone, keyboard operable.</li>
+<li>If it animates on scroll: base state visible, <code>@supports</code> wrapper, reduced-motion kill.</li>
+<li>Run <code>/web-design-guidelines</code> before shipping.</li>
+<li>Update this file in the same commit.</li>
+</ol>
+<p><strong>Changing a token</strong></p>
+<p><code>--ground</code>, <code>--ink</code> and <code>--champ-ink</code> are load-bearing across every page. Changing one is
+a site-wide change: re-check contrast for <code>--ink-soft</code>, <code>--ink-faint</code> and <code>--champ-ink</code>,
+and re-check the over-photo palette. Record the new ratios here.</p>
+<p><strong>Porting to Nautilus or Skybass</strong></p>
+<p>Copy <strong>Motion</strong> verbatim — that is the shared house standard. Copy the <em>structure</em> of
+every other section but refill it from that brand's own palette and type. Nautilus is
+cool graphite on white by explicit decision, precisely so it does not read as Berco; do
+not "harmonise" the palettes.</p>
+<p><strong>Deploying</strong></p>
+<p>Commit as <code>Berco Catalogue &lt;bercohomeph@gmail.com&gt;</code> via <code>GIT_AUTHOR_*</code> / <code>GIT_COMMITTER_*</code>.
+Vercel silently marks an unknown git author's deploy BLOCKED — the push succeeds and the
+site never changes. Always poll the live URL until it returns 200 <em>and</em> the new content is
+actually present before calling it done.</p>
+<hr />
+<h2>Known Gaps</h2>
+<p>Open defects and inconsistencies, found by audit on <strong>2026-08-20</strong>. Ranked.</p>
+<p><strong>1. 🚨 The global focus ring fails WCAG 2.2 SC 1.4.11.</strong>
+<code>a:focus-visible, button:focus-visible { outline: 2px solid var(--champ) }</code> measures
+<strong>2.19:1</strong> against <code>--ground</code> — the minimum for a non-text indicator is 3:1. This affects
+every keyboard user on every page. The form-field focus border has the same problem.
+<em>Fix:</em> move both to <code>--champ-ink</code> (<strong>4.91:1</strong>). Same colour family, no visual cost.</p>
+<p><strong>2. 🚨 <code>.reveal</code> and <code>.stag &gt; *</code> are <code>opacity: 0</code> by default, gated on JavaScript.</strong>
+Directly violates the non-negotiable in <strong>Motion</strong>. Guarded today by <code>&lt;noscript&gt;</code> and
+<code>@media (scripting:none)</code>, which cover JS <em>disabled</em> but not JS <em>failing</em> — a throw
+anywhere earlier in the inline script leaves real content invisible with no fallback.
+<em>Fix:</em> the CSS scroll-driven migration, which removes the JS dependency entirely.
+<em>Note:</em> <strong>Nautilus already solves this correctly</strong> with <code>html.reveal-armed [data-reveal]</code>
+— the hiding rule only applies once JS has armed it. Berco should match that pattern at
+minimum, and preferably skip straight to native CSS.</p>
+<p><strong>3. 🚨 Reduced-motion users lose functionality, not just motion.</strong>
+The inline script returns early under <code>prefers-reduced-motion: reduce</code>, before the
+carousel, the product-image viewer and the parallax handler are wired. Result: on the
+homepage the planning carousel's arrows and dots are <strong>dead</strong>, and on collection reference
+pages the thumbnail viewer does <strong>nothing</strong> — for reduced-motion users only. Confirmed
+present in the live served HTML. Violates non-negotiable #2 in <strong>Motion</strong>.
+<em>Fix:</em> handle motion preference per-feature; never <code>return</code> out of shared wiring.</p>
+<p><strong>4. Sub-44px tap targets.</strong> Footer links (<code>padding:5px 0</code> on 14px ≈ 31px) and the
+<code>&lt;summary&gt;</code> disclosure (<code>min-height:30px</code>).</p>
+<p><strong>5. Radius drift.</strong> <code>3px</code>, <code>5px</code> and <code>8px</code> are in use outside the 2/4/6/pill/circle scale.</p>
+<p><strong>6. Breakpoint sprawl.</strong> Thirteen distinct max-widths where four would do.</p>
+<p><strong>7. No success/confirmation colour.</strong> The semantic palette has an error state and no
+positive counterpart. Inquiry confirmation is typographic only.</p>
+<p><strong>8. <code>--ink-faint</code> is used at 9.5px.</strong> Contrast passes (4.90:1); the size does not serve
+a mostly-mobile audience. Caption text should not go below 11px.</p>
+<p><strong>9. Duplicate <code>next.config.mjs</code></strong> at both repo root and <code>app/</code>. Harmless today; a trap
+for the next person editing the wrong one.</p>
+<p><strong>10. Not yet audited against <code>/web-design-guidelines</code>.</strong> This document was written from
+the CSS; the formal audit is the next gate and will likely add to this list.</p>
+<p><strong>11. Skybass has no site repository.</strong> The house-standard motion pattern can be applied
+to Berco and Nautilus today. Skybass is named in the plan but there is nothing to apply
+it to yet.</p>
+<div class="foot">Unlisted review page &middot; not indexed &middot; bercohome.com</div>
+</div>
