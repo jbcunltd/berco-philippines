@@ -23,7 +23,10 @@
   .eyebrow{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--champ-ink); font-weight:600}
   .cap{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint)}
   a{color:inherit}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--champ); outline-offset:3px}
+  /* Focus ring uses --champ-ink, NOT --champ. Champagne on --ground measures 2.19:1 and
+     fails WCAG 2.2 SC 1.4.11 (3:1 for non-text indicators); --champ-ink measures 4.91:1.
+     --champ stays decorative (underlines, rules). Do not "restore" the brand gold here. */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--champ-ink); outline-offset:3px}
   .btn{display:inline-flex; align-items:center; gap:9px; font-size:12px; letter-spacing:.09em; text-transform:uppercase;
     font-weight:600; padding:14px 22px; border-radius:2px; text-decoration:none; background:var(--ink); color:var(--ground); transition:opacity .2s}
   .btn:hover{opacity:.85}
@@ -556,7 +559,7 @@
     border:1px solid var(--hair); border-radius:2px; background:var(--panel);
     color:var(--ink); text-decoration:none; transition:border-color .2s, background .2s, transform .2s }
   .tap:hover{ background:#fff; border-color:rgba(43,38,32,.24); transform:translateY(-1px) }
-  .tap:focus-visible{ outline:2px solid var(--champ); outline-offset:3px }
+  .tap:focus-visible{ outline:2px solid var(--champ-ink); outline-offset:3px }
   .tap svg{ flex:0 0 auto; color:var(--champ-ink) }
   .tap span{ display:flex; flex-direction:column; min-width:0; font-size:13px; color:var(--ink-soft); line-height:1.35 }
   .tap strong{ font-size:13px; letter-spacing:.03em; color:var(--ink); font-weight:600 }
@@ -570,7 +573,7 @@
   .fldmore summary::-webkit-details-marker{ display:none }
   .fldmore summary::before{ content:'+'; font-size:15px; line-height:1; width:15px }
   .fldmore[open] summary::before{ content:'–' }
-  .fldmore summary:focus-visible{ outline:2px solid var(--champ); outline-offset:3px }
+  .fldmore summary:focus-visible{ outline:2px solid var(--champ-ink); outline-offset:3px }
   .fldmore summary .opt{ letter-spacing:.04em; text-transform:none; font-weight:400; color:var(--ink-faint) }
   .fldmore-in{ display:flex; flex-direction:column; gap:clamp(16px,2.4vh,22px); padding-top:clamp(16px,2.4vh,22px) }
 
@@ -596,7 +599,7 @@
     background-size:5px 5px,5px 5px; background-repeat:no-repeat; padding-right:38px }
   .fld input:hover,.fld select:hover,.fld textarea:hover{ border-color:rgba(43,38,32,.3) }
   .fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible{
-    outline:none; border-color:var(--champ); box-shadow:0 0 0 3px rgba(201,168,99,.26) }
+    outline:none; border-color:var(--champ-ink); box-shadow:0 0 0 3px rgba(135,106,48,.30) }
   .fld [aria-invalid="true"]{ border-color:#A6402F; box-shadow:0 0 0 3px rgba(166,64,47,.13) }
   .fld-err{ font-size:13px; color:#8E3323; line-height:1.4 }
   .hp{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; margin:0 }
@@ -608,7 +611,7 @@
   /* sent / failed states */
   .formdone{ border:1px solid var(--hair); border-top:2px solid var(--champ); background:var(--panel);
     padding:clamp(26px,4vw,42px); border-radius:3px }
-  .formdone:focus-visible{ outline:2px solid var(--champ); outline-offset:3px }
+  .formdone:focus-visible{ outline:2px solid var(--champ-ink); outline-offset:3px }
   .formdone h2{ font-size:clamp(26px,3.6vw,40px); line-height:1.08; margin:12px 0 0 }
   .formdone p{ font-size:15.5px; line-height:1.62; color:var(--ink-soft); max-width:54ch; margin:16px 0 0 }
   .formdone a,.formfail a:not(.btn){ color:var(--champ-ink); text-decoration:none; border-bottom:1px solid var(--champ) }
