@@ -5,11 +5,20 @@ import Script from 'next/script'
 
 // Cookie choice + the trackers it gates.
 //
-// The two live together on purpose. If the banner and the scripts were separate,
-// nothing would stop a later edit from loading a tracker outside the gate - the
-// banner would still appear, still say "only if you accept", and quietly be a lie.
-// Keeping them in one file means you cannot add a cookie-setting tool here
-// without seeing the condition it has to sit behind.
+// OPT-OUT model (changed 2026-08-25): trackers load for everyone who has not
+// explicitly declined. The old opt-in gate silenced the Meta pixel for every
+// visitor who ignored the banner - which is most ad click-throughs - so the
+// retargeting audience, landing-page-view optimization and the form's Lead
+// event were all starved at live ad spend. The PH Data Privacy Act does not
+// require opt-in consent for these cookies; a visible banner with a working
+// Decline is the honest version. Decline still means decline: no trackers on
+// any later page load, and existing _ga/_fbp/_fbc cookies are cleared.
+//
+// The banner and the scripts still live together on purpose. If they were
+// separate, nothing would stop a later edit from loading a tracker outside the
+// gate - the banner would still appear and quietly be a lie. Keeping them in
+// one file means you cannot add a cookie-setting tool here without seeing the
+// condition it has to sit behind.
 //
 // Vercel Web Analytics is deliberately NOT here: it sets no cookies and does not
 // identify anyone, so it runs regardless and needs no consent. It stays in layout.
@@ -63,7 +72,10 @@ export default function Consent() {
 
   return (
     <>
-      {choice === 'granted' && (
+      {/* Load unless explicitly declined. `undefined` (localStorage not read
+          yet) stays dark so a declined visitor never gets a flash-load; `null`
+          (no stored choice) loads - that is the opt-out. */}
+      {(choice === 'granted' || choice === null) && (
         <>
           <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
           <Script id="ga4-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
@@ -83,7 +95,7 @@ export default function Consent() {
         <div className="consent" role="region" aria-label="Cookie choice">
           <p className="consent-txt">
             We use cookies to measure how this site is used and to show our ads to people who
-            visited. <a href="/privacy-policy">Privacy</a>
+            visited. Decline to opt out. <a href="/privacy-policy">Privacy</a>
           </p>
           <div className="consent-acts">
             <button type="button" className="consent-no" onClick={() => decide('declined')}>Decline</button>
