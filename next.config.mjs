@@ -6,6 +6,21 @@
 const nextConfig = {
   async redirects() {
     return [
+      // ── Stale staging host → the real domain ────────────────────────────────
+      // berco-philippines.vercel.app still returns 200, and the team is actively
+      // pasting it into DMs (3 messages on 2026-08-12 alone). A second WORKING
+      // copy of the site is worse than a dead one: it bypasses analytics and the
+      // pixel, so all that traffic is invisible, and it splits search equity.
+      // Redirect the host itself so every stale link — old DMs, bookmarks, saved
+      // replies, ad copy — is fixed at once, instead of chasing each place it was
+      // pasted. Exact host match, so the production domain is unaffected.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'berco-philippines.vercel.app' }],
+        destination: 'https://www.bercohome.com/:path*',
+        permanent: true,
+      },
+
       // ── The catalogue: the link seeded in Facebook comments + the ManyChat PLAN reply ──
       { source: '/2026-catalogue', destination: '/catalogues/2026-catalogue', permanent: true },
       { source: '/catalog', destination: '/catalogues/2026-catalogue', permanent: true },
