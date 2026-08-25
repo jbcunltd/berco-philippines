@@ -45,6 +45,7 @@ export default function ForDesigners() {
         <div className="navlinks">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
+          <a href="/catalogues">Catalogues</a>
           <a href="/#precision">Materials</a>
           <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
@@ -123,7 +124,7 @@ export default function ForDesigners() {
               {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
                   website-originated chat can be told apart from an ad-originated one. */}
               <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Philippines · JBC UNLTD CORP
+              Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
             </div>
           </div>
           <div className="footcol">
@@ -135,6 +136,7 @@ export default function ForDesigners() {
           </div>
           <div className="footcol">
             <h3>Studio</h3>
+            <a href="/catalogues">Catalogues</a>
             <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
             <a href="/#precision">Materials</a><a href="#inquire">Trade inquiry</a><a href="/contact">Contact</a>
           </div>

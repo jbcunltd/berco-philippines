@@ -26,6 +26,7 @@ export default function sitemap() {
       changeFrequency: 'yearly',
       priority: 0.4,
     })),
+    { url: `${SITE}/catalogues`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     ...CAT_ORDER.map((s) => ({
       url: `${SITE}/catalogues/${s}`,
       lastModified: now,

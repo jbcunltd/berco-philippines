@@ -51,6 +51,7 @@ export default function Catalogue({ params }) {
         <div className="navlinks">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
+          <a href="/catalogues">Catalogues</a>
           <a href="/#precision">Materials</a>
           <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
@@ -78,7 +79,7 @@ export default function Catalogue({ params }) {
             <h1>{c.hero}</h1>
             <p className="lead">{c.lead}</p>
             <div className="acts">
-              <a className="btn" href={c.pdf} download>Download the PDF →</a>
+              <a className="btn" href="#read">Read it here →</a>
               <span className="dlmeta">{c.meta}</span>
             </div>
           </div>
@@ -86,7 +87,7 @@ export default function Catalogue({ params }) {
       </div></section>
 
       <section className="band catrange catread"><div className="shell">
-        <p className="viewslabel">Read it here — all {c.pages} {c.pages === 1 ? 'page' : 'pages'}</p>
+        <p className="viewslabel" id="read">Read it here — all {c.pages} {c.pages === 1 ? 'page' : 'pages'}</p>
         <div className="catpages">
           {Array.from({ length: c.pages }, (_, i) => {
             const n = String(i + 1).padStart(2, '0')
@@ -140,7 +141,7 @@ export default function Catalogue({ params }) {
               {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
                   website-originated chat can be told apart from an ad-originated one. */}
               <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Philippines · JBC UNLTD CORP
+              Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
             </div>
           </div>
           <div className="footcol">
@@ -149,6 +150,7 @@ export default function Catalogue({ params }) {
           </div>
           <div className="footcol">
             <h3>Studio</h3>
+            <a href="/catalogues">Catalogues</a>
             <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
             <a href="/#precision">Materials</a><a href="/#about">About</a><a href="/contact">Contact</a>
           </div>

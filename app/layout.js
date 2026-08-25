@@ -45,7 +45,12 @@ const schema = {
   image: HERO,
   email: 'sales@bercohome.com',
   telephone: '+639178000730',
-  areaServed: { '@type': 'Country', name: 'Philippines' },
+  areaServed: [
+    { '@type': 'Country', name: 'Philippines' },
+    { '@type': 'City', name: 'Mandaluyong' },
+    { '@type': 'City', name: 'Cebu City' },
+  ],
+  sameAs: ['https://www.facebook.com/bercophilippines', 'https://www.instagram.com/bercohomeph/'],
   parentOrganization: { '@type': 'Organization', name: 'JBC UNLTD CORP', foundingDate: '2017' },
   slogan: 'The Heart of Your Home.',
   knowsAbout: ['Custom kitchen cabinetry', 'Wardrobes and closets', 'Bathroom vanities', 'Living-room and media cabinetry', 'Built-in storage', 'Dining storage'],
@@ -68,6 +73,14 @@ export default function RootLayout({ children }) {
         <noscript><style dangerouslySetInnerHTML={{ __html:
           '.reveal,.stag,.stag>*{opacity:1!important;transform:none!important;transition:none!important}' }} /></noscript>
         <div className="wrap">{children}</div>
+        {/* Phone-only quick-contact bar. The audience is mobile and Messenger-first,
+            but on phones Call/Messenger live behind the hamburger - this keeps the
+            two real conversion actions one thumb away on every page. */}
+        <div className="mobilebar" role="navigation" aria-label="Quick contact">
+          <a href="tel:+639178000730">Call</a>
+          <a href="https://m.me/bercophilippines?ref=mobile-bar" rel="noopener">Messenger</a>
+          <a className="mb-cta" href="/contact">Inquire</a>
+        </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />
         <Analytics />

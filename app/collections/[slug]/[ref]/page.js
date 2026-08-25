@@ -79,6 +79,7 @@ export default function Reference({ params }) {
         <div className="navlinks">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
+          <a href="/catalogues">Catalogues</a>
           <a href="/#precision">Materials</a>
           <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
@@ -157,7 +158,7 @@ export default function Reference({ params }) {
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">A design engagement fee secures the design phase — deductible from the project. Or message us on <a href="tel:+639178000730">0917 800 0730</a>.</p>
+        <p className="fee">A design engagement fee secures the design phase — deductible from the project. Or message us on <a href="https://m.me/bercophilippines?ref=collection-detail" rel="noopener">Messenger</a>, or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
       </div></section>
 
       </main>
@@ -172,7 +173,7 @@ export default function Reference({ params }) {
               {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
                   website-originated chat can be told apart from an ad-originated one. */}
               <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Philippines · JBC UNLTD CORP
+              Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
             </div>
           </div>
           <div className="footcol">
@@ -181,6 +182,7 @@ export default function Reference({ params }) {
           </div>
           <div className="footcol">
             <h3>Studio</h3>
+            <a href="/catalogues">Catalogues</a>
             <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
             <a href="/for-designers">For designers</a><a href="/#about">About</a><a href="/contact">Contact</a>
           </div>

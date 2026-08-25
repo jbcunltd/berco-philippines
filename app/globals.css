@@ -692,3 +692,13 @@
     .consent-acts{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
     .consent-yes,.consent-no{ width:100% }
   }
+
+
+/* Phone-only quick-contact bar (Call / Messenger / Inquire). Hidden on desktop. */
+.mobilebar{display:none}
+@media (max-width:819px){
+  .mobilebar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;gap:8px;background:var(--ground);border-top:1px solid var(--hair);padding:10px max(14px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-right))}
+  .mobilebar a{flex:1;text-align:center;padding:12px 8px;font:500 14px/1 var(--sans);letter-spacing:.02em;color:var(--ink);border:1px solid var(--hair);border-radius:6px;text-decoration:none;background:#fff}
+  .mobilebar .mb-cta{background:var(--ink);color:#fff;border-color:var(--ink)}
+  body{padding-bottom:66px}
+}

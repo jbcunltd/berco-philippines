@@ -13,6 +13,7 @@ export default function NotFound() {
         <div className="navlinks">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
+          <a href="/catalogues">Catalogues</a>
           <a href="/#precision">Materials</a>
           <a href="/#about">About</a>
           <a href="/contact">Contact</a>
