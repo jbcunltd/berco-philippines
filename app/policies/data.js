@@ -11,7 +11,7 @@
 // Truth rules that shaped the wording: never hide fees, lead times or payment terms;
 // never state a warranty Berco cannot honour; never imply a completed-project record.
 
-export const POLICY_ORDER = ['delivery-policy', 'returns-policy', 'privacy-policy']
+export const POLICY_ORDER = ['delivery-policy', 'returns-policy', 'privacy-policy', 'terms']
 
 export const POLICIES = {
   'delivery-policy': {
@@ -103,6 +103,26 @@ export const POLICIES = {
       ] },
       { h: 'Your rights', p: 'Under the Philippine Data Privacy Act of 2012 (RA 10173) you can ask what information we hold about you, ask us to correct it, or ask us to delete it. Email sales@bercohome.com and we will action it. We do not sell your details, and we do not add you to a mailing list because you sent an inquiry.' },
       { h: 'Questions', p: 'Anything unclear here, ask us at sales@bercohome.com. If this page and what the site does ever disagree, the site is wrong and we want to know.' },
+    ],
+  },
+  'terms': {
+    name: 'Terms',
+    eyebrow: 'Policy',
+    hero: 'Terms of use.',
+    lead: 'What using this website does and does not commit you to, how quotations work, and whose images you are looking at.',
+    seoTitle: 'Terms & Conditions | Berco',
+    seoDesc: 'Terms of use for the Berco website: how quotations and design work are offered, how imagery is labeled, and the written agreement that governs an actual order.',
+    keywords: ['Berco terms and conditions', 'custom cabinetry terms Philippines'],
+    updated: '7 September 2026',
+    sections: [
+      { h: 'What this site is', p: 'This website shows what Berco builds and lets you start a conversation about your own space. Browsing it, downloading a catalogue, or sending an inquiry commits you to nothing.' },
+      { h: 'Quotations and pricing', p: 'We do not publish prices here, because every project is measured, specified and quoted individually. A quotation becomes binding only when both sides confirm it in writing; until then it is an offer, and its validity period is stated on the quotation itself.' },
+      { h: 'Design work and site visits', p: 'Design concepts are prepared free of charge. A site measurement visit may carry a fee, which is always disclosed before you book it and credited to your order if you proceed. Design drawings remain Berco\u2019s work product until an order is confirmed.' },
+      { h: 'Images on this site', p: 'Some imagery shows the manufacturer systems and materials we build with, used as product reference; photographs of finished projects are our own. Please do not reuse content from this site commercially without asking us first.' },
+      { h: 'Accuracy', p: 'We keep specifications, materials and claims on this site aligned with what we can actually deliver. If something here ever disagrees with what we tell you directly, tell us \u2014 the site is wrong and we want to fix it.' },
+      { h: 'Orders, delivery and returns', p: 'An actual order is governed by its written agreement together with our Delivery & Installation and Returns policies, linked below. Nothing on this website adds to or replaces those written terms.' },
+      { h: 'Governing law', p: 'These terms and any order are governed by the laws of the Republic of the Philippines.' },
+      { h: 'Questions', p: 'Anything unclear here, ask us at sales@bercohome.com.' },
     ],
   },
 }
