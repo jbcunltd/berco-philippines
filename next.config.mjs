@@ -4,6 +4,18 @@
 // plus the store, policy and utility pages. Mapped to the nearest collection, never to a dead end.
 
 const nextConfig = {
+  // Hero-film media. The file name changes whenever the content does, so the
+  // browser and the edge may hold these for a year. Without this the scrubbed
+  // <video> is re-validated on every visit, which is the one request that must
+  // not be slow.
+  async headers() {
+    return [
+      {
+        source: '/film/:path*.:ext(mp4|webp|jpg|png)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+    ]
+  },
   async redirects() {
     return [
       // ── Stale staging host → the real domain ────────────────────────────────
