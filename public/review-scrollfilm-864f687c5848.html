@@ -256,11 +256,33 @@ td b{font-weight:600;color:var(--ink)}
       }, 3000);
       v.addEventListener('loadedmetadata', onMeta, { once: true });
     }
-    var io = new IntersectionObserver(function (es) {
-      if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); request(); }
-    }, { rootMargin: '200% 0px 100% 0px' });
-    io.observe(t);
-    addEventListener('scroll', onScroll, { passive: true });
+    /* Load on proximity, two ways. IntersectionObserver is the cheap path,
+       but it is a single point of failure: some embedded/automation webviews
+       never deliver its callbacks at all (measured here on a fixed, plainly
+       visible probe element). A film that never requests its source is a dead
+       hero, so a plain rect check on scroll backs it up. Whichever fires
+       first wins; the requested flag makes it idempotent. */
+    var requested = false, io = null;
+    function fire() {
+      if (requested) return;
+      requested = true;
+      if (io) io.disconnect();
+      request();
+    }
+    function near() {
+      var r = t.getBoundingClientRect();
+      return r.top < innerHeight * 3 && r.bottom > -innerHeight;
+    }
+    function onProximity() { if (!requested && near()) fire(); }
+    if (typeof IntersectionObserver === 'function') {
+      io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) fire();
+      }, { rootMargin: '200% 0px 100% 0px' });
+      io.observe(t);
+    }
+    addEventListener('scroll', onProximity, { passive: true });
+    addEventListener('resize', onProximity, { passive: true });
+    onProximity();
   });
 })();
 </script>
