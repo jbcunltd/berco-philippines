@@ -49,6 +49,9 @@ header.top h1{font-size:clamp(28px,7.4vw,40px);line-height:1.1}
 .hero-copy .k{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--champ-ink);font-weight:600}
 .hero-copy h3{font-size:clamp(26px,7.6vw,38px);line-height:1.08;margin:9px 0 0;color:var(--ink)}
 .hero-copy .lede{font-size:14.5px;margin:10px 0 0;color:var(--ink-soft);max-width:34ch}
+.tapon{position:absolute;left:50%;top:calc(min(calc(100vw * 4 / 3),66svh) / 2);transform:translate(-50%,-50%);
+  z-index:6;border:0;cursor:pointer;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  padding:14px 20px;border-radius:2px;background:rgba(43,38,32,.86);color:#FDFBF7}
 .readout{position:absolute;right:10px;top:10px;z-index:5;font-size:10px;letter-spacing:.1em;
   background:rgba(43,38,32,.72);color:#FDFBF7;padding:5px 8px;border-radius:2px;font-variant-numeric:tabular-nums}
 
@@ -239,21 +242,43 @@ td b{font-weight:600;color:var(--ink)}
       target = progress() * (dur * FPS - 1);
       if (!raf) raf = requestAnimationFrame(tick);
     }
+    function goLive() {
+      clearTimeout(timeout); live = true; f.classList.add('live');
+      target = progress() * (dur * FPS - 1); idx = target; seekTo(idx);
+      if (out) out.textContent = 'ready';
+    }
+    /* iOS needs the video primed by a play() before it will render a seeked
+       frame. In Low Power Mode that play() is refused outright — on the live
+       site that correctly falls back to the still, but this page exists so the
+       film can be SEEN, so offer one tap instead. A tap is a user gesture, and
+       play() always succeeds inside one. */
+    function offerTap() {
+      if (f.querySelector('.tapon')) return;
+      var b = document.createElement('button');
+      b.className = 'tapon';
+      b.textContent = 'Tap to enable the film';
+      b.addEventListener('click', function () {
+        v.play().then(function () { v.pause(); b.remove(); goLive(); })
+                .catch(function () { b.textContent = 'Video blocked by the browser'; });
+      });
+      f.appendChild(b);
+      if (out) out.textContent = 'tap to enable';
+    }
     function onMeta() {
       dur = v.duration;
-      v.play().then(function () {
-        v.pause(); clearTimeout(timeout); live = true; f.classList.add('live');
-        target = progress() * (dur * FPS - 1); idx = target; seekTo(idx);
-        if (out) out.textContent = 'ready';
-      }).catch(function () { clearTimeout(timeout); if (out) out.textContent = 'still (play refused)'; });
+      v.play().then(function () { v.pause(); goLive(); }).catch(offerTap);
     }
     function request() {
       v.src = t.dataset.film + '/' + tier + '.mp4';
       v.load();
       if (out) out.textContent = 'loading ' + tier;
+      /* The live hero gives up after 3 s and keeps the still, because there the
+         still IS an acceptable outcome. Here it is not — a review page that
+         silently shows a photo tells us nothing — so keep the request alive and
+         report honestly instead. */
       timeout = setTimeout(function () {
-        if (!live) { v.removeAttribute('src'); v.load(); if (out) out.textContent = 'still (slow link)'; }
-      }, 3000);
+        if (!live && out) out.textContent = 'slow link \u2014 still loading\u2026';
+      }, 4000);
       v.addEventListener('loadedmetadata', onMeta, { once: true });
     }
     /* Load on proximity, two ways. IntersectionObserver is the cheap path,
