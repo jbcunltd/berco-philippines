@@ -702,3 +702,99 @@
   .mobilebar .mb-cta{background:var(--ink);color:#fff;border-color:var(--ink)}
   body{padding-bottom:66px}
 }
+
+
+/* ── HERO SCROLL-FILM ─────────────────────────────────────────────────────
+   The thumb scrubs the film. A tall track gives the scroll distance, a native
+   sticky pin holds one viewport of it — nothing hijacks the scroll.
+
+   Two layouts, because a phone and a laptop are not the same hero:
+   · Phone — the film is 3:4 (the tier is encoded 640x852) and the copy sits in
+     ink on cream BENEATH it. Copy laid over the film covers the product, and
+     the product is the reason the film exists. The quick-contact bar already
+     carries Call / Messenger / Inquire one thumb away, so the hero buttons are
+     redundant here and are left to the desktop cut.
+   · Desktop — Berco's magazine-cover card is kept exactly as it is: the rounded
+     contained image box under the masthead rule, copy bottom-left over a scrim.
+     The film simply replaces the still inside it.
+
+   overflow on the pin is CLIP, never HIDDEN: `hidden` would make the pin a
+   scroll container and sticky would resolve against a scrollport that never
+   scrolls. Same trap documented on .wrap at the top of this file. */
+.film-track{ position:relative; height:320svh }
+/* The nav is itself sticky at top:0 (66px, shrinking to 54px past 12px of
+   scroll). A pin at top:0 therefore slides UNDERNEATH it and the masthead rule
+   ends up hidden behind the translucent bar — measured at 390x677. Pin below
+   the shrunk nav instead; by the time a hero track can pin, the nav is always
+   in its shrunk state. */
+.film-pin{ position:sticky; top:54px; height:calc(100svh - 54px); overflow:clip }
+.hero-stage{ padding-top:14px }
+/* The overlay title is positioned against the FILM, never against the stage —
+   the stage also holds the standfirst beneath it, and anchoring to the stage
+   would drop the title out of the picture and onto the cream. */
+.film-frame{ position:relative }
+.film{ position:relative; overflow:clip; border-radius:5px; background:var(--beige);
+  height:min(calc(100vw * 4 / 3), 60svh) }
+/* On a phone the masthead rule is clutter above a pinned film, and its 66px is
+   the difference between the copy clearing the quick-contact bar and being cut
+   off by it. The live mobile hero already hides its eyebrow for the same reason. */
+.hero-stage .masthead{ display:none }
+.film picture,.film img,.film video{ position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; margin:0; display:block }
+/* The still is cut from frame 0 of the encoded file, so the swap is invisible. */
+.film video{ opacity:0; transition:opacity .18s ease }
+.film.live video{ opacity:1 }
+.film .scrim{ position:absolute; inset:0; z-index:2; pointer-events:none }
+.hero-copy{ padding:16px 0 0 }
+.hero-copy .eyebrow{ display:none }
+.hero-copy h1{ font-size:clamp(27px,7.4vw,38px); line-height:1.04; color:var(--ink) }
+.hero-standfirst{ padding:9px 0 0 }
+.hero-standfirst .eyebrow{ display:none }
+.hero-standfirst .lead{ font-size:13.5px; line-height:1.45; color:var(--ink-soft); max-width:38ch; margin:0 }
+/* The quick-contact bar already carries Call / Messenger / Inquire one thumb
+   away on every phone screen, so a second pair of buttons here is noise. */
+.hero-standfirst .acts{ display:none }
+
+@media(min-width:820px){
+  .hero-stage .masthead{ display:flex }
+  /* The subtrahend is the rest of the pinned column — nav offset, masthead,
+     gutters and the standfirst — so the standfirst always lands above the fold
+     rather than being clipped by it. Measured at 1440x900. */
+  .film{ margin-top:14px; height:min(clamp(520px,76svh,680px), calc(100svh - 252px)) }
+  .film .scrim{ background:linear-gradient(to top,rgba(24,18,12,.80) 0%,rgba(24,18,12,.66) 14%,rgba(24,18,12,.40) 30%,rgba(24,18,12,.12) 46%,rgba(24,18,12,0) 60%) }
+  .hero-copy{ position:absolute; z-index:3; padding:0;
+    left:clamp(20px,4vw,52px); right:clamp(20px,4vw,52px); bottom:clamp(24px,5vw,54px);
+    max-width:min(88%,640px) }
+  /* The title is the only thing that sits ON the film, and it is white.
+     Measured across the whole scrub it holds 4.27:1 at the worst frame against
+     the 3.0 a heading needs. The eyebrow was tried here and could not be saved:
+     it rides too high up the picture, where a scrim strong enough to carry an
+     11px line would have drowned the cabinetry the film exists to show — so it
+     reads beneath the film instead, in ink on cream, where it is unambiguous. */
+  .hero-copy h1{ color:#FDFBF7; font-size:clamp(38px,6vw,78px); line-height:1.0 }
+  .hero-standfirst{ padding:18px 0 0; display:flex; align-items:flex-end;
+    justify-content:space-between; gap:clamp(20px,4vw,52px); flex-wrap:wrap }
+  .hero-standfirst .sf-txt{ max-width:56ch }
+  .hero-standfirst .eyebrow{ display:block; margin-bottom:9px }
+  .hero-standfirst .lead{ font-size:clamp(14px,1.5vw,17px); line-height:1.5; color:var(--ink-soft);
+    margin:0 }
+  .hero-standfirst .acts{ display:flex; gap:18px; align-items:center; flex-wrap:nowrap; margin:0 }
+  /* The standfirst sits inside header.cover, which paints its buttons and links
+     white for legibility OVER a photograph. Here they are on cream, so that rule
+     would render "View collections" as white-on-cream — invisible. Put them back
+     to the on-cream pair. Caught in a 1280x800 screenshot, not by measurement. */
+  .hero-standfirst .acts .btn{ background:var(--ink); color:var(--ground) }
+  .hero-standfirst .acts .link{ color:var(--ink); border-bottom-color:var(--champ) }
+}
+
+/* Reduced motion: no scrub, and no dead scroll to fall through either. */
+@media (prefers-reduced-motion: reduce){
+  .film-track{ height:auto }
+  .film-pin{ position:relative; height:auto }
+  .film video{ display:none }
+}
+
+/* Note strip — unlisted preview/review routes only. */
+.note-strip{ background:var(--panel); border-left:2px solid var(--champ); padding:16px 18px; border-radius:0 2px 2px 0 }
+.note-strip p{ margin:.4em 0; font-size:14px; color:var(--ink-soft) }
+.note-strip b{ color:var(--ink) }
