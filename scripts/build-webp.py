@@ -6,12 +6,6 @@ without depending on a metered runtime optimizer.
 For each source JPEG under public/img:
   foo.jpg  ->  foo.webp          (same width, ~64% smaller)
   foo.jpg  ->  foo-800.webp      (800px wide, for phones) - browse imagery only
-  foo.jpg  ->  foo-1200.webp     (1200px wide, for 3x phone screens) - browse imagery wider than 1200px
-
-Why the 1200 tier exists (measured 2026-09-17, website-speed-protocol.md): an iPhone
-is a 3x screen, so a 390px-wide hero needs ~1170 real pixels. The 800 variant is too
-small, so the browser skipped straight to the full desktop file (1760px) and the hero
-took 3.7s to show on slow 4G. Lighthouse never saw it, because its test phone is 1.75x.
 
 "Browse imagery" = the pictures people scroll through (homepage, collections,
 carousel, covers). Catalogue page scans are excluded: they load lazily only when
@@ -32,8 +26,6 @@ IMG = os.path.join(ROOT, 'public', 'img')
 FULL_Q = 78          # visually indistinguishable from the q86-90 JPEG sources
 SMALL_Q = 74
 SMALL_W = 800
-MID_Q = 76
-MID_W = 1200
 # catalogue scans keep only a full-size webp (no phone variant - they get zoomed)
 NO_SMALL = ('/catalogue/',)
 
@@ -64,16 +56,6 @@ def main():
         if any(k in rel for k in NO_SMALL) or im.width <= SMALL_W:
             skipped_small += 1
             continue
-
-        if im.width > MID_W:
-            hm = int(round(im.height * MID_W / im.width))
-            bm = io.BytesIO()
-            im.resize((MID_W, hm), Image.LANCZOS).save(bm, 'WEBP', quality=MID_Q, method=6)
-            mid = s[:-4] + f'-{MID_W}.webp'
-            if write_if_changed(mid, bm.getvalue()):
-                changed += 1
-            made += 1
-            out_bytes += os.path.getsize(mid)
 
         h = int(round(im.height * SMALL_W / im.width))
         b2 = io.BytesIO()
