@@ -132,7 +132,7 @@ export default function Contact() {
             </p>
             <p className="cside-item">
               <span className="cside-k">Hours</span>
-              <span>Monday to Saturday, 9am – 6pm PHT</span>
+              <span>Monday to Friday, 9am – 6pm PHT · Saturday, 9am – 12nn</span>
             </p>
             <p className="cside-item">
               <span className="cside-k">Company</span>
