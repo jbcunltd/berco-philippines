@@ -32,6 +32,30 @@ const schema = {
     url: SITE,
     email: 'sales@bercohome.com',
     telephone: '+639178000730',
+    // Same name, address and phone as the Google Business Profile — the match is
+    // what lets Google tie this site to the listing. Change both together or neither.
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '322 Sto Rosario',
+      addressLocality: 'Mandaluyong City',
+      addressRegion: 'Metro Manila',
+      postalCode: '1550',
+      addressCountry: 'PH',
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '12:00',
+      },
+    ],
     areaServed: { '@type': 'Country', name: 'Philippines' },
     parentOrganization: { '@type': 'Organization', name: 'JBC UNLTD CORP', foundingDate: '2017' },
     sameAs: ['https://www.facebook.com/bercophilippines'],
