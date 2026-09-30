@@ -11,6 +11,28 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Security headers, every route. Added 2026-09-30 (ledger §55).
+        // SAMEORIGIN not DENY so anything that legitimately embeds our own pages keeps working.
+        source: '/:path*',
+        headers: [
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
+        ],
+      },
+      {
+        // Unlisted review/preview/brief pages must never be indexed. robots.txt is
+        // a crawl hint; this header is the instruction that actually holds.
+        source: '/:path(review-.*|preview-.*)',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/presentations/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+
+      {
         source: '/film/:path*.:ext(mp4|webp|jpg|png)',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
