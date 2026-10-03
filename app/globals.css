@@ -698,6 +698,22 @@
   }
 
 
+/* ---- keep below-the-fold photos out of the hero's pipe ----------------------
+   Measured on a 3x phone over slow 4G, 2026-10-03. loading="lazy" is not enough:
+   Chrome's lazy-load distance threshold on a slow connection is ~3,000px, so the
+   first three collection cards (150 KB) and three of the four catalogue covers
+   (267 KB) started downloading at ~0.98 s while the hero photo was still
+   arriving, and the hero finished 2.5 s after it was requested instead of the
+   0.5 s its 96 KB actually needs on that pipe.
+
+   content-visibility:auto makes the browser skip a card's contents until it is
+   near the viewport, and an image inside a skipped subtree is not fetched. Every
+   one of these boxes already declares an aspect-ratio and takes its width from
+   the grid, so its size never depended on its contents and nothing shifts when
+   the skip is lifted. Browsers without support simply ignore it. */
+.ccard-img, .rcard-img, .colcard{ content-visibility:auto }
+
+
 /* Phone-only quick-contact bar (Call / Messenger / Inquire). Hidden on desktop. */
 .mobilebar{display:none}
 @media (max-width:819px){

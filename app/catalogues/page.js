@@ -51,7 +51,11 @@ export default function Catalogues() {
         <div className="colgrid stag">
           {CAT_ORDER.map((s) => (
             <a className="colcard" href={`/catalogues/${s}`} key={s}>
-              <Pic src={CATALOGUES[s].cover} alt={`${CATALOGUES[s].name} — cover`} sizes="(max-width:520px) 92vw, (max-width:820px) 47vw, 31vw" loading="lazy" width="1200" height="900" />
+              {/* The covers are 1000x1415, not 1200x900. The wrong width made the srcset
+                  descriptor claim 1200w for a 1000px file. .colcard is 4:5 and these are
+                  taller than that, so cover crops top and bottom and the painted width is
+                  simply the card width. */}
+              <Pic src={CATALOGUES[s].cover} alt={`${CATALOGUES[s].name} cover`} sizes="(max-width:520px) 92vw, (max-width:820px) 47vw, 31vw" loading="lazy" width="1000" height="1415" />
               <span className="lbl"><span className="cn">{CATALOGUES[s].name}</span><span className="go">{CATALOGUES[s].meta} →</span></span>
             </a>
           ))}
