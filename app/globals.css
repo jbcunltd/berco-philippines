@@ -237,8 +237,11 @@
   @media(max-width:900px){.footgrid{grid-template-columns:1fr 1fr}}
   @media(max-width:440px){.footgrid{grid-template-columns:1fr}}
   .footlock{background-image:url('/berco-lockup-636.png'); background-image:image-set(url('/berco-lockup-636.webp') type('image/webp'), url('/berco-lockup-636.png') type('image/png')); background-repeat:no-repeat; background-position:left top; background-size:contain; width:212px; height:71px; text-indent:-9999px; overflow:hidden}
-  .foot-contact{font-size:14px; color:var(--ink-soft); line-height:1.4; margin-top:16px}
-  .foot-contact a{display:inline-block; padding:12px 0; text-decoration:none; border-bottom:1px solid var(--hair)}
+  .foot-contact{font-size:14px; color:var(--ink-soft); line-height:1.85; margin-top:16px}
+  /* These three carry an underline, so they get the transparent overlay rather
+     than padding: padding would drag the rule 12px clear of the word. */
+  .foot-contact a{position:relative; text-decoration:none; border-bottom:1px solid var(--hair)}
+  .foot-contact a::after{content:""; position:absolute; left:0; right:0; top:50%; height:44px; transform:translateY(-50%)}
   /* h3, not h4: jumping h2 -> h4 skips a level and fails WCAG heading order.
      font-family is restated because the h1,h2,h3 rule above would otherwise pull
      these small uppercase labels into the serif - they are sans by design. */
@@ -262,9 +265,11 @@
 
   .legal-links{ display:flex; flex-wrap:wrap; gap:0 18px }
   .legal-links a{ display:inline-flex; align-items:center; justify-content:center;
-    min-height:44px; min-width:44px; color:inherit;
-    text-decoration:none; border-bottom:1px solid transparent }
-  .legal-links a:hover{ color:var(--ink); border-bottom-color:var(--champ) }
+    min-height:44px; min-width:44px; color:inherit; text-decoration:none }
+  /* text-decoration, not a border: the box is 44px tall and a border-bottom
+     would draw the rule at the foot of the box instead of under the word. */
+  .legal-links a:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--champ) }
   .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1; transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1 !important; transform:none !important; transition:none}}
