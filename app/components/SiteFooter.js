@@ -19,13 +19,19 @@ export default function SiteFooter() {
       <div className="footgrid">
         <div>
           <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
+          {/* Each contact line is its own block, not three links separated by <br/>.
+              The <br/> version gave them 21px-tall hit boxes 26px apart, which is
+              too close together to enlarge: a 44px box on each would have
+              overlapped its neighbour, and two targets fighting over the same
+              pixels is worse than one that is small. As blocks they can simply
+              be padded. */}
           <div className="foot-contact">
-            <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
+            <a className="fc-line" href="mailto:sales@bercohome.com">sales@bercohome.com</a>
+            <a className="fc-line" href="tel:+639178000730">0917 800 0730</a>
             {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
                 website-originated chat can be told apart from an ad-originated one. */}
-            <a href="tel:+639178000730">0917 800 0730</a><br/>
-            <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-            Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
+            <a className="fc-line" href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a>
+            <p className="fc-note">Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP</p>
           </div>
         </div>
         <div className="footcol">

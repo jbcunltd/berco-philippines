@@ -130,12 +130,13 @@
      running line of text are the one case WCAG 2.5.8 exempts by name, and this
      breadcrumb is a sentence. The wrap itself is fixed below instead.
      What it does get is a transparent 44px overlay, which grows the area a
-     thumb can hit without changing a pixel of what is drawn. Same trick on
-     .cside-item a, the contact page's email and phone, for the same reason:
-     both carry their own underline, and padding would drag that underline
-     away from the word it belongs to. */
-  .crumb, .cside-item a{ position:relative }
-  .crumb::after, .cside-item a::after{ content:""; position:absolute; left:0; right:0;
+     thumb can hit without changing a pixel of what is drawn. The overlay is used
+     ONLY where a link sits inside a sentence and cannot be given a box of its
+     own, and only where nothing else is competing for the same pixels. A link on
+     its own line is padded instead, and swaps its border-bottom for a drawn
+     underline so the rule stays on the word: see .fc-line and .cside-item a. */
+  .crumb{ position:relative }
+  .crumb::after{ content:""; position:absolute; left:0; right:0;
     top:50%; height:44px; transform:translateY(-50%) }
   /* THE BREADCRUMB ON A PHONE. On 156 detail pages this ran to three lines at
      375px with the last word of the design title orphaned on line three, and the
@@ -237,11 +238,14 @@
   @media(max-width:900px){.footgrid{grid-template-columns:1fr 1fr}}
   @media(max-width:440px){.footgrid{grid-template-columns:1fr}}
   .footlock{background-image:url('/berco-lockup-636.png'); background-image:image-set(url('/berco-lockup-636.webp') type('image/webp'), url('/berco-lockup-636.png') type('image/png')); background-repeat:no-repeat; background-position:left top; background-size:contain; width:212px; height:71px; text-indent:-9999px; overflow:hidden}
-  .foot-contact{font-size:14px; color:var(--ink-soft); line-height:1.85; margin-top:16px}
-  /* These three carry an underline, so they get the transparent overlay rather
-     than padding: padding would drag the rule 12px clear of the word. */
-  .foot-contact a{position:relative; text-decoration:none; border-bottom:1px solid var(--hair)}
-  .foot-contact a::after{content:""; position:absolute; left:0; right:0; top:50%; height:44px; transform:translateY(-50%)}
+  .foot-contact{font-size:14px; color:var(--ink-soft); line-height:1.5; margin-top:10px}
+  /* text-decoration rather than border-bottom, because an underline drawn by the
+     text engine stays on the word however tall the box is. That is what lets
+     these be padded out to 45px without the rule drifting down the column. */
+  .fc-line{display:block; padding:12px 0; color:inherit; text-decoration:underline;
+    text-underline-offset:4px; text-decoration-thickness:1px; text-decoration-color:var(--hair)}
+  .fc-line:hover{color:var(--ink); text-decoration-color:var(--champ)}
+  .fc-note{margin:10px 0 0}
   /* h3, not h4: jumping h2 -> h4 skips a level and fails WCAG heading order.
      font-family is restated because the h1,h2,h3 rule above would otherwise pull
      these small uppercase labels into the serif - they are sans by design. */
@@ -371,7 +375,7 @@
   .chip:hover{ background:#fff; border-color:var(--champ); transform:translateY(-1px) }
   .step{ transition:background .35s var(--ease) }
   .step:hover{ background:color-mix(in srgb,var(--panel) 55%,transparent) }
-  .foot-contact a,.footcol a{ transition:color .3s var(--ease), border-color .3s var(--ease) }
+  .fc-line,.footcol a{ transition:color .3s var(--ease), text-decoration-color .3s var(--ease) }
 
   /* — parallax layers: hero + feature drift under the scroll — */
   /* gentle parallax, tuned so the baked top-left lockup is never clipped by the offset */
@@ -785,9 +789,13 @@
   .fbbtn:hover{ border-color:rgba(24,119,242,.45); background:#fff; transform:translateY(-1px) }
   .fbbtn:focus-visible{ outline:2px solid #1877F2; outline-offset:3px }
   .fbmark{ flex:0 0 auto; display:block }
-  .cside-item{ display:flex; flex-direction:column; gap:3px; margin:0 0 13px; font-size:14.5px; line-height:1.5; color:var(--ink-soft) }
+  .cside-item{ display:flex; flex-direction:column; gap:0; margin:0 0 6px; font-size:14.5px; line-height:1.5; color:var(--ink-soft) }
   .cside-k{ font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); font-weight:600 }
-  .cside-item a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--champ); align-self:flex-start }
+  /* Same reasoning as .fc-line: a drawn underline rather than a border, so the
+     45px box does not pull the rule off the word. */
+  .cside-item a{ display:block; padding:12px 0; color:var(--ink); align-self:flex-start;
+    text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px;
+    text-decoration-color:var(--champ) }
   /* "What happens next" as a full-width band. The numbering is real information here —
      it is an actual sequence, not decoration. */
   .nextgrid{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr);
