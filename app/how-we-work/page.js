@@ -24,12 +24,67 @@ const schema = {
   about: { '@type': 'HomeAndConstructionBusiness', name: 'Berco', url: SITE, areaServed: { '@type': 'Country', name: 'Philippines' }, parentOrganization: { '@type': 'Organization', name: 'JBC UNLTD CORP', foundingDate: '2017' } },
 }
 
+/* FAQ added 2026-10-03. Questions are the real ones customers ask, ranked from
+   berco-topical-authority-question-bank.md (1,457 Berco conversations mined
+   2026-08-31). Only questions whose answer was ALREADY published on this site
+   are included, so nothing here is a new claim:
+     - site-visit fee      ~121 free-typed asks, the 4th most common, and
+                           conversion-critical: leads were documented walking
+                           over the fee because nobody said it plainly.
+     - materials           ~105 asks.
+     - showroom/location   ~275 asks, the single most-asked theme. Answered only
+                           as "we come to you", because publishing coverage
+                           claims is a separate decision and reps were improvising.
+   Questions needing a business decision (lead time, what a quote includes,
+   province coverage, price) are deliberately NOT here. The bank marks them
+   NEEDS JUMBO and a page that guesses is worse than no page.
+   Truth rules applied: moisture-resistant is never "waterproof"; no termite
+   claim is made because none is verified; the measurement fee is never stated
+   as a figure in public. */
+const FAQ = [
+  {
+    q: 'Is the site visit free?',
+    a: 'The design consultation is free. The site measurement visit is paid, and the amount is credited to your project when you go ahead. We tell you what it costs before we book it, so there is no surprise.',
+  },
+  {
+    q: 'What happens during a Berco site visit?',
+    a: 'We measure the room properly, around bulkheads, uneven walls and real ceiling heights, and we talk about how you cook, store and live in the space. That happens before a single drawing, because a render built on assumed dimensions is a render that will not fit.',
+  },
+  {
+    q: 'What are Berco cabinets actually made of?',
+    a: 'Multi-layer plywood carcases with aluminium kickboards, not particleboard. The plywood is pressed with German MDI adhesive and F4-Star rated, which means no added formaldehyde, and it is moisture-resistant. Surfaces are quartz, edges are PUR or laser-sealed, and the hinges and drawer runners are Austrian and German, calibrated by hand at installation.',
+  },
+  {
+    q: 'Do I need to visit a showroom?',
+    a: 'No. We start at your space rather than a showroom, because a kitchen only makes sense in the room it is going into. Real materials and hardware come to you during design development, so you can handle the finishes before choosing them.',
+  },
+  {
+    q: 'What happens after the cabinets are installed?',
+    a: 'Nothing is handed over until it clears the same check: levelling, alignment, reveal consistency, hardware calibration, cleanliness and a final walk-through. Doors and drawers move over time in any home, so if something needs adjusting afterwards, tell us and we come back for it.',
+  },
+]
+
+/* FAQPage schema, built from the same FAQ array that renders on the page, so the
+   two can never drift apart. Assistants and search engines read this; people read
+   the section below it. Both say the same words. */
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${SITE}/how-we-work#faq`,
+  mainEntity: FAQ.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 const STEPS = [
   { n: '01', t: 'Discovery & Vision', p: 'We start at your space, not a showroom. A site visit to measure properly, around bulkheads, uneven walls and real ceiling heights, and a conversation about how you cook, store and live. The design consultation itself is free. The visit is paid and credited to the project, and we tell you what it costs before we book it.' },
   { n: '02', t: 'Design Development', p: 'You see the layout in drawings and design references, with the real materials and hardware on the table. What each choice means for maintenance, durability and everyday use, not only how it looks. We revise until it is right before anything is ordered.' },
   { n: '03', t: 'Production & Crafting', p: 'Your cabinetry is cut and finished on shared European production lines: multi-layer plywood carcases with aluminium kickboards, quartz surfaces, PUR and laser-sealed edges, and calibrated soft-close hardware. Made to the drawings you approved, then checked before it leaves.' },
   { n: '04', t: 'Installation & Completion', p: 'One team installs: levelled, aligned, reveals kept consistent, hardware calibrated by hand. The site is cleaned, and everything is checked against our turnover standard before we hand it over.' },
 ]
+
 
 export default function HowWeWork() {
   return (
@@ -120,6 +175,18 @@ export default function HowWeWork() {
         <p className="reveal">Berco is a brand of JBC UNLTD CORP, operating in the Philippines since 2017, with real experience coordinating, importing and installing premium home products. Offered as provenance, not as Berco&rsquo;s own cabinetry portfolio.</p>
       </div></section>
 
+      <section id="faq" className="band"><div className="shell">
+        <div className="sh reveal"><h2>The questions we get asked most.</h2><span className="eyebrow">Straight answers</span></div>
+        <div className="faqlist stag">
+          {FAQ.map((f) => (
+            <details className="faqitem" key={f.q}>
+              <summary><h3>{f.q}</h3></summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div></section>
+
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
@@ -131,6 +198,7 @@ export default function HowWeWork() {
       <SiteFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   )
 }

@@ -1017,3 +1017,29 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
 .note-strip{ background:var(--panel); border-left:2px solid var(--champ); padding:16px 18px; border-radius:0 2px 2px 0 }
 .note-strip p{ margin:.4em 0; font-size:14px; color:var(--ink-soft) }
 .note-strip b{ color:var(--ink) }
+
+
+/* FAQ (added 2026-10-03, /how-we-work). Native <details> so it works with no JS
+   and stays keyboard-accessible; the marker is removed and replaced with a drawn
+   +/- so the control reads as ours rather than as a browser default. */
+.faqlist{ max-width:860px; margin:0 auto }
+.faqitem{ border-bottom:1px solid var(--hair); padding:0 }
+.faqitem summary{
+  list-style:none; cursor:pointer; padding:26px 48px 26px 0; position:relative;
+  display:block;
+}
+.faqitem summary::-webkit-details-marker{ display:none }
+.faqitem summary h3{ margin:0; font-size:clamp(17px,2.1vw,20px); font-weight:500; line-height:1.4 }
+.faqitem summary::after{
+  content:''; position:absolute; right:10px; top:50%; width:13px; height:1px;
+  background:var(--ink); transform:translateY(-50%);
+}
+.faqitem summary::before{
+  content:''; position:absolute; right:16px; top:50%; width:1px; height:13px;
+  background:var(--ink); transform:translateY(-50%);
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.faqitem[open] summary::before{ opacity:0; transform:translateY(-50%) rotate(90deg) }
+.faqitem p{ margin:0 0 28px; max-width:68ch; color:var(--ink-soft); line-height:1.75 }
+.faqitem summary:focus-visible{ outline:2px solid var(--ink); outline-offset:4px; border-radius:2px }
+@media (prefers-reduced-motion:reduce){ .faqitem summary::before{ transition:none } }
