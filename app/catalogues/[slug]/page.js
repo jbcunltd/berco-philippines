@@ -73,7 +73,7 @@ export default function Catalogue({ params }) {
         </div>
 
         <div className="cathead">
-          <span className="cathead-cover"><Pic src={c.cover} alt={`${c.name} — cover`} width="1000" height="1415" /></span>
+          <span className="cathead-cover"><Pic src={c.cover} alt={`${c.name} cover`} sizes="(max-width:600px) 132px, (max-width:1280px) 18vw, 230px" width="1000" height="1415" /></span>
           <div className="cathead-body">
             <span className="eyebrow">{c.eyebrow}</span>
             <h1>{c.hero}</h1>
@@ -93,7 +93,7 @@ export default function Catalogue({ params }) {
             const n = String(i + 1).padStart(2, '0')
             return (
               <a className="catpage" href={c.pdf} target="_blank" rel="noopener" key={i}>
-                <Pic src={`${c.pageDir}/${c.prefix}-${n}.jpg`} alt={`${c.name} — page ${i + 1}`} loading="lazy" width="1100" height="1556" />
+                <Pic src={`${c.pageDir}/${c.prefix}-${n}.jpg`} alt={`${c.name}, page ${i + 1}`} loading="lazy" width="1100" height="1556" />
               </a>
             )
           })}
@@ -111,7 +111,7 @@ export default function Catalogue({ params }) {
             const o = CATALOGUES[s]
             return (
               <a className="dlcard" href={`/catalogues/${s}`} key={s}>
-                <span className="dlcover"><Pic src={o.cover} alt={`${o.name} — cover`} loading="lazy" width="1000" height="1415" /></span>
+                <span className="dlcover"><Pic src={o.cover} alt={`${o.name} cover`} sizes="(max-width:600px) 132px, (max-width:1080px) 13vw, 140px" loading="lazy" width="1000" height="1415" /></span>
                 <span className="dlbody">
                   <span className="dlmeta">{o.meta}</span>
                   <h3>{o.name}</h3>

@@ -101,7 +101,7 @@ export default function Reference({ params }) {
         </div>
 
         <figure className="reffig reveal">
-          <Pic id="refmain" src={src} alt={im.alt} loading="eager" fetchPriority="high" width="1600" height="900" />
+          <Pic id="refmain" src={src} alt={im.alt} sizes="(min-width:1240px) 1136px, 92vw" loading="eager" fetchPriority="high" width="1600" height="900" />
         </figure>
 
         {views.length > 1 && (

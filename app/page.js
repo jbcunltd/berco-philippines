@@ -26,7 +26,13 @@ export default function Page() {
   <header id="top" className="cover"><div className="shell">
     <div className="masthead"><span>Berco — Custom Cabinetry &amp; Interiors</span><span>Philippines</span></div>
     <div className="coverimg">
-      <Pic className="cover-img" src="/img/custom-kitchen-cabinetry-philippines.jpg" alt="Custom kitchen cabinetry with island and warm wood finishes in a Philippine home — Berco design reference" loading="eager" fetchPriority="high" width="1760" height="1087" />
+      {/* HEROES DO NOT TAKE THE 1200 TIER. A 1,440px desktop paints this at 1,136 CSS px,
+          so the browser would pick 1200 and lose the supersampling the 1,760px file gives
+          it: side by side at 3x magnification the wood grain and the tap spring go soft.
+          Same failure that reverted the 1,200px ladder on 2026-09-17. The phone was never
+          affected either way (it paints 3,279 device px and takes the full file), so the
+          tier buys nothing here and costs sharpness. */}
+      <Pic className="cover-img" tiers={[800]} src="/img/custom-kitchen-cabinetry-philippines.jpg" alt="Custom kitchen cabinetry with island and warm wood finishes in a Philippine home. Berco design reference" sizes="(min-width:1240px) 1136px, (min-width:820px) 1101px, 1093px" loading="eager" fetchPriority="high" width="1760" height="1087" />
       <div className="scrim"></div>
       <span className="cap">Kitchen · design reference</span>
       <div className="type">
@@ -62,7 +68,7 @@ export default function Page() {
   </div></section>
 
   <section className="feature reveal">
-    <Pic className="feature-img" src="/img/custom-interiors-philippine-home.jpg" alt="Open-plan custom interiors and cabinetry in a Philippine home — Berco design reference" loading="lazy" width="1760" height="1192" />
+    <Pic className="feature-img" tiers={[800]} src="/img/custom-interiors-philippine-home.jpg" alt="Open-plan custom interiors and cabinetry in a Philippine home. Berco design reference" sizes="(max-width:1039px) 798px, 100vw" loading="lazy" width="1760" height="1192" />
     <div className="scrim"></div>
     <span className="cap capTop">Living · design reference</span>
     <div className="type">

@@ -5,7 +5,22 @@ without depending on a metered runtime optimizer.
 
 For each source JPEG under public/img:
   foo.jpg  ->  foo.webp          (same width, ~64% smaller)
+  foo.jpg  ->  foo-1200.webp     (1200px wide) - browse imagery only
   foo.jpg  ->  foo-800.webp      (800px wide, for phones) - browse imagery only
+
+The 1200px step exists because the ladder used to jump straight from 800 to the
+full file. A 3x phone asking for a 352px card slot needs ~1,056 real pixels, so
+it skipped the 800 and downloaded the 1,600px desktop file - 86 KB for a picture
+painted at 1,056 px. The 1200 tier covers that case with nothing lost: it is
+still larger than the painted size.
+
+IMPORTANT, and the reason the largest file is never reduced: a tall box with
+object-fit:cover ENLARGES a photo. The homepage hero is painted at ~3,400 device
+px on a 3x phone from a 1,760 px file, so it is already upscaled. Shipping 1,200
+px as the LARGEST tier was tried on 2026-09-17 and reverted the same hour for
+visible softness (website-speed-protocol.md, trap 4). Tiers are only ever ADDED
+below the top of the ladder, and the slots that enlarge declare their real
+painted width in `sizes` so the browser keeps choosing the full file.
 
 "Browse imagery" = the pictures people scroll through (homepage, collections,
 carousel, covers). Catalogue page scans are excluded: they load lazily only when
@@ -26,6 +41,10 @@ IMG = os.path.join(ROOT, 'public', 'img')
 FULL_Q = 78          # visually indistinguishable from the q86-90 JPEG sources
 SMALL_Q = 74
 SMALL_W = 800
+# the 1200 tier is encoded at the SAME quality as the full file: it differs in
+# pixel count only, so it can never be the reason a photo looks worse.
+MID_Q = FULL_Q
+MID_W = 1200
 # catalogue scans keep only a full-size webp (no phone variant - they get zoomed)
 NO_SMALL = ('/catalogue/',)
 
@@ -57,14 +76,17 @@ def main():
             skipped_small += 1
             continue
 
-        h = int(round(im.height * SMALL_W / im.width))
-        b2 = io.BytesIO()
-        im.resize((SMALL_W, h), Image.LANCZOS).save(b2, 'WEBP', quality=SMALL_Q, method=6)
-        small = s[:-4] + f'-{SMALL_W}.webp'
-        if write_if_changed(small, b2.getvalue()):
-            changed += 1
-        made += 1
-        out_bytes += os.path.getsize(small)
+        for tw, tq in ((SMALL_W, SMALL_Q), (MID_W, MID_Q)):
+            if im.width <= tw:
+                continue
+            h = int(round(im.height * tw / im.width))
+            b2 = io.BytesIO()
+            im.resize((tw, h), Image.LANCZOS).save(b2, 'WEBP', quality=tq, method=6)
+            tier = s[:-4] + f'-{tw}.webp'
+            if write_if_changed(tier, b2.getvalue()):
+                changed += 1
+            made += 1
+            out_bytes += os.path.getsize(tier)
 
     print(f"  sources        : {len(srcs)} jpg  ({src_bytes/1048576:.1f}MB)")
     print(f"  webp written   : {made} files ({out_bytes/1048576:.1f}MB), {changed} changed this run")

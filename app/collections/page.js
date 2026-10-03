@@ -53,7 +53,13 @@ export default function Collections() {
         <div className="colgrid stag">
           {ORDER.map((s) => (
             <a className="colcard" href={`/collections/${s}`} key={s}>
-              <Pic src={first(s)} alt={`${CATS[s].name} — Berco custom cabinetry design reference`} sizes="(max-width:520px) 92vw, (max-width:820px) 47vw, 31vw" loading="lazy" width="1600" height="900" />
+              {/* .colcard is a 4:5 portrait tile holding a 16:9 photo under object-fit:cover,
+                  so the photo is ENLARGED: the tile is ~352 CSS px wide on a phone but the
+                  picture is painted ~782 px wide. Declaring the tile width here would hand
+                  these eight tiles the 1200px file and soften them, which is the regression
+                  that got the 1,200px ladder reverted on 2026-09-17. Declare the painted
+                  width instead. */}
+              <Pic src={first(s)} alt={`${CATS[s].name}. Berco custom cabinetry design reference`} sizes="815px" loading="lazy" width="1600" height="900" />
               <span className="lbl"><span className="cn">{CATS[s].name}</span><span className="go">Explore →</span></span>
             </a>
           ))}
