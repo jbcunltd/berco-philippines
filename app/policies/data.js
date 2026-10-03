@@ -90,11 +90,12 @@ export const POLICIES = {
       { h: 'When you send an inquiry', p: 'The contact form asks for your name and mobile number, what you are planning and roughly when. Email address, location and a message are optional — the form works without them. We ask for a mobile number because that is how we actually follow up.' },
       { h: 'Where it goes', p: 'Submissions are delivered to our team as an email, through a sending service called Resend. There is no customer database behind this website and no account for you to create — your details arrive in an inbox and stay there, the same as if you had emailed us directly.' },
       { h: 'Cookies and measurement', p: 'Three tools measure how the site is used. They are not equivalent, so we list them separately rather than asking you to accept one undifferentiated bundle.', list: [
-        'Vercel Web Analytics — counts page views. It sets no cookies and does not identify you, so it runs whether or not you accept.',
-        'Google Analytics — shows how people found the site and which pages lead to an inquiry. It sets cookies. It only loads if you accept.',
-        'Meta Pixel — lets us show ads on Facebook and Instagram to people who have visited this site. It sets cookies. It only loads if you accept.',
+        'Vercel Web Analytics counts page views. It sets no cookies and does not identify you, so it runs whether or not you accept.',
+        'Google Analytics shows how people found the site and which pages lead to an inquiry. It is on the page from the start, with measurement switched off: no cookie, nothing that identifies you. Accepting switches it on, and that is when it sets cookies.',
+        'Meta Pixel lets us show ads on Facebook and Instagram to people who have visited this site. It sets cookies, and it is not put on the page at all unless you accept.',
       ] },
-      { h: 'If you decline', p: 'Nothing loads except the cookieless page counter. Declining does not limit anything on the site — every page, catalogue and the contact form work exactly the same either way.' },
+      { h: 'Before you answer', p: 'No cookie is set before you choose. Google\u2019s consent signals start at denied in the page itself, so the Google tag runs without storing anything, and the Meta pixel is not loaded until you accept.' },
+      { h: 'If you decline', p: 'Nothing is stored. The page counter and the switched-off Google tag stay cookieless, and the Meta pixel is never loaded. Declining does not limit anything on the site. Every page, catalogue and the contact form work exactly the same either way.' },
       { h: 'Changing your mind', p: 'Your choice is stored in your own browser, not on our servers. To change it, clear the site data for bercohome.com in your browser settings and the choice will be asked again on your next visit.' },
       { h: 'Who else handles it', list: [
         'Resend — delivers the inquiry email.',
