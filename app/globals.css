@@ -19,6 +19,33 @@
      container, so sticky works. Do not change this back to hidden. */
   .wrap{background:var(--ground); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:clip}
   .shell{max-width:var(--maxw); margin:0 auto; padding:0 clamp(18px,4vw,52px)}
+  /* ============================================================
+     THE TYPE FLOOR. Berco's brand guidelines put the floor for the Didone
+     (Libre Bodoni, --serif) at about 30px: "Never set below ~30 px (hairlines
+     fade; use the sans instead)." Below that the thin strokes of a Didone
+     thin out further on a phone screen and the word stops reading as the
+     wordmark it echoes. It reads as a serif that has gone slightly wrong.
+
+     So every rule in this file that renders --serif text under 30px sets
+     font-family:var(--sans) instead. Sizes, weights and letter-spacing are
+     untouched, so nothing in any layout moves. Two patterns below:
+
+       A. The size is under 30px at EVERY viewport (a fixed size, or a clamp
+          whose maximum is under 30). The rule simply takes --sans.
+
+       B. The size is a clamp that CROSSES 30px as the viewport grows, e.g.
+          clamp(24px,3.6vw,38px). These take --sans, and a min-width query
+          hands the Didone back at exactly the width where the clamp reaches
+          30px (3.6vw = 30px at 833.33px, so min-width:834px). The guideline
+          is about the rendered size, not about the element, and these are
+          genuinely large enough on a desktop. The crossover width is written
+          out in each case so it can be rechecked if a size ever changes.
+
+     ⚠️ If you add a heading or a numeral, check its rendered size at 390px
+        before you leave it in --serif. The census that found these is one
+        expression: walk every element, keep the ones whose own text resolves
+        to Bodoni/Didot under 30px.
+     ============================================================ */
   h1,h2,h3{font-family:var(--serif); font-weight:500; margin:0; text-wrap:balance; letter-spacing:-.01em}
   .eyebrow{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--champ-ink); font-weight:600}
   .cap{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint)}
@@ -124,7 +151,7 @@
     transition:transform .9s var(--ease) }
   .ccard:hover .ccard-img{ border-color:var(--champ); box-shadow:0 22px 44px -28px rgba(43,38,32,.45) }
   .ccard:hover .ccard-img img{ transform:scale(1.04) }
-  .ccard .cn{ font-family:var(--serif); font-size:clamp(17px,1.8vw,21px); line-height:1.2; display:block }
+  .ccard .cn{ font-family:var(--sans); font-size:clamp(17px,1.8vw,21px); line-height:1.2; display:block }
   .ccard .cd{ font-size:13px; color:var(--ink-soft); line-height:1.5; display:block; margin-top:3px }
   .ccard .go{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:600;
     color:var(--champ-ink); margin-top:7px; display:block; transition:transform .25s var(--ease) }
@@ -141,8 +168,8 @@
   .step{padding:24px 20px 26px 0; border-right:1px solid var(--hair)}
   .step:last-child{border-right:none}
   @media(max-width:720px){.step:nth-child(2){border-right:none}}
-  .step .n{font-family:var(--serif); font-size:20px; color:var(--champ-ink)}
-  .step h3{font-size:18px; margin:8px 0 6px}
+  .step .n{font-family:var(--sans); font-size:20px; color:var(--champ-ink)}
+  .step h3{font-family:var(--sans); font-size:18px; margin:8px 0 6px}
   .step p{font-size:13px; color:var(--ink-soft); margin:0}
   /* PRECISION + STANDARD — chip rows */
   .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
@@ -159,12 +186,16 @@
   .jbc{background:var(--beige)}
   .jbc .in{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(20px,4vw,54px); align-items:center}
   @media(max-width:700px){.jbc .in{grid-template-columns:1fr; gap:12px}}
-  .jbc h2{font-size:clamp(24px,3.6vw,38px); line-height:1.05; max-width:16ch}
+  /* Pattern B: 24px on a phone, 38px wide. 3.6vw reaches 30px at 833.33px. */
+  .jbc h2{font-family:var(--sans); font-size:clamp(24px,3.6vw,38px); line-height:1.05; max-width:16ch}
+  @media(min-width:834px){ .jbc h2{font-family:var(--serif)} }
   .jbc p{font-size:16px; color:var(--ink-soft); max-width:44ch; margin:0}
   /* PROJECTS */
   .projects{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,3vw,40px); align-items:center}
   @media(max-width:700px){.projects{grid-template-columns:1fr}}
-  .projects .box h2{font-size:clamp(24px,3.6vw,38px); line-height:1.05; max-width:16ch}
+  /* Pattern B, same clamp as .jbc h2: Didone back at 834px. */
+  .projects .box h2{font-family:var(--sans); font-size:clamp(24px,3.6vw,38px); line-height:1.05; max-width:16ch}
+  @media(min-width:834px){ .projects .box h2{font-family:var(--serif)} }
   .projects .box p{font-size:15px; color:var(--ink-soft); max-width:42ch; margin:16px 0 0}
   .projects .ph{border-radius:5px; aspect-ratio:4/3; border:1px solid var(--hair)}
   /* FINAL */
@@ -218,13 +249,13 @@
   @media(max-width:820px){.matgrid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:520px){.matgrid{grid-template-columns:1fr}}
   .mat{background:var(--panel); padding:24px 22px}
-  .mat h3{font-size:16.5px; margin:0 0 8px}
+  .mat h3{font-family:var(--sans); font-size:16.5px; margin:0 0 8px}
   .mat p{font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.55}
   /* good-to-know / planning */
   .know{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:4px; overflow:hidden}
   @media(max-width:640px){.know{grid-template-columns:1fr}}
   .k{background:var(--ground); padding:26px 24px}
-  .k h3{font-size:17px; margin:0 0 8px}
+  .k h3{font-family:var(--sans); font-size:17px; margin:0 0 8px}
   .k p{font-size:14px; color:var(--ink-soft); margin:0; line-height:1.55}
 
   /* ============================================================
@@ -397,7 +428,7 @@
   .dlcard:hover .dlcover{ transform:translateY(-2px) scale(1.015); box-shadow:0 18px 34px -12px rgba(43,38,32,.5) }
   .dlbody{ display:flex; flex-direction:column; gap:9px; min-width:0 }
   .dlmeta{ font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--champ-ink); font-weight:600 }
-  .dlcard h3{ font-family:var(--serif); font-size:clamp(19px,2vw,23px); line-height:1.15 }
+  .dlcard h3{ font-family:var(--sans); font-size:clamp(19px,2vw,23px); line-height:1.15 }
   .dlcard p{ font-size:14px; color:var(--ink-soft); line-height:1.6; margin:0 }
   .dlgo{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--champ-ink); margin-top:4px }
   .dlcard:hover .dlgo{ text-decoration:underline; text-underline-offset:3px }
@@ -409,7 +440,7 @@
     padding:16px 16px 15px; border:1px solid var(--hair); border-radius:5px; text-decoration:none;
     background:var(--panel); transition:background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease) }
   .otile:hover{ background:#fff; transform:translateY(-2px); box-shadow:0 20px 40px -30px rgba(43,38,32,.4) }
-  .otile .on{ font-family:var(--serif); font-size:19px; line-height:1.1 }
+  .otile .on{ font-family:var(--sans); font-size:19px; line-height:1.1 }
 
   /* ---- How We Work page ---- */
   .pgintro{ padding:clamp(44px,7vh,88px) 0 clamp(38px,6vh,68px) }
@@ -424,7 +455,7 @@
   .pledge{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:4px; overflow:hidden }
   @media(max-width:640px){ .pledge{ grid-template-columns:1fr } }
   .pledge .col{ background:var(--panel); padding:clamp(24px,3vw,34px) }
-  .pledge h3{ font-size:16px; margin:0 0 14px }
+  .pledge h3{ font-family:var(--sans); font-size:16px; margin:0 0 14px }
   .pledge ul{ list-style:none; padding:0; margin:0 }
   .pledge li{ font-size:14px; line-height:1.5; color:var(--ink-soft); padding:11px 0 11px 26px; border-top:1px solid var(--hair); position:relative }
   .pledge li:first-child{ border-top:0 }
@@ -432,8 +463,11 @@
   .pledge .no li::before{ content:"\2715"; position:absolute; left:0; top:11px; color:var(--ink-faint) }
   .proc{ border-bottom:1px solid var(--hair) }
   .procstep{ display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,3vw,44px); padding:clamp(22px,4vh,40px) 0; border-top:1px solid var(--hair); align-items:start }
-  .procstep .pn{ font-family:var(--serif); font-size:clamp(26px,4vw,50px); color:var(--champ-ink); line-height:.9; min-width:1.6em }
-  .procstep h3{ font-size:clamp(19px,2.6vw,27px); margin:0 0 10px }
+  /* Pattern B: 4vw reaches 30px at 750px. These are the biggest numerals on
+     the site at desktop (50px) and were bottoming out at 26px on a phone. */
+  .procstep .pn{ font-family:var(--sans); font-size:clamp(26px,4vw,50px); color:var(--champ-ink); line-height:.9; min-width:1.6em }
+  @media(min-width:750px){ .procstep .pn{ font-family:var(--serif) } }
+  .procstep h3{ font-family:var(--sans); font-size:clamp(19px,2.6vw,27px); margin:0 0 10px }
   .procstep p{ max-width:62ch; color:var(--ink-soft); font-size:15px; line-height:1.62; margin:0 }
 
   /* ---- Collections index cards + 404 ---- */
@@ -448,7 +482,7 @@
   .colcard::after{ content:""; position:absolute; inset:0; pointer-events:none;
     background:linear-gradient(to top, rgba(30,22,14,.6) 0%, rgba(30,22,14,.05) 55%, rgba(30,22,14,0) 72%) }
   .colcard .lbl{ position:absolute; left:16px; bottom:14px; z-index:2 }
-  .colcard .cn{ font-family:var(--serif); font-size:clamp(19px,2.2vw,26px); color:#FDFBF7; display:block }
+  .colcard .cn{ font-family:var(--sans); font-size:clamp(19px,2.2vw,26px); color:#FDFBF7; display:block }
   .colcard .go{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:#EAD3A0;
     margin-top:2px; display:block; transition:transform .4s var(--ease) }
   .colcard:hover .go{ transform:translateX(4px) }
@@ -461,7 +495,7 @@
   @media(max-width:700px){ .typegrid{ grid-template-columns:1fr } }
   .typecard{ background:var(--panel); padding:24px 22px; transition:background .35s var(--ease) }
   .typecard:hover{ background:color-mix(in srgb,var(--panel) 80%,#fff) }
-  .typecard h3{ font-size:17px; margin:0 0 8px }
+  .typecard h3{ font-family:var(--sans); font-size:17px; margin:0 0 8px }
   .typecard p{ font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.55 }
   .otile .go{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--champ-ink);
     transition:transform .4s var(--ease) }
@@ -489,8 +523,8 @@
   .pslide::after{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
     background:linear-gradient(to top, rgba(24,17,10,.84) 3%, rgba(24,17,10,.34) 42%, rgba(24,17,10,0) 70%) }
   .pslide-txt{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:clamp(20px,3vw,30px) }
-  .pslide-txt .pnum{ font-family:var(--serif); font-size:22px; color:#EAD3A0; display:block; margin-bottom:8px; letter-spacing:.02em }
-  .pslide-txt h3{ color:#FDFBF7; font-family:var(--serif); font-weight:500; font-size:clamp(21px,2.5vw,27px); line-height:1.08; margin:0 0 9px }
+  .pslide-txt .pnum{ font-family:var(--sans); font-size:22px; color:#EAD3A0; display:block; margin-bottom:8px; letter-spacing:.02em }
+  .pslide-txt h3{ color:#FDFBF7; font-family:var(--sans); font-weight:500; font-size:clamp(21px,2.5vw,27px); line-height:1.08; margin:0 0 9px }
   .pslide-txt p{ color:rgba(253,251,247,.9); font-size:14px; line-height:1.52; margin:0; max-width:42ch }
   .pcar-nav{ position:absolute; top:44%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%;
     border:1px solid var(--hair); background:color-mix(in srgb,var(--ground) 86%,transparent); backdrop-filter:blur(6px);
@@ -514,7 +548,7 @@
   .policy{ max-width:70ch }
   .polsec{ margin-top:clamp(30px,4.4vh,48px) }
   .polsec:first-child{ margin-top:clamp(10px,1.6vh,18px) }
-  .polsec h2{ font-size:clamp(19px,2.2vw,25px); line-height:1.2; margin:0 0 12px }
+  .polsec h2{ font-family:var(--sans); font-size:clamp(19px,2.2vw,25px); line-height:1.2; margin:0 0 12px }
   .polsec p{ font-size:clamp(15px,1.7vw,17px); line-height:1.68; color:var(--ink-soft); margin:0 }
   .polsec ul{ margin:14px 0 0; padding:0; list-style:none }
   .polsec li{ position:relative; padding-left:20px; margin-top:10px;
@@ -559,7 +593,7 @@
   @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:clamp(34px,6vh,52px) } }
 
   .formlead{ margin:0 0 clamp(20px,3vh,28px) }
-  .formlead h2{ font-size:clamp(21px,2.6vw,28px); line-height:1.14; margin:11px 0 0 }
+  .formlead h2{ font-family:var(--sans); font-size:clamp(21px,2.6vw,28px); line-height:1.14; margin:11px 0 0 }
   .formlead p{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); margin:10px 0 0; max-width:48ch }
   /* Tap row — the three one-tap actions, ahead of the form. Sized for a thumb, and on a
      phone they stack full-width so each is an unmissable target. */
@@ -622,7 +656,9 @@
   .formdone{ border:1px solid var(--hair); border-top:2px solid var(--champ); background:var(--panel);
     padding:clamp(26px,4vw,42px); border-radius:3px }
   .formdone:focus-visible{ outline:2px solid var(--champ-ink); outline-offset:3px }
-  .formdone h2{ font-size:clamp(26px,3.6vw,40px); line-height:1.08; margin:12px 0 0 }
+  /* Pattern B: 3.6vw reaches 30px at 833.33px. */
+  .formdone h2{ font-family:var(--sans); font-size:clamp(26px,3.6vw,40px); line-height:1.08; margin:12px 0 0 }
+  @media(min-width:834px){ .formdone h2{ font-family:var(--serif) } }
   .formdone p{ font-size:15.5px; line-height:1.62; color:var(--ink-soft); max-width:54ch; margin:16px 0 0 }
   .formdone a,.formfail a:not(.btn){ color:var(--champ-ink); text-decoration:none; border-bottom:1px solid var(--champ) }
   .formnext{ font-size:14px !important }
@@ -636,7 +672,7 @@
   .contact-side{ display:flex; flex-direction:column; gap:clamp(22px,3vh,32px); position:sticky; top:clamp(76px,10vh,104px) }
   @media(max-width:900px){ .contact-side{ position:static } }
   .cside{ border-top:1px solid var(--hair); padding-top:clamp(16px,2.4vh,22px) }
-  .cside h2{ font-size:clamp(17px,2vw,21px); line-height:1.2; margin:0 0 14px }
+  .cside h2{ font-family:var(--sans); font-size:clamp(17px,2vw,21px); line-height:1.2; margin:0 0 14px }
   /* Messenger button — the Facebook mark carries the recognition so the button itself
      can stay in the site's warm world instead of dropping in a saturated blue slab. */
   .fbbtn{ display:inline-flex; align-items:center; gap:10px; width:100%;
@@ -655,9 +691,9 @@
   .nextgrid{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr);
     gap:clamp(20px,3vw,40px) }
   .nextgrid li{ border-top:1px solid var(--hair); padding-top:16px }
-  .nextnum{ display:block; font-family:var(--serif); font-size:12px; letter-spacing:.2em;
+  .nextnum{ display:block; font-family:var(--sans); font-size:12px; letter-spacing:.2em;
     color:var(--champ-ink); font-weight:600; margin-bottom:12px }
-  .nextgrid h3{ font-size:clamp(16px,1.9vw,19px); line-height:1.22; margin:0 0 9px }
+  .nextgrid h3{ font-family:var(--sans); font-size:clamp(16px,1.9vw,19px); line-height:1.22; margin:0 0 9px }
   .nextgrid p{ font-size:14px; line-height:1.6; color:var(--ink-soft); margin:0 }
   .nextnote{ font-size:13px; line-height:1.6; color:var(--ink-faint); max-width:62ch;
     margin:clamp(24px,3.5vh,36px) 0 0 }
@@ -666,7 +702,9 @@
   .tradeband{ display:flex; align-items:center; justify-content:space-between;
     gap:clamp(20px,4vw,48px); flex-wrap:wrap }
   .tradeband-txt{ flex:1 1 380px; min-width:0 }
-  .tradeband h2{ font-size:clamp(22px,3vw,34px); line-height:1.14; margin:12px 0 0 }
+  /* Pattern B: 3vw reaches 30px at 1000px. */
+  .tradeband h2{ font-family:var(--sans); font-size:clamp(22px,3vw,34px); line-height:1.14; margin:12px 0 0 }
+  @media(min-width:1000px){ .tradeband h2{ font-family:var(--serif) } }
   .tradeband p{ font-size:15px; line-height:1.6; color:var(--ink-soft); margin:12px 0 0; max-width:52ch }
   .cside-steps{ margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:11px }
   .cside-steps li{ font-size:14px; line-height:1.55; color:var(--ink-soft) }
@@ -680,7 +718,15 @@
      covers the nav or a CTA, and the page stays fully usable behind it.
      Both buttons are 46px tall - the same target size as the rest of the site,
      and above the 44px minimum. */
-  .consent{ position:fixed; left:0; right:0; bottom:0; z-index:60;
+  /* font-family is set here and nowhere above it, because .consent is a SIBLING
+     of .wrap in the layout, not a child: it sits outside the element that gives
+     the rest of the site its sans. Without this the banner's sentence rendered
+     in the browser's default serif (measured: Times at 13px on a phone) while
+     its two buttons were in Jost, because the buttons set the family themselves.
+     Found 2026-10-03 while rewriting this sentence for the pixel change. The
+     same trap is live for .mobilebar, which escapes it only because its links
+     are the sans and the bar holds no text of its own. */
+  .consent{ font-family:var(--sans); position:fixed; left:0; right:0; bottom:0; z-index:60;
     display:flex; align-items:center; justify-content:space-between; gap:clamp(14px,2.4vw,28px);
     padding:14px clamp(18px,4vw,52px); background:var(--ground);
     border-top:1px solid var(--hair); box-shadow:0 -14px 34px -30px rgba(43,38,32,.5) }

@@ -72,14 +72,17 @@ const schema = {
 // Google Consent Mode v2 defaults. This is a plain inline script, not next/script,
 // because it has to be in the HTML the browser parses: every signal must already
 // be DENIED before gtag.js is so much as requested. A visitor who has answered
-// nothing therefore carries no _ga cookie and no _fbp cookie.
+// nothing therefore carries no _ga cookie.
 //
 // wait_for_update gives the banner half a second to send an update before any
 // queued hit is sent, so an immediate Accept is not measured as a denied hit.
 //
-// The Meta pixel is absent from this block on purpose: Meta has no consent-mode
-// equivalent, so there is no denied state to load it in. It is injected only
-// after Accept - see app/components/Consent.js.
+// The Meta pixel is absent from this block on purpose, and NOT because it is
+// gated: Meta has no consent-mode equivalent, so there is no denied state to
+// express here. The pixel is injected on arrival for anyone who has not
+// declined, which is the 2026-08-25 opt-out decision restored by the owner on
+// 2026-10-03. The asymmetry between the two tags is deliberate and is explained
+// where it is implemented - see app/components/Consent.js.
 const consentDefaults = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}" +
   "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied'," +
   "ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});" +

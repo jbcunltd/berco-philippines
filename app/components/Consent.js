@@ -5,32 +5,47 @@ import Script from 'next/script'
 
 // Cookie choice + the trackers it gates.
 //
-// HOW THIS IS BUILT (changed 2026-10-03)
+// HOW THIS IS BUILT (Google opt-in, Meta opt-out. Set 2026-10-03, second pass.)
 //
-// 1. Google Consent Mode v2 defaults are set in the page HTML itself, in
-//    app/layout.js, before any tag is requested. All four signals start DENIED:
-//    analytics_storage, ad_storage, ad_user_data, ad_personalization. That is why
-//    a visitor who has answered nothing carries no _ga and no _fbp.
-// 2. Google Analytics loads for everyone, but under those denied defaults it sets
-//    no cookie and identifies nobody; it sends cookieless pings Google uses to
-//    model the gap. Accepting sends a consent UPDATE and real measurement starts.
-// 3. The Meta pixel is NOT injected until the visitor accepts. Meta has no
-//    equivalent of consent mode, so there is no denied state to load it in: it
-//    either sets _fbp or it is not on the page.
-// 4. Declining keeps everything denied and clears any _ga/_fbp already there.
+// The two tags are deliberately NOT treated the same, because they are not the
+// same kind of thing to this business and they do not have the same mechanics.
 //
-// WHAT CHANGED, AND WHAT IT COSTS. Before this, trackers loaded for everyone who
-// had not explicitly declined (an opt-out gate, set 2026-08-25 because an opt-in
-// gate silences the pixel for every visitor who ignores the banner, which is most
-// ad click-throughs). The pixel is now opt-in again, so the retargeting audience,
-// landing-page-view optimisation and the form's Lead event only see visitors who
-// pressed Accept. That is a real trade and it is Jumbo's call to keep or reverse;
-// the change was made to stop cookies being set before the banner is answered.
+// GOOGLE, OPT-IN. Consent Mode v2 defaults are set in the page HTML itself, in
+//   app/layout.js, before any tag is requested. All four signals start DENIED:
+//   analytics_storage, ad_storage, ad_user_data, ad_personalization. gtag.js
+//   loads for everyone but under denied defaults it sets no cookie and
+//   identifies nobody; it sends cookieless pings Google uses to model the gap.
+//   Accepting sends a consent UPDATE and real measurement starts. This is what
+//   the first pass of 2026-10-03 built and it stays exactly as it was.
+//
+// META, OPT-OUT. The pixel is injected on arrival for every visitor who has not
+//   declined, and a Decline takes it back out and clears its cookies. This is
+//   the deliberate decision of 2026-08-25, restored by the owner on 2026-10-03
+//   after the first pass of that day had made it opt-in. The reason is specific
+//   and measured, not a preference: most ad click-throughs never touch the
+//   banner at all, so an opt-in gate does not "reduce" Meta measurement, it
+//   starves it. The retargeting audience stops filling, landing-page-view
+//   optimisation loses its signal, the form's Lead event fires for a fraction
+//   of real leads, and cost-per-message - the number every Berco budget
+//   decision is read off - becomes unreadable.
+//
+//   Meta has no consent-mode equivalent, so there is no denied state to load the
+//   pixel in. It either sets _fbp or it is not on the page. That is why this is
+//   an injection decision rather than a signal, and why Decline has to actively
+//   undo it: see disableMetaPixel below.
+//
+// ⚠️ Do not "tidy" this into one rule for both tags. The asymmetry IS the
+//    decision. If it is ever reversed again, reverse the privacy policy in the
+//    same commit - app/policies/data.js says what this file does, in plain
+//    words, and a policy that describes code that no longer exists is worse
+//    than no policy.
 //
 // Both tags load with strategy="lazyOnload", after the page has finished. On a
-// 3x phone over slow 4G, gtag.js (174 KB) and fbevents.js (110 KB) used to start
-// downloading at ~2.2 s, which is exactly while the hero photo is still arriving.
-// Nothing here needs to run before the page is painted.
+// 3x phone over slow 4G, gtag.js (174 KB) and fbevents.js (110 KB) would
+// otherwise start downloading at ~2.2 s, which is exactly while the hero photo
+// is still arriving, and all four page types sit under a 2.5 s gate. Nothing
+// here needs to run before the page is painted. "On arrival" means no
+// interaction is required, not before the pixels of the page.
 //
 // The banner and the scripts still live together on purpose. If they were
 // separate, nothing would stop a later edit from loading a tracker outside the
@@ -50,9 +65,8 @@ export const GA_ID = 'G-RQPHPK53ZP'
 const FB_PIXEL_ID = '1096315622827696'
 
 // Declining has to remove cookies that are already there, not just stop new ones.
-// Anyone who visited before this gate existed - or who accepts and later clears
-// their choice - is still carrying _ga / _fbp. Without this, "Decline" would be
-// true only for first-time visitors and quietly meaningless for everyone else.
+// Under the opt-out pixel this is the ordinary case rather than the edge case:
+// every declining visitor is carrying an _fbp by the time they press the button.
 // Cookies are cleared on both the bare host and the dot-prefixed domain because
 // Google and Meta set them on the latter; expiring only one leaves the other.
 function clearTrackingCookies() {
@@ -68,6 +82,35 @@ function clearTrackingCookies() {
       document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`
     }
   } catch { /* clearing is best-effort; the gate above is what actually matters */ }
+}
+
+// Taking a tag that has ALREADY RUN back off the page is not the same job as
+// not loading it. Un-rendering the <Script> does nothing: fbevents.js is in the
+// JS heap, window.fbq is its real queue function, and the next fbq() call would
+// send a request and re-create _fbp. So Decline does four things:
+//
+//   1. replaces window.fbq (and _fbq) with a no-op, so every later call -
+//      including the form's Lead event - goes nowhere. It stays a FUNCTION on
+//      purpose: InquiryForm optional-chains it, and a page that throws on a
+//      declined visitor would be a worse outcome than a missed event.
+//   2. marks it .disabled so this state is checkable from the console and in
+//      a verification run, rather than having to prove absence.
+//   3. removes the fbevents.js script element, so a later re-render or a
+//      bfcache restore does not find a live tag already attached.
+//   4. clears _fbp / _fbc, after the no-op is in place. Order matters: clearing
+//      first would leave a live fbq free to write the cookie straight back.
+function disableMetaPixel() {
+  try {
+    const noop = function () {}
+    noop.queue = []
+    noop.loaded = true
+    noop.version = '2.0'
+    noop.disabled = true
+    window.fbq = noop
+    window._fbq = noop
+    document.querySelectorAll('script[src*="connect.facebook.net"]').forEach((s) => s.remove())
+  } catch { /* best effort; the cookie clear below is the part that is visible */ }
+  clearTrackingCookies()
 }
 
 // gtag() is defined by the defaults block in layout.js, which is in the HTML, so
@@ -87,6 +130,11 @@ export default function Consent() {
   // paint renders nothing, so there is no hydration mismatch and no flash of a
   // banner for someone who already answered.
   const [choice, setChoice] = useState(undefined)
+  // Separate from `choice` because the pixel is NOT a function of the banner
+  // answer. It runs for "not answered" and for "accepted", and only a stored
+  // decline keeps it off. Starting false and turning it on in the effect means
+  // a returning decliner never gets it injected even for one render.
+  const [pixel, setPixel] = useState(false)
 
   useEffect(() => {
     let stored = null
@@ -94,11 +142,13 @@ export default function Consent() {
     const value = stored === 'granted' || stored === 'declined' ? stored : null
     setChoice(value)
     if (value === 'granted') consent('granted')
+    if (value === 'declined') { disableMetaPixel(); return }
+    setPixel(true)
   }, [])
 
   function decide(value) {
     try { localStorage.setItem(KEY, value) } catch { /* choice holds for this page at least */ }
-    if (value === 'declined') clearTrackingCookies()
+    if (value === 'declined') { setPixel(false); disableMetaPixel() }
     consent(value === 'granted' ? 'granted' : 'denied')
     setChoice(value)
   }
@@ -109,8 +159,8 @@ export default function Consent() {
           writes no cookie and names nobody until consent is updated to granted. */}
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
 
-      {/* The Meta pixel has no denied state. It is not on the page until Accept. */}
-      {choice === 'granted' && (
+      {/* The Meta pixel runs on arrival unless this visitor has declined. */}
+      {pixel && (
         <Script id="fb-pixel" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html:
           `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?` +
           `n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;` +
@@ -122,9 +172,13 @@ export default function Consent() {
 
       {choice === null && (
         <div className="consent" role="region" aria-label="Cookie choice">
+          {/* This sentence has to match the code above. It previously said
+              "Nothing is set until you accept", which is now false: the Meta
+              pixel sets a cookie on arrival. Saying so is the point of a banner. */}
           <p className="consent-txt">
             We use cookies to measure how this site is used and to show our ads to people who
-            visited. Nothing is set until you accept. <a href="/privacy-policy">Privacy</a>
+            visited. Our advertising cookie is already set. Decline removes it, and switches
+            off the rest. <a href="/privacy-policy">Privacy</a>
           </p>
           <div className="consent-acts">
             <button type="button" className="consent-no" onClick={() => decide('declined')}>Decline</button>
