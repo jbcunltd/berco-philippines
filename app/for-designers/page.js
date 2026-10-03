@@ -4,7 +4,7 @@ const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
   title: 'For Designers & Architects: Specification | Berco',
-  description: 'Trade resources for architects and interior designers: the Berco catalogues, the Materials & Finishes library and the technical specification.',
+  description: 'Trade resources for architects and interior designers: the Berco catalogues, the Materials and Finishes library, and the technical specification.',
   keywords: ['Berco for designers', 'cabinetry catalogue Philippines', 'interior systems catalogue', 'kitchen specification Philippines', 'trade cabinetry Philippines', 'architect resources cabinetry'],
   alternates: { canonical: '/for-designers' },
   openGraph: {
@@ -43,7 +43,7 @@ export default function ForDesigners() {
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -55,7 +55,7 @@ export default function ForDesigners() {
           <a className="navlink-cta" href="#inquire">Inquire</a>
         </div>
         <a className="navcta" href="#inquire">Trade inquiry</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>

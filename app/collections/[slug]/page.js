@@ -34,6 +34,20 @@ export default function Collection({ params }) {
   const hero = imgs[0]
   const others = ORDER.filter((s) => s !== params.slug)
 
+  // Named item for item the way the visible trail at the top of the page is
+  // ("Collections · {name}"), because a BreadcrumbList that disagrees with the
+  // page is worse than none. The 140 detail pages already carried one; these 8
+  // and the 5 catalogue pages did not, so a crawler had to guess the hierarchy
+  // of the level directly above the pages that stated it.
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Collections', item: `${SITE}/collections` },
+      { '@type': 'ListItem', position: 2, name: c.name, item: `${SITE}/collections/${params.slug}` },
+    ],
+  }
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -48,7 +62,7 @@ export default function Collection({ params }) {
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -60,7 +74,7 @@ export default function Collection({ params }) {
           <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>
@@ -79,14 +93,37 @@ export default function Collection({ params }) {
             : <div className="cover-img ph pa" />}
           <div className="scrim"></div>
           {hero && <span className="cap">{c.name} · design reference</span>}
+          {/* TITLE ONLY on the photograph, the same structural repair the
+              homepage took on 2026-10-03 and for the same measured reason.
+
+              The eyebrow is 11px, so it is body text and needs 4.5:1. In gold
+              #EAD3A0 laid straight on these eight pictures it measured, against
+              the real pixels underneath, a worst pixel of 1.00 to 2.09 and a
+              mean as low as 1.51 (whole-home at 1,440) and 1.83 (whole-home at
+              375). The lede fared no better: 2.16 worst. The headline itself,
+              large text needing 3:1, dipped to 1.54 on kitchens at 1,440 and
+              1.70 on bathrooms at 375, because the stack of eyebrow + headline
+              + lede + buttons pushed the headline up out of the scrim's dark
+              foot and onto bright marble.
+
+              So the composition splits the way the homepage's does: the eyebrow,
+              the lede and the two buttons sit below the picture on cream, and
+              the photograph carries the headline alone, down in the deepest part
+              of the scrim. The crop cannot help here (at 1,440 these files are
+              already wider than the box) and a heavier scrim over the cabinetry
+              is the last remedy in the house order, not the first. */}
           <div className="type">
-            <div className="eyebrow">Custom Cabinetry · Philippines</div>
             <h1>{c.hero}</h1>
+          </div>
+        </div>
+        <div className="cover-standfirst">
+          <div className="sf-copy">
+            <div className="eyebrow">Custom Cabinetry · Philippines</div>
             <p className="lead">{c.lead}</p>
-            <div className="acts">
-              <a className="btn" href="/contact">Book a design consultation →</a>
-              <a className="link" href="/#collections">All collections</a>
-            </div>
+          </div>
+          <div className="acts">
+            <a className="btn" href="/contact">Book a design consultation →</a>
+            <a className="link" href="/#collections">All collections</a>
           </div>
         </div>
       </div></header>
@@ -178,6 +215,7 @@ export default function Collection({ params }) {
 
       <SiteFooter />
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </>
   )

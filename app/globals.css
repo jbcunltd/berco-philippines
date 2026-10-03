@@ -300,6 +300,28 @@
   .coverimg .scrim{
     background:linear-gradient(to top, rgba(30,22,14,.66) 0%, rgba(30,22,14,.50) 26%, rgba(30,22,14,.18) 52%, rgba(30,22,14,0) 74%)}
   .coverimg .type,.coverimg .cap,.feature .type,.feature .cap{z-index:2}
+  /* A PAINTING-ORDER BUG, and it took out nine pages at once. The rule above
+     gives the hero caption z-index:2, but the caption computes position:static
+     and z-index is inert on a static box. .cover-img is position:absolute with
+     z-index:0, and a positioned descendant paints above in-flow content
+     whatever its z-index, so the photograph covered the caption:
+     elementFromPoint at the caption's own centre returned IMG.cover-img on the
+     homepage and all 8 collection pages, at 375 and at 1,440.
+     The proof it was position and not colour: the homepage's SECOND caption is
+     .cap.capTop, which is position:absolute, and that one always rendered.
+     Top-right, not bottom-right: the headline now sits alone bottom-left and
+     runs close to the right edge at 375, and .capTop already established this
+     corner on the feature band. */
+  .coverimg .cap{position:absolute; top:16px; right:18px; bottom:auto; left:auto;
+    background:rgba(30,22,14,.78); padding:5px 9px}
+  /* The chip is not decoration. Making the caption visible again put 9.5px text,
+     which needs 4.5:1, into the one part of the frame the scrim deliberately
+     leaves alone, and it measured a 1.08 worst pixel on interior-systems and
+     1.16 on whole-home. A caption cannot be moved into the dark foot (the
+     headline is there) and it cannot ask for a scrim over the top third of the
+     picture for the sake of four words. A chip behind four words is the smallest
+     possible remedy and it is independent of the photograph: at .78 over the
+     worst case, a pure white highlight, the label reads 5.9:1. */
   /* hero text over photo */
   .cover .type .eyebrow{color:#EAD3A0}
   .cover h1{color:#FDFBF7; font-size:clamp(38px,6vw,78px); line-height:1.0; letter-spacing:-.01em}
@@ -411,7 +433,25 @@
   .colhead .coverimg{ height:clamp(520px,72vh,600px) }
   /* category headlines are sentences, not the short brand line — smaller, wider wrap so they never overflow */
   .colhead .coverimg h1{ font-size:clamp(30px,4.2vw,54px); line-height:1.07 }
-  .colhead .coverimg .type{ max-width:min(90%, 560px) }
+  /* 620, not 560. At 1,440 the longest of the eight headlines, "One scheme,
+     carried through the whole home.", wrapped to THREE lines in a 560px box and
+     its top reached 37.9% of the hero height, which is well above the band the
+     scrim darkens: it measured a 2.21 worst pixel where large text needs 3.
+     Letting the line run wider drops it to two lines and pulls the whole block
+     back down into the dark foot. A wider measure costs nothing here, because
+     the lede that used to need a narrow column has moved below the picture.
+     Mobile is unaffected: 90% of a 375px screen is 303px either way. */
+  .colhead .coverimg .type{ max-width:min(90%, 620px) }
+  /* And then, and only then, the scrim's lower band. The structural move above
+     cleared seven of the eight on its own but left whole-home at 2.21 and three
+     others inside a tenth of the 3:1 floor, which is not a margin, so the
+     gradient's foot is 6 points darker and its 30% stop 8 points darker than the
+     homepage's. Nothing above 56% changes, so the cabinetry the photograph
+     exists to show is untouched; what darkens is the band the headline sits in,
+     which on these eight pages is bright marble. Worst case after: a pure white
+     highlight behind the top line of the headline reads 3.7:1. */
+  .colhead .coverimg .scrim{
+    background:linear-gradient(to top, rgba(30,22,14,.72) 0%, rgba(30,22,14,.58) 30%, rgba(30,22,14,.20) 56%, rgba(30,22,14,0) 76%)}
   .crumb{ text-decoration:none; border-bottom:1px solid var(--hair) }
   .crumb:hover{ color:var(--ink) }
   /* padding-block, NOT the padding shorthand. This sits on the same element as
@@ -552,7 +592,12 @@
      fold. min() rather than a vh clamp so a small phone cannot end up with a
      hero taller than the room above the sheet. */
   @media(max-width:520px){
-    .coverimg{ height:min(58vh,520px); min-height:380px }
+    /* .colhead .coverimg is named too. It carries two classes and sets its own
+       height outside any media query, so it beat this rule on specificity and
+       all 8 collection heroes stayed at 72vh on a phone while the homepage came
+       down to 58. With the sheet now stacked above the quick-contact bar it sits
+       65px higher, and a 585px hero put the headline underneath it. */
+    .coverimg, .colhead .coverimg{ height:min(58vh,520px); min-height:380px }
   }
   .colcard{ position:relative; display:block; border-radius:5px; overflow:hidden; border:1px solid var(--hair);
     aspect-ratio:4/5; text-decoration:none; transition:transform .5s var(--ease), box-shadow .5s var(--ease) }
@@ -872,12 +917,16 @@
   }
 
 
-/* ---- the homepage hero's standfirst --------------------------------------
+/* ---- the hero standfirst, now on all nine heroes --------------------------
    The lede and the two buttons used to sit on the photograph. The lede measured
    2.93:1 against the picture as a whole and 1.48:1 over the bright cabinetry,
-   where body text needs 4.5:1. House rule: a hero carries its eyebrow and its
-   title and nothing else, and the fix is to move the words, never to lay a
-   heavier scrim over the product. */
+   where body text needs 4.5:1. House rule: a hero carries its title and nothing
+   else, and the fix is to move the words, never to lay a heavier scrim over the
+   product.
+   Extended to the 8 collection heroes on 2026-10-04, where the same stack was
+   measuring a 1.00 worst pixel on the gold eyebrow and pushing the headline up
+   out of the scrim's foot onto bright marble. The numbers are in
+   app/collections/[slug]/page.js beside the markup. */
 .cover-standfirst{ padding:16px 0 0 }
 .cover-standfirst .lead{ font-size:15px; line-height:1.5; color:var(--ink-soft); max-width:46ch; margin:0 }
 .cover-standfirst .acts{ margin-top:18px }
@@ -927,6 +976,8 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
 
 
 /* Phone-only quick-contact bar (Call / Messenger / Inquire). Hidden on desktop. */
+/* 1px border + 10px + 44px targets + 10px, plus whatever the device reserves. */
+:root{ --mobilebar-h: calc(65px + env(safe-area-inset-bottom)) }
 .mobilebar{display:none}
 @media (max-width:819px){
   .mobilebar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;gap:8px;background:var(--ground);border-top:1px solid var(--hair);padding:10px max(14px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-right))}
@@ -935,6 +986,19 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
   .mobilebar a{flex:1;text-align:center;padding:15px 8px;font:500 14px/1 var(--sans);letter-spacing:.02em;color:var(--ink);border:1px solid var(--hair);border-radius:6px;text-decoration:none;background:#fff}
   .mobilebar .mb-cta{background:var(--ink);color:#fff;border-color:var(--ink)}
   body{padding-bottom:66px}
+
+  /* THE SHEET STACKS ABOVE THE BAR, it does not sit on top of it.
+     Both were fixed at bottom:0 with z-index:60, and the sheet comes later in
+     the DOM, so on every first visit it won all three hit tests: Call returned
+     BUTTON.consent-no, Messenger returned DIV.consent-acts and Inquire returned
+     BUTTON.consent-yes. The bar is the phone conversion path and all three of
+     its targets were answering the cookie question instead.
+     Offsetting the sheet rather than hiding the bar, because hiding it would
+     make the three CTAs unreachable until the banner is answered, which is the
+     same loss honestly labelled. The 65px comes from --mobilebar-h above so the
+     two cannot drift apart; the safe-area inset is already inside it, so the
+     sheet's own bottom padding goes back to a plain 12. */
+  .consent{ bottom:var(--mobilebar-h); padding-bottom:12px }
 }
 
 

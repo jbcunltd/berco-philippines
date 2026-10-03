@@ -13,7 +13,7 @@ export default function PolicyPage({ slug }) {
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -25,7 +25,7 @@ export default function PolicyPage({ slug }) {
           <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>

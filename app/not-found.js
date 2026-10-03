@@ -6,8 +6,19 @@ import SiteFooter from './components/SiteFooter'
 // robots tag on the same page ("noindex, follow"), which is the kind of
 // disagreement a crawler is entitled to resolve either way. One tag, from the
 // framework. Verified on the live 404 after this change.
+// The description and the canonical are stated here because without them this
+// page INHERITED the homepage's: every 404 on the site carried the homepage's
+// 160-character sales description and, worse, rel=canonical pointing at
+// https://www.bercohome.com/, which tells a crawler that a missing page IS the
+// homepage. A noindex page should not nominate another page as its canonical,
+// and this route answers every unmatched URL on the site, so there is no single
+// self-referencing URL it could nominate instead. So the canonical is dropped
+// rather than redirected: `canonical: null` suppresses the inherited tag, and
+// Next's own noindex is left as the single directive on the page.
 export const metadata = {
   title: 'Page not found | Berco',
+  description: 'This Berco page is no longer here. Start from the homepage, or go straight to a cabinetry collection: kitchens, wardrobes, bathrooms, bedrooms or dining.',
+  alternates: { canonical: null },
 }
 
 export default function NotFound() {
@@ -15,7 +26,7 @@ export default function NotFound() {
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -27,7 +38,7 @@ export default function NotFound() {
           <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>

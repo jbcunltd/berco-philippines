@@ -18,12 +18,25 @@ export const metadata = {
   robots: { index: true, follow: true },
 }
 
+// The visible trail at the top of this page is "Berco · Catalogues", and until
+// now only the 140 design-reference detail pages emitted a BreadcrumbList, so a
+// crawler could read the deepest level of the site and had to guess every level
+// above it.
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Berco', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'Catalogues', item: `${SITE}/catalogues` },
+  ],
+}
+
 export default function Catalogues() {
   return (
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -35,7 +48,7 @@ export default function Catalogues() {
           <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>
@@ -88,6 +101,8 @@ export default function Catalogues() {
       </main>
 
       <SiteFooter />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
     </>
   )
 }

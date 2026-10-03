@@ -98,7 +98,7 @@ export const POLICIES = {
     hero: 'Privacy.',
     lead: 'What this site collects, what sets a cookie and what does not, and how to change your mind.',
     seoTitle: 'Privacy Policy | Berco',
-    seoDesc: 'How Berco handles inquiry details and website measurement: what is collected, which tools set cookies, who processes it, and your rights under the Philippine Data Privacy Act.',
+    seoDesc: 'How Berco handles inquiry details and site measurement: what is collected, which tools set cookies, who sees it, and your rights under the Data Privacy Act.',
     keywords: ['Berco privacy policy', 'data privacy Philippines', 'cookie policy Berco'],
     updated: '3 October 2026',
     sections: [

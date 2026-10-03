@@ -28,7 +28,15 @@ export function generateMetadata({ params }) {
   const { c, im } = f
   const url = `${SITE}/collections/${params.slug}/${im.slug}`
   const image = `${SITE}/img/collections/${params.slug}/${im.src}`
-  const title = `${im.title} | ${c.name} | Berco`
+  // Google prints roughly 60 characters of a title and cuts the rest. The three
+  // part form ran 61-75 on 61 of these 156 pages, and what got cut was always
+  // the same two words, "| Berco", so the brand fell off exactly the results
+  // where the reference name was longest. The collection name is the part that
+  // is redundant: it is in the URL, in the breadcrumb and in the description.
+  // So it is dropped when, and only when, the full form would truncate. All 156
+  // titles stay distinct and all 156 now come in at 60 or under (checked).
+  const full = `${im.title} | ${c.name} | Berco`
+  const title = full.length <= 60 ? full : `${im.title} | Berco`
   // im.metaDesc, not im.blurb. The blurb is the paragraph a visitor reads on the
   // page and runs 275-336 characters; a search result prints about 155, so every
   // one of these was truncated. See the note at the top of collections/data.js.
@@ -99,7 +107,7 @@ export default function Reference({ params }) {
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -111,7 +119,7 @@ export default function Reference({ params }) {
           <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>

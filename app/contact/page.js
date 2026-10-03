@@ -7,7 +7,7 @@ const SITE = 'https://www.bercohome.com'
 export const metadata = {
   title: 'Contact Berco | Custom Cabinetry Inquiries, Philippines',
   description:
-    'Send a cabinetry inquiry to Berco. Tell us the room, the timeline and what is not working now. We reply within one working day.',
+    'Send a cabinetry inquiry to Berco. Tell us the room, the timeline and what is not working now, and we reply within one working day. Mandaluyong and Cebu.',
   keywords: ['contact Berco', 'cabinetry inquiry Philippines', 'custom kitchen quote Cebu', 'book a design consultation'],
   alternates: { canonical: '/contact' },
   openGraph: {
@@ -75,7 +75,7 @@ export default function Contact() {
     <>
       <nav><div className="shell navin">
         <a className="logo" href="/">Berco</a>
-        <div className="navlinks">
+        <div className="navlinks" id="navmenu">
           <a href="/#collections">Collections</a>
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
@@ -87,7 +87,7 @@ export default function Contact() {
           <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
-        <button className="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
       </div></nav>
 
       <a className="skip" href="#main">Skip to content</a>
