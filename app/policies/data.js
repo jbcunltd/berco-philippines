@@ -9,7 +9,22 @@
 // 70-90 day production including freight, 60/30/10 payment.
 //
 // Truth rules that shaped the wording: never hide fees, lead times or payment terms;
-// never state a warranty Berco cannot honour; never imply a completed-project record.
+// never state a warranty Berco cannot honor; never imply a completed-project record.
+//
+// WARRANTY, rewritten 2026-10-04 on the owner's ruling: "Let's have warranty on the
+// hardware based on what the warranty on the hardware is from our suppliers." The page
+// publishes no fixed figure, and here is why. The only hardware warranty document that
+// exists in this workspace is the supplier's own trade manual, "2025 OPPOLIA Wardrobe
+// Accessory Manual-0903.pdf" (Berco Folder / 4 - Catalogue & Products / Catalogue
+// Rebrand / 1 - Source). It carries a per-item "Warranty" field, and the value moves
+// with the item: 1, 2, 3, 5 and 10 years appear across the range. Two things follow.
+// First, there is no single hardware number to print. Second, that manual states a term
+// to Berco as the trade buyer and is silent on whether it passes to the end client,
+// which is still an open question for the Oppolia rep (website backlog item F1).
+// Blum, Hettich, Kessebohmer and Peka hold no warranty document here at all, so no term
+// of theirs is stated or implied. The brand guidelines say warranty terms are
+// project-specific to the final scope, so the page states the principle and sends the
+// figures to the quotation, where they are written against what was actually ordered.
 
 export const POLICY_ORDER = ['delivery-policy', 'returns-policy', 'privacy-policy', 'terms']
 
@@ -45,15 +60,15 @@ export const POLICIES = {
     name: 'Returns & Warranty',
     eyebrow: 'Policy',
     hero: 'Returns & warranty.',
-    lead: 'Custom cabinetry cannot be returned like a shop-bought item. Here is what that means, what is covered, and for how long.',
+    lead: 'Custom cabinetry cannot be returned like a shop-bought item. Here is what that means, what is covered, and where the terms for your project are written down.',
     seoTitle: 'Returns, Cancellation & Warranty Policy | Berco',
-    seoDesc: 'Berco returns and warranty policy: 5-year cabinetry warranty, 1-year installation workmanship, what is covered and how to make a claim.',
+    seoDesc: 'Berco returns and warranty policy: hardware carries its own manufacturer warranty, project terms are set in your quotation, and here is how to make a claim.',
     keywords: ['cabinetry warranty Philippines', 'kitchen cabinet warranty', 'Berco returns policy', 'custom cabinetry cancellation'],
-    updated: '31 July 2026',
+    updated: '4 October 2026',
     sections: [
       { h: 'Custom work cannot be returned', p: 'Everything we make is built to your room and your specification, so it cannot be resold or restocked. Once materials have been fabricated or installation has begun, the order cannot be returned. This is normal for custom cabinetry, and we would rather you read it here than discover it later.' },
       { h: 'Your signed agreement governs the order', p: 'Every project is confirmed by a signed contract and quotation. That agreement sets out the scope, the schedule, the payment stages and what happens in any situation covered by it. Nothing on this page replaces or adds to your contract. Where the two differ, your contract applies.' },
-      { h: 'Orders are a commitment', p: 'Once the contract is signed and the order is placed, it is a firm commitment and cannot be cancelled. Cabinetry is cut and finished to your room, so it cannot be reassigned to another project or returned to the manufacturer. Before you sign, nothing is committed. That is the point to ask every question you have, and we would rather you took the time.' },
+      { h: 'Orders are a commitment', p: 'Once the contract is signed and the order is placed, it is a firm commitment and cannot be canceled. Cabinetry is cut and finished to your room, so it cannot be reassigned to another project or returned to the manufacturer. Before you sign, nothing is committed. That is the point to ask every question you have, and we would rather you took the time.' },
       { h: 'What is not refundable', list: [
         'Custom materials once they have been ordered or fabricated.',
         'Completed installations.',
@@ -61,12 +76,12 @@ export const POLICIES = {
         'Permits, inspection fees and third-party services.',
         'Damage caused by misuse, alteration, or conditions outside normal use.',
       ] },
-      { h: 'Warranty', p: 'Two things are covered, for different lengths of time, because they are different kinds of work.', list: [
-        'Cabinetry: 5 years. Covers manufacturing defects in the cabinetry itself, backed by the manufacturer.',
-        'Our installation workmanship: 1 year. Covers how it was fitted: alignment, fixings and the quality of the install.',
+      { h: 'Warranty', p: 'A project is not one product, so it does not carry one warranty. The terms for yours are written into your quotation, against the scope you actually ordered.', list: [
+        'Hardware carries the warranty its own manufacturer gives. Hinges, runners, lift systems and pull-outs are made by specialist firms, the term differs from one item to the next, and we pass on what the maker gives rather than print a number of our own.',
+        'The cabinetry and the installation are covered on terms set against the final scope. Your quotation states what they are before you commit, not after.',
         'Appliances and electrical items are covered by their own manufacturer warranty, which is provided with the product.',
       ] },
-      { h: 'Service visits', p: 'In the first year, a warranty visit is free. After the first year the cabinetry is still covered and we will supply the replacement part, but the visit and labour are charged. We quote that before we come, so you can decide. We say this plainly because most warranties bury it.' },
+      { h: 'Service visits', p: 'Your quotation says which visits are covered and for how long. Beyond that, the part is still supplied but the visit and the labor are charged, and we quote it before we come so you can decide. We say this plainly because most warranties bury it.' },
       { h: 'If something is wrong', p: 'Contact us with your name and contact details, the project address, your invoice number, a description of the issue and photographs. Photographs matter. They usually let us bring the right part on the first visit instead of the second. We will confirm the next step and a timeframe.' },
       { h: 'Resolving problems', p: 'We will work with you to put things right. If a matter cannot be resolved directly, it may be escalated to mediation or arbitration under Philippine consumer protection law. Your statutory rights are not affected by this policy.' },
     ],

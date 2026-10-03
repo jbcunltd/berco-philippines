@@ -546,7 +546,7 @@
   @media(max-width:820px){ .colgrid{ grid-template-columns:repeat(2,1fr) } }
   @media(max-width:520px){ .colgrid{ grid-template-columns:1fr } }
   /* On a 375x812 phone the consent sheet covered the whole hero headline on
-     arrival, so the first thing a visitor saw was an unlabelled photograph. Both
+     arrival, so the first thing a visitor saw was an unlabeled photograph. Both
      ends were moved: the sheet is shorter (see .consent) and the picture is
      shorter here, which lifts the headline, the lede and both buttons toward the
      fold. min() rather than a vh clamp so a small phone cannot end up with a

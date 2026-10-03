@@ -52,7 +52,7 @@ const FAQ = [
   },
   {
     q: 'What are Berco cabinets actually made of?',
-    a: 'Multi-layer plywood carcases with aluminium kickboards, not particleboard. The plywood is pressed with German MDI adhesive and F4-Star rated, which means no added formaldehyde, and it is moisture-resistant. Surfaces are quartz, edges are PUR or laser-sealed, and the hinges and drawer runners are Austrian and German, calibrated by hand at installation.',
+    a: 'Multi-layer plywood carcases with aluminum kickboards, not particleboard. The plywood is pressed with German MDI adhesive and F4-Star rated, which means no added formaldehyde, and it is moisture-resistant. Surfaces are quartz, edges are PUR or laser-sealed, and the hinges and drawer runners are Austrian and German, calibrated by hand at installation.',
   },
   {
     q: 'Do I need to visit a showroom?',
@@ -60,7 +60,7 @@ const FAQ = [
   },
   {
     q: 'What happens after the cabinets are installed?',
-    a: 'Nothing is handed over until it clears the same check: levelling, alignment, reveal consistency, hardware calibration, cleanliness and a final walk-through. Doors and drawers move over time in any home, so if something needs adjusting afterwards, tell us and we come back for it.',
+    a: 'Nothing is handed over until it clears the same check: leveling, alignment, reveal consistency, hardware calibration, cleanliness and a final walk-through. Doors and drawers move over time in any home, so if something needs adjusting afterwards, tell us and we come back for it.',
   },
 ]
 
@@ -81,8 +81,8 @@ const faqSchema = {
 const STEPS = [
   { n: '01', t: 'Discovery & Vision', p: 'We start at your space, not a showroom. A site visit to measure properly, around bulkheads, uneven walls and real ceiling heights, and a conversation about how you cook, store and live. The design consultation itself is free. The visit is paid and credited to the project, and we tell you what it costs before we book it.' },
   { n: '02', t: 'Design Development', p: 'You see the layout in drawings and design references, with the real materials and hardware on the table. What each choice means for maintenance, durability and everyday use, not only how it looks. We revise until it is right before anything is ordered.' },
-  { n: '03', t: 'Production & Crafting', p: 'Your cabinetry is cut and finished on shared European production lines: multi-layer plywood carcases with aluminium kickboards, quartz surfaces, PUR and laser-sealed edges, and calibrated soft-close hardware. Made to the drawings you approved, then checked before it leaves.' },
-  { n: '04', t: 'Installation & Completion', p: 'One team installs: levelled, aligned, reveals kept consistent, hardware calibrated by hand. The site is cleaned, and everything is checked against our turnover standard before we hand it over.' },
+  { n: '03', t: 'Production & Crafting', p: 'Your cabinetry is cut and finished on shared European production lines: multi-layer plywood carcases with aluminum kickboards, quartz surfaces, PUR and laser-sealed edges, and calibrated soft-close hardware. Made to the drawings you approved, then checked before it leaves.' },
+  { n: '04', t: 'Installation & Completion', p: 'One team installs: leveled, aligned, reveals kept consistent, hardware calibrated by hand. The site is cleaned, and everything is checked against our turnover standard before we hand it over.' },
 ]
 
 

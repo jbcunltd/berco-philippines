@@ -25,7 +25,7 @@ import Script from 'next/script'
 //   and measured, not a preference: most ad click-throughs never touch the
 //   banner at all, so an opt-in gate does not "reduce" Meta measurement, it
 //   starves it. The retargeting audience stops filling, landing-page-view
-//   optimisation loses its signal, the form's Lead event fires for a fraction
+//   optimization loses its signal, the form's Lead event fires for a fraction
 //   of real leads, and cost-per-message - the number every Berco budget
 //   decision is read off - becomes unreadable.
 //
@@ -179,7 +179,7 @@ export default function Consent() {
               Cut from 39 words to 21 on 2026-10-03. At 375x812 the sheet ran to
               four lines and 291px tall, which covered the entire hero headline
               on arrival, so the first thing a phone visitor saw was an
-              unlabelled photograph. This paragraph is also an LCP candidate at
+              unlabeled photograph. This paragraph is also an LCP candidate at
               about 2.1s, competing with the hero photo for the same moment, so
               the shorter it is the less it costs. Nothing true was dropped: it
               still says the advertising cookie is already set and that Decline
