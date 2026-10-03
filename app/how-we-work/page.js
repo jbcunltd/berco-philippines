@@ -1,15 +1,15 @@
 const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
-  title: 'How We Work — Our Cabinetry Process | Berco',
-  description: 'How Berco designs, makes and installs custom cabinetry in the Philippines — and tells you the truth about cost, time and materials before anything is made.',
+  title: 'How We Work: Our Cabinetry Process | Berco',
+  description: 'How Berco designs, makes and installs custom cabinetry in the Philippines, and tells you the truth about cost, time and materials before anything is made.',
   keywords: ['cabinetry process Philippines', 'how custom cabinets are made', 'kitchen design process Philippines', 'Berco process', 'custom cabinetry consultation Philippines'],
   alternates: { canonical: '/how-we-work' },
   openGraph: {
     type: 'website', url: `${SITE}/how-we-work`, siteName: 'Berco',
-    title: 'How We Work — Our Cabinetry Process | Berco',
-    description: 'A transparent cabinetry process: how Berco designs, makes and installs — and tells you the truth before anything is built.',
-    images: [{ url: `${SITE}/img/custom-interiors-philippine-home.jpg`, alt: 'Berco custom interiors — design reference' }],
+    title: 'How We Work: Our Cabinetry Process | Berco',
+    description: 'A transparent cabinetry process: how Berco designs, makes and installs, and tells you the truth before anything is built.',
+    images: [{ url: `${SITE}/img/custom-interiors-philippine-home.jpg`, alt: 'Berco custom interiors design reference' }],
   },
   robots: { index: true, follow: true },
 }
@@ -17,16 +17,16 @@ export const metadata = {
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'How We Work — Our Cabinetry Process | Berco',
+  name: 'How We Work: Our Cabinetry Process | Berco',
   url: `${SITE}/how-we-work`,
-  description: 'How Berco designs, makes and installs custom cabinetry in the Philippines — a transparent, honest process.',
+  description: 'How Berco designs, makes and installs custom cabinetry in the Philippines. A transparent, honest process.',
   about: { '@type': 'HomeAndConstructionBusiness', name: 'Berco', url: SITE, areaServed: { '@type': 'Country', name: 'Philippines' }, parentOrganization: { '@type': 'Organization', name: 'JBC UNLTD CORP', foundingDate: '2017' } },
 }
 
 const STEPS = [
-  { n: '01', t: 'Discovery & Vision', p: 'We start at your space, not a showroom. A site visit to measure properly — around bulkheads, uneven walls and real ceiling heights — and a conversation about how you cook, store and live. We are clear about scope and fees before design begins.' },
-  { n: '02', t: 'Design Development', p: 'You see the layout in drawings and design references, with the real materials and hardware on the table — what each choice means for maintenance, durability and everyday use, not only how it looks. We revise until it is right before anything is ordered.' },
-  { n: '03', t: 'Production & Crafting', p: 'Your cabinetry is cut and finished on shared European production lines — multi-layer plywood carcases with aluminium kickboards, quartz surfaces, PUR and laser-sealed edges, and calibrated soft-close hardware. Made to the drawings you approved, then checked before it leaves.' },
+  { n: '01', t: 'Discovery & Vision', p: 'We start at your space, not a showroom. A site visit to measure properly, around bulkheads, uneven walls and real ceiling heights, and a conversation about how you cook, store and live. The design consultation itself is free. The visit is paid and credited to the project, and we tell you what it costs before we book it.' },
+  { n: '02', t: 'Design Development', p: 'You see the layout in drawings and design references, with the real materials and hardware on the table. What each choice means for maintenance, durability and everyday use, not only how it looks. We revise until it is right before anything is ordered.' },
+  { n: '03', t: 'Production & Crafting', p: 'Your cabinetry is cut and finished on shared European production lines: multi-layer plywood carcases with aluminium kickboards, quartz surfaces, PUR and laser-sealed edges, and calibrated soft-close hardware. Made to the drawings you approved, then checked before it leaves.' },
   { n: '04', t: 'Installation & Completion', p: 'One team installs: levelled, aligned, reveals kept consistent, hardware calibrated by hand. The site is cleaned, and everything is checked against our turnover standard before we hand it over.' },
 ]
 
@@ -57,7 +57,7 @@ export default function HowWeWork() {
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · How we work</span><span>Philippines</span></div>
         <span className="eyebrow">How we work</span>
         <h1>The process is the proof.</h1>
-        <p className="lead">Berco is a new brand — we don&rsquo;t have a decade of photographed projects to point to. So instead of a slideshow, we show you exactly how your cabinetry is designed, made and installed, and we tell you the truth about your space before anything is built.</p>
+        <p className="lead">Berco is a new brand. We don&rsquo;t have a decade of photographed projects to point to. So instead of a slideshow, we show you exactly how your cabinetry is designed, made and installed, and we tell you the truth about your space before anything is built.</p>
       </div></section>
 
       <section className="prec band"><div className="shell">
@@ -82,8 +82,8 @@ export default function HowWeWork() {
               <li>Realistic lead times, and what actually drives them.</li>
               <li>Who your point of contact is, and when you&rsquo;ll hear from us next.</li>
               <li>What a material or finish can and can&rsquo;t do.</li>
-              <li>The carcase and hardware we specify — before you commit.</li>
-              <li>Design fees, project stages, and what happens after handover.</li>
+              <li>The carcase and hardware we specify, before you commit.</li>
+              <li>What the site measurement costs, the project stages, and what happens after handover.</li>
             </ul>
           </div>
           {/* The "What we won't do" column was removed 2026-08-02 on Jumbo's call:
@@ -116,13 +116,13 @@ export default function HowWeWork() {
 
       <section className="jbc band"><div className="shell in">
         <h2 className="reveal">The backing behind a new brand.</h2>
-        <p className="reveal">Berco is a brand of JBC UNLTD CORP, operating in the Philippines since 2017 — with real experience coordinating, importing and installing premium home products. Offered as provenance, not as Berco&rsquo;s own cabinetry portfolio.</p>
+        <p className="reveal">Berco is a brand of JBC UNLTD CORP, operating in the Philippines since 2017, with real experience coordinating, importing and installing premium home products. Offered as provenance, not as Berco&rsquo;s own cabinetry portfolio.</p>
       </div></section>
 
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
+        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead.</p>
       </div></section>
 
       </main>
@@ -130,7 +130,7 @@ export default function HowWeWork() {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -158,7 +158,7 @@ export default function HowWeWork() {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

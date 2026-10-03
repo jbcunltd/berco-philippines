@@ -19,7 +19,7 @@ export function generateMetadata({ params }) {
     alternates: { canonical: `/catalogues/${params.slug}` },
     openGraph: {
       type: 'website', url, siteName: 'Berco', title: c.seoTitle, description: c.seoDesc,
-      images: [{ url: `${SITE}${c.cover}`, alt: `${c.name} — cover` }],
+      images: [{ url: `${SITE}${c.cover}`, alt: `${c.name} cover` }],
     },
     twitter: { card: 'summary_large_image', title: c.seoTitle, description: c.seoDesc, images: [`${SITE}${c.cover}`] },
     robots: { index: true, follow: true },
@@ -87,7 +87,7 @@ export default function Catalogue({ params }) {
       </div></section>
 
       <section className="band catrange catread"><div className="shell">
-        <p className="viewslabel" id="read">Read it here — all {c.pages} {c.pages === 1 ? 'page' : 'pages'}</p>
+        <p className="viewslabel" id="read">Read it here, all {c.pages} {c.pages === 1 ? 'page' : 'pages'}</p>
         <div className="catpages">
           {Array.from({ length: c.pages }, (_, i) => {
             const n = String(i + 1).padStart(2, '0')
@@ -134,7 +134,7 @@ export default function Catalogue({ params }) {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -159,7 +159,7 @@ export default function Catalogue({ params }) {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

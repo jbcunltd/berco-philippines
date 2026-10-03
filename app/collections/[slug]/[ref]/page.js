@@ -27,7 +27,7 @@ export function generateMetadata({ params }) {
   const { c, im } = f
   const url = `${SITE}/collections/${params.slug}/${im.slug}`
   const image = `${SITE}/img/collections/${params.slug}/${im.src}`
-  const title = `${im.title} — ${c.name} | Berco`
+  const title = `${im.title} | ${c.name} | Berco`
   return {
     title,
     description: im.blurb,
@@ -57,19 +57,21 @@ export default function Reference({ params }) {
     caption: im.alt,
     description: im.blurb,
     contentUrl: `${SITE}${src}`,
-    creditText: 'Berco — design reference',
+    creditText: 'Berco design reference',
     isPartOf: { '@type': 'CollectionPage', name: c.name, url: `${SITE}/collections/${params.slug}` },
-    author: { '@type': 'Organization', name: 'Berco', url: SITE },
-    // Search Console flagged four missing Image Metadata fields (non-critical).
-    // Two are added here because they are simply true, and they assert ownership
-    // of imagery that is otherwise easy to lift.
-    creator: { '@type': 'Organization', name: 'Berco', url: SITE },
-    copyrightNotice: '© 2026 JBC UNLTD CORP',
-    // The other two - "license" and "acquireLicensePage" - are deliberately NOT
-    // added. They drive Google's "Licensable" badge, which tells searchers the
-    // image can be licensed from us. These are design references, not stock we
-    // sell rights to. Silencing a non-critical warning is not worth publishing a
-    // claim that isn't true, so Search Console will keep listing those two.
+    // NO author, creator or copyrightNotice here, and they must not come back.
+    // These are supplier renders. We did not photograph them, draw them or
+    // commission them, so "author: Berco", "creator: Berco" and
+    // "copyrightNotice: (c) 2026 JBC UNLTD CORP" were a copyright claim over
+    // someone else's work, repeated across about 160 pages. They were added to
+    // silence a Search Console "missing Image Metadata" warning, which is
+    // non-critical and is the wrong reason to publish a claim that is not true.
+    // creditText stays: "design reference" is exactly what these are, and it is
+    // the same thing every page says in words.
+    //
+    // "license" and "acquireLicensePage" are absent for the same reason. They
+    // drive Google's Licensable badge, which tells searchers the image can be
+    // licensed from us. It cannot.
   }
 
   return (
@@ -112,7 +114,7 @@ export default function Reference({ params }) {
                 <button className="viewthumb" type="button" data-view={`/img/collections/${params.slug}/${v}`}
                   aria-current={k === 0 ? 'true' : 'false'}
                   aria-label={`View ${k + 1} of ${im.title}`} key={v}>
-                  <Pic src={`/img/collections/${params.slug}/${v}`} alt={`${im.title} — view ${k + 1}`} sizes="(max-width:720px) 22vw, 12vw" loading="lazy" width="1600" height="900" />
+                  <Pic src={`/img/collections/${params.slug}/${v}`} alt={`${im.title}, view ${k + 1}`} sizes="(max-width:720px) 22vw, 12vw" loading="lazy" width="1600" height="900" />
                 </button>
               ))}
             </div>
@@ -132,7 +134,7 @@ export default function Reference({ params }) {
 
         <div className="refbody reveal">
           <p className="refblurb">{im.blurb}</p>
-          <p className="refnote">This is a design reference — a starting point for your own space, not a completed Berco project. Every Berco kitchen or wardrobe is drawn, measured and specified to your room.</p>
+          <p className="refnote">This is a design reference, a starting point for your own space, not a completed Berco project. Every Berco kitchen or wardrobe is drawn, measured and specified to your room.</p>
           <div className="acts">
             <a className="btn" href="/contact">Book a design consultation →</a>
             <a className="link" href={`/collections/${params.slug}`}>← Back to {c.name}</a>
@@ -158,7 +160,7 @@ export default function Reference({ params }) {
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">A design engagement fee secures the design phase — deductible from the project. Or message us on <a href="https://m.me/bercophilippines?ref=collection-detail" rel="noopener">Messenger</a>, or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
+        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead. Or message us on <a href="https://m.me/bercophilippines?ref=collection-detail" rel="noopener">Messenger</a>, or call <a href="tel:+639178000730">0917 800 0730</a>.</p>
       </div></section>
 
       </main>
@@ -166,7 +168,7 @@ export default function Reference({ params }) {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -191,7 +193,7 @@ export default function Reference({ params }) {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

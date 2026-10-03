@@ -4,14 +4,14 @@ import Pic from '../components/Pic'
 const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
-  title: 'Catalogues — Read or Download | Berco',
-  description: 'The Berco catalogues — the 2026 Catalogue, Interior Systems, Materials & Finishes, and the Technical Specification. Read each one here or download the PDF.',
+  title: 'Catalogues: Read or Download | Berco',
+  description: 'The Berco catalogues: the 2026 Catalogue, Interior Systems, Materials & Finishes, and the Technical Specification. Read each one here or download the PDF.',
   keywords: ['Berco catalogue', 'cabinetry catalogue Philippines', 'interior systems catalogue', 'kitchen materials catalogue Philippines'],
   alternates: { canonical: '/catalogues' },
   openGraph: {
     type: 'website', url: `${SITE}/catalogues`, siteName: 'Berco',
-    title: 'Catalogues — Read or Download | Berco',
-    description: 'The Berco catalogues — collections, interior systems, materials and technical specification. Read them here or download the PDFs.',
+    title: 'Catalogues: Read or Download | Berco',
+    description: 'The Berco catalogues: collections, interior systems, materials and technical specification. Read them here or download the PDFs.',
     images: [{ url: `${SITE}/img/covers/catalogue-2026-cover.jpg`, alt: 'Berco 2026 Catalogue cover' }],
   },
   robots: { index: true, follow: true },
@@ -44,7 +44,7 @@ export default function Catalogues() {
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · Catalogues</span><span>Philippines</span></div>
         <span className="eyebrow">The books</span>
         <h1>Catalogues.</h1>
-        <p className="lead">How a Berco kitchen is planned, what goes inside it, and what it is made of — in four books. Read each one right here, page by page, or download the PDF.</p>
+        <p className="lead">How a Berco kitchen is planned, what goes inside it, and what it is made of, in four books. Read each one right here, page by page, or download the PDF.</p>
       </div></section>
 
       <section className="band"><div className="shell">
@@ -65,7 +65,7 @@ export default function Catalogues() {
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">A design engagement fee secures the design phase — deductible from the project. Or message us on <a href="https://m.me/bercophilippines?ref=catalogues-index" rel="noopener">Messenger</a>.</p>
+        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead. Or message us on <a href="https://m.me/bercophilippines?ref=catalogues-index" rel="noopener">Messenger</a>.</p>
       </div></section>
 
       </main>
@@ -73,7 +73,7 @@ export default function Catalogues() {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -96,7 +96,7 @@ export default function Catalogues() {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
     </>
   )

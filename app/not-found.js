@@ -31,7 +31,7 @@ export default function NotFound() {
       <section className="band pgintro nf"><div className="shell">
         <span className="eyebrow">404</span>
         <h1>This page has moved on.</h1>
-        <p className="lead">The page you were looking for isn&rsquo;t here — but the good part of the house still is. Start from the beginning, or step straight into a collection.</p>
+        <p className="lead">The page you were looking for isn&rsquo;t here. But the good part of the house still is. Start from the beginning, or step straight into a collection.</p>
         <div className="acts">
           <a className="btn" href="/">Back to home →</a>
           <a className="link" href="/how-we-work">How we work</a>
@@ -49,7 +49,7 @@ export default function NotFound() {
       </main>
 
       <footer><div className="shell">
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
     </>
   )

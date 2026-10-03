@@ -2,15 +2,15 @@ import Pic from '../components/Pic'
 const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
-  title: 'For Designers & Architects — Specification | Berco',
+  title: 'For Designers & Architects: Specification | Berco',
   description: 'Trade resources for architects and interior designers: the Berco catalogues, the Materials & Finishes library and the technical specification.',
   keywords: ['Berco for designers', 'cabinetry catalogue Philippines', 'interior systems catalogue', 'kitchen specification Philippines', 'trade cabinetry Philippines', 'architect resources cabinetry'],
   alternates: { canonical: '/for-designers' },
   openGraph: {
     type: 'website', url: `${SITE}/for-designers`, siteName: 'Berco',
-    title: 'For Designers & Architects — Catalogues & Specification | Berco',
+    title: 'For Designers & Architects: Catalogues & Specification | Berco',
     description: 'Download the Berco catalogue, the Interior Systems catalogue, the Materials & Finishes library and the technical specification. Specification support for architects and designers.',
-    images: [{ url: `${SITE}/img/custom-interiors-philippine-home.jpg`, alt: 'Berco custom interiors — design reference' }],
+    images: [{ url: `${SITE}/img/custom-interiors-philippine-home.jpg`, alt: 'Berco custom interiors design reference' }],
   },
   robots: { index: true, follow: true },
 }
@@ -20,21 +20,21 @@ const schema = {
   '@type': 'WebPage',
   name: 'For Designers & Architects | Berco',
   url: `${SITE}/for-designers`,
-  description: 'Trade resources for architects and interior designers — catalogues and technical specification from Berco.',
+  description: 'Trade resources for architects and interior designers: catalogues and technical specification from Berco.',
   about: { '@type': 'HomeAndConstructionBusiness', name: 'Berco', url: SITE, areaServed: { '@type': 'Country', name: 'Philippines' }, parentOrganization: { '@type': 'Organization', name: 'JBC UNLTD CORP', foundingDate: '2017' } },
 }
 
 const DOWNLOADS = [
-  { t: 'Berco Catalogue 2026', d: 'The full brand catalogue — collections, materials, the making process and the Berco turnover standard.', href: '/catalogues/2026-catalogue', meta: 'PDF', cover: '/img/covers/catalogue-2026-cover.jpg', coverAlt: 'Cover of the Berco Catalogue 2026' },
-  { t: 'Interior Systems Catalogue', d: 'The complete fitted-storage, organisation and sink range — drawer organisation, larders, corner solutions, worktop integration, sinks & taps — with codes, sizes and cabinet fits.', href: '/catalogues/interior-systems', meta: 'PDF', cover: '/img/covers/interior-systems-cover.jpg', coverAlt: 'Cover of the Berco Interior Systems specification catalogue' },
-  { t: 'Technical Specification', d: 'Carcase and board, the nine door-front types, edging, countertops, hardware and production \u2014 every material named, with the codes and figures you specify against. A print-friendly PDF.', href: '/catalogues/technical-specification', meta: 'PDF \u00b7 10pp', cover: '/img/covers/technical-spec-cover.jpg', coverAlt: 'Cover of the Berco Technical Specification' },
-  { t: 'Materials & Finishes 2026', d: 'Two complete schemes and a comparison of the four ways a door edge can be finished, then Part One — the selection, 50 finishes edited down to a working palette, each family shown in a room and as cabinetry. Part Two is the complete range, more than 300 finishes, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. Every swatch carries its material code, so a finish can be scheduled and checked against the specification directly. Room approvals, care notes and an A–Z index at the back.', href: '/catalogues/materials-finishes', meta: 'PDF · 48pp', cover: '/img/covers/materials-finishes-cover.jpg', coverAlt: 'Cover of the Berco Materials and Finishes 2026 library' },
+  { t: 'Berco Catalogue 2026', d: 'The full brand catalogue: collections, materials, the making process and the Berco turnover standard.', href: '/catalogues/2026-catalogue', meta: 'PDF', cover: '/img/covers/catalogue-2026-cover.jpg', coverAlt: 'Cover of the Berco Catalogue 2026' },
+  { t: 'Interior Systems Catalogue', d: 'The complete fitted-storage, organisation and sink range: drawer organisation, larders, corner solutions, worktop integration, sinks & taps, with codes, sizes and cabinet fits.', href: '/catalogues/interior-systems', meta: 'PDF', cover: '/img/covers/interior-systems-cover.jpg', coverAlt: 'Cover of the Berco Interior Systems specification catalogue' },
+  { t: 'Technical Specification', d: 'Carcase and board, the nine door-front types, edging, countertops, hardware and production. Every material named, with the codes and figures you specify against. A print-friendly PDF.', href: '/catalogues/technical-specification', meta: 'PDF \u00b7 10pp', cover: '/img/covers/technical-spec-cover.jpg', coverAlt: 'Cover of the Berco Technical Specification' },
+  { t: 'Materials & Finishes 2026', d: 'Two complete schemes and a comparison of the four ways a door edge can be finished, then Part One, the selection, 50 finishes edited down to a working palette, each family shown in a room and as cabinetry. Part Two is the complete range, more than 300 finishes, grouped by the material each is made from: melamine, film, lacquer, high-gloss UV, powder-coat, PET, veneer, leather, quartz and sintered stone worktops, and carcase panels. Every swatch carries its material code, so a finish can be scheduled and checked against the specification directly. Room approvals, care notes and an A–Z index at the back.', href: '/catalogues/materials-finishes', meta: 'PDF · 48pp', cover: '/img/covers/materials-finishes-cover.jpg', coverAlt: 'Cover of the Berco Materials and Finishes 2026 library' },
 ]
 
 const GET = [
-  { t: 'Named specification', p: 'Real materials and hardware you can put on a schedule — multi-layer plywood carcases with aluminium kickboards \u2014 with MDF, particleboard or full aluminium cabinetry offered to suit the project \u2014 quartz, PUR and laser-sealed edges, Kesseböhmer and Peka fittings — with sizes and cabinet fits, not vague promises.' },
+  { t: 'Named specification', p: 'Real materials and hardware you can put on a schedule: multi-layer plywood carcases with aluminium kickboards (with MDF, particleboard or full aluminium cabinetry offered to suit the project), quartz, PUR and laser-sealed edges, Kesseböhmer and Peka fittings, with sizes and cabinet fits, not vague promises.' },
   { t: 'One team, drawing to install', p: 'The people who draw it coordinate the make and the install. Fewer hand-offs, one point of accountability from concept to turnover.' },
-  { t: 'The truth, up front', p: 'Honest lead times and what drives them, and where a layout won’t work — told to you before anything is ordered, so your drawings hold.' },
+  { t: 'The truth, up front', p: 'Honest lead times and what drives them, and where a layout won’t work. Told to you before anything is ordered, so your drawings hold.' },
 ]
 
 export default function ForDesigners() {
@@ -64,7 +64,7 @@ export default function ForDesigners() {
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · For designers</span><span>Philippines</span></div>
         <span className="eyebrow">For architects &amp; designers</span>
         <h1>Specify with confidence.</h1>
-        <p className="lead">Everything you need to draw Berco into a project — the catalogues, the technical specification, and a team that answers at specification stage. Named materials and hardware, real sizes and cabinet fits, and honest lead times before anything is ordered.</p>
+        <p className="lead">Everything you need to draw Berco into a project: the catalogues, the technical specification, and a team that answers at specification stage. Named materials and hardware, real sizes and cabinet fits, and honest lead times before anything is ordered.</p>
       </div></section>
 
       <section className="band"><div className="shell">
@@ -99,7 +99,7 @@ export default function ForDesigners() {
 
       <section className="jbc band"><div className="shell in">
         <h2 className="reveal">Explore the range first.</h2>
-        <p className="reveal">See the collections and the full Interior Systems range in reference before you specify. Every image is a design reference, not a completed project — the honest way we show a new brand.</p>
+        <p className="reveal">See the collections and the full Interior Systems range in reference before you specify. Every image is a design reference, not a completed project. The honest way we show a new brand.</p>
         <div className="acts reveal" style={{ marginTop: '18px' }}>
           <a className="link" href="/collections/interior-systems">Interior Systems →</a>
           <a className="link" href="/#collections" style={{ marginLeft: '22px' }}>All collections →</a>
@@ -117,7 +117,7 @@ export default function ForDesigners() {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -145,7 +145,7 @@ export default function ForDesigners() {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

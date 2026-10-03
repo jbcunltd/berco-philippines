@@ -46,7 +46,7 @@ export default function PolicyPage({ slug }) {
               {s.list && <ul>{s.list.map((l, k) => <li key={k}>{l}</li>)}</ul>}
             </div>
           ))}
-          <p className="note">Last updated {p.updated}. Berco is a brand of JBC UNLTD CORP. Specific terms for your project — including dates, fees and scope — are set out in your written quotation, which takes precedence over this page.</p>
+          <p className="note">Last updated {p.updated}. Berco is a brand of JBC UNLTD CORP. Specific terms for your project (including dates, fees and scope) are set out in your written quotation, which takes precedence over this page.</p>
           <div className="acts" style={{ marginTop: 'clamp(24px,3.4vh,36px)' }}>
             <a className="link" href={`/${other}`}>{POLICIES[other].name} →</a>
           </div>
@@ -64,7 +64,7 @@ export default function PolicyPage({ slug }) {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -86,7 +86,7 @@ export default function PolicyPage({ slug }) {
           </div>
         </div>
         <div className="legal">
-          <span>© 2026 Berco — JBC UNLTD CORP.</span>
+          <span>© 2026 Berco. JBC UNLTD CORP.</span>
           <span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span>
         </div>
       </div></footer>

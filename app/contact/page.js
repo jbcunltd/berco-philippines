@@ -6,7 +6,7 @@ const SITE = 'https://www.bercohome.com'
 export const metadata = {
   title: 'Contact Berco | Custom Cabinetry Inquiries, Philippines',
   description:
-    'Send a cabinetry inquiry to Berco. Tell us the room, the timeline and what is not working now — we reply within one working day.',
+    'Send a cabinetry inquiry to Berco. Tell us the room, the timeline and what is not working now. We reply within one working day.',
   keywords: ['contact Berco', 'cabinetry inquiry Philippines', 'custom kitchen quote Cebu', 'book a design consultation'],
   alternates: { canonical: '/contact' },
   openGraph: {
@@ -98,7 +98,7 @@ export default function Contact() {
           <span className="eyebrow">Start here</span>
           <h1>Tell us about your space.</h1>
           <p className="lead">A few details are enough to begin. We will come back within one working
-            day with the next step — no obligation, and no pressure to decide anything yet.</p>
+            day with the next step. No obligation, and no pressure to decide anything yet.</p>
         </div>
 
         {/* ~90% of this traffic is on a phone, where the natural actions are one tap each.
@@ -132,7 +132,7 @@ export default function Contact() {
           <div className="formlead reveal">
             <span className="eyebrow">Or send the details</span>
             <h2>Rather not call yet?</h2>
-            <p>Four things and we can come back to you properly — no need to explain everything now.</p>
+            <p>Four things and we can come back to you properly. No need to explain everything now.</p>
           </div>
           <noscript>
             <div className="formfail">
@@ -160,7 +160,7 @@ export default function Contact() {
             </p>
             <p className="cside-item">
               <span className="cside-k">Company</span>
-              <span>Berco, a brand of JBC UNLTD CORP — Philippines, established 2017</span>
+              <span>Berco, a brand of JBC UNLTD CORP. Philippines, established 2017</span>
             </p>
           </div>
 
@@ -171,15 +171,15 @@ export default function Contact() {
             <h2>Where we are</h2>
             <p className="cside-item">
               <span className="cside-k">Metro Manila</span>
-              <span>Mandaluyong — office and product showcase</span>
+              <span>Mandaluyong: office and product showcase</span>
             </p>
             <p className="cside-item">
               <span className="cside-k">Visayas</span>
-              <span>Cebu — office and product showcase</span>
+              <span>Cebu: office and product showcase</span>
             </p>
             <p className="cside-note">You are welcome to come and see the materials, hardware and
               finishes in person. Visits are by appointment so a designer is free to walk you
-              through it — tell us above which is easier for you and we will send the address
+              through it. Tell us above which is easier for you and we will send the address
               with a time.</p>
           </div>
 
@@ -201,15 +201,16 @@ export default function Contact() {
           <li><span className="nextnum">04</span><h3>You get a design and a quotation</h3>
             <p>In writing, within 7 working days of an agreed scope.</p></li>
         </ol>
-        <p className="nextnote reveal">A design engagement fee secures the design phase, and it is deductible
-          from the project. We will tell you what it is before you commit to anything.</p>
+        <p className="nextnote reveal">The design consultation is free. The site measurement visit is paid, and it is
+          credited to your project when you go ahead. We tell you what it costs in the
+          conversation, before you commit to anything.</p>
       </div></section>
 
       <section className="band"><div className="shell tradeband reveal">
         <div className="tradeband-txt">
           <span className="eyebrow">Trade</span>
           <h2>Working with a designer or architect?</h2>
-          <p>There is a separate route for trade specification — drawings, material schedules and lead times.</p>
+          <p>There is a separate route for trade specification: drawings, material schedules and lead times.</p>
         </div>
         <a className="btn" href="/for-designers">For designers →</a>
       </div></section>
@@ -219,7 +220,7 @@ export default function Contact() {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -244,7 +245,7 @@ export default function Contact() {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

@@ -96,7 +96,7 @@ export async function POST(req) {
         from: FROM,
         to: [TO],
         ...(fields.email ? { reply_to: fields.email } : {}),
-        subject: `Inquiry — ${fields.plan}, ${fields.when} — ${fields.name}`,
+        subject: `Inquiry: ${fields.plan}, ${fields.when}, ${fields.name}`,
         html,
         text,
       }),

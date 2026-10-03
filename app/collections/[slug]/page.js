@@ -19,7 +19,7 @@ export function generateMetadata({ params }) {
     description: c.seoDesc,
     keywords: c.keywords,
     alternates: { canonical: `/collections/${params.slug}` },
-    openGraph: { type: 'website', url, siteName: 'Berco', title: c.seoTitle, description: c.seoDesc, images: [{ url: hero, alt: `${c.name} — Berco design reference` }] },
+    openGraph: { type: 'website', url, siteName: 'Berco', title: c.seoTitle, description: c.seoDesc, images: [{ url: hero, alt: `${c.name}. Berco design reference` }] },
     twitter: { card: 'summary_large_image', title: c.seoTitle, description: c.seoDesc, images: [hero] },
     robots: { index: true, follow: true },
   }
@@ -92,7 +92,7 @@ export default function Collection({ params }) {
 
       <section className="band"><div className="shell catbody reveal">
         <p className="catlead">{c.body}</p>
-        <p className="refnote">Every image here is a design reference — a starting point for your space, not a completed Berco project.</p>
+        <p className="refnote">Every image here is a design reference, a starting point for your space, not a completed Berco project.</p>
       </div></section>
 
       {c.types && (
@@ -151,7 +151,7 @@ export default function Collection({ params }) {
 
       <section className="prec band"><div className="shell reveal">
         <div className="sh"><h2>How your cabinetry is built.</h2><span className="eyebrow">Materials &amp; craft</span></div>
-        <p className="catlead">Quartz worktops, multi-layer plywood carcases with aluminium kickboards, sealed PUR &amp; laser edges, and calibrated Austrian and German soft-close hardware — specified to materials we can name, then measured and fitted by one team.</p>
+        <p className="catlead">Quartz worktops, multi-layer plywood carcases with aluminium kickboards, sealed PUR &amp; laser edges, and calibrated Austrian and German soft-close hardware, specified to materials we can name, then measured and fitted by one team.</p>
         <div className="acts"><a className="link" href="/#precision">See materials &amp; craft →</a></div>
       </div></section>
 
@@ -170,7 +170,7 @@ export default function Collection({ params }) {
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
+        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead.</p>
       </div></section>
 
       </main>
@@ -178,7 +178,7 @@ export default function Collection({ params }) {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -203,7 +203,7 @@ export default function Collection({ params }) {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

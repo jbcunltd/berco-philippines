@@ -123,7 +123,7 @@ export default function ScrollFilm({ name, tiers = ['t', 'm', 'w'], alt, overlay
     <div className="film-track" ref={trackRef}>
       <div className="film-pin">
         <div className="shell hero-stage">
-          <div className="masthead"><span>Berco — Custom Cabinetry &amp; Interiors</span><span>Philippines</span></div>
+          <div className="masthead"><span>Berco: Custom Cabinetry &amp; Interiors</span><span>Philippines</span></div>
           <div className="film-frame">
           <div className="film" ref={filmRef}>
             <picture>

@@ -4,15 +4,15 @@ import Pic from '../components/Pic'
 const SITE = 'https://www.bercohome.com'
 
 export const metadata = {
-  title: 'Collections — Custom Cabinetry by Space | Berco',
-  description: 'Berco custom cabinetry by space — kitchens, wardrobes, living & media, bedrooms, bathrooms and dining for Philippine homes. Explore each collection.',
+  title: 'Collections: Custom Cabinetry by Space | Berco',
+  description: 'Berco custom cabinetry by space: kitchens, wardrobes, living & media, bedrooms, bathrooms and dining for Philippine homes. Explore each collection.',
   keywords: ['custom cabinetry collections Philippines', 'kitchen wardrobe cabinetry Philippines', 'built-in storage Philippines', 'Berco collections'],
   alternates: { canonical: '/collections' },
   openGraph: {
     type: 'website', url: `${SITE}/collections`, siteName: 'Berco',
-    title: 'Collections — Custom Cabinetry by Space | Berco',
-    description: 'Custom cabinetry by space — kitchens, wardrobes, living, bedrooms, bathrooms and dining for Philippine homes.',
-    images: [{ url: `${SITE}/img/custom-kitchen-cabinetry-philippines.jpg`, alt: 'Berco custom cabinetry — design reference' }],
+    title: 'Collections: Custom Cabinetry by Space | Berco',
+    description: 'Custom cabinetry by space: kitchens, wardrobes, living, bedrooms, bathrooms and dining for Philippine homes.',
+    images: [{ url: `${SITE}/img/custom-kitchen-cabinetry-philippines.jpg`, alt: 'Berco custom cabinetry design reference' }],
   },
   robots: { index: true, follow: true },
 }
@@ -46,7 +46,7 @@ export default function Collections() {
         <div className="masthead"><span><a href="/" className="crumb">Berco</a> · Collections</span><span>Philippines</span></div>
         <span className="eyebrow">What we make</span>
         <h1>Cabinetry, by space.</h1>
-        <p className="lead">Kitchens, wardrobes, living and media, bedrooms, bathrooms and dining — custom cabinetry designed, measured and built for how each room is actually used. Every image is a design reference.</p>
+        <p className="lead">Kitchens, wardrobes, living and media, bedrooms, bathrooms and dining. Custom cabinetry designed, measured and built for how each room is actually used. Every image is a design reference.</p>
       </div></section>
 
       <section className="band"><div className="shell">
@@ -69,7 +69,7 @@ export default function Collections() {
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">A design engagement fee secures the design phase — deductible from the project.</p>
+        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead.</p>
       </div></section>
 
       </main>
@@ -77,7 +77,7 @@ export default function Collections() {
       <footer><div className="shell">
         <div className="footgrid">
           <div>
-            <div className="footlock" role="img" aria-label="Berco — The Heart of Your Home">Berco — The Heart of Your Home</div>
+            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
             <div className="foot-contact">
               <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
               <a href="tel:+639178000730">0917 800 0730</a><br/>
@@ -102,7 +102,7 @@ export default function Collections() {
             <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
           </div>
         </div>
-        <div className="legal"><span>© 2026 Berco — JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
+        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
       </div></footer>
     </>
   )

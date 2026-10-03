@@ -18,7 +18,7 @@ function composeFallback(v) {
     `Planning: ${v.plan}`, `Timeline: ${v.when}`,
     '', v.message || '',
   ].filter((l) => l !== undefined && l !== false).join('\n')
-  return `mailto:sales@bercohome.com?subject=${encodeURIComponent(`Inquiry — ${v.plan || 'Cabinetry'} — ${v.name}`)}&body=${encodeURIComponent(body)}`
+  return `mailto:sales@bercohome.com?subject=${encodeURIComponent(`Inquiry: ${v.plan || 'Cabinetry'}, ${v.name}`)}&body=${encodeURIComponent(body)}`
 }
 
 export default function InquiryForm() {
@@ -87,7 +87,7 @@ export default function InquiryForm() {
       <div className="formdone" ref={doneRef} tabIndex={-1} role="status">
         <span className="eyebrow">Received</span>
         <h2>Thank you, {v.name.split(' ')[0] || 'and welcome'}.</h2>
-        <p>Your inquiry is with our design team. Someone will reply within one working day — usually
+        <p>Your inquiry is with our design team. Someone will reply within one working day, usually
           sooner. If it is urgent, call <a href="tel:+639178000730">0917 800 0730</a>.</p>
         <p className="formnext">While you wait, the <a href="/catalogues/2026-catalogue">2026 catalogue</a> shows
           the range, and <a href="/how-we-work">how we work</a> walks through what happens next.</p>
@@ -112,7 +112,7 @@ export default function InquiryForm() {
     <form className="iform" onSubmit={submit} noValidate>
       {state === 'failed' && (
         <div className="formfail" role="alert" tabIndex={-1} ref={alertRef}>
-          <p><strong>{failMsg}</strong> Nothing you typed is lost — send it as an email instead
+          <p><strong>{failMsg}</strong> Nothing you typed is lost. Send it as an email instead
             and it will arrive the same way.</p>
           <a className="btn" href={composeFallback(v)}>Send this as an email →</a>
           <p className="formfail-alt">Or message us on <a href="https://m.me/bercophilippines" rel="noopener">Facebook</a>,
@@ -171,7 +171,7 @@ export default function InquiryForm() {
           </div>
           <p className="fld">
             <label htmlFor="message">Tell us about the space</label>
-            <textarea rows={4} placeholder="The room, roughly how big, what is not working about it now — anything that helps us prepare." {...field('message')} />
+            <textarea rows={4} placeholder="The room, roughly how big, what is not working about it now, anything that helps us prepare." {...field('message')} />
           </p>
         </div>
       </details>
@@ -188,7 +188,7 @@ export default function InquiryForm() {
           {state === 'sending' ? 'Sending…' : 'Send inquiry →'}
         </button>
         <p className="formnote">We reply within one working day. Your details are used to answer
-          this inquiry and nothing else — we do not sell or share them.</p>
+          this inquiry and nothing else. We do not sell or share them.</p>
       </div>
     </form>
   )
