@@ -836,10 +836,12 @@
      link onto a second one on its own, which read as a mistake. Let it size to
      the bar; the mobile rule below stacks it anyway. */
   .consent-txt{ margin:0; font-size:13px; line-height:1.55; color:var(--ink-soft) }
-  /* inline-block + equal negative margin: a 44px hit box on a link that lives
-     inside a 12.5px sentence, without moving the sentence. */
-  .consent-txt a{ display:inline-block; color:var(--ink); text-decoration:none;
-    border-bottom:1px solid var(--champ); padding:13px 6px 12px; margin:-13px -6px -12px }
+  /* Transparent overlay, not padding. This link carries a gold rule under the
+     word, and padding pushed that rule 13px down the banner. */
+  .consent-txt a{ position:relative; color:var(--ink); text-decoration:none;
+    border-bottom:1px solid var(--champ); padding-bottom:1px }
+  .consent-txt a::after{ content:""; position:absolute; left:-6px; right:-6px;
+    top:50%; height:44px; transform:translateY(-50%) }
   .consent-acts{ display:flex; align-items:center; gap:10px; flex:0 0 auto }
   .consent-yes,.consent-no{ font-family:var(--sans); font-size:11.5px; letter-spacing:.09em;
     text-transform:uppercase; font-weight:600; height:46px; padding:0 20px; border-radius:2px;
