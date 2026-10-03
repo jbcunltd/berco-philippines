@@ -30,8 +30,12 @@ const CSP = [
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://connect.facebook.net",
-  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+  // The doubleclick hosts are here because GA4 pings them for Google signals
+  // once consent is updated to granted, and a CSP that blocks them would break
+  // measurement silently, on the Accept path only, which is the hardest kind of
+  // failure to notice.
+  "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net",
+  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://td.doubleclick.net https://connect.facebook.net https://www.facebook.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
   "frame-src 'self' https://www.facebook.com",
   "media-src 'self'",
   "object-src 'none'",

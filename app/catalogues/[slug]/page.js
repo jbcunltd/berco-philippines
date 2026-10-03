@@ -112,7 +112,11 @@ export default function Catalogue({ params }) {
           })}
         </div>
         <div className="acts reveal" style={{ marginTop: 'clamp(28px,4vh,44px)' }}>
-          <a className="btn" href={c.pdf} download>Download the full PDF, {c.size} →</a>
+          {/* One template string, not `PDF, {c.size} →`. Three JSX children put
+              React's `<!-- -->` text separators through the middle of the label
+              in the HTML, which reads correctly in the DOM but not to anything
+              grepping the markup for the file size. */}
+          <a className="btn" href={c.pdf} download>{`Download the full PDF, ${c.size} →`}</a>
         </div>
         <p className="note reveal">Prices are quoted per project on a proposal, not in the catalogues. For a live specification, talk to a Berco designer.</p>
       </div></section>
