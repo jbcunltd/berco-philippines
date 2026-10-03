@@ -726,20 +726,34 @@
   .cover-standfirst .acts{ margin:0; flex-wrap:nowrap }
 }
 
-/* ---- keep below-the-fold photos out of the hero's pipe ----------------------
-   Measured on a 3x phone over slow 4G, 2026-10-03. loading="lazy" is not enough:
-   Chrome's lazy-load distance threshold on a slow connection is ~3,000px, so the
-   first three collection cards (150 KB) and three of the four catalogue covers
-   (267 KB) started downloading at ~0.98 s while the hero photo was still
-   arriving, and the hero finished 2.5 s after it was requested instead of the
-   0.5 s its 96 KB actually needs on that pipe.
+/* ---- keep below-the-fold bytes out of the hero's pipe ----------------------
+   Measured on a 3x phone over slow 4G, 2026-10-03, local production build,
+   median of 3 runs.
 
-   content-visibility:auto makes the browser skip a card's contents until it is
-   near the viewport, and an image inside a skipped subtree is not fetched. Every
-   one of these boxes already declares an aspect-ratio and takes its width from
-   the grid, so its size never depended on its contents and nothing shifts when
-   the skip is lifted. Browsers without support simply ignore it. */
-.ccard-img, .rcard-img, .colcard{ content-visibility:auto }
+   WHAT WORKS. The footer lockup is a CSS background image, 25 KB, and a CSS
+   background inside a content-skipped subtree is not fetched. It used to start
+   at 626 ms, in the middle of the hero download, for a mark that sits 8,000px
+   below the fold. It now starts at 3,201 ms. Homepage LCP 2,316 -> 2,192 ms.
+
+   TWO DEAD ENDS, both tried here, both measured, neither kept:
+
+   1. content-visibility:auto on .ccard-img / .rcard-img / .colcard does NOT stop
+      their <img> loading. Lazy loading is decided per <img> against the viewport
+      plus Chrome's distance threshold, and content-visibility does not enter
+      into it; the collection cards still started at 706 ms and the four
+      catalogue covers at 737 ms. LCP identical to three decimal places:
+      2316/2324/2312 with it, 2316/2324/2324 without. It reads like it should
+      work. It does not. Backgrounds yes, <img> no.
+
+   2. A `Link: rel=preload; as=image` header on / for the hero. The hero request
+      already begins at ~175 ms, and about 370 KB has to cross a 200 KB/s pipe
+      before LCP, so the hero is byte-bound, not queue-bound. Starting it earlier
+      changed nothing: 2,192 ms with the header, 2,192 ms without.
+
+   What is actually left on the homepage is the hero file itself, and that is
+   Jumbo's pending blind A/B from 2026-09-17: it is painted at ~3,400 device px
+   from a 1,760px file, so it cannot get smaller without getting softer. */
+footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
 
 
 /* Phone-only quick-contact bar (Call / Messenger / Inquire). Hidden on desktop. */
