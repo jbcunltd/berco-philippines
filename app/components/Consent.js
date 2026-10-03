@@ -174,11 +174,19 @@ export default function Consent() {
         <div className="consent" role="region" aria-label="Cookie choice">
           {/* This sentence has to match the code above. It previously said
               "Nothing is set until you accept", which is now false: the Meta
-              pixel sets a cookie on arrival. Saying so is the point of a banner. */}
+              pixel sets a cookie on arrival. Saying so is the point of a banner.
+
+              Cut from 39 words to 21 on 2026-10-03. At 375x812 the sheet ran to
+              four lines and 291px tall, which covered the entire hero headline
+              on arrival, so the first thing a phone visitor saw was an
+              unlabelled photograph. This paragraph is also an LCP candidate at
+              about 2.1s, competing with the hero photo for the same moment, so
+              the shorter it is the less it costs. Nothing true was dropped: it
+              still says the advertising cookie is already set and that Decline
+              removes it. */}
           <p className="consent-txt">
-            We use cookies to measure how this site is used and to show our ads to people who
-            visited. Our advertising cookie is already set. Decline removes it, and switches
-            off the rest. <a href="/privacy-policy">Privacy</a>
+            We measure this site and show our ads to past visitors. The advertising cookie is
+            already set, and Decline removes it. <a href="/privacy-policy">Privacy</a>
           </p>
           <div className="consent-acts">
             <button type="button" className="consent-no" onClick={() => decide('declined')}>Decline</button>

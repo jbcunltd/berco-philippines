@@ -1,5 +1,6 @@
 import { CATALOGUES, CAT_ORDER } from './data'
 import Pic from '../components/Pic'
+import SiteFooter from '../components/SiteFooter'
 
 const SITE = 'https://www.bercohome.com'
 
@@ -48,15 +49,31 @@ export default function Catalogues() {
       </div></section>
 
       <section className="band"><div className="shell">
-        <div className="colgrid stag">
+        <div className="catgrid stag">
           {CAT_ORDER.map((s) => (
-            <a className="colcard" href={`/catalogues/${s}`} key={s}>
-              {/* The covers are 1000x1415, not 1200x900. The wrong width made the srcset
-                  descriptor claim 1200w for a 1000px file. .colcard is 4:5 and these are
-                  taller than that, so cover crops top and bottom and the painted width is
-                  simply the card width. */}
-              <Pic src={CATALOGUES[s].cover} alt={`${CATALOGUES[s].name} cover`} sizes="(max-width:520px) 92vw, (max-width:820px) 47vw, 31vw" loading="lazy" width="1000" height="1415" />
-              <span className="lbl"><span className="cn">{CATALOGUES[s].name}</span><span className="go">{CATALOGUES[s].meta} →</span></span>
+            <a className="catcard" href={`/catalogues/${s}`} key={s}>
+              {/* The site label used to sit ON the cover, inside a 4:5 crop, and every one
+                  of the four collided with the cover's own typography: "Interior Systems
+                  Catalogue" landed on the cover's own "Interior Systems.", "Materials &
+                  Finishes 2026" and "PDF 48PP" landed on "The Surface.", "Technical
+                  Specification" landed on the issue block. Two type systems in the same
+                  corner and neither one read.
+
+                  There is no single image area to crop to: of the four covers one is a
+                  full-bleed photo with type at both ends, one has type bottom-left, one
+                  splits photo over a black type block at 70%, and one is a cream page with
+                  a photographic plate in the middle. So the cover is shown WHOLE, at its
+                  own 1000x1415 proportion, and the site label moved out from under it into
+                  a caption row on cream. The cover already states its name; the caption
+                  carries the format and the affordance, and gives the link its text.
+                  No scrim and no hover zoom, both of which damaged the artwork. */}
+              <span className="catshot">
+                <Pic src={CATALOGUES[s].cover} alt={`${CATALOGUES[s].name} cover`} sizes="(max-width:520px) 92vw, (max-width:820px) 47vw, 31vw" loading="lazy" width="1000" height="1415" />
+              </span>
+              <span className="catlbl">
+                <span className="cn">{CATALOGUES[s].name}</span>
+                <span className="go">{CATALOGUES[s].meta} →</span>
+              </span>
             </a>
           ))}
         </div>
@@ -70,34 +87,7 @@ export default function Catalogues() {
 
       </main>
 
-      <footer><div className="shell">
-        <div className="footgrid">
-          <div>
-            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
-            <div className="foot-contact">
-              <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
-              <a href="tel:+639178000730">0917 800 0730</a><br/>
-              <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
-            </div>
-          </div>
-          <div className="footcol">
-            <h3>Catalogues</h3>
-            {CAT_ORDER.map((s) => <a href={`/catalogues/${s}`} key={s}>{CATALOGUES[s].name}</a>)}
-          </div>
-          <div className="footcol">
-            <h3>Studio</h3>
-            <a href="/catalogues">Catalogues</a>
-            <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
-            <a href="/for-designers">For designers</a><a href="/contact">Contact</a>
-          </div>
-          <div className="footcol">
-            <h3>Policies</h3>
-            <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
-          </div>
-        </div>
-        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
-      </div></footer>
+      <SiteFooter />
     </>
   )
 }

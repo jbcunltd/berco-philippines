@@ -1,6 +1,7 @@
 import { CATS, ORDER } from '../data'
 import { notFound } from 'next/navigation'
 import Pic from '../../components/Pic'
+import SiteFooter from '../../components/SiteFooter'
 
 const SITE = 'https://www.bercohome.com'
 const base = (slug) => `${SITE}/img/collections/${slug}`
@@ -175,36 +176,7 @@ export default function Collection({ params }) {
 
       </main>
 
-      <footer><div className="shell">
-        <div className="footgrid">
-          <div>
-            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
-            <div className="foot-contact">
-              <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
-              <a href="tel:+639178000730">0917 800 0730</a><br/>
-              {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
-                  website-originated chat can be told apart from an ad-originated one. */}
-              <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
-            </div>
-          </div>
-          <div className="footcol">
-            <h3>Collections</h3>
-            {ORDER.map((s) => <a href={`/collections/${s}`} key={s}>{CATS[s].name}</a>)}
-          </div>
-          <div className="footcol">
-            <h3>Studio</h3>
-            <a href="/catalogues">Catalogues</a>
-            <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
-            <a href="/for-designers">For designers</a><a href="/#about">About</a><a href="/contact">Contact</a>
-          </div>
-          <div className="footcol">
-            <h3>Policies</h3>
-            <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
-          </div>
-        </div>
-        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
-      </div></footer>
+      <SiteFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </>

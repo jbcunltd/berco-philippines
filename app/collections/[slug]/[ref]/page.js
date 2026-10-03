@@ -1,6 +1,7 @@
 import { CATS, ORDER } from '../../data'
 import { notFound } from 'next/navigation'
 import Pic from '../../../components/Pic'
+import SiteFooter from '../../../components/SiteFooter'
 
 const SITE = 'https://www.bercohome.com'
 
@@ -28,12 +29,16 @@ export function generateMetadata({ params }) {
   const url = `${SITE}/collections/${params.slug}/${im.slug}`
   const image = `${SITE}/img/collections/${params.slug}/${im.src}`
   const title = `${im.title} | ${c.name} | Berco`
+  // im.metaDesc, not im.blurb. The blurb is the paragraph a visitor reads on the
+  // page and runs 275-336 characters; a search result prints about 155, so every
+  // one of these was truncated. See the note at the top of collections/data.js.
+  const desc = im.metaDesc || im.blurb
   return {
     title,
-    description: im.blurb,
+    description: desc,
     alternates: { canonical: `/collections/${params.slug}/${im.slug}` },
-    openGraph: { type: 'article', url, siteName: 'Berco', title, description: im.blurb, images: [{ url: image, width: 1600, height: 900, alt: im.alt }] },
-    twitter: { card: 'summary_large_image', title, description: im.blurb, images: [image] },
+    openGraph: { type: 'article', url, siteName: 'Berco', title, description: desc, images: [{ url: image, width: 1600, height: 900, alt: im.alt }] },
+    twitter: { card: 'summary_large_image', title, description: desc, images: [image] },
     robots: { index: true, follow: true },
   }
 }
@@ -46,9 +51,25 @@ export default function Reference({ params }) {
   const prev = imgs[(i - 1 + imgs.length) % imgs.length]
   const next = imgs[(i + 1) % imgs.length]
   const src = `/img/collections/${params.slug}/${im.src}`
+  const url = `${SITE}/collections/${params.slug}/${im.slug}`
   // main image first, then any extra angles of the same design
   const views = [im.src, ...(im.angles || [])]
   const more = imgs.filter((x) => x.slug !== im.slug).slice(0, 6)
+
+  // Two graphs on this page. The breadcrumb is rendered on screen at the top of
+  // the page and emitted nowhere, so a crawler saw a trail the visitor could see
+  // and had to guess at the hierarchy. Named the same way the visible trail is,
+  // item for item, because a BreadcrumbList that disagrees with the page is
+  // worse than none.
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Collections', item: `${SITE}/collections` },
+      { '@type': 'ListItem', position: 2, name: c.name, item: `${SITE}/collections/${params.slug}` },
+      { '@type': 'ListItem', position: 3, name: im.title, item: url },
+    ],
+  }
 
   const schema = {
     '@context': 'https://schema.org',
@@ -165,37 +186,9 @@ export default function Reference({ params }) {
 
       </main>
 
-      <footer><div className="shell">
-        <div className="footgrid">
-          <div>
-            <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
-            <div className="foot-contact">
-              <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
-              <a href="tel:+639178000730">0917 800 0730</a><br/>
-              {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
-                  website-originated chat can be told apart from an ad-originated one. */}
-              <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-              Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
-            </div>
-          </div>
-          <div className="footcol">
-            <h3>Collections</h3>
-            {ORDER.map((s) => <a href={`/collections/${s}`} key={s}>{CATS[s].name}</a>)}
-          </div>
-          <div className="footcol">
-            <h3>Studio</h3>
-            <a href="/catalogues">Catalogues</a>
-            <a href="/how-we-work">How we work</a><a href="/#precision">Materials</a>
-            <a href="/for-designers">For designers</a><a href="/#about">About</a><a href="/contact">Contact</a>
-          </div>
-          <div className="footcol">
-            <h3>Policies</h3>
-            <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
-          </div>
-        </div>
-        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
-      </div></footer>
+      <SiteFooter />
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </>
   )

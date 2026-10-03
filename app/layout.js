@@ -32,7 +32,13 @@ export const metadata = {
     images: [{ url: HERO, width: 1760, height: 1087, alt: 'Custom kitchen cabinetry in a Philippine home. Berco' }],
   },
   twitter: { card: 'summary_large_image', title: 'Custom Cabinetry & Interiors in the Philippines | Berco', description: 'Custom kitchens, wardrobes & interiors for Philippine homes. We guide before we sell.', images: [HERO] },
-  robots: { index: true, follow: true },
+  // NO `robots` key at this level, and it must not come back here.
+  // Next emits its own <meta name="robots" content="noindex"> on the not-found
+  // page, and anything set here is INHERITED by that page, so a site-wide
+  // "index, follow" put a second, contradicting tag on the 404. Every page that
+  // wants the tag states it in its own metadata; the homepage does it in
+  // app/page.js. An absent robots tag means "index, follow" to every crawler
+  // anyway, so the 404 now carries exactly one directive and it is noindex.
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -52,6 +58,24 @@ const schema = {
   image: HERO,
   email: 'sales@bercohome.com',
   telephone: '+639178000730',
+  // Address and hours, site-wide. Berco has a verified Google Business Profile
+  // and two stated locations, and none of it was in the markup outside the
+  // /contact page's own ContactPage graph. These are copied from what /contact
+  // already publishes, not from the profile: name, address and phone have to
+  // match the listing exactly for Google to tie the two together, so if the
+  // profile and the site ever disagree, change BOTH or neither.
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '322 Sto Rosario',
+    addressLocality: 'Mandaluyong City',
+    addressRegion: 'Metro Manila',
+    postalCode: '1550',
+    addressCountry: 'PH',
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '12:00' },
+  ],
   areaServed: [
     { '@type': 'Country', name: 'Philippines' },
     { '@type': 'City', name: 'Mandaluyong' },

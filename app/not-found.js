@@ -1,8 +1,13 @@
 import { CATS, ORDER } from './collections/data'
+import SiteFooter from './components/SiteFooter'
 
+// No `robots` key here on purpose. Next emits <meta name="robots" content="noindex">
+// for a not-found page by itself; adding our own produced a SECOND, different
+// robots tag on the same page ("noindex, follow"), which is the kind of
+// disagreement a crawler is entitled to resolve either way. One tag, from the
+// framework. Verified on the live 404 after this change.
 export const metadata = {
   title: 'Page not found | Berco',
-  robots: { index: false, follow: true },
 }
 
 export default function NotFound() {
@@ -48,9 +53,7 @@ export default function NotFound() {
 
       </main>
 
-      <footer><div className="shell">
-        <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
-      </div></footer>
+      <SiteFooter />
     </>
   )
 }

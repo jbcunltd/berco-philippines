@@ -1,4 +1,12 @@
 import Pic from './components/Pic'
+import SiteFooter from './components/SiteFooter'
+
+// Title, description, canonical and the social cards all come from the root
+// layout; only this is stated here. It used to sit in the layout, where the
+// not-found page inherited it and ended up carrying "index, follow" next to
+// Next's own "noindex". See the note in app/layout.js.
+export const metadata = { robots: { index: true, follow: true } }
+
 export default function Page() {
   return (
     <>
@@ -35,18 +43,33 @@ export default function Page() {
       <Pic className="cover-img" tiers={[800]} src="/img/custom-kitchen-cabinetry-philippines.jpg" alt="Custom kitchen cabinetry with island and warm wood finishes in a Philippine home. Berco design reference" sizes="(min-width:1240px) 1136px, (min-width:820px) 1101px, 1093px" loading="eager" fetchPriority="high" width="1760" height="1087" />
       <div className="scrim"></div>
       <span className="cap">Kitchen · design reference</span>
-      {/* Eyebrow and title only. The lede and the buttons are below the picture:
-          the lede measured 2.93:1 against the photograph and 1.48:1 where the
-          cabinetry is brightest, against the 4.5:1 body text needs, and the
-          photograph is there to show the product rather than to carry four lines
-          of copy. No scrim was added; the words moved. */}
+      {/* TITLE ONLY on the photograph now. The lede and the buttons moved below it
+          on 2026-10-03; the eyebrow followed on the second pass of the same day,
+          and the reason is measured rather than tidy-minded.
+
+          The eyebrow is 11px, so it is body text and needs 4.5:1. In gold
+          #EAD3A0 directly on this kitchen it measured, against the real pixels
+          underneath, 1.81:1 at the 95th percentile on a 1,440px desktop and
+          2.44:1 on a 375px phone. The house order of remedies was worked down in
+          turn: the crop was swept across eight object-position values at both
+          widths and the best any of them reached was 2.83:1, and at 1,440 the
+          crop does nothing at all because the photograph is already wider than
+          the box (only ~21px of vertical crop exists to move). The copy was
+          already cut to two lines. So the composition splits: the eyebrow sits
+          below the picture on cream, where it measures about 5:1, and the
+          photograph carries the headline alone.
+
+          The h1 stays. At 78px/500 it is large text and needs 3:1, and it reads
+          4.3-7.8:1 on a phone once nothing is laid over it. */}
       <div className="type">
-        <div className="eyebrow">Custom Cabinetry &amp; Interiors · Philippines</div>
         <h1>The heart of your home.</h1>
       </div>
     </div>
     <div className="cover-standfirst">
-      <p className="lead">Custom kitchens, wardrobes, vanities and built-in storage for Philippine homes. Designed, measured, and installed properly.</p>
+      <div className="sf-copy">
+        <div className="eyebrow">Custom Cabinetry &amp; Interiors · Philippines</div>
+        <p className="lead">Custom kitchens, wardrobes, vanities and built-in storage for Philippine homes. Designed, measured, and installed properly.</p>
+      </div>
       <div className="acts">
         <a className="btn" href="/contact">Book a design consultation →</a>
         <a className="link" href="#collections">View collections</a>
@@ -187,39 +210,7 @@ export default function Page() {
 
   </main>
 
-      <footer><div className="shell">
-    <div className="footgrid">
-      <div>
-        <div className="footlock" role="img" aria-label="Berco. The Heart of Your Home">Berco. The Heart of Your Home</div>
-        <div className="foot-contact">
-          <a href="mailto:sales@bercohome.com">sales@bercohome.com</a><br/>
-          <a href="tel:+639178000730">0917 800 0730</a><br/>
-              {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
-                  website-originated chat can be told apart from an ad-originated one. */}
-              <a href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a><br/>
-          Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP
-        </div>
-      </div>
-      <div className="footcol">
-        <h3>Collections</h3>
-        <a href="/collections/kitchens">Kitchens</a><a href="/collections/wardrobes">Wardrobes</a>
-        <a href="/collections/living">Living &amp; Media</a><a href="/collections/bedrooms">Bedrooms</a>
-        <a href="/collections/bathrooms">Bathrooms</a><a href="/collections/dining">Dining</a>
-        <a href="/collections/interior-systems">Interior Systems</a>
-      </div>
-      <div className="footcol">
-        <h3>Studio</h3>
-            <a href="/catalogues">Catalogues</a>
-        <a href="/how-we-work">How we work</a><a href="/for-designers">For designers</a>
-        <a href="#precision">Materials</a><a href="/contact">Contact</a>
-      </div>
-      <div className="footcol">
-        <h3>Policies</h3>
-        <a href="/delivery-policy">Delivery &amp; installation</a><a href="/returns-policy">Returns &amp; warranty</a><a href="/privacy-policy">Privacy</a>
-      </div>
-    </div>
-    <div className="legal"><span>© 2026 Berco. JBC UNLTD CORP.</span><span><a href="/delivery-policy">Delivery</a> · <a href="/returns-policy">Returns &amp; warranty</a> · <a href="/privacy-policy">Privacy</a></span></div>
-  </div></footer>
+      <SiteFooter />
 
     </>
   )
