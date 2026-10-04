@@ -40,7 +40,7 @@ export default function Page() {
           Same failure that reverted the 1,200px ladder on 2026-09-17. The phone was never
           affected either way (it paints 3,279 device px and takes the full file), so the
           tier buys nothing here and costs sharpness. */}
-      <Pic className="cover-img" tiers={[800]} src="/img/custom-kitchen-cabinetry-philippines.jpg" alt="Custom kitchen cabinetry with island and warm wood finishes in a Philippine home. Berco design reference" sizes="(min-width:1240px) 1136px, (min-width:820px) 1101px, 1093px" loading="eager" fetchPriority="high" width="1760" height="1087" />
+      <Pic className="cover-img" src="/img/custom-kitchen-cabinetry-philippines.jpg" alt="Custom kitchen cabinetry with island and warm wood finishes in a Philippine home. Berco design reference" sizes="(min-width:1240px) 1136px, (min-width:820px) 1101px, 824px" loading="eager" fetchPriority="high" width="1760" height="1087" />
       <div className="scrim"></div>
       <span className="cap">Kitchen · design reference</span>
       {/* TITLE ONLY on the photograph now. The lede and the buttons moved below it

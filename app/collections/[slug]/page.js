@@ -89,7 +89,7 @@ export default function Collection({ params }) {
         <div className="masthead"><span><a href="/#collections" className="crumb">Collections</a> · {c.name}</span><span>Philippines</span></div>
         <div className="coverimg">
           {hero
-            ? <Pic className="cover-img" tiers={[800]} src={img(hero.src)} alt={hero.alt} sizes="(min-width:1240px) 1136px, (min-width:820px) 960px, 960px" loading="eager" fetchPriority="high" width="1600" height="1000" />
+            ? <Pic className="cover-img" src={img(hero.src)} alt={hero.alt} sizes="(min-width:1240px) 1136px, (min-width:820px) 960px, 905px" loading="eager" fetchPriority="high" width="1600" height="1000" />
             : <div className="cover-img ph pa" />}
           <div className="scrim"></div>
           {hero && <span className="cap">{c.name} · design reference</span>}

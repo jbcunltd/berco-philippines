@@ -48,7 +48,11 @@
      ============================================================ */
   h1,h2,h3{font-family:var(--serif); font-weight:500; margin:0; text-wrap:balance; letter-spacing:-.01em}
   .eyebrow{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--champ-ink); font-weight:600}
-  .cap{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint)}
+  /* 11px, not 9.5px. At .16em tracking and all-caps this label is already
+     working against the reader; 9.5px cleared contrast but sat under any
+     sensible phone floor. 11px is still small text by WCAG, so the 4.5:1
+     requirement and the chip behind it are unchanged. */
+  .cap{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint)}
   a{color:inherit}
   /* Focus ring uses --champ-ink, NOT --champ. Champagne on --ground measures 2.19:1 and
      fails WCAG 2.2 SC 1.4.11 (3:1 for non-text indicators); --champ-ink measures 4.91:1.
@@ -314,7 +318,7 @@
      corner on the feature band. */
   .coverimg .cap{position:absolute; top:16px; right:18px; bottom:auto; left:auto;
     background:rgba(30,22,14,.78); padding:5px 9px}
-  /* The chip is not decoration. Making the caption visible again put 9.5px text,
+  /* The chip is not decoration. Making the caption visible again put small text,
      which needs 4.5:1, into the one part of the frame the scrim deliberately
      leaves alone, and it measured a 1.08 worst pixel on interior-systems and
      1.16 on whole-home. A caption cannot be moved into the dark foot (the

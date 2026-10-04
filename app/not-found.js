@@ -31,7 +31,7 @@ export default function NotFound() {
           <a href="/how-we-work">Process</a>
           <a href="/catalogues">Catalogues</a>
           <a href="/#precision">Materials</a>
-          <a href="/#about">About</a>
+          <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
           <a className="navlink-tap" href="tel:+639178000730">Tap to call 0917 800 0730</a>
           <a className="navlink-tap" href="https://m.me/bercophilippines?ref=nav-menu" rel="noopener">Message us on Messenger</a>

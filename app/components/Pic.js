@@ -24,9 +24,24 @@
 // `sizes` MUST DESCRIBE THE PAINTED WIDTH, NOT THE BOX
 // For a slot that enlarges, the honest value is the covered width, not 100vw. The
 // homepage hero's box is 354 CSS px wide on a 390px phone but its photo is painted
-// 1,093 CSS px wide, so it declares 1093px and the browser correctly keeps taking
-// the full file. Pass the real figure; a lie in either direction costs either
-// bytes or sharpness.
+// 824 CSS px wide, so it declares 824px. Pass the real figure; a lie in either
+// direction costs either bytes or sharpness.
+//
+// Measured 2026-10-04 on a 390x844 DPR3 phone at 150ms/1.6Mbps/4x CPU: the home
+// hero paints 824 CSS px (2,472 device px) and the collection hero 905 CSS px
+// (2,715 device px). Both declared MORE than they paint (1093px and 960px). The
+// over-declaration was harmless on a phone - at DPR3 either figure lands far above
+// 1,200, so the full file is chosen - but it hid the fact that a 1x desktop was
+// also being sent the full file for an 1,136 px slot.
+//
+// So the heroes now offer the 1200 rung as well, and the honest `sizes` is what
+// makes that safe. Rendered at the painted width, high-frequency detail from the
+// 1200 file against the full file measures:
+//     desktop 1,136-1,145 px slot   94-95%  - indistinguishable side by side
+//     phone   2,472-2,715 px slot   66-71%  - the September softening, exactly
+// A truthful `sizes` keeps the phone on the full file and lets the desktop take
+// the smaller one: 99,259 -> 53,976 bytes on home, 76,621 -> 50,794 on kitchens.
+// Lower the declared width and the phone falls into the 66% case. Do not.
 
 const TIERS = [800, 1200]
 
