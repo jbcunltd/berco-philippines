@@ -37,7 +37,7 @@ export const CATALOGUES = {
     pages: 32,
     pageDir: '/img/catalogue/interior-systems',
     prefix: 'is',
-    cover: '/img/covers/interior-systems-cover.jpg',
+    cover: '/img/covers/interior-systems-cover.jpg?v=2',
     size: '11 MB',
     meta: 'PDF · 32pp · 11 MB',
     seoTitle: 'Interior Systems Catalogue: Fitted Storage & Sinks | Berco',
