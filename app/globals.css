@@ -267,9 +267,12 @@
   /* Links that live INSIDE a sentence cannot be given a box without reflowing
      the sentence. padding plus an equal negative margin gives them a 44px tall
      hit area and leaves the line exactly where it was. */
-  /* These three carry no underline of their own, so the same padding trick is
+  /* These carry no underline of their own, so the same padding trick is
      safe here: the hit box grows to 44px and the sentence does not move. */
-  .fee a, .refnote a, .cside-note a{ display:inline-block; padding:13px 0; margin:-13px 0 }
+  .fee a, .refnote a, .cside-note a, .legal-parent{ display:inline-block; padding:13px 0; margin:-13px 0 }
+  .legal-parent{ color:inherit; text-decoration:none }
+  .legal-parent:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--champ) }
 
   .legal-links{ display:flex; flex-wrap:wrap; gap:0 18px }
   .legal-links a{ display:inline-flex; align-items:center; justify-content:center;

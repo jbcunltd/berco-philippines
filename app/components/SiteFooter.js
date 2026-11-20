@@ -53,7 +53,7 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="legal">
-        <span>© 2026 Berco. JBC UNLTD CORP.</span>
+        <span>© 2026 Berco. <a className="legal-parent" href="https://www.jbcunltdcorp.com">JBC UNLTD CORP</a>.</span>
         <span className="legal-links">
           <a href="/delivery-policy">Delivery</a>
           <a href="/returns-policy">Returns &amp; warranty</a>
