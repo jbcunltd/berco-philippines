@@ -50,6 +50,8 @@ export default function Answers() {
     if (!g) groups.push((g = { name: it.section, items: [] }))
     g.items.push(it)
   }
+  // Sections with something still to answer come first; fully locked ones sink.
+  groups.sort((a, b) => Number(a.items.every((x) => x.status === 'locked')) - Number(b.items.every((x) => x.status === 'locked')))
   const open = (items || []).filter((x) => x.status === 'open').length
   return (
     <main className="ab">
