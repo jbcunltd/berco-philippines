@@ -24,10 +24,16 @@ export default function ChatButton() {
       rel="noopener"
       aria-label="Chat with us on Messenger"
     >
+      {/* The real Messenger glyph: bubble + bolt. The bolt is not drawn, it is
+          the button's own blue showing through, so it must match --chatfab-bg. */}
       <svg className="chatfab-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
-          d="M12 2.5c-5.1 0-9.2 3.8-9.2 8.5 0 2.7 1.3 5.1 3.4 6.6v3.4l3.2-1.7c.8.2 1.7.3 2.6.3 5.1 0 9.2-3.8 9.2-8.6S17.1 2.5 12 2.5Z"
           fill="currentColor"
+          d="M12 2.04c-5.5 0-9.96 4.13-9.96 9.22 0 2.9 1.44 5.49 3.7 7.19v3.51l3.38-1.86c.9.25 1.86.38 2.88.38 5.5 0 9.96-4.13 9.96-9.22S17.5 2.04 12 2.04Z"
+        />
+        <path
+          className="chatfab-bolt"
+          d="m6.1 14.6 2.93-4.64a1.5 1.5 0 0 1 2.17-.4l2.33 1.75c.21.16.5.16.71 0l3.15-2.39c.42-.32.97.18.69.63l-2.93 4.64a1.5 1.5 0 0 1-2.17.4l-2.33-1.75a.6.6 0 0 0-.71 0L6.79 15.23c-.42.32-.97-.18-.69-.63Z"
         />
       </svg>
       <span className="chatfab-txt">Chat with us</span>

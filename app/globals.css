@@ -1157,12 +1157,12 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
     min-height: 48px;
     padding: 0 19px;
     border-radius: 999px;
-    background: var(--ink);
+    background: var(--chatfab-bg);
     color: #fff;
     font: 500 15px/1 var(--sans);
     letter-spacing: .02em;
     text-decoration: none;
-    box-shadow: 0 6px 22px rgba(43, 38, 32, .2);
+    box-shadow: 0 6px 22px rgba(0, 70, 160, .28);
     transition: background-color .18s var(--ease), transform .18s var(--ease);
 }
 .chatfab-ico { width: 20px; height: 20px; flex: none }
@@ -1173,8 +1173,8 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
     bottom: 20px;
   }
 }
-.chatfab:hover { background: #000; transform: translateY(-1px) }
-.chatfab:focus-visible { outline: 2px solid var(--champ-ink); outline-offset: 3px }
+.chatfab:hover { background: var(--chatfab-bg-hover); transform: translateY(-1px) }
+.chatfab:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px }
 /* The consent sheet is position:fixed bottom:0 z-index:60 and owns that corner
    until the visitor chooses. Found by LOOKING at a desktop render: the button
    was sitting behind it on first load, invisible. Hide the button while the
@@ -1187,3 +1187,20 @@ body:has(.consent) .chatfab { display: none }
   .chatfab { transition: none }
   .chatfab:hover { transform: none }
 }
+
+/* ── Messenger blue ─────────────────────────────────────────────────
+   2026-11-24, Jumbo: "Change the chat colors button to feel like messenger.
+   We could add messenger icon." So the pill is Messenger blue with the real
+   Messenger glyph, not the brand's ink with a generic bubble. Recognition
+   beats palette purity on a utility control.
+
+   ⚠️ The blue is #0066E0, NOT Meta's own #0084FF. White text on #0084FF
+   measures 3.73:1, which fails WCAG AA for 15px text; #0066E0 measures
+   5.14:1 and still reads unmistakably as Messenger. Do not "correct" it
+   back to the brighter blue.
+
+   The bolt in the glyph is not drawn — it is this background showing
+   through — so --chatfab-bg and .chatfab-bolt must stay the same value. */
+:root { --chatfab-bg: #0066E0; --chatfab-bg-hover: #0052BF }
+.chatfab-bolt { fill: var(--chatfab-bg) }
+.chatfab:hover .chatfab-bolt { fill: var(--chatfab-bg-hover) }
