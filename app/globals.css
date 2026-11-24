@@ -1132,24 +1132,27 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
 
 
 /* ── chatfab: the persistent Messenger button ────────────────────────
-   Added 2026-11-24 on Jumbo's instruction. It is a LINK, not an embedded chat
-   window: Meta shut the Chat Plugin down on 9 May 2024 (its SDK now answers
-   HTTP 500), so a Messenger window inside our own page cannot be built.
+   A LINK, not an embedded chat window: Meta shut the Chat Plugin down on
+   9 May 2024 and its SDK answers HTTP 500, so an in-page Messenger window
+   is not buildable by anyone.
 
-   DESKTOP AND TABLET ONLY, deliberately. Below 820px .mobilebar already holds
-   a "Messenger" link across the bottom of the screen and .consent sits on top
-   of it at var(--mobilebar-h); a third fixed element there would collide with
-   both. The gap this fills is the DESKTOP one, where neither exists. */
-/* 🚨 REVERSED 2026-11-24. This was desktop-only, on the reasoning that
-   .mobilebar already carries a "Messenger" text link. Jumbo: "The chat with us
-   button isn't on mobile. 90+% of our visitors use mobile." Hiding it on the
-   device nearly every visitor holds, to avoid a duplicate, was the wrong trade:
-   a word in a three-item bar is not the same affordance as a labelled button.
-   It now shows at every width and sits ABOVE .mobilebar rather than under it. */
-.chatfab {
+   🚨 DESKTOP ONLY. 2026-11-24, Jumbo: "Call inquire is quite redundant. I
+   think it's better to just leave 2. Call and chat with us. You can swap
+   'chat' with where 'inquire' is for uniformity." So on a phone the
+   quick-contact bar carries "Chat with us" in Inquire's old slot and IS the
+   chat route; a floating pill above it would be the duplication he had just
+   asked us to remove. Above 820px there is no bar, so the pill is the route.
+
+   ⚠️ This flipped twice in one day. Do not flip it again without reading
+   both reasons: hidden on phones is correct ONLY while .mobilebar carries a
+   chat button. If that bar ever loses it, this must come back. */
+.chatfab { display: none }
+
+@media (min-width: 820px) {
+  .chatfab {
     position: fixed;
-    right: 16px;
-    bottom: calc(var(--mobilebar-h) + 12px);   /* clears the phone bar */
+    right: 20px;
+    bottom: 20px;
     z-index: 55;
     display: inline-flex;
     align-items: center;
@@ -1164,24 +1167,17 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
     text-decoration: none;
     box-shadow: 0 6px 22px rgba(0, 70, 160, .28);
     transition: background-color .18s var(--ease), transform .18s var(--ease);
-}
-.chatfab-ico { width: 20px; height: 20px; flex: none }
-@media (min-width: 820px) {
-  /* Desktop: no phone bar exists, so drop back to the plain bottom corner. */
-  .chatfab {
-    right: 20px;
-    bottom: 20px;
   }
+  .chatfab-ico { width: 20px; height: 20px; flex: none }
+  .chatfab:hover { background: var(--chatfab-bg-hover); transform: translateY(-1px) }
+  .chatfab:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px }
+
+  /* The consent sheet is position:fixed bottom:0 z-index:60 and owns that
+     corner until the visitor chooses. Found by LOOKING at a desktop render:
+     the button sat behind it on first load, invisible. <Consent> unmounts on
+     choice, so :has() stops matching and the button appears. */
+  body:has(.consent) .chatfab { display: none }
 }
-.chatfab:hover { background: var(--chatfab-bg-hover); transform: translateY(-1px) }
-.chatfab:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px }
-/* The consent sheet is position:fixed bottom:0 z-index:60 and owns that corner
-   until the visitor chooses. Found by LOOKING at a desktop render: the button
-   was sitting behind it on first load, invisible. Hide the button while the
-   sheet is up rather than stacking two floating things over each other —
-   <Consent> unmounts on choice, so :has() stops matching and the button
-   appears, for that page and every page after. */
-body:has(.consent) .chatfab { display: none }
 
 @media (prefers-reduced-motion: reduce) {
   .chatfab { transition: none }
@@ -1204,3 +1200,12 @@ body:has(.consent) .chatfab { display: none }
 :root { --chatfab-bg: #0066E0; --chatfab-bg-hover: #0052BF }
 .chatfab-bolt { fill: var(--chatfab-bg) }
 .chatfab:hover .chatfab-bolt { fill: var(--chatfab-bg-hover) }
+
+/* The bar's chat button wears the same Messenger blue as the pill, so the two
+   never look like different things. Same contrast reasoning: #0066E0, not
+   Meta's #0084FF, which fails AA with white text. */
+@media (max-width: 819px) {
+  .mobilebar .mb-chat { background: var(--chatfab-bg); border-color: var(--chatfab-bg); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px }
+  .mobilebar .mb-chat svg { width: 18px; height: 18px; flex: none }
+}

@@ -161,13 +161,24 @@ export default function RootLayout({ children }) {
           '.reveal,.stag,.stag>*{opacity:1!important;transform:none!important;transition:none!important}' }} /></noscript>
         <script dangerouslySetInnerHTML={{ __html: consentDefaults }} />
         <div className="wrap">{children}</div>
-        {/* Phone-only quick-contact bar. Messenger was removed from it on
-            2026-11-24: the blue Chat with us pill sits ~10px above this bar doing
-            the identical job, and Jumbo called three routes on one screen too
-            much. Chat now lives in exactly one place sitewide. */}
+        {/* Phone-only quick-contact bar: Call and Chat, nothing else.
+            2026-11-24, Jumbo: "Call inquire is quite redundant. I think it's
+            better to just leave 2. Call and chat with us. You can swap 'chat'
+            with where 'inquire' is for uniformity." Inquire went because it
+            only pointed at /contact, which is where the bar is usually seen.
+            Chat took its slot, so on a phone the bar IS the chat route and the
+            floating .chatfab is hidden below 820px. The MESSENGER_DEEPLINK
+            handler matches any a[href*="m.me/"], so this link opens the app
+            directly too. */}
         <div className="mobilebar" role="navigation" aria-label="Quick contact">
           <a href="tel:+639178000730">Call</a>
-          <a className="mb-cta" href="/contact">Inquire</a>
+          <a className="mb-cta mb-chat" href="https://m.me/bercophilippines?ref=mobile-bar" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 2.04c-5.5 0-9.96 4.13-9.96 9.22 0 2.9 1.44 5.49 3.7 7.19v3.51l3.38-1.86c.9.25 1.86.38 2.88.38 5.5 0 9.96-4.13 9.96-9.22S17.5 2.04 12 2.04Z"/>
+              <path className="chatfab-bolt" d="m6.1 14.6 2.93-4.64a1.5 1.5 0 0 1 2.17-.4l2.33 1.75c.21.16.5.16.71 0l3.15-2.39c.42-.32.97.18.69.63l-2.93 4.64a1.5 1.5 0 0 1-2.17.4l-2.33-1.75a.6.6 0 0 0-.71 0L6.79 15.23c-.42.32-.97-.18-.69-.63Z"/>
+            </svg>
+            Chat with us
+          </a>
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />
