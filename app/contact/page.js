@@ -168,6 +168,11 @@ export default function Contact() {
               <span>Mandaluyong: office and product showcase</span>
             </p>
             <p className="cside-item">
+              <span className="cside-k">Map</span>
+              {/* Berco's own Google Business Profile pin, 322 Sto. Rosario (Jumbo, 2026-11-24). */}
+              <a href="https://maps.app.goo.gl/aM3swpZBjs8YzmUG6" target="_blank" rel="noopener noreferrer">Open Mandaluyong in Google Maps</a>
+            </p>
+            <p className="cside-item">
               <span className="cside-k">Visayas</span>
               <span>Cebu: office and product showcase</span>
             </p>
