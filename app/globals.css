@@ -1129,3 +1129,61 @@ footer{ content-visibility:auto; contain-intrinsic-size: auto 600px }
 .faqitem p{ margin:0 0 28px; max-width:68ch; color:var(--ink-soft); line-height:1.75 }
 .faqitem summary:focus-visible{ outline:2px solid var(--ink); outline-offset:4px; border-radius:2px }
 @media (prefers-reduced-motion:reduce){ .faqitem summary::before{ transition:none } }
+
+
+/* ── chatfab: the persistent Messenger button ────────────────────────
+   Added 2026-11-24 on Jumbo's instruction. It is a LINK, not an embedded chat
+   window: Meta shut the Chat Plugin down on 9 May 2024 (its SDK now answers
+   HTTP 500), so a Messenger window inside our own page cannot be built.
+
+   DESKTOP AND TABLET ONLY, deliberately. Below 820px .mobilebar already holds
+   a "Messenger" link across the bottom of the screen and .consent sits on top
+   of it at var(--mobilebar-h); a third fixed element there would collide with
+   both. The gap this fills is the DESKTOP one, where neither exists. */
+/* 🚨 REVERSED 2026-11-24. This was desktop-only, on the reasoning that
+   .mobilebar already carries a "Messenger" text link. Jumbo: "The chat with us
+   button isn't on mobile. 90+% of our visitors use mobile." Hiding it on the
+   device nearly every visitor holds, to avoid a duplicate, was the wrong trade:
+   a word in a three-item bar is not the same affordance as a labelled button.
+   It now shows at every width and sits ABOVE .mobilebar rather than under it. */
+.chatfab {
+    position: fixed;
+    right: 16px;
+    bottom: calc(var(--mobilebar-h) + 12px);   /* clears the phone bar */
+    z-index: 55;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 0 19px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+    font: 500 15px/1 var(--sans);
+    letter-spacing: .02em;
+    text-decoration: none;
+    box-shadow: 0 6px 22px rgba(43, 38, 32, .2);
+    transition: background-color .18s var(--ease), transform .18s var(--ease);
+}
+.chatfab-ico { width: 20px; height: 20px; flex: none }
+@media (min-width: 820px) {
+  /* Desktop: no phone bar exists, so drop back to the plain bottom corner. */
+  .chatfab {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+.chatfab:hover { background: #000; transform: translateY(-1px) }
+.chatfab:focus-visible { outline: 2px solid var(--champ-ink); outline-offset: 3px }
+/* The consent sheet is position:fixed bottom:0 z-index:60 and owns that corner
+   until the visitor chooses. Found by LOOKING at a desktop render: the button
+   was sitting behind it on first load, invisible. Hide the button while the
+   sheet is up rather than stacking two floating things over each other —
+   <Consent> unmounts on choice, so :has() stops matching and the button
+   appears, for that page and every page after. */
+body:has(.consent) .chatfab { display: none }
+
+@media (prefers-reduced-motion: reduce) {
+  .chatfab { transition: none }
+  .chatfab:hover { transform: none }
+}
