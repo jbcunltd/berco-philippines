@@ -26,10 +26,12 @@
   h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
      margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);font-weight:700}
 
-  table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 10px}
-  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+  table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:0 0 10px}
+  th,td{text-align:left;padding:9px 4px;border-bottom:1px solid var(--line);
+        overflow-wrap:anywhere}
+  th:first-child,td:first-child{width:44%}
   th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
-  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.n{font-variant-numeric:tabular-nums}
   .win{color:var(--good);font-weight:700}
   .lose{color:var(--bad);font-weight:700}
   .note{font-size:13px;color:var(--muted);margin:6px 0 0}
@@ -94,7 +96,7 @@
 <h2>First, why we take the layouts and not the platform</h2>
 
 <table>
-  <thead><tr><th>Phone viewport</th><th class="n">Avada demo</th><th class="n">bercohome.com</th></tr></thead>
+  <thead><tr><th>Phone viewport</th><th class="n">Avada</th><th class="n">Berco</th></tr></thead>
   <tbody>
     <tr><td>DOMContentLoaded</td><td class="n lose">3,262 ms</td><td class="n win">410 ms</td></tr>
     <tr><td>Load event</td><td class="n lose">3,598 ms</td><td class="n win">770 ms</td></tr>
