@@ -10,6 +10,42 @@ import ChatButton from './components/ChatButton'
 const serif = Libre_Bodoni({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-serif', display: 'swap' })
 const sans = Jost({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-sans', display: 'swap' })
 
+// Messenger deep-link. Ported verbatim from Skybass 2026-11-24 after Jumbo
+// proved the difference on his own phone: Skybass opened the Messenger app
+// straight away, Berco stopped on the m.facebook.com interstitial offering
+// "Get the Messenger app".
+//
+// m.me is a UNIVERSAL LINK, and iOS silently stops honouring those in two
+// common cases: inside an in-app browser / link-preview sheet, and after the
+// user has once chosen "open in browser" for that domain. Either way it falls
+// through to the interstitial even when Messenger IS installed — and almost all
+// of our traffic arrives from Facebook's in-app browser.
+//
+// So: try the app's own URL scheme first, which no universal-link association
+// can break. If the app takes over, the page is backgrounded and we cancel. If
+// nothing handles the scheme (app genuinely absent), fall back to m.me.
+//
+// ⚠️ Known trade-off: fb-messenger://user-thread/ carries no ?ref=, so a chat
+// opened through the app loses the page tag. Opening the app is worth more.
+const MESSENGER_DEEPLINK = `(function(){
+  var PAGE='102330798600463';
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href*="m.me/"]');
+    if(!a) return;
+    if(!/iPad|iPhone|iPod|Android/.test(navigator.userAgent)) return;
+    var web = a.href;
+    e.preventDefault();
+    var done = false;
+    function cancel(){ if(document.hidden){ done = true; } }
+    document.addEventListener('visibilitychange', cancel);
+    setTimeout(function(){
+      document.removeEventListener('visibilitychange', cancel);
+      if(!done && !document.hidden) window.location.href = web;
+    }, 1200);
+    window.location.href = 'fb-messenger://user-thread/' + PAGE;
+  }, true);
+})();`
+
 const SITE = 'https://www.bercohome.com'
 const HERO = SITE + '/img/custom-kitchen-cabinetry-philippines.jpg'
 
@@ -135,6 +171,7 @@ export default function RootLayout({ children }) {
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script dangerouslySetInnerHTML={{ __html: reveal }} />
+        <script dangerouslySetInnerHTML={{ __html: MESSENGER_DEEPLINK }} />
         <ChatButton />
         <Analytics />
         <Consent />
