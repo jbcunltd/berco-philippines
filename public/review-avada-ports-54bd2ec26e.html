@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Avada Layout Port Plan</title>
+<style>
+  :root{
+    --bg:#faf7f2; --card:#ffffff; --ink:#1d1a16; --muted:#6b6358;
+    --line:#e4ddd2; --accent:#8a6a3b; --good:#3f7d4e; --bad:#a8432f;
+    --wire:#efe9e0; --wireline:#cfc5b6;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:0 16px 72px;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+  header{padding:34px 0 10px;border-bottom:1px solid var(--line);margin-bottom:26px}
+  .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 10px}
+  h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.015em}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+     margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);font-weight:700}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 10px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+  th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .win{color:var(--good);font-weight:700}
+  .lose{color:var(--bad);font-weight:700}
+  .note{font-size:13px;color:var(--muted);margin:6px 0 0}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+        padding:18px 16px;margin:0 0 16px}
+  .card .num{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;
+     background:var(--ink);color:#fff;border-radius:7px;font-size:13px;font-weight:700;margin-right:9px}
+  .card h3{display:inline;font-size:18px;margin:0;letter-spacing:-.01em;vertical-align:middle}
+  .meta{margin:12px 0 0;font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;background:var(--wire);border:1px solid var(--line);
+       border-radius:100px;padding:3px 10px;font-size:11px;font-weight:700;
+       letter-spacing:.05em;text-transform:uppercase;margin:0 6px 6px 0;color:var(--muted)}
+  .tag.b{background:#f3ece1;color:#7a5a2e;border-color:#e0d2bc}
+  .tag.s{background:#e8eff3;color:#2f5d73;border-color:#cfe0e8}
+  .tag.n{background:#eceee9;color:#4a5547;border-color:#d8ddd4}
+  .card p{margin:12px 0 0;font-size:15px}
+  .card p.why{color:var(--muted);font-size:14px}
+  .card strong{color:var(--ink)}
+
+  /* wireframes */
+  .wf{background:var(--wire);border:1px solid var(--line);border-radius:9px;padding:12px;margin:14px 0 0}
+  .wf .lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+           font-weight:700;margin:0 0 9px}
+  .bx{background:#fff;border:1px dashed var(--wireline);border-radius:5px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#9a9083;
+      text-align:center;padding:4px}
+  .row{display:flex;gap:7px}
+  .row>*{flex:1}
+  .stack>*+*{margin-top:7px}
+  .h28{height:28px}.h40{height:40px}.h56{height:56px}.h72{height:72px}.h90{height:90px}
+  .fill{background:#efe6d8;border-style:solid;border-color:var(--wireline);color:#8a7a60}
+  .dark{background:#2a2622;border-style:solid;border-color:#2a2622;color:#d8cfc0}
+  .pill{height:26px;border-radius:100px;max-width:150px;margin:0 auto}
+
+  ul.chk{margin:12px 0 0;padding:0;list-style:none}
+  ul.chk li{position:relative;padding:0 0 0 22px;margin:0 0 7px;font-size:14px;color:var(--muted)}
+  ul.chk li:before{content:"";position:absolute;left:4px;top:8px;width:6px;height:6px;
+    border-radius:50%;background:var(--accent)}
+  ul.chk li strong{color:var(--ink)}
+
+  .reject{background:#fdf6f4;border-color:#eccfc6}
+  .reject .num{background:var(--bad)}
+  .callout{background:#fff;border-left:3px solid var(--accent);padding:13px 15px;
+           margin:16px 0 0;font-size:14px;border-radius:0 8px 8px 0;
+           border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:12px;color:var(--muted)}
+  @media (min-width:620px){ h1{font-size:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">Internal · not indexed</p>
+  <h1>Avada layouts, ported to our build</h1>
+  <p class="sub">Seven sections worth copying, four worth refusing, and the one gap that has nothing to do with Avada. Measured 24 November 2026.</p>
+</header>
+
+<h2>First, why we take the layouts and not the platform</h2>
+
+<table>
+  <thead><tr><th>Phone viewport</th><th class="n">Avada demo</th><th class="n">bercohome.com</th></tr></thead>
+  <tbody>
+    <tr><td>DOMContentLoaded</td><td class="n lose">3,262 ms</td><td class="n win">410 ms</td></tr>
+    <tr><td>Load event</td><td class="n lose">3,598 ms</td><td class="n win">770 ms</td></tr>
+    <tr><td>DOM nodes</td><td class="n lose">1,855</td><td class="n win">437</td></tr>
+    <tr><td>Transferred</td><td class="n">529 KB</td><td class="n">509 KB</td></tr>
+    <tr><td>Raw HTML</td><td class="n lose">418–555 KB</td><td class="n win">87 KB</td></tr>
+  </tbody>
+</table>
+<p class="note">Same bytes on the wire, eight times the time to interactive. That is page-builder markup plus jQuery, not photography. And it is unthrottled on a Mac, so a real phone is worse.</p>
+
+<div class="callout">
+  <strong>What we take is structure.</strong> Section order, hierarchy, what sits where on a long page. Their photography, type pairings and graphics stay with them. Every wireframe below is ours to fill with our own installations.
+</div>
+
+<h2>The seven</h2>
+
+<!-- 1 -->
+<div class="card">
+  <span class="num">1</span><h3>Project gallery, named and dated</h3>
+  <div class="meta"><span class="tag b">Berco</span><span class="tag">from Construction · Landscaper</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="stack">
+      <div class="bx h28">Explore recent work</div>
+      <div class="row">
+        <div class="bx h72 fill">Project</div>
+        <div class="bx h72 fill">Project</div>
+      </div>
+      <div class="row">
+        <div class="bx h72 fill">Project</div>
+        <div class="bx h72 fill">Project</div>
+      </div>
+      <div class="bx h28 pill">View all projects</div>
+    </div>
+  </div>
+  <p><strong>Berco has no project gallery at all.</strong> Skybass already has one, five real installations. Cabinetry is bought on sight and our strongest page has nothing to look at.</p>
+  <p class="why">Fills with real installs only. We already have the reimagine method for restyling the furnishing around an exact product.</p>
+</div>
+
+<!-- 2 -->
+<div class="card">
+  <span class="num">2</span><h3>One client quote, full width</h3>
+  <div class="meta"><span class="tag b">Berco</span><span class="tag s">Skybass</span><span class="tag">from Construction</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="stack">
+      <div class="bx h90 dark">Quote, large italic, over a real installation photo</div>
+      <div class="bx h28">J.R. · Mandaue</div>
+    </div>
+  </div>
+  <p><strong>Neither site carries a single client word.</strong> Both are entirely us talking about us.</p>
+  <p class="why">Their version uses a stock family photo and the invented name "Harry Smith, New Home Owner". Ours is initials and city, the exact words, no face. The outreach to past clients is already a live workstream, this gives it somewhere to land.</p>
+</div>
+
+<!-- 3 -->
+<div class="card">
+  <span class="num">3</span><h3>Hardware we actually fit</h3>
+  <div class="meta"><span class="tag b">Berco only</span><span class="tag">from Construction</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="row">
+      <div class="bx h40">Logo</div><div class="bx h40">Logo</div>
+      <div class="bx h40">Logo</div><div class="bx h40">Logo</div>
+    </div>
+  </div>
+  <p>Berco already names Blum, Hettich, Kesseböhmer, Peka and EGGER in body text. A logo row says it in one glance instead of a paragraph.</p>
+  <p class="why">Berco only. Skybass can never show a supplier mark, that rule does not bend. Worth a quick check that each maker allows logo use for a fitter before we ship it.</p>
+</div>
+
+<!-- 4 -->
+<div class="card">
+  <span class="num">4</span><h3>The ask, placed mid-page</h3>
+  <div class="meta"><span class="tag b">Berco</span><span class="tag s">Skybass</span><span class="tag">from Handyman</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="row">
+      <div class="bx h90 fill">Photo</div>
+      <div class="stack" style="flex:1">
+        <div class="bx h28">Book a site review</div>
+        <div class="bx h28">Name · number</div>
+        <div class="bx h28 dark">Send</div>
+      </div>
+    </div>
+  </div>
+  <p><strong>Both sites ask once, at the very bottom.</strong> Anyone who stops scrolling at 60% is never asked anything.</p>
+  <p class="why">Not "free quote", a site review. Berco does not discuss price in public and the goal is the visit, not the number.</p>
+</div>
+
+<!-- 5 -->
+<div class="card">
+  <span class="num">5</span><h3>A band straight under the hero</h3>
+  <div class="meta"><span class="tag b">Berco</span><span class="tag s">Skybass</span><span class="tag n">Nautilus</span><span class="tag">from Construction</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="stack">
+      <div class="bx h72 dark">Hero</div>
+      <div class="bx h40 fill">Planning a project? One line, one button.</div>
+    </div>
+  </div>
+  <p>Their second section, before any selling. Cheapest thing on this list to build, one band, three sites.</p>
+</div>
+
+<!-- 6 -->
+<div class="card" style="border-color:#c9b48a;border-width:2px">
+  <span class="num">6</span><h3>Skybass needs Berco's spec section</h3>
+  <div class="meta"><span class="tag s">Skybass</span><span class="tag" style="background:#f6efe2;color:#7a5a2e">not from Avada</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="stack">
+      <div class="bx h28">How it is built</div>
+      <div class="row"><div class="bx h56">101 km/h tested</div><div class="bx h56">120 kg/m² load</div></div>
+      <div class="row"><div class="bx h56">Spec</div><div class="bx h56">Spec</div></div>
+    </div>
+  </div>
+  <p><strong>This is the best finding of the audit and Avada had nothing to do with it.</strong> Berco runs a six-item build-spec section. Skybass runs none, while holding the hardest numbers in the business: tested to 101 km/h and 120 kg/m².</p>
+  <p class="why">Port it sideways, Berco to Skybass. No supplier named, no model code, measured figures only.</p>
+</div>
+
+<!-- 7 -->
+<div class="card">
+  <span class="num">7</span><h3>Answers row, three across</h3>
+  <div class="meta"><span class="tag b">Berco</span><span class="tag s">Skybass</span><span class="tag n">Nautilus</span><span class="tag">from Construction · Factory</span></div>
+  <div class="wf">
+    <p class="lbl">Wireframe</p>
+    <div class="row">
+      <div class="stack"><div class="bx h56 fill">Img</div><div class="bx h28">Question</div></div>
+      <div class="stack"><div class="bx h56 fill">Img</div><div class="bx h28">Question</div></div>
+      <div class="stack"><div class="bx h56 fill">Img</div><div class="bx h28">Question</div></div>
+    </div>
+  </div>
+  <p>Every trade demo carries one. Ours carry none, and the question bank is already mined and waiting with nowhere to go.</p>
+  <p class="why">Real buyer questions, not "Latest News". This is the search and AI-visibility work finally getting a surface.</p>
+</div>
+
+<h2>Four we refuse, and why</h2>
+
+<div class="card reject">
+  <span class="num">×</span><h3>Animated stat counters</h3>
+  <p class="why">Their own live demo renders <strong>"14 Completed Projects, 3 Trained Professionals, 0 International Offices"</strong>. A counter that shows zero is worse than no counter, and our real numbers are not all for publishing.</p>
+</div>
+
+<div class="card reject">
+  <span class="num">×</span><h3>Flip cards</h3>
+  <p class="why">Broken on their own flagship demo at 375px. Both faces render stacked, so the front text sits on top of mirrored back text and neither reads. A hover effect has no hover on a phone.</p>
+</div>
+
+<div class="card reject">
+  <span class="num">×</span><h3>Scroll-reveal animation</h3>
+  <p class="why">Scrolled at phone speed and hit <strong>entirely blank white screens</strong> where sections had not triggered yet. A flick scroll outruns it. We are mobile-first and this fails the first test.</p>
+</div>
+
+<div class="card reject">
+  <span class="num">×</span><h3>Icon-circle "Core Values"</h3>
+  <p class="why">Great Services, Highest Standards, Professional Team, Creative Solutions. Four adjectives and no fact. Swap any competitor's name in and it still reads true, which is how we know it says nothing.</p>
+</div>
+
+<h2>How to run it</h2>
+<ul class="chk">
+  <li><strong>One at a time.</strong> Say a number and it gets built, deployed and checked on a real phone before the next one starts.</li>
+  <li><strong>Suggested order:</strong> 6 and 5 first, both small and both close gaps we can fill today. Then 1, which needs photos chosen. Then 2, which waits on the review outreach.</li>
+  <li><strong>3 needs one answer from you</strong> before it ships: are we comfortable showing the hardware makers' logos.</li>
+  <li><strong>Nothing here touches the stack.</strong> Next.js, same repo, same deploy, same gates.</li>
+</ul>
+
+<footer>
+  Built 24 Nov 2026 · measurements taken live at 375&times;812 · Avada demo pages fetched from avada.website · no Avada assets reproduced on this page
+</footer>
+
+</div>
+</body>
+</html>
