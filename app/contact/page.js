@@ -83,8 +83,7 @@ export default function Contact() {
           <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
           <a className="navlink-tap" href="tel:+639178000730">Tap to call 0917 800 0730</a>
-          <a className="navlink-tap" href="https://m.me/bercophilippines?ref=nav-menu" rel="noopener">Message us on Messenger</a>
-          <a className="navlink-cta" href="/contact">Book a consultation</a>
+              <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
@@ -112,12 +111,6 @@ export default function Contact() {
               <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/>
             </svg>
             <span><strong>Call us</strong>0917 800 0730</span>
-          </a>
-          <a className="tap" href="https://m.me/bercophilippines?ref=contact-top" rel="noopener">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-              <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>
-            </svg>
-            <span><strong>Messenger</strong>Chat with us</span>
           </a>
           <a className="tap" href="mailto:sales@bercohome.com?subject=Cabinetry%20inquiry">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">

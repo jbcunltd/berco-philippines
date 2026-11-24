@@ -44,8 +44,7 @@ export default function Catalogues() {
           <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
           <a className="navlink-tap" href="tel:+639178000730">Tap to call 0917 800 0730</a>
-          <a className="navlink-tap" href="https://m.me/bercophilippines?ref=nav-menu" rel="noopener">Message us on Messenger</a>
-          <a className="navlink-cta" href="/contact">Book a consultation</a>
+              <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
@@ -95,7 +94,7 @@ export default function Catalogues() {
       <section id="book" className="final band"><div className="shell reveal">
         <h2>Would you like us to review your space and guide you through the design process?</h2>
         <a className="btn" href="/contact">Book a design consultation →</a>
-        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead. Or message us on <a href="https://m.me/bercophilippines?ref=catalogues-index" rel="noopener">Messenger</a>.</p>
+        <p className="fee">The design consultation is free. The site measurement visit is paid, and credited to your project when you go ahead.</p>
       </div></section>
 
       </main>

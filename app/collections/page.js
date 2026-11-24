@@ -43,8 +43,7 @@ export default function Collections() {
           <a href="/for-designers">For designers</a>
           <a href="/contact">Contact</a>
           <a className="navlink-tap" href="tel:+639178000730">Tap to call 0917 800 0730</a>
-          <a className="navlink-tap" href="https://m.me/bercophilippines?ref=nav-menu" rel="noopener">Message us on Messenger</a>
-          <a className="navlink-cta" href="/contact">Book a consultation</a>
+              <a className="navlink-cta" href="/contact">Book a consultation</a>
         </div>
         <a className="navcta" href="/contact">Book a consultation</a>
         <button className="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>

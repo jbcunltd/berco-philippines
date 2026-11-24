@@ -28,9 +28,6 @@ export default function SiteFooter() {
           <div className="foot-contact">
             <a className="fc-line" href="mailto:sales@bercohome.com">sales@bercohome.com</a>
             <a className="fc-line" href="tel:+639178000730">0917 800 0730</a>
-            {/* ?ref= arrives with the conversation and is readable in ManyChat, so a
-                website-originated chat can be told apart from an ad-originated one. */}
-            <a className="fc-line" href="https://m.me/bercophilippines?ref=website-footer" rel="noopener">Message us on Messenger</a>
             <p className="fc-note">Mandaluyong &amp; Cebu · Projects nationwide · JBC UNLTD CORP</p>
           </div>
         </div>

@@ -161,12 +161,12 @@ export default function RootLayout({ children }) {
           '.reveal,.stag,.stag>*{opacity:1!important;transform:none!important;transition:none!important}' }} /></noscript>
         <script dangerouslySetInnerHTML={{ __html: consentDefaults }} />
         <div className="wrap">{children}</div>
-        {/* Phone-only quick-contact bar. The audience is mobile and Messenger-first,
-            but on phones Call/Messenger live behind the hamburger - this keeps the
-            two real conversion actions one thumb away on every page. */}
+        {/* Phone-only quick-contact bar. Messenger was removed from it on
+            2026-11-24: the blue Chat with us pill sits ~10px above this bar doing
+            the identical job, and Jumbo called three routes on one screen too
+            much. Chat now lives in exactly one place sitewide. */}
         <div className="mobilebar" role="navigation" aria-label="Quick contact">
           <a href="tel:+639178000730">Call</a>
-          <a href="https://m.me/bercophilippines?ref=mobile-bar" rel="noopener">Messenger</a>
           <a className="mb-cta" href="/contact">Inquire</a>
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
