@@ -3,6 +3,15 @@ import { useEffect, useState } from 'react'
 
 const fmt = (t) => t ? new Date(t).toLocaleString('en-PH', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : ''
 
+// Turn bare https:// links in a question or its context into tappable links.
+// Text only, no HTML parsing, so nothing stored in the table can inject markup.
+function Linked({ text }) {
+  const parts = String(text).split(/(https:\/\/[^\s)]+)/g)
+  return parts.map((p, i) => p.startsWith('https://')
+    ? <a key={i} href={p} target="_blank" rel="noopener noreferrer" className="ab-link">Open ad ↗</a>
+    : <span key={i}>{p}</span>)
+}
+
 function Item({ it, keyStr, onSaved }) {
   const [val, setVal] = useState(it.answer || '')
   const [state, setState] = useState('')
@@ -17,8 +26,8 @@ function Item({ it, keyStr, onSaved }) {
   }
   return (
     <li className="ab-item">
-      <p className="ab-q">{it.question}</p>
-      {it.context && <p className="ab-ctx">{it.context}</p>}
+      <p className="ab-q"><Linked text={it.question} /></p>
+      {it.context && <p className="ab-ctx"><Linked text={it.context} /></p>}
       {it.locked && <div className="ab-lock"><span className="ab-tag">Locked</span><p>{it.locked}</p><span className="ab-when">{fmt(it.locked_at)}</span></div>}
       <textarea className="ab-in" rows={it.locked ? 2 : 3} value={val} onChange={(e) => { setVal(e.target.value); setState('') }}
         placeholder={it.locked ? 'Want to change this? Write it here.' : 'Your answer'} />
@@ -72,6 +81,7 @@ export default function Answers() {
         .ab-row{display:flex;align-items:center;gap:12px;margin-top:8px}
         .ab-btn{font:inherit;font-weight:600;font-size:15px;padding:10px 20px;min-height:44px;border:0;border-radius:999px;background:var(--ink);color:#fff}
         .ab-btn:disabled{opacity:.35}
+        .ab-link{display:inline-block;margin-top:6px;padding:8px 14px;min-height:44px;line-height:28px;border:1px solid var(--champ-ink);border-radius:999px;color:var(--champ-ink);font-weight:600;text-decoration:none;font-size:14px;box-sizing:border-box}
         .ab-state{font-size:13px;color:var(--ink-faint)}
       `}</style>
       <h1>Answers board</h1>
