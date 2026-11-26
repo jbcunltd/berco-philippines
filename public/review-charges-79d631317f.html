@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Duplicate Charges</title>
+<style>
+  :root{
+    --bg:#f7f4ee; --card:#ffffff; --ink:#1d1b18; --muted:#6b645c;
+    --line:#e3dcd1; --red:#9c2b1f; --redbg:#fbeeec; --green:#2f6b4f; --accent:#1d1b18;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; padding:0 16px 72px;
+  }
+  .wrap{max-width:620px;margin:0 auto}
+  header{padding:30px 0 6px}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  h1{font-size:28px;line-height:1.2;margin:0 0 8px;letter-spacing:-.02em}
+  .sub{color:var(--muted);margin:0 0 4px;font-size:15px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+  .alarm{background:var(--redbg);border-color:#efd4cf}
+  h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600}
+  h3{font-size:19px;margin:0 0 8px;letter-spacing:-.01em}
+  p{margin:0 0 12px}
+  p:last-child{margin-bottom:0}
+  .big{font-size:22px;font-weight:600;letter-spacing:-.01em}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .today{color:var(--red);font-weight:600}
+  .total td{border-top:2px solid var(--ink);border-bottom:0;padding-top:12px;font-weight:600}
+  .step{counter-increment:s}
+  .step h3::before{content:counter(s);display:inline-grid;place-items:center;width:27px;height:27px;
+    background:var(--accent);color:#fff;border-radius:50%;font-size:14px;margin-right:10px;vertical-align:2px}
+  body{counter-reset:s}
+  a.btn{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;
+    padding:17px 18px;border-radius:11px;font-weight:600;font-size:17px;margin:14px 0 4px}
+  a.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .note{font-size:14px;color:var(--muted);margin-top:10px}
+  blockquote{margin:12px 0 0;padding:14px 16px;background:#faf7f1;border-left:3px solid var(--line);
+    border-radius:0 8px 8px 0;font-size:15.5px}
+  button.copy{display:block;width:100%;margin-top:10px;padding:13px;border:1.5px solid var(--line);
+    background:#fff;border-radius:10px;font:inherit;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer}
+  button.copy.done{background:var(--green);color:#fff;border-color:var(--green)}
+  ul{margin:0;padding-left:20px}
+  li{margin-bottom:9px}
+  li:last-child{margin-bottom:0}
+  .ok{color:var(--green);font-weight:600}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding-top:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">JBC UNLTD CORP &middot; 26 November 2026</p>
+  <h1>Three identical charges</h1>
+  <p class="sub">USD 647.52, three times, two days apart. This is a retry loop, not a renewal.</p>
+</header>
+
+<div class="card alarm">
+  <h2>What was charged</h2>
+  <table>
+    <tr><td>Sun 22 Nov, 22:20</td><td class="r">USD 647.52</td></tr>
+    <tr><td>Tue 24 Nov, 14:48</td><td class="r">USD 647.52</td></tr>
+    <tr><td class="today">Thu 26 Nov, 14:37 &middot; today</td><td class="r today">USD 647.52</td></tr>
+    <tr class="total"><td>Total</td><td class="r">USD 1,942.56</td></tr>
+  </table>
+  <p class="note">Roughly &#8369;115,000 at &#8369;59 to the dollar, before CBC adds its foreign currency fee.
+  A renewal fires once. Every two days, three times, to the cent, is a system retrying a charge it thinks failed.
+  <strong>On this pattern the next one lands around Saturday 28 November.</strong></p>
+</div>
+
+<div class="card">
+  <h2>Not part of this</h2>
+  <p>The <strong>VERCEL INC. USD 20.00</strong> on 25 Nov is ours and it is correct. That is the hosting the
+  Berco, Skybass and Nautilus sites run on. Leave it alone when you talk to the bank.</p>
+</div>
+
+<div class="card step">
+  <h3>Call CBC and block the card</h3>
+  <p>Do this first, before Bluehost, before anything. A dispute argues about money already taken.
+  <strong>Blocking the card is the only thing that stops Saturday's charge.</strong></p>
+  <a class="btn" href="tel:+63285119555">Call +63 2 8511 9555</a>
+  <a class="btn ghost" href="tel:+6328885588">Alternate: 8-888-55-888</a>
+  <p class="note">Say these three things, in this order:</p>
+  <blockquote id="s1">My card has been charged the same amount three times in four days. 647 dollars and 52 cents on the 22nd, the 24th, and again today. I want the card blocked and reissued right now, because I expect another one in two days. Then I want to file a dispute on the duplicates.</blockquote>
+  <button class="copy" data-t="s1">Copy this</button>
+  <p class="note">Ask them for a <strong>reference number</strong> before you hang up, and write it down.
+  Ask also whether each of the three has <strong>settled</strong> or is still a hold.</p>
+</div>
+
+<div class="card step">
+  <h3>Open the Bluehost account</h3>
+  <p>Log in, then go to <strong>Account</strong> and find <strong>Billing</strong> or <strong>Transactions</strong>.
+  Do not use a deep link, their panel bounces you back to the dashboard.</p>
+  <a class="btn" href="https://my.bluehost.com/my-account" target="_blank" rel="noopener">Open my.bluehost.com</a>
+  <p class="note">Three things to look for:</p>
+  <ul>
+    <li>Does Bluehost show <strong>647.52</strong> at all, and how many times?</li>
+    <li>What is the <strong>product line</strong> on it? Hosting, domains, SiteLock, CodeGuard, a multi-year term?</li>
+    <li>Switch <strong>auto-renew OFF</strong> on anything you are not deliberately keeping.</li>
+  </ul>
+</div>
+
+<div class="card step">
+  <h3>Screenshot it and send it to me</h3>
+  <p>The transactions list and the products list. I will tell you line by line what each one actually does for us,
+  and what we can drop.</p>
+</div>
+
+<div class="card">
+  <h2>Two things to check before you name Bluehost</h2>
+  <p><strong>The text message does not say Bluehost.</strong> It says <code>WEB***********</code>.
+  Compare it with the 25 Nov line, which spells out <code>VERCEL INC.</code> The merchant on these three is masked.
+  Read the full merchant name off the CBC app's transaction list before you put Bluehost's name on a dispute form,
+  because if it is a different merchant the claim goes somewhere else.</p>
+  <p><strong>Two of the three may be holds, not real charges.</strong> An authorisation and a settled charge send an
+  identical SMS. Holds fall off in three to seven days and never reach the statement.
+  <span class="ok">The app's transaction list is the truth here, not the texts.</span></p>
+</div>
+
+<div class="card">
+  <h2>What Bluehost still holds for us</h2>
+  <p>Both brand sites moved to Vercel, so this is all that is left on that account:</p>
+  <ul>
+    <li>Three mailboxes: <strong>sales@skybassinc.com</strong>, <strong>sbi@skybassinc.com</strong>, <strong>sales@bercohome.com</strong></li>
+    <li>The DNS zones for <strong>skybassinc.com</strong> and <strong>bercohome.com</strong></li>
+    <li>An old WordPress install that is switched out of the public path</li>
+  </ul>
+  <p class="note" style="margin-top:14px">USD 647 is a great deal of money for three mailboxes and two DNS zones.
+  Once the charges are settled, that is worth a proper look.</p>
+</div>
+
+<div class="card step">
+  <h3>Then message Bluehost support</h3>
+  <p>After the bank call, not before. Their chat is in the same portal.</p>
+  <blockquote id="s2">My card was charged USD 647.52 three separate times, on 22, 24 and 26 November 2026. I authorised at most one of these. Please confirm how many charges your system has recorded against my account, what each one is for, and refund the duplicates. I have also asked my bank to block the card, so please do not attempt the charge again. Turn off auto-renew on the account until this is resolved.</blockquote>
+  <button class="copy" data-t="s2">Copy this</button>
+  <p class="note">Keep the chat transcript. If they refuse, the bank dispute is the fallback and the transcript is the evidence.</p>
+</div>
+
+<footer>Private page. Not indexed, not linked from anywhere.</footer>
+
+</div>
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.getElementById(b.dataset.t).innerText;
+    var done=function(){b.textContent='Copied';b.classList.add('done');
+      setTimeout(function(){b.textContent='Copy this';b.classList.remove('done')},2000)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+    else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
+      try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}
+  });
+});
+</script>
+</body>
+</html>
