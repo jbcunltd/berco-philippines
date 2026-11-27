@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>Duplicate Charges</title>
+<title>Bluehost Charges</title>
 <style>
   :root{
     --bg:#f7f4ee; --card:#ffffff; --ink:#1d1b18; --muted:#6b645c;
@@ -15,7 +15,7 @@
   body{
     background:var(--bg); color:var(--ink);
     font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased; padding:0 16px 72px;
+    -webkit-font-smoothing:antialiased; padding:0 16px 72px; counter-reset:s;
   }
   .wrap{max-width:620px;margin:0 auto}
   header{padding:30px 0 6px}
@@ -28,17 +28,14 @@
   h3{font-size:19px;margin:0 0 8px;letter-spacing:-.01em}
   p{margin:0 0 12px}
   p:last-child{margin-bottom:0}
-  .big{font-size:22px;font-weight:600;letter-spacing:-.01em}
   table{width:100%;border-collapse:collapse;font-size:15px}
   td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
   tr:last-child td{border-bottom:0}
   td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .today{color:var(--red);font-weight:600}
   .total td{border-top:2px solid var(--ink);border-bottom:0;padding-top:12px;font-weight:600}
   .step{counter-increment:s}
   .step h3::before{content:counter(s);display:inline-grid;place-items:center;width:27px;height:27px;
     background:var(--accent);color:#fff;border-radius:50%;font-size:14px;margin-right:10px;vertical-align:2px}
-  body{counter-reset:s}
   a.btn{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;
     padding:17px 18px;border-radius:11px;font-weight:600;font-size:17px;margin:14px 0 4px}
   a.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
@@ -52,6 +49,9 @@
   li{margin-bottom:9px}
   li:last-child{margin-bottom:0}
   .ok{color:var(--green);font-weight:600}
+  .vs{display:grid;grid-template-columns:1fr;gap:12px;margin-top:4px}
+  .vs div{padding:13px 15px;border:1px solid var(--line);border-radius:10px;font-size:15.5px;background:#faf7f1}
+  .vs strong{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
   footer{color:var(--muted);font-size:13px;text-align:center;padding-top:28px}
 </style>
 </head>
@@ -59,91 +59,99 @@
 <div class="wrap">
 
 <header>
-  <p class="kicker">JBC UNLTD CORP &middot; 26 November 2026</p>
-  <h1>Three identical charges</h1>
-  <p class="sub">USD 647.52, three times, two days apart. This is a retry loop, not a renewal.</p>
+  <p class="kicker">JBC UNLTD CORP &middot; 27 November 2026</p>
+  <h1>Send this to Bluehost</h1>
+  <p class="sub">The bank says Bluehost took USD 1,942.56. Bluehost's own order list says nothing arrived. That gap is the case.</p>
 </header>
 
+<div class="card step">
+  <h3>Open the chat</h3>
+  <p>Tap below, then tap <strong>Start A Chat</strong> on their page. It is the live chat, not the Ask AI button.
+  Average wait is under two minutes.</p>
+  <a class="btn" href="https://www.bluehost.com/contact" target="_blank" rel="noopener">Open Bluehost chat</a>
+  <a class="btn ghost" href="tel:+18017659400">Or call +1 801 765 9400</a>
+  <p class="note">That international line is the only one that dials from the Philippines. Their 888 support number is
+  US only. International call charges apply, so chat is the cheaper route.</p>
+</div>
+
+<div class="card step">
+  <h3>Paste this</h3>
+  <blockquote id="s1">My card ending 2038 was charged USD 647.52 three times, on 22, 24 and 26 November 2026. My bank has confirmed the merchant descriptor is WEB*BLUEHOST. My account 53722115 shows no order for any of those dates, the most recent order in my history is 4 November for 2.16 dollars. Please search by card and find which account those three charges were applied to. If they were not applied to anything, refund all three. Separately, the WordPress Choice Plus Hosting and cPanel Email Plus on account 53722115 both expired on 27 November and have not renewed, and I need that resolved today.</blockquote>
+  <button class="copy" data-t="s1">Copy this message</button>
+  <p class="note">Two things to get out of them before you close the chat: a <strong>ticket number</strong>, and a
+  straight answer on whether the hosting and the email are still live.</p>
+</div>
+
 <div class="card alarm">
-  <h2>What was charged</h2>
+  <h2>The charges</h2>
   <table>
     <tr><td>Sun 22 Nov, 22:20</td><td class="r">USD 647.52</td></tr>
     <tr><td>Tue 24 Nov, 14:48</td><td class="r">USD 647.52</td></tr>
-    <tr><td class="today">Thu 26 Nov, 14:37 &middot; today</td><td class="r today">USD 647.52</td></tr>
+    <tr><td>Thu 26 Nov, 14:37</td><td class="r">USD 647.52</td></tr>
     <tr class="total"><td>Total</td><td class="r">USD 1,942.56</td></tr>
   </table>
-  <p class="note">Roughly &#8369;115,000 at &#8369;59 to the dollar, before CBC adds its foreign currency fee.
-  A renewal fires once. Every two days, three times, to the cent, is a system retrying a charge it thinks failed.
-  <strong>On this pattern the next one lands around Saturday 28 November.</strong></p>
+  <p class="note">Roughly &#8369;115,000 at &#8369;59 to the dollar, before CBC's foreign currency fee.
+  A renewal fires once. The same amount every two days, three times, to the cent, is a system retrying a charge it
+  believes failed. <strong>On this pattern the next one lands around Saturday 28 November, tomorrow.</strong></p>
 </div>
 
 <div class="card">
-  <h2>Not part of this</h2>
-  <p>The <strong>VERCEL INC. USD 20.00</strong> on 25 Nov is ours and it is correct. That is the hosting the
-  Berco, Skybass and Nautilus sites run on. Leave it alone when you talk to the bank.</p>
+  <h2>The contradiction</h2>
+  <div class="vs">
+    <div><strong>CBC says</strong>WEB*BLUEHOST took USD 647.52, three times. Confirmed by the bank, not read off a text message.</div>
+    <div><strong>Bluehost says</strong>Account 53722115's order history ends on 4 November at 2.16 dollars. No order anywhere near 647.52 exists.</div>
+  </div>
+  <p class="note">Both cannot be true. The money went to Bluehost and never reached the account. That means either it
+  landed on a different Bluehost account opened with this card, or three orders failed on their side after the bank had
+  already approved them. <span class="ok">Either way it is their record that is missing, not yours, and that is a
+  stronger position than a plain dispute.</span></p>
+</div>
+
+<div class="card alarm">
+  <h2>Expiring today</h2>
+  <p>Both renewable products on the account carry an expiration of <strong>27 November 2026</strong>, auto-renew switched
+  ON, same Mastercard ending 2038, and an auto-renewal date of 12 November that has passed without renewing:</p>
+  <ul>
+    <li><strong>WordPress Choice Plus Hosting</strong> (jbcunltdcorp.com)</li>
+    <li><strong>cPanel Email Plus</strong> (bercohome.com)</li>
+  </ul>
+  <p class="note">Since there is only one Bluehost account, skybassinc.com is almost certainly an addon domain on that
+  same hosting plan, and Berco shows separately only because its email is a paid extra. So one expiring plan sits under
+  every company mailbox we have.</p>
+</div>
+
+<div class="card">
+  <h2>What is sitting on that account</h2>
+  <ul>
+    <li><strong>sales@skybassinc.com</strong></li>
+    <li><strong>sbi@skybassinc.com</strong></li>
+    <li><strong>sales@bercohome.com</strong></li>
+    <li><strong>jbc@jbcunltdcorp.com</strong></li>
+  </ul>
+  <p class="note" style="margin-top:14px">All four resolve to the same Bluehost mail server, box5152 at 162.241.230.57.
+  The websites themselves are on Vercel and are not affected, so this is about the email and the DNS zones only.</p>
 </div>
 
 <div class="card step">
-  <h3>Call CBC and block the card</h3>
-  <p>Do this first, before Bluehost, before anything. A dispute argues about money already taken.
-  <strong>Blocking the card is the only thing that stops Saturday's charge.</strong></p>
-  <a class="btn" href="tel:+63285119555">Call +63 2 8511 9555</a>
+  <h3>Then block the card</h3>
+  <p>After the chat, not before, and this is a real trade off. Blocking stops tomorrow's charge.
+  It also guarantees the mailboxes lapse if the renewal genuinely has not been paid.
+  <strong>Get Bluehost to renew first off the money they already hold, then block.</strong>
+  If they stall, tell me and we pay the renewal separately and block anyway.</p>
+  <a class="btn" href="tel:+63285119555">Call CBC +63 2 8511 9555</a>
   <a class="btn ghost" href="tel:+6328885588">Alternate: 8-888-55-888</a>
-  <p class="note">Say these three things, in this order:</p>
-  <blockquote id="s1">My card has been charged the same amount three times in four days. 647 dollars and 52 cents on the 22nd, the 24th, and again today. I want the card blocked and reissued right now, because I expect another one in two days. Then I want to file a dispute on the duplicates.</blockquote>
-  <button class="copy" data-t="s1">Copy this</button>
-  <p class="note">Ask them for a <strong>reference number</strong> before you hang up, and write it down.
-  Ask also whether each of the three has <strong>settled</strong> or is still a hold.</p>
-</div>
-
-<div class="card step">
-  <h3>Open the Bluehost account</h3>
-  <p>Log in, then go to <strong>Account</strong> and find <strong>Billing</strong> or <strong>Transactions</strong>.
-  Do not use a deep link, their panel bounces you back to the dashboard.</p>
-  <a class="btn" href="https://my.bluehost.com/my-account" target="_blank" rel="noopener">Open my.bluehost.com</a>
-  <p class="note">Three things to look for:</p>
-  <ul>
-    <li>Does Bluehost show <strong>647.52</strong> at all, and how many times?</li>
-    <li>What is the <strong>product line</strong> on it? Hosting, domains, SiteLock, CodeGuard, a multi-year term?</li>
-    <li>Switch <strong>auto-renew OFF</strong> on anything you are not deliberately keeping.</li>
-  </ul>
-</div>
-
-<div class="card step">
-  <h3>Screenshot it and send it to me</h3>
-  <p>The transactions list and the products list. I will tell you line by line what each one actually does for us,
-  and what we can drop.</p>
+  <blockquote id="s2">My card has been charged the same amount three times in four days, 647 dollars and 52 cents on the 22nd, the 24th and the 26th of November. The merchant is WEB*BLUEHOST. I want the card blocked and reissued, because I expect another one tomorrow. Then I want to file a dispute on all three, and I have a ticket number from the merchant showing they have no record of them.</blockquote>
+  <button class="copy" data-t="s2">Copy this message</button>
+  <p class="note">Ask CBC for a <strong>reference number</strong>, and ask whether each of the three has
+  <strong>settled</strong> or is still only a hold. An authorisation and a settled charge send an identical text message,
+  and a hold drops off in three to seven days. <span class="ok">The app's transaction list is the truth, not the
+  texts.</span></p>
 </div>
 
 <div class="card">
-  <h2>Two things to check before you name Bluehost</h2>
-  <p><strong>The text message does not say Bluehost.</strong> It says <code>WEB***********</code>.
-  Compare it with the 25 Nov line, which spells out <code>VERCEL INC.</code> The merchant on these three is masked.
-  Read the full merchant name off the CBC app's transaction list before you put Bluehost's name on a dispute form,
-  because if it is a different merchant the claim goes somewhere else.</p>
-  <p><strong>Two of the three may be holds, not real charges.</strong> An authorisation and a settled charge send an
-  identical SMS. Holds fall off in three to seven days and never reach the statement.
-  <span class="ok">The app's transaction list is the truth here, not the texts.</span></p>
-</div>
-
-<div class="card">
-  <h2>What Bluehost still holds for us</h2>
-  <p>Both brand sites moved to Vercel, so this is all that is left on that account:</p>
-  <ul>
-    <li>Three mailboxes: <strong>sales@skybassinc.com</strong>, <strong>sbi@skybassinc.com</strong>, <strong>sales@bercohome.com</strong></li>
-    <li>The DNS zones for <strong>skybassinc.com</strong> and <strong>bercohome.com</strong></li>
-    <li>An old WordPress install that is switched out of the public path</li>
-  </ul>
-  <p class="note" style="margin-top:14px">USD 647 is a great deal of money for three mailboxes and two DNS zones.
-  Once the charges are settled, that is worth a proper look.</p>
-</div>
-
-<div class="card step">
-  <h3>Then message Bluehost support</h3>
-  <p>After the bank call, not before. Their chat is in the same portal.</p>
-  <blockquote id="s2">My card was charged USD 647.52 three separate times, on 22, 24 and 26 November 2026. I authorised at most one of these. Please confirm how many charges your system has recorded against my account, what each one is for, and refund the duplicates. I have also asked my bank to block the card, so please do not attempt the charge again. Turn off auto-renew on the account until this is resolved.</blockquote>
-  <button class="copy" data-t="s2">Copy this</button>
-  <p class="note">Keep the chat transcript. If they refuse, the bank dispute is the fallback and the transcript is the evidence.</p>
+  <h2>One line that is ours and is correct</h2>
+  <p>The <strong>VERCEL INC. USD 20.00</strong> on 25 November is the hosting the Berco, Skybass and Nautilus sites run
+  on. Leave it out of the dispute.</p>
 </div>
 
 <footer>Private page. Not indexed, not linked from anywhere.</footer>
@@ -151,10 +159,11 @@
 </div>
 <script>
 document.querySelectorAll('button.copy').forEach(function(b){
+  var label=b.textContent;
   b.addEventListener('click',function(){
     var t=document.getElementById(b.dataset.t).innerText;
     var done=function(){b.textContent='Copied';b.classList.add('done');
-      setTimeout(function(){b.textContent='Copy this';b.classList.remove('done')},2000)};
+      setTimeout(function(){b.textContent=label;b.classList.remove('done')},2000)};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
     else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
       try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}
